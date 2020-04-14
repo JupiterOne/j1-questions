@@ -18,6 +18,12 @@ export interface Question {
 }
 
 export interface ManagedQuestionJSON {
-  integrations: {};
+  integrations: {
+    [any:string]: {
+      title: string;
+      type: string;
+      class: any[]
+    };
+  };
   questions: Question[]
 }
