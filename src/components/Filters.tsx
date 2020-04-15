@@ -1,15 +1,18 @@
 import React from 'react'
 import {
   Paper,
-  Checkbox,
+  Radio,
   Typography,
-  FormControlLabel
+  FormControlLabel,
+  RadioGroup
 } from '@material-ui/core'
 import {useFilterStyles} from '../classes'
 import {ManagedQuestionJSON} from '../types'
 
 interface Props {
-  managedQuestions: ManagedQuestionJSON
+  managedQuestions: ManagedQuestionJSON;
+  integrationClicked: Function;
+  integration: string;
 }
 
 const Filters = (props: Props) => {
@@ -18,10 +21,10 @@ const Filters = (props: Props) => {
   return (
     <Paper className={classes.root}>
       <Typography variant='h6'>Integrations</Typography>
-      {Object.keys(props.managedQuestions.integrations).map((integration: any) => (
-        <div>
-          <FormControlLabel control={<Checkbox />} label={integration}/>
-        </div>
+      {[...Object.keys(props.managedQuestions.integrations), 'none'].map((integration: any) => (
+        <RadioGroup value={props.integration} onChange={() => props.integrationClicked(integration)}>
+          <FormControlLabel value={integration} control={<Radio/>} label={integration}/>
+        </RadioGroup>
       ))}
     </Paper>
   )

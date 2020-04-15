@@ -39,6 +39,7 @@ const intialState = {
 
 function App() {
   const [fetchedQuesitons, setFetchedQuestions] = useState(intialState)
+  const [integration, setIntegration] = useState('none')
 
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => setFetchedQuestions(r))
@@ -53,8 +54,8 @@ function App() {
 
             <Route exact path='/'>
               <Box mt={2} style={{display: 'flex'}}>
-                <Filters managedQuestions={fetchedQuesitons}/>
-                <QuestionsDisplay managedQuestions={fetchedQuesitons}/>
+                <Filters managedQuestions={fetchedQuesitons} integration={integration} integrationClicked={setIntegration}/>
+                <QuestionsDisplay integration={integration} managedQuestions={fetchedQuesitons}/>
               </Box>
             </Route>
             <Route exact path='/question/:questionTitle'>

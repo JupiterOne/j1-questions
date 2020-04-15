@@ -15,13 +15,15 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const useQuestionDisplayStyles = makeStyles((/* theme: Theme */) =>
+export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      width: '75%',
-      padding: '2%',
-      marginLeft: '1%'
+      width: '60%',
+      padding: theme.spacing(1),
+      marginLeft: '1%',
+      height: theme.spacing(60),
+      overflowX: 'scroll'
     },
     item: {
       flexGrow: 1,
@@ -31,22 +33,25 @@ export const useQuestionDisplayStyles = makeStyles((/* theme: Theme */) =>
   }),
 );
 
-export const useFilterStyles = makeStyles((/* theme: Theme */) =>
+export const useFilterStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
       width: '16%',
-      padding: '2%'
+      padding: theme.spacing(1),
+      height: theme.spacing(60),
+      overflowX: 'scroll',
+      minWidth: theme.spacing(20)
     }
   }),
 );
 
-export const useQuestionStyles = makeStyles((/* theme: Theme */) =>
+export const useQuestionStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
       marginTop: '1%',
-      padding: '2%'
+      padding: theme.spacing(1)
     },
     description: {
       padding: '1%',

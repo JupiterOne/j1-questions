@@ -8,6 +8,7 @@ import {
 import {useParams} from 'react-router'
 import {useQuestionStyles} from '../classes'
 import {ManagedQuestionJSON, Question} from '../types'
+import hash from 'hash.js'
 
 interface Props {
   managedQuestions: ManagedQuestionJSON
@@ -17,12 +18,12 @@ const QuestionDisplay = (props: Props) => {
   const params : {questionTitle?: string} = useParams()
   const classes = useQuestionStyles()
   const title : string = (params.questionTitle !== undefined) ? (
-    params.questionTitle.replace('~', '/').replace('`', '?')
+    params.questionTitle
   ) : ''
 
   const question = props.managedQuestions.questions.filter((question : Question) => {
     return (
-      question.title.includes(title) || question.title === title
+      hash.sha1().update(question.title).digest('hex') === title
     )
   })[0]
 
