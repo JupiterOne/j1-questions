@@ -22,10 +22,11 @@ export const useQuestionDisplayStyles = makeStyles((/* theme: Theme */) =>
       padding: '2%',
       marginLeft: '1%'
     },
-    paper: {
+    item: {
+      flexGrow: 1,
       padding: '1%',
       marginBottom: '0.5%'
-    }
+    },
   }),
 );
 
@@ -34,6 +35,16 @@ export const useFilterStyles = makeStyles((/* theme: Theme */) =>
     root: {
       flexGrow: 1,
       width: '16%',
+      padding: '2%'
+    }
+  }),
+);
+
+export const useQuestionStyles = makeStyles((/* theme: Theme */) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+      marginTop: '1%',
       padding: '2%'
     }
   }),

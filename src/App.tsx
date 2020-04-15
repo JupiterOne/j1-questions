@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Header from './components/Header'
 import QuestionsDisplay from './components/QuestionsDisplay'
+import QuestionDisplay from './components/QuestionDisplay'
 import Filters from './components/Filters'
 import fetchQuestions from './methods/fetchQuestions'
 import {ManagedQuestionJSON} from './types'
@@ -49,12 +50,17 @@ function App() {
         <Header/>
         <Container maxWidth="lg">
           <Switch>
-            <Route>
+
+            <Route exact path='/'>
               <Box mt={2} style={{display: 'flex'}}>
                 <Filters/>
                 <QuestionsDisplay managedQuestions={fetchedQuesitons}/>
               </Box>
             </Route>
+            <Route exact path='/question/:questionTitle'>
+              <QuestionDisplay/>
+            </Route>
+
           </Switch>
         </Container>
       </Router>

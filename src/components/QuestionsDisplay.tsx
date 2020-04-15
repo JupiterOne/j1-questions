@@ -1,9 +1,12 @@
 import React from 'react'
 import {
-  Paper
+  Paper,
+  IconButton
 } from '@material-ui/core'
 import {ManagedQuestionJSON, Question} from '../types'
 import {useQuestionDisplayStyles} from '../classes'
+import Launch from '@material-ui/icons/Launch';
+import {Link} from 'react-router-dom'
 
 interface Props {
   managedQuestions: ManagedQuestionJSON
@@ -17,7 +20,16 @@ const QuestionsDisplay = (props : Props) => {
   return (
     <Paper className={classes.root}>
       {props.managedQuestions.questions.map((question: Question) => {
-        return <Paper className={classes.paper}>{question.title}</Paper>
+        return (
+          <Paper style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
+            <div className={classes.item}>{question.title}</div>
+            <Link to={`/question/${question.title}`}>
+              <IconButton color='primary'>
+                <Launch/>
+              </IconButton>
+            </Link>
+          </Paper>
+        )
       })}
     </Paper>
   )
