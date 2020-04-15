@@ -53,7 +53,7 @@ function App() {
 
             <Route exact path='/'>
               <Box mt={2} style={{display: 'flex'}}>
-                <Filters/>
+                <Filters managedQuestions={fetchedQuesitons}/>
                 <QuestionsDisplay managedQuestions={fetchedQuesitons}/>
               </Box>
             </Route>
