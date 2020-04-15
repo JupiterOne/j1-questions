@@ -7,6 +7,7 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
     },
     menuButton: {
       marginRight: theme.spacing(2),
+      color: '#FFF'
     },
     title: {
       flexGrow: 1,
@@ -46,6 +47,20 @@ export const useQuestionStyles = makeStyles((/* theme: Theme */) =>
       flexGrow: 1,
       marginTop: '1%',
       padding: '2%'
+    },
+    description: {
+      padding: '1%',
+      background: 'rgba(0,0,0, 0.05)'
+    },
+    title: {
+      display: 'flex',
+      '& > *': {
+        flexGrow: 1,
+      },
+      marginBottom: '0.5%'
+    },
+    titleText: {
+      width: '85%'
     }
   }),
 );

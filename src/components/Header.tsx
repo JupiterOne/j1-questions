@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import {useHeaderStyles} from '../classes'
+import {Link} from 'react-router-dom'
 
 const Header = () => {
   const classes = useHeaderStyles()
@@ -12,9 +13,11 @@ const Header = () => {
     <div>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
+          <Link to='/'>
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              <MenuIcon />
+            </IconButton>
+          </Link>
           <Typography variant="h6" className={classes.title}>
             JupiterOne Questions
           </Typography>

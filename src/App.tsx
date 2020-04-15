@@ -58,7 +58,7 @@ function App() {
               </Box>
             </Route>
             <Route exact path='/question/:questionTitle'>
-              <QuestionDisplay/>
+              <QuestionDisplay managedQuestions={fetchedQuesitons}/>
             </Route>
 
           </Switch>

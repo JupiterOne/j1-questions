@@ -23,7 +23,7 @@ const QuestionsDisplay = (props : Props) => {
         return (
           <Paper style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
             <div className={classes.item}>{question.title}</div>
-            <Link to={`/question/${question.title}`}>
+            <Link to={`/question/${question.title.replace('/', '~').replace('?', '`')}`}>
               <IconButton color='primary'>
                 <Launch/>
               </IconButton>
