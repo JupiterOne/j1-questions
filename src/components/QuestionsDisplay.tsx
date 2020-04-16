@@ -11,7 +11,8 @@ import hash from 'hash.js'
 
 interface Props {
   managedQuestions: ManagedQuestionJSON;
-  integration: string
+  integration: string;
+  tags: string[];
 }
 
 const QuestionsDisplay = (props : Props) => {
@@ -21,6 +22,13 @@ const QuestionsDisplay = (props : Props) => {
     <Paper className={classes.root}>
       {props.managedQuestions.questions
           .filter((question: Question) => props.integration !== 'none' ? question.integration === props.integration : true)
+          .filter((question: Question) => {
+            const array : boolean[] = []
+            for (let key of props.tags) {
+              array.push(question.tags !== undefined ? question.tags.includes(key) : false)
+            }
+            return !array.includes(false)
+          })
           .map((question: Question) => {
             return (
               <Paper style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>

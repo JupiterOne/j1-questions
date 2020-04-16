@@ -5,6 +5,7 @@ import {
   ExpansionPanelSummary,
   ExpansionPanelDetails,
   Radio,
+  Checkbox,
   Typography,
   FormControlLabel,
   RadioGroup,
@@ -17,9 +18,9 @@ interface Props {
   managedQuestions: ManagedQuestionJSON;
   integrationClicked: Function;
   integration: string;
+  allTags: string[];
+  tagCheckClicked: Function;
   tags: string[];
-  tagClicked: Function;
-  tag: string;
 }
 
 const Filters = (props: Props) => {
@@ -49,10 +50,8 @@ const Filters = (props: Props) => {
           <Typography variant='subtitle1'>Tags</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.notFlex}>
-          {[ ...props.tags, 'none'].map((tag: string) => (
-            <RadioGroup className={classes.notFlex} value={props.tag} onChange={() => props.tagClicked(tag)}>
-              <FormControlLabel value={tag} control={<Radio/>} label={tag}/>
-              </RadioGroup>
+          {props.allTags.map((tag: string) => (
+              <FormControlLabel value={tag} control={<Checkbox />} label={tag} onClick={(e:any) => props.tagCheckClicked(tag, e.target.checked)}/>
           ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>

@@ -41,16 +41,16 @@ const intialState = {
 function App() {
   const [fetchedQuesitons, setFetchedQuestions] = useState(intialState)
   const [integration, setIntegration] = useState('none')
-  const [tags, setTags] = useState(['tag'])
-  const [tag, setTag] = useState('none')
+  const [allTags, setAllTags] = useState(['tag'])
+  const [tags, setTags] = useState([])
 
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => {
       const tags : string[] = r.questions.map((question : Question) => {
         return question.tags
       }).flat(2)
-      setTags([])
-      setTags(uniqueArray(tags))
+      setAllTags([])
+      setAllTags(uniqueArray(tags))
 
       return setFetchedQuestions(r)
     })
@@ -67,8 +67,27 @@ function App() {
 
             <Route exact path='/'>
               <Box mt={2} style={{display: 'flex'}}>
-                <Filters managedQuestions={fetchedQuesitons} tags={tags} integration={integration} integrationClicked={setIntegration} tagClicked={setTag} tag={tag}/>
-                <QuestionsDisplay integration={integration} managedQuestions={fetchedQuesitons}/>
+                <Filters
+                  managedQuestions={fetchedQuesitons}
+                  allTags={allTags}
+                  integration={integration}
+                  integrationClicked={setIntegration}
+                  tags={tags}
+                  tagCheckClicked={(tag: string, checked : boolean) => {
+                    setTags((prev: any) => {
+                      if (!checked) {
+                        const index = prev.indexOf(tag);
+                        if (index > -1) {
+                          prev.splice(index, 1);
+                        }
+                      } else {
+                        prev.push(tag)
+                      }
+                      prev = uniqueArray(prev)
+                      return prev
+                    })
+                  }}/>
+                <QuestionsDisplay integration={integration} tags={tags} managedQuestions={fetchedQuesitons}/>
               </Box>
             </Route>
             <Route exact path='/question/:questionTitle'>
