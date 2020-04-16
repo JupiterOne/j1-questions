@@ -23,7 +23,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(1),
       marginLeft: '1%',
       height: theme.spacing(60),
-      overflowX: 'scroll'
+      overflowY: 'scroll'
     },
     item: {
       flexGrow: 1,
@@ -40,8 +40,19 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       width: '16%',
       padding: theme.spacing(1),
       height: theme.spacing(60),
-      overflowX: 'scroll',
+      overflowY: 'scroll',
       minWidth: theme.spacing(20)
+    },
+    notFlex: {
+      display: 'flex',
+      flexDirection: 'column',
+      '& > *': {
+        display: 'block'
+      }
+    },
+    title: {
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0
     }
   }),
 );

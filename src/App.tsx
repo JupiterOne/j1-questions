@@ -6,7 +6,8 @@ import QuestionsDisplay from './components/QuestionsDisplay'
 import QuestionDisplay from './components/QuestionDisplay'
 import Filters from './components/Filters'
 import fetchQuestions from './methods/fetchQuestions'
-import {ManagedQuestionJSON} from './types'
+import uniqueArray from './methods/uniqueArray'
+import {ManagedQuestionJSON, Question} from './types'
 
 import theme from './theme'
 import {ThemeProvider} from '@material-ui/core/styles'
@@ -40,10 +41,22 @@ const intialState = {
 function App() {
   const [fetchedQuesitons, setFetchedQuestions] = useState(intialState)
   const [integration, setIntegration] = useState('none')
+  const [tags, setTags] = useState(['tag'])
+  const [tag, setTag] = useState('none')
 
   useEffect(() => {
-    fetchQuestions().then((r : ManagedQuestionJSON) => setFetchedQuestions(r))
+    fetchQuestions().then((r : ManagedQuestionJSON) => {
+      const tags : string[] = r.questions.map((question : Question) => {
+        return question.tags
+      }).flat(2)
+      setTags([])
+      setTags(uniqueArray(tags))
+
+      return setFetchedQuestions(r)
+    })
   }, [])
+
+  console.log(tags)
 
   return (
     <ThemeProvider theme={theme}>
@@ -54,7 +67,7 @@ function App() {
 
             <Route exact path='/'>
               <Box mt={2} style={{display: 'flex'}}>
-                <Filters managedQuestions={fetchedQuesitons} integration={integration} integrationClicked={setIntegration}/>
+                <Filters managedQuestions={fetchedQuesitons} tags={tags} integration={integration} integrationClicked={setIntegration} tagClicked={setTag} tag={tag}/>
                 <QuestionsDisplay integration={integration} managedQuestions={fetchedQuesitons}/>
               </Box>
             </Route>
