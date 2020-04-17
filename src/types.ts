@@ -21,9 +21,9 @@ export interface Question {
 export interface ManagedQuestionJSON {
   integrations: {
     [any:string]: {
-      title: string;
-      type: string;
-      class: any[]
+      title?: string;
+      type?: string;
+      class?: any[]
     };
   };
   questions: Question[]

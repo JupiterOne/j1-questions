@@ -36,7 +36,7 @@ const Filters = (props: Props) => {
           <Typography variant='h6'>Filters</Typography>
         </Box>
       </Paper>
-      <ExpansionPanel>
+      <ExpansionPanel className={classes.tags}>
         <ExpansionPanelSummary>
           <Typography variant='subtitle1'>Integrations</Typography>
         </ExpansionPanelSummary>

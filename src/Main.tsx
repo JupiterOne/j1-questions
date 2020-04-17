@@ -7,12 +7,24 @@ import uniqueArray from './methods/uniqueArray'
 import {
   Box
 } from '@material-ui/core'
+import {ManagedQuestionJSON} from './types'
 
-const Main = (props : any) => {
+
+interface Props {
+  managedQuestions: ManagedQuestionJSON;
+  allTags: string[];
+  integration: string;
+  setIntegration: Function;
+  tags: string[];
+  setTags: Function;
+  search: string;
+}
+
+const Main = (props : Props) => {
   return (
     <Box mt={2} style={{display: 'flex'}}>
       <Filters
-        managedQuestions={props.fetchedQuesitons}
+        managedQuestions={props.managedQuestions}
         allTags={props.allTags}
         integration={props.integration}
         integrationClicked={props.setIntegration}
@@ -32,7 +44,7 @@ const Main = (props : any) => {
             return prev
           })
         }}/>
-      <QuestionsDisplay integration={props.integration} tags={props.tags} managedQuestions={props.fetchedQuesitons} search={props.search}/>
+      <QuestionsDisplay integration={props.integration} tags={props.tags} managedQuestions={props.managedQuestions} search={props.search}/>
     </Box>
   )
 }

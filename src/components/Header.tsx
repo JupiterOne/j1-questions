@@ -17,7 +17,7 @@ interface Props {
 const Header = (props : Props) => {
   const classes = useHeaderStyles()
   const location = useLocation()
-  
+
   return (
     <div>
       <AppBar className={classes.root} position="static">
@@ -33,7 +33,7 @@ const Header = (props : Props) => {
           <div>
             <Input
               className={classes.input}
-              placeholder={!(location.pathname.includes('/search/')) ? 'Search' : 'disabled'}
+              placeholder={!(location.pathname.includes('/search/')) ? 'Search' : ''}
               disabled={location.pathname.includes('/search/')}
               onChange={(e : any) => props.setSeach(e.target.value)}
               disableUnderline

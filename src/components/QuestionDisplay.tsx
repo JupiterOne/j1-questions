@@ -27,14 +27,13 @@ const QuestionDisplay = (props: Props) => {
     )
   })[0]
 
-  console.log('question', question)
   return (
     <Paper className={classes.root}>
       {question !== undefined ? (
         <div>
           <Box className={classes.title}>
             <Typography className={classes.titleText}>{question.title}</Typography>
-            {question.tags.map((tag: string) => <Chip variant="outlined" color='secondary' label={tag} onClick={console.log}/>)}
+            {question.tags.map((tag: string) => <Chip variant="outlined" color='secondary' label={tag}/>)}
           </Box>
           <Box className={classes.description}>
             {question.description}
@@ -42,11 +41,11 @@ const QuestionDisplay = (props: Props) => {
           <br/>
           <Typography>Queries</Typography>
           <Box m={2}>
-            {question.queries !== undefined ? question.queries.map((query : any) => (
+            {(question.queries || []).map((query : any) => (
               <Box mt={2} m={0}>
                 <code key={query.query}>{query.query}</code>
               </Box>
-              )) : <span/>
+              ))
             }
           </Box>
         </div>

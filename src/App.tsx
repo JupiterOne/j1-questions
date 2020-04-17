@@ -32,13 +32,13 @@ const intialState = {
           query: 'query',
         }
       ],
-      tags: ['tag']
+      tags: ['tag'],
     }
   ]
 }
 
 function App() {
-  const [fetchedQuesitons, setFetchedQuestions] = useState(intialState)
+  const [fetchedQuestions, setFetchedQuestions] = useState<ManagedQuestionJSON>(intialState)
   const [integration, setIntegration] = useState('none')
   const [allTags, setAllTags] = useState(['tag'])
   const [tags, setTags] = useState([])
@@ -52,11 +52,9 @@ function App() {
       setAllTags([])
       setAllTags(uniqueArray(tags))
 
-      return setFetchedQuestions(r)
+      setFetchedQuestions(r)
     })
   }, [])
-
-  console.log(tags)
 
   return (
     <ThemeProvider theme={theme}>
@@ -67,7 +65,7 @@ function App() {
 
             <Route exact path='/'>
               <Main
-                fetchedQuesitons={fetchedQuesitons}
+                managedQuestions={fetchedQuestions}
                 allTags={allTags}
                 integration={integration}
                 setIntegration={setIntegration}
@@ -80,12 +78,18 @@ function App() {
               console.log(props.match.params)
               const params = props.match.params
               return (
-                <QuestionsDisplay center integration={params.integration} tags={JSON.parse(params.tags)} search={params.search} managedQuestions={fetchedQuesitons}/>
+                <QuestionsDisplay
+                  center
+                  integration={params.integration}
+                  tags={JSON.parse(params.tags)}
+                  search={params.search}
+                  managedQuestions={fetchedQuestions}
+                />
               )
             }}/>
 
             <Route exact path='/question/:questionTitle'>
-              <QuestionDisplay managedQuestions={fetchedQuesitons}/>
+              <QuestionDisplay managedQuestions={fetchedQuestions}/>
             </Route>
 
           </Switch>
