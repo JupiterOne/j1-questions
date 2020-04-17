@@ -38,7 +38,7 @@ const intialState = {
 }
 
 function App() {
-  const [fetchedQuesitons, setFetchedQuestions] = useState(intialState)
+  const [fetchedQuestions, setFetchedQuestions] = useState(intialState)
   const [integration, setIntegration] = useState('none')
   const [allTags, setAllTags] = useState(['tag'])
   const [tags, setTags] = useState([])
@@ -67,7 +67,7 @@ function App() {
 
             <Route exact path='/'>
               <Main
-                fetchedQuesitons={fetchedQuesitons}
+                fetchedQuestions={fetchedQuestions}
                 allTags={allTags}
                 integration={integration}
                 setIntegration={setIntegration}
@@ -80,12 +80,12 @@ function App() {
               console.log(props.match.params)
               const params = props.match.params
               return (
-                <QuestionsDisplay center integration={params.integration} tags={JSON.parse(params.tags)} search={params.search} managedQuestions={fetchedQuesitons}/>
+                <QuestionsDisplay center integration={params.integration} tags={JSON.parse(params.tags)} search={params.search} managedQuestions={fetchedQuestions}/>
               )
             }}/>
 
             <Route exact path='/question/:questionTitle'>
-              <QuestionDisplay managedQuestions={fetchedQuesitons}/>
+              <QuestionDisplay managedQuestions={fetchedQuestions}/>
             </Route>
 
           </Switch>
