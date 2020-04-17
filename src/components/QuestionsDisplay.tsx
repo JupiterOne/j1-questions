@@ -42,9 +42,9 @@ const QuestionsDisplay = (props : Props) => {
   return (
     <Paper className={classes.root} style={{margin: props.center ? 'auto' : ''}}>
       {filteredQuestions.length !== 0 ?
-        (filteredQuestions.map((question: Question) => {
+        (filteredQuestions.map((question: Question, index: number) => {
               return (
-                <Paper style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
+                <Paper key={index} style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
                   <div className={classes.item}>{question.title}</div>
                   <Link to={`/question/${hash.sha1().update(question.title).digest('hex')}`}>
                     <IconButton color='primary'>

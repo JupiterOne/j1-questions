@@ -12,7 +12,8 @@ import QuestionsDisplay from './components/QuestionsDisplay'
 import theme from './theme'
 import {ThemeProvider} from '@material-ui/core/styles'
 import {
-  Container
+  Container,
+  CssBaseline
 } from '@material-ui/core'
 
 const intialState = {
@@ -59,6 +60,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
+        <CssBaseline/>
         <Header setSeach={setSearch}/>
         <Container maxWidth="lg">
           <Switch>

@@ -41,9 +41,9 @@ const Filters = (props: Props) => {
           <Typography variant='subtitle1'>Integrations</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.notFlex}>
-          {[...Object.keys(props.managedQuestions.integrations), 'none'].map((integration: any) => (
-            <RadioGroup className={classes.notFlex} value={props.integration} onChange={() => props.integrationClicked(integration)}>
-              <FormControlLabel value={integration} control={<Radio/>} label={integration}/>
+          {[...Object.keys(props.managedQuestions.integrations), 'none'].map((integration: any, index: number) => (
+            <RadioGroup key={index} className={classes.notFlex} value={props.integration} onChange={() => props.integrationClicked(integration)}>
+              <FormControlLabel value={integration} control={<Radio color='primary'/>} label={integration}/>
             </RadioGroup>
           ))}
         </ExpansionPanelDetails>
@@ -53,8 +53,8 @@ const Filters = (props: Props) => {
           <Typography variant='subtitle1'>Tags</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.notFlex}>
-          {props.allTags.map((tag: string) => (
-              <FormControlLabel value={tag} control={<Checkbox />} label={tag} onClick={(e:any) => props.tagCheckClicked(tag, e.target.checked)}/>
+          {props.allTags.map((tag: string, index : number) => (
+              <FormControlLabel key={index} value={tag} control={<Checkbox color='primary'/>} label={tag} onClick={(e:any) => props.tagCheckClicked(tag, e.target.checked)}/>
           ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>
