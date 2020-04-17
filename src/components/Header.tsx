@@ -45,6 +45,7 @@ const Header = (props : Props) => {
             />
           </div>
         </Toolbar>
+        <div className='border'/>
       </AppBar>
     </div>
   )

@@ -4,7 +4,6 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      background: 'linear-gradient(0.6turn, rgb(234, 254, 65), rgb(22, 150, 172))'
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -14,7 +13,7 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     input: {
-      background: 'rgb(12, 140, 162, 0.5)',
+      background: 'rgb(12, 140, 162, 0.65)',
       borderColor: 'white',
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
