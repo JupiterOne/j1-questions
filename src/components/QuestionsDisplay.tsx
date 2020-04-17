@@ -13,13 +13,14 @@ interface Props {
   managedQuestions: ManagedQuestionJSON;
   integration: string;
   tags: string[];
+  center?: boolean | undefined;
 }
 
 const QuestionsDisplay = (props : Props) => {
   const classes = useQuestionDisplayStyles()
 
   return (
-    <Paper className={classes.root}>
+    <Paper className={classes.root} style={{margin: props.center ? 'auto' : ''}}>
       {props.managedQuestions.questions
           .filter((question: Question) => props.integration !== 'none' ? question.integration === props.integration : true)
           .filter((question: Question) => {

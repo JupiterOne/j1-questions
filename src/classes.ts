@@ -66,6 +66,12 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
     title: {
       borderBottomLeftRadius: 0,
       borderBottomRightRadius: 0
+    },
+    link: {
+      borderTopLeftRadius: 0,
+      borderTopRightRadius: 0,
+      paddingTop: theme.spacing(1),
+      color: '#BBC'
     }
   }),
 );

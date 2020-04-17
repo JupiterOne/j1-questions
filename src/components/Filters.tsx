@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core'
 import {useFilterStyles} from '../classes'
 import {ManagedQuestionJSON} from '../types'
+import {Link} from 'react-router-dom'
 
 interface Props {
   managedQuestions: ManagedQuestionJSON;
@@ -55,6 +56,9 @@ const Filters = (props: Props) => {
           ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      <Paper elevation={0} className={classes.link}>
+        <Link to={`/integration/${props.integration}/tags/${JSON.stringify(props.tags)}`}>See Results</Link>
+      </Paper>
     </Paper>
   )
 }

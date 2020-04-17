@@ -2,18 +2,17 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Header from './components/Header'
-import QuestionsDisplay from './components/QuestionsDisplay'
 import QuestionDisplay from './components/QuestionDisplay'
-import Filters from './components/Filters'
+import Main from './Main'
 import fetchQuestions from './methods/fetchQuestions'
 import uniqueArray from './methods/uniqueArray'
 import {ManagedQuestionJSON, Question} from './types'
+import QuestionsDisplay from './components/QuestionsDisplay'
 
 import theme from './theme'
 import {ThemeProvider} from '@material-ui/core/styles'
 import {
-  Container,
-  Box
+  Container
 } from '@material-ui/core'
 
 const intialState = {
@@ -66,30 +65,23 @@ function App() {
           <Switch>
 
             <Route exact path='/'>
-              <Box mt={2} style={{display: 'flex'}}>
-                <Filters
-                  managedQuestions={fetchedQuesitons}
-                  allTags={allTags}
-                  integration={integration}
-                  integrationClicked={setIntegration}
-                  tags={tags}
-                  tagCheckClicked={(tag: string, checked : boolean) => {
-                    setTags((prev: any) => {
-                      if (!checked) {
-                        const index = prev.indexOf(tag);
-                        if (index > -1) {
-                          prev.splice(index, 1);
-                        }
-                      } else {
-                        prev.push(tag)
-                      }
-                      prev = uniqueArray(prev)
-                      return prev
-                    })
-                  }}/>
-                <QuestionsDisplay integration={integration} tags={tags} managedQuestions={fetchedQuesitons}/>
-              </Box>
+              <Main
+                fetchedQuesitons={fetchedQuesitons}
+                allTags={allTags}
+                integration={integration}
+                setIntegration={setIntegration}
+                setTags={setTags}
+                tags={tags}
+              />
             </Route>
+            <Route exact path='/integration/:integration/tags/:tags'component={(props:any) => {
+              console.log(props.match.params)
+              const params = props.match.params
+              return (
+                <QuestionsDisplay center integration={params.integration} tags={JSON.parse(params.tags)} managedQuestions={fetchedQuesitons}/>
+              )
+            }}/>
+
             <Route exact path='/question/:questionTitle'>
               <QuestionDisplay managedQuestions={fetchedQuesitons}/>
             </Route>
