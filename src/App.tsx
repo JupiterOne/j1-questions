@@ -38,7 +38,11 @@ const intialState = {
 }
 
 function App() {
+<<<<<<< HEAD
   const [fetchedQuestions, setFetchedQuestions] = useState<ManagedQuestionJSON>(intialState)
+=======
+  const [fetchedQuestions, setFetchedQuestions] = useState(intialState)
+>>>>>>> a6bbdcecf31fb1ced641a48e2dc335d997840b76
   const [integration, setIntegration] = useState('none')
   const [allTags, setAllTags] = useState(['tag'])
   const [tags, setTags] = useState([])
@@ -65,7 +69,11 @@ function App() {
 
             <Route exact path='/'>
               <Main
+<<<<<<< HEAD
                 managedQuestions={fetchedQuestions}
+=======
+                fetchedQuestions={fetchedQuestions}
+>>>>>>> a6bbdcecf31fb1ced641a48e2dc335d997840b76
                 allTags={allTags}
                 integration={integration}
                 setIntegration={setIntegration}
@@ -78,6 +86,7 @@ function App() {
               console.log(props.match.params)
               const params = props.match.params
               return (
+<<<<<<< HEAD
                 <QuestionsDisplay
                   center
                   integration={params.integration}
@@ -85,6 +94,9 @@ function App() {
                   search={params.search}
                   managedQuestions={fetchedQuestions}
                 />
+=======
+                <QuestionsDisplay center integration={params.integration} tags={JSON.parse(params.tags)} search={params.search} managedQuestions={fetchedQuestions}/>
+>>>>>>> a6bbdcecf31fb1ced641a48e2dc335d997840b76
               )
             }}/>
 
