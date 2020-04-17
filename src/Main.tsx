@@ -17,6 +17,7 @@ const Main = (props : any) => {
         integration={props.integration}
         integrationClicked={props.setIntegration}
         tags={props.tags}
+        search={props.search}
         tagCheckClicked={(tag: string, checked : boolean) => {
           props.setTags((prev: any) => {
             if (!checked) {
@@ -31,7 +32,7 @@ const Main = (props : any) => {
             return prev
           })
         }}/>
-      <QuestionsDisplay integration={props.integration} tags={props.tags} managedQuestions={props.fetchedQuesitons}/>
+      <QuestionsDisplay integration={props.integration} tags={props.tags} managedQuestions={props.fetchedQuesitons} search={props.search}/>
     </Box>
   )
 }

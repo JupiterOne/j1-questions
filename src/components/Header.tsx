@@ -7,11 +7,17 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import {useHeaderStyles} from '../classes'
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search';
 
-const Header = () => {
+interface Props {
+  setSeach: Function;
+}
+
+const Header = (props : Props) => {
   const classes = useHeaderStyles()
+  const location = useLocation()
+  
   return (
     <div>
       <AppBar className={classes.root} position="static">
@@ -24,10 +30,12 @@ const Header = () => {
           <Typography variant="h6" className={classes.title}>
             JupiterOne Questions
           </Typography>
-          <form>
+          <div>
             <Input
               className={classes.input}
-              placeholder='Search'
+              placeholder={!(location.pathname.includes('/search/')) ? 'Search' : 'disabled'}
+              disabled={location.pathname.includes('/search/')}
+              onChange={(e : any) => props.setSeach(e.target.value)}
               disableUnderline
               startAdornment={
                 <InputAdornment position="start">
@@ -35,7 +43,7 @@ const Header = () => {
                 </InputAdornment>
               }
             />
-          </form>
+          </div>
         </Toolbar>
       </AppBar>
     </div>

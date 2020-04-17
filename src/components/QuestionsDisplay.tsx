@@ -14,34 +14,49 @@ interface Props {
   integration: string;
   tags: string[];
   center?: boolean | undefined;
+  search: string;
 }
 
 const QuestionsDisplay = (props : Props) => {
   const classes = useQuestionDisplayStyles()
 
+  const filteredQuestions = (
+    props.managedQuestions.questions
+      .filter((question: Question) => props.integration !== 'none' ? question.integration === props.integration : true)
+      .filter((question: Question) => {
+        const array : boolean[] = []
+        for (let key of props.tags) {
+          array.push(question.tags !== undefined ? question.tags.includes(key) : false)
+        }
+        return !array.includes(false)
+      })
+      .filter((question: Question) => {
+        if (props.search !== 'none') {
+          return question.title.includes(props.search.toLocaleLowerCase())
+        } else {
+          return true
+        }
+      })
+  )
+
   return (
     <Paper className={classes.root} style={{margin: props.center ? 'auto' : ''}}>
-      {props.managedQuestions.questions
-          .filter((question: Question) => props.integration !== 'none' ? question.integration === props.integration : true)
-          .filter((question: Question) => {
-            const array : boolean[] = []
-            for (let key of props.tags) {
-              array.push(question.tags !== undefined ? question.tags.includes(key) : false)
+      {filteredQuestions.length !== 0 ?
+        (filteredQuestions.map((question: Question) => {
+              return (
+                <Paper style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
+                  <div className={classes.item}>{question.title}</div>
+                  <Link to={`/question/${hash.sha1().update(question.title).digest('hex')}`}>
+                    <IconButton color='primary'>
+                      <LaunchIcon/>
+                    </IconButton>
+                  </Link>
+                </Paper>
+              )
             }
-            return !array.includes(false)
-          })
-          .map((question: Question) => {
-            return (
-              <Paper style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
-                <div className={classes.item}>{question.title}</div>
-                <Link to={`/question/${hash.sha1().update(question.title).digest('hex')}`}>
-                  <IconButton color='primary'>
-                    <LaunchIcon/>
-                  </IconButton>
-                </Link>
-              </Paper>
-            )
-          }
+          )
+        ) : (
+          <i>No results.</i>
         )
       }
     </Paper>

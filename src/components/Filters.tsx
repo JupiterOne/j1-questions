@@ -9,7 +9,8 @@ import {
   Typography,
   FormControlLabel,
   RadioGroup,
-  Box
+  Box,
+  Button
 } from '@material-ui/core'
 import {useFilterStyles} from '../classes'
 import {ManagedQuestionJSON} from '../types'
@@ -22,6 +23,7 @@ interface Props {
   allTags: string[];
   tagCheckClicked: Function;
   tags: string[];
+  search: string;
 }
 
 const Filters = (props: Props) => {
@@ -46,7 +48,7 @@ const Filters = (props: Props) => {
           ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel>
+      <ExpansionPanel className={classes.tags}>
         <ExpansionPanelSummary>
           <Typography variant='subtitle1'>Tags</Typography>
         </ExpansionPanelSummary>
@@ -56,9 +58,12 @@ const Filters = (props: Props) => {
           ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <Paper elevation={0} className={classes.link}>
-        <Link to={`/integration/${props.integration}/tags/${JSON.stringify(props.tags)}`}>See Results</Link>
-      </Paper>
+      <Link style={{textDecoration: 'none'}} to={`/integration/${props.integration}/tags/${JSON.stringify(props.tags)}/search/${props.search !== '' ? props.search : 'none'}`}>
+        <br/>
+        <Button variant='contained' color='primary' className={classes.button}>
+          See Results
+        </Button>
+      </Link>
     </Paper>
   )
 }

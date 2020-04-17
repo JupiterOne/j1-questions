@@ -67,11 +67,19 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       borderBottomLeftRadius: 0,
       borderBottomRightRadius: 0
     },
-    link: {
+    tags: {
+      maxHeight: theme.spacing(32),
+      overflowY: 'scroll',
+    },
+    button: {
       borderTopLeftRadius: 0,
       borderTopRightRadius: 0,
-      paddingTop: theme.spacing(1),
-      color: '#BBC'
+      paddingTop: theme.spacing(3),
+      textDecoration: 'none',
+      width: '100%'
+    },
+    linkText: {
+      color: '#BBC',
     }
   }),
 );

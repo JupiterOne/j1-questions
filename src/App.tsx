@@ -42,6 +42,7 @@ function App() {
   const [integration, setIntegration] = useState('none')
   const [allTags, setAllTags] = useState(['tag'])
   const [tags, setTags] = useState([])
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => {
@@ -60,7 +61,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Header/>
+        <Header setSeach={setSearch}/>
         <Container maxWidth="lg">
           <Switch>
 
@@ -72,13 +73,14 @@ function App() {
                 setIntegration={setIntegration}
                 setTags={setTags}
                 tags={tags}
+                search={search}
               />
             </Route>
-            <Route exact path='/integration/:integration/tags/:tags'component={(props:any) => {
+            <Route exact path='/integration/:integration/tags/:tags/search/:search'component={(props:any) => {
               console.log(props.match.params)
               const params = props.match.params
               return (
-                <QuestionsDisplay center integration={params.integration} tags={JSON.parse(params.tags)} managedQuestions={fetchedQuesitons}/>
+                <QuestionsDisplay center integration={params.integration} tags={JSON.parse(params.tags)} search={params.search} managedQuestions={fetchedQuesitons}/>
               )
             }}/>
 
