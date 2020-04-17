@@ -42,7 +42,7 @@ const QuestionDisplay = (props: Props) => {
           <br/>
           <Typography>Queries</Typography>
           <Box m={2}>
-            {question.queries !== undefined ? question.queries.map((query : any) => (
+            {(question.queries || []).map((query : any) => (
               <Box mt={2} m={0}>
                 <code key={query.query}>{query.query}</code>
               </Box>
