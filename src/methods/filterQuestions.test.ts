@@ -1,5 +1,6 @@
 import filterQuestions from './filterQuestions'
 import {Question} from '../types'
+
 const testData : Question[] = [
   {
     compliance: [
@@ -23,7 +24,7 @@ const testData : Question[] = [
       }
     ],
     description: 'description',
-    title: 'This is my seond item.',
+    title: 'This is my second item.',
     queries: [
       {
         query: 'query',
@@ -42,6 +43,6 @@ describe('filterQuestions', () => {
   })
 
   test('filters questions by title', () => {
-    expect(filterQuestions(testData, 'none', [], 'item', 5).length).toBe(1)
+    expect(filterQuestions(testData, 'none', [], 'tite', 5).length).toBe(2)
   })
 })

@@ -9,7 +9,7 @@ import fuzzy from 'fuzzy';
 
 const filteredQuestions = (questions: Question[], integration: string, tags: string[], search: string, questionNumber: number) => (
   questions
-    .slice(1, !(integration !== 'none' || tags.length !== 0 || search !== '') ? questionNumber : questions.length)
+    .slice(0, !(integration !== 'none' || tags.length !== 0 || search !== '') ? questionNumber : questions.length)
     .filter((question: Question) => integration !== 'none' ? question.integration === integration : true)
     .filter((question: Question) => {
       const array : boolean[] = []

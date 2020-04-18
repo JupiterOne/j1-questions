@@ -103,7 +103,7 @@ const Filters = (props: Props) => {
         color='primary'
         className={classes.button}
       >
-        Copy Location to Clipboard
+        Share URL
       </Button>
     </Paper>
   )
