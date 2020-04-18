@@ -12,6 +12,7 @@ import {useQuestionStyles} from '../classes'
 import {ManagedQuestionJSON, Question} from '../types'
 import hash from 'hash.js'
 import Header from '../components/Header'
+import copy from 'clipboard-copy'
 
 interface Props {
   managedQuestions: ManagedQuestionJSON
@@ -39,7 +40,7 @@ const QuestionDisplay = (props: Props) => {
           {question !== undefined ? (
             <div>
               <Box className={classes.title}>
-                <Typography className={classes.titleText}>{question.title}</Typography>
+                <Typography variant='h6' className={classes.titleText}>{question.title}</Typography>
                 {question.tags.map((tag: string) => <Chip variant="outlined" color='secondary' label={tag}/>)}
               </Box>
               <Box className={classes.description}>
@@ -47,20 +48,21 @@ const QuestionDisplay = (props: Props) => {
               </Box>
               <br/>
               <Typography>Queries</Typography>
-              <Box m={2}>
+              <Box>
                 {(question.queries || []).map((query : any) => (
-                  <Box mt={2} m={0}>
-                    <code key={query.query}>{query.query}</code>
+                  <Box mt={2} m={0} className={classes.queryBox}>
+                    <code className={classes.queryBox} key={query.query}>{query.query}</code>
+                    <Button color='primary' size='small' onClick={() => copy(query.query)}>Copy</Button>
                   </Box>
                   ))
                 }
               </Box>
             </div>
           ) : <span/>}
-          <Button onClick={() => {
-            history.goBack()
-          }}>Back</Button>
         </Paper>
+        <Button color='secondary' className={classes.button} variant='contained' onClick={() => {
+          history.goBack()
+        }}> {"<<"} Back</Button>
       </Container>
     </>
   )

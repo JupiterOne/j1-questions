@@ -85,11 +85,12 @@ export const useQuestionStyles = makeStyles((theme: Theme) =>
     root: {
       flexGrow: 1,
       marginTop: '1%',
-      padding: theme.spacing(1)
+      padding: theme.spacing(4)
     },
     description: {
       padding: '1%',
-      background: 'rgba(0,0,0, 0.05)'
+      background: 'rgba(0,0,0, 0.05)',
+      borderRadius: theme.spacing(1)
     },
     title: {
       display: 'flex',
@@ -100,6 +101,17 @@ export const useQuestionStyles = makeStyles((theme: Theme) =>
     },
     titleText: {
       width: '85%'
+    },
+    button: {
+      // marginLeft: theme.spacing(4),
+      marginTop: theme.spacing(2)
+    },
+    queryBox: {
+      display: 'flex',
+      flexGrow: 1,
+      // '& > *' : {
+      //   flexGrow: 1,
+      // }
     }
   }),
 );
