@@ -1,12 +1,14 @@
 import React from 'react'
 import {
   Paper,
-  IconButton
+  IconButton,
+  Button
 } from '@material-ui/core'
 import {ManagedQuestionJSON, Question} from '../types'
 import {useQuestionDisplayStyles} from '../classes'
 import LaunchIcon from '@material-ui/icons/Launch';
 import {Link} from 'react-router-dom'
+import filterQuestions from '../methods/filterQuestions'
 import hash from 'hash.js'
 
 interface Props {
@@ -15,46 +17,36 @@ interface Props {
   tags: string[];
   center?: boolean | undefined;
   search: string;
+  questionNumber: number;
+  setQuestionNumber: Function;
 }
 
 const QuestionsDisplay = (props : Props) => {
   const classes = useQuestionDisplayStyles()
 
-  const filteredQuestions = (
-    props.managedQuestions.questions
-      .filter((question: Question) => props.integration !== 'none' ? question.integration === props.integration : true)
-      .filter((question: Question) => {
-        const array : boolean[] = []
-        for (let key of props.tags) {
-          array.push(question.tags !== undefined ? question.tags.includes(key) : false)
-        }
-        return !array.includes(false)
-      })
-      .filter((question: Question) => {
-        if (props.search !== 'none') {
-          return question.title.includes(props.search.toLocaleLowerCase())
-        } else {
-          return true
-        }
-      })
-  )
+  const filteredQuestions : Question[] = filterQuestions(props.managedQuestions.questions, props.integration, props.tags, props.search, props.questionNumber)
 
   return (
     <Paper className={classes.root} style={{margin: props.center ? 'auto' : ''}}>
       {filteredQuestions.length !== 0 ?
-        (filteredQuestions.map((question: Question, index: number) => {
+        (
+          <div>
+            {filteredQuestions.map((question: Question, index: number) => {
               return (
-                <Paper key={index} style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
-                  <div className={classes.item}>{question.title}</div>
-                  <Link to={`/question/${hash.sha1().update(question.title).digest('hex')}`}>
+                <Link style={{textDecoration: 'none'}} to={`/question/${hash.sha1().update(question.title).digest('hex')}`}>
+                  <Paper key={index} style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
+                    <div className={classes.item}>{question.title}</div>
                     <IconButton color='primary'>
                       <LaunchIcon/>
                     </IconButton>
-                  </Link>
-                </Paper>
-              )
+                  </Paper>
+                </Link>
+              )})
             }
-          )
+            {(props.questionNumber < props.managedQuestions.questions.length && !(props.integration !== 'none' || props.tags.length !== 0 || props.search !== '')) ? (
+              <Button color='primary' variant='contained' onClick={() => props.setQuestionNumber((num: number) => num + 10)}>Load more</Button>
+            ) : null}
+          </div>
         ) : (
           <i>No results.</i>
         )

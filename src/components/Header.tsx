@@ -33,10 +33,9 @@ const Header = (props : Props) => {
           <div>
             <Input
               className={classes.input}
-              placeholder={!(location.pathname.includes('/search/')) ? 'Search' : ''}
+              placeholder={'Search'}
               disabled={location.pathname.includes('/search/')}
               onChange={(e : any) => props.setSeach(e.target.value)}
-              disableUnderline
               startAdornment={
                 <InputAdornment position="start">
                   <SearchIcon />

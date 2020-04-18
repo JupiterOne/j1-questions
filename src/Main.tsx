@@ -18,6 +18,8 @@ interface Props {
   tags: string[];
   setTags: Function;
   search: string;
+  questionNumber: number;
+  setQuestionNumber: Function;
 }
 
 const Main = (props : Props) => {
@@ -30,9 +32,9 @@ const Main = (props : Props) => {
         integrationClicked={props.setIntegration}
         tags={props.tags}
         search={props.search}
-        tagCheckClicked={(tag: string, checked : boolean) => {
+        tagCheckClicked={(tag: string) => {
           props.setTags((prev: any) => {
-            if (!checked) {
+            if (props.tags.includes(tag)) {
               const index = prev.indexOf(tag);
               if (index > -1) {
                 prev.splice(index, 1);
@@ -44,7 +46,14 @@ const Main = (props : Props) => {
             return prev
           })
         }}/>
-      <QuestionsDisplay integration={props.integration} tags={props.tags} managedQuestions={props.managedQuestions} search={props.search}/>
+      <QuestionsDisplay
+        integration={props.integration}
+        tags={props.tags}
+        managedQuestions={props.managedQuestions}
+        search={props.search}
+        questionNumber={props.questionNumber}
+        setQuestionNumber={props.setQuestionNumber}
+      />
     </Box>
   )
 }

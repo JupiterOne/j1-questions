@@ -4,22 +4,19 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+      background: theme.palette.background.default,
+      color: theme.palette.text.primary,
     },
     menuButton: {
       marginRight: theme.spacing(2),
-      color: '#FFF'
+      color: theme.palette.text.primary
     },
     title: {
       flexGrow: 1,
     },
     input: {
-      background: 'rgb(12, 140, 162, 0.65)',
-      borderColor: 'white',
       position: 'relative',
-      borderRadius: theme.shape.borderRadius,
-      paddingLeft: theme.spacing(1),
-      paddingRight: theme.spacing(1),
-      color: 'white',
+      color: theme.palette.text.primary,
       width: theme.spacing(22)
     },
     inputIcon: {
@@ -35,13 +32,13 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       width: '60%',
       padding: theme.spacing(1),
       marginLeft: '1%',
-      height: theme.spacing(60),
-      overflowY: 'scroll'
+      textDecoration: 'none'
     },
     item: {
       flexGrow: 1,
       padding: '1%',
-      marginBottom: '0.5%'
+      marginBottom: '0.5%',
+      textDecoration: 'none'
     },
   }),
 );
@@ -51,10 +48,7 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
     root: {
       flexGrow: 1,
       width: '16%',
-      padding: theme.spacing(1),
-      height: theme.spacing(60),
-      overflowY: 'scroll',
-      minWidth: theme.spacing(20)
+      padding: theme.spacing(1)
     },
     notFlex: {
       display: 'flex',
@@ -63,13 +57,16 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
         display: 'block'
       }
     },
+    flexWrap: {
+      flexWrap: 'wrap'
+    },
     title: {
       borderBottomLeftRadius: 0,
       borderBottomRightRadius: 0
     },
-    tags: {
-      maxHeight: theme.spacing(32),
-      overflowY: 'scroll',
+    tag: {
+      marginRight: theme.spacing(0.5),
+      marginTop: theme.spacing(0.5)
     },
     button: {
       borderTopLeftRadius: 0,

@@ -5,16 +5,19 @@ import {
   ExpansionPanelSummary,
   ExpansionPanelDetails,
   Radio,
-  Checkbox,
+  Chip,
   Typography,
   FormControlLabel,
   RadioGroup,
   Box,
-  Button
+  Button,
+  Avatar
 } from '@material-ui/core'
 import {useFilterStyles} from '../classes'
 import {ManagedQuestionJSON} from '../types'
 import {Link} from 'react-router-dom'
+import DoneIcon from '@material-ui/icons/Done';
+// import CloseIcon from '@material-ui/icons/Close';
 
 interface Props {
   managedQuestions: ManagedQuestionJSON;
@@ -36,7 +39,7 @@ const Filters = (props: Props) => {
           <Typography variant='h6'>Filters</Typography>
         </Box>
       </Paper>
-      <ExpansionPanel className={classes.tags}>
+      <ExpansionPanel>
         <ExpansionPanelSummary>
           <Typography variant='subtitle1'>Integrations</Typography>
         </ExpansionPanelSummary>
@@ -48,20 +51,30 @@ const Filters = (props: Props) => {
           ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <ExpansionPanel className={classes.tags}>
+      <ExpansionPanel>
         <ExpansionPanelSummary>
           <Typography variant='subtitle1'>Tags</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails className={classes.notFlex}>
-          {props.allTags.map((tag: string, index : number) => (
-              <FormControlLabel key={index} value={tag} control={<Checkbox color='primary'/>} label={tag} onClick={(e:any) => props.tagCheckClicked(tag, e.target.checked)}/>
+        <ExpansionPanelDetails className={classes.flexWrap}>
+          {props.allTags
+            .sort()
+            .map((tag: string, index : number) => (
+              <Chip
+                variant='outlined'
+                avatar={props.tags.includes(tag) ? <Avatar><DoneIcon /></Avatar> : undefined}
+                className={classes.tag}
+                key={index}
+                onClick={() => props.tagCheckClicked(tag)}
+                color={props.tags.includes(tag) ? 'primary' : 'secondary'}
+                label={tag}
+              />
           ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>
       <Link style={{textDecoration: 'none'}} to={`/integration/${props.integration}/tags/${JSON.stringify(props.tags)}/search/${props.search !== '' ? props.search : 'none'}`}>
         <br/>
         <Button variant='contained' color='primary' className={classes.button}>
-          See Results
+          Share Results
         </Button>
       </Link>
     </Paper>

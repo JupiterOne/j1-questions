@@ -44,6 +44,7 @@ function App() {
   const [allTags, setAllTags] = useState(['tag'])
   const [tags, setTags] = useState([])
   const [search, setSearch] = useState('')
+  const [questionNumber, setQuestionNumber] = useState<number>(10)
 
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => {
@@ -61,7 +62,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <CssBaseline/>
-        <Header setSeach={setSearch}/>
+        <Header setSeach={(prop : string) => {
+          setSearch(prop)
+          setTags([])
+          setIntegration('none')
+        }}/>
         <Container maxWidth="lg">
           <Switch>
 
@@ -74,6 +79,8 @@ function App() {
                 setTags={setTags}
                 tags={tags}
                 search={search}
+                questionNumber={questionNumber}
+                setQuestionNumber={setQuestionNumber}
               />
             </Route>
             <Route exact path='/integration/:integration/tags/:tags/search/:search'component={(props:any) => {
@@ -86,6 +93,8 @@ function App() {
                   tags={JSON.parse(params.tags)}
                   search={params.search}
                   managedQuestions={fetchedQuestions}
+                  questionNumber={questionNumber}
+                  setQuestionNumber={setQuestionNumber}
                 />
               )
             }}/>
