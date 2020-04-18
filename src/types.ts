@@ -15,16 +15,9 @@ export interface Question {
   title: string;
   queries: Query[];
   tags: string[];
-  integration?: string;
 }
 
 export interface ManagedQuestionJSON {
-  integrations: {
-    [any:string]: {
-      title?: string;
-      type?: string;
-      class?: any[]
-    };
-  };
+  integrations: {};
   questions: Question[]
 }
