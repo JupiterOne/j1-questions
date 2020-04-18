@@ -45,6 +45,12 @@ const Filters = (props: Props) => {
       {(props.integration !== 'none' || props.tags.length !== 0 || props.search !== '') ? (
         <Paper style={{width: '100%', borderRadius: '0'}}>
           <Divider/>
+          <Box m={3}>
+            Search text: {(props.search === '') ? 'none' : props.search} <br/>
+            Tags: {(props.tags.length > 0) ? props.tags.join(', ') : 'none'} <br/>
+            Integration: {props.integration} <br/>
+          </Box>
+          <Divider/>
           <Button onClick={() => {
             props.clear()
           }} style={{width: '100%', borderRadius: '0'}} color='primary'>
