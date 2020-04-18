@@ -11,7 +11,8 @@ import {
   RadioGroup,
   Box,
   Button,
-  Avatar
+  Avatar,
+  Divider
 } from '@material-ui/core'
 import {useFilterStyles} from '../classes'
 import {ManagedQuestionJSON} from '../types'
@@ -28,6 +29,7 @@ interface Props {
   tagCheckClicked: Function;
   tags: string[];
   search: string;
+  clear: Function;
 }
 
 const Filters = (props: Props) => {
@@ -40,9 +42,12 @@ const Filters = (props: Props) => {
           <Typography variant='h6'>Filters</Typography>
         </Box>
       </Paper>
-      {!(props.integration !== 'none' || props.tags.length !== 0 || props.search !== '') ? (
+      {(props.integration !== 'none' || props.tags.length !== 0 || props.search !== '') ? (
         <Paper style={{width: '100%', borderRadius: '0'}}>
-          <Button style={{width: '100%', borderRadius: '0'}} color='primary' variant='outlined'>
+          <Divider/>
+          <Button onClick={() => {
+            props.clear()
+          }} style={{width: '100%', borderRadius: '0'}} color='primary'>
             Clear Filters
           </Button>
         </Paper>
@@ -68,12 +73,13 @@ const Filters = (props: Props) => {
             .sort()
             .map((tag: string, index : number) => (
               <Chip
+                color='primary'
                 variant='outlined'
                 avatar={props.tags.includes(tag) ? <Avatar><DoneIcon /></Avatar> : undefined}
                 className={classes.tag}
                 key={index}
                 onClick={() => props.tagCheckClicked(tag)}
-                color={props.tags.includes(tag) ? 'primary' : 'secondary'}
+                // color={props.tags.includes(tag) ? 'primary' : 'secondary'}
                 label={tag}
               />
           ))}

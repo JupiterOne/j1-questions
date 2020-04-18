@@ -43,10 +43,15 @@ const Main = (props: Props) => {
 
   return (
     <>
-      <Header setSeach={setSearch}/>
+      <Header setSearch={setSearch}/>
       <Container maxWidth="lg">
         <Box mt={2} style={{display: 'flex'}}>
           <Filters
+            clear={() => {
+              setIntegration('none')
+              setTags([])
+              setSearch('')
+            }}
             managedQuestions={props.managedQuestions}
             allTags={props.allTags}
             integration={integration === '' ? 'none' : integration}

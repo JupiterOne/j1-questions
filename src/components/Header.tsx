@@ -11,7 +11,8 @@ import {Link, useLocation} from 'react-router-dom'
 import SearchIcon from '@material-ui/icons/Search';
 
 interface Props {
-  setSeach: Function;
+  setSearch?: Function;
+  disabled?: boolean | undefined;
 }
 
 const Header = (props : Props) => {
@@ -31,17 +32,17 @@ const Header = (props : Props) => {
             JupiterOne Questions
           </Typography>
           <div>
-            <Input
+          {!props.disabled ? <Input
               className={classes.input}
               placeholder={'Search'}
               disabled={location.pathname.includes('/search/')}
-              onChange={(e : any) => props.setSeach(e.target.value)}
+              onChange={(e : any) => (props.setSearch !== undefined) ? props.setSearch(e.target.value) : null}
               startAdornment={
                 <InputAdornment position="start">
                   <SearchIcon />
                 </InputAdornment>
               }
-            />
+            /> : <span/>}
           </div>
         </Toolbar>
         <div className='border'/>
