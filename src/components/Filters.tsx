@@ -79,7 +79,6 @@ const Filters = (props: Props) => {
                 className={classes.tag}
                 key={index}
                 onClick={() => props.tagCheckClicked(tag)}
-                // color={props.tags.includes(tag) ? 'primary' : 'secondary'}
                 label={tag}
               />
           ))}
@@ -87,7 +86,12 @@ const Filters = (props: Props) => {
       </ExpansionPanel>
       <Button
         onClick={() => {
-          copy(`http://localhost:3000/filter?tags=${props.tags.join(',')}&integration=${(props.integration !== 'none') ? props.integration : ''}&search=${props.search}`)
+          copy(
+            'http://localhost:3000/filter?'
+              + ((props.tags.length !== 0) ? `&tags=${props.tags.join(',')}` : "")
+              + ((props.integration !== 'none') ? `&integration=${props.integration}` : "")
+              + ((props.search !== '') ? `&search=${props.search}` : "")
+          )
         }}
         variant='contained'
         color='primary'

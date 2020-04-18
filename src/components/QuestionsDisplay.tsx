@@ -33,8 +33,8 @@ const QuestionsDisplay = (props : Props) => {
           <div>
             {filteredQuestions.map((question: Question, index: number) => {
               return (
-                <Link style={{textDecoration: 'none'}} to={`/question/${hash.sha1().update(question.title).digest('hex')}`}>
-                  <Paper key={index} style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
+                <Link key={index} style={{textDecoration: 'none'}} to={`/question/${hash.sha1().update(question.title).digest('hex')}`}>
+                  <Paper style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
                     <div className={classes.item}>{question.title}</div>
                     <IconButton color='primary'>
                       <LaunchIcon/>

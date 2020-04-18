@@ -1,5 +1,6 @@
 import {Question} from '../types'
- 
+import fuzzy from 'fuzzy';
+
 // interface FilterOptions {
 //   searchText: string;
 //   integration: string | 'none';
@@ -18,8 +19,8 @@ const filteredQuestions = (questions: Question[], integration: string, tags: str
       return !array.includes(false)
     })
     .filter((question: Question) => {
-      if (search !== 'none') {
-        return question.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+      if (search !== 'none' && typeof search === 'string') {
+        return fuzzy.match(search, question.title)
       } else {
         return true
       }

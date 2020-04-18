@@ -38,7 +38,13 @@ const Main = (props: Props) => {
   const [search, setSearch] = useState((params.integration === '') ? '' : params.search)
 
   useEffect(() => {
-    history.replace(`/filter?tags=${tags.join(',')}&integration=${(integration !== 'none') ? integration : ''}&search=${search}`)
+    const searchString : string = '/filter?'
+      + ((tags.length !== 0) ? `&tags=${tags.join(',')}` : "")
+      + ((integration !== 'none') ? `&integration=${integration}` : "")
+      + ((search !== '') ? `&search=${search}` : "")
+
+    history.replace(searchString)
+
   }, [tags, integration, search])
 
   return (

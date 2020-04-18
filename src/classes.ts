@@ -17,7 +17,8 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
     input: {
       position: 'relative',
       color: theme.palette.text.primary,
-      width: theme.spacing(22)
+      width: theme.spacing(22),
+      marginLeft: theme.spacing(1)
     },
     inputIcon: {
       marginRight: theme.spacing(1)

@@ -50,8 +50,8 @@ const QuestionDisplay = (props: Props) => {
               <Typography>Queries</Typography>
               <Box>
                 {(question.queries || []).map((query : any) => (
-                  <Box mt={2} m={0} className={classes.queryBox}>
-                    <code className={classes.queryBox} key={query.query}>{query.query}</code>
+                  <Box key={query.query} mt={2} m={0} className={classes.queryBox}>
+                    <code className={classes.queryBox}>{query.query}</code>
                     <Button color='primary' size='small' onClick={() => copy(query.query)}>Copy</Button>
                   </Box>
                   ))
