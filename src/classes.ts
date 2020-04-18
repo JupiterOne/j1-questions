@@ -71,7 +71,6 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
     button: {
       borderTopLeftRadius: 0,
       borderTopRightRadius: 0,
-      paddingTop: theme.spacing(3),
       textDecoration: 'none',
       width: '100%'
     },

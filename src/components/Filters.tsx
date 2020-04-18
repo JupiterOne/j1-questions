@@ -15,9 +15,10 @@ import {
 } from '@material-ui/core'
 import {useFilterStyles} from '../classes'
 import {ManagedQuestionJSON} from '../types'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import DoneIcon from '@material-ui/icons/Done';
 // import CloseIcon from '@material-ui/icons/Close';
+import copy from 'clipboard-copy'
 
 interface Props {
   managedQuestions: ManagedQuestionJSON;
@@ -39,6 +40,13 @@ const Filters = (props: Props) => {
           <Typography variant='h6'>Filters</Typography>
         </Box>
       </Paper>
+      {!(props.integration !== 'none' || props.tags.length !== 0 || props.search !== '') ? (
+        <Paper style={{width: '100%', borderRadius: '0'}}>
+          <Button style={{width: '100%', borderRadius: '0'}} color='primary' variant='outlined'>
+            Clear Filters
+          </Button>
+        </Paper>
+      ) : <span/>}
       <ExpansionPanel>
         <ExpansionPanelSummary>
           <Typography variant='subtitle1'>Integrations</Typography>
@@ -71,12 +79,16 @@ const Filters = (props: Props) => {
           ))}
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      <Link style={{textDecoration: 'none'}} to={`/integration/${props.integration}/tags/${JSON.stringify(props.tags)}/search/${props.search !== '' ? props.search : 'none'}`}>
-        <br/>
-        <Button variant='contained' color='primary' className={classes.button}>
-          Share Results
-        </Button>
-      </Link>
+      <Button
+        onClick={() => {
+          copy(`http://localhost:3000/filter?tags=${props.tags.join(',')}&integration=${(props.integration !== 'none') ? props.integration : ''}&search=${props.search}`)
+        }}
+        variant='contained'
+        color='primary'
+        className={classes.button}
+      >
+        Copy Location to Clipboard
+      </Button>
     </Paper>
   )
 }

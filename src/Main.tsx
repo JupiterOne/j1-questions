@@ -1,60 +1,83 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
-// import {} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import QuestionsDisplay from './components/QuestionsDisplay'
 import Filters from './components/Filters'
 import uniqueArray from './methods/uniqueArray'
 import {
-  Box
+  Box,
+  Container
 } from '@material-ui/core'
 import {ManagedQuestionJSON} from './types'
+import queryString from 'query-string'
+import Header from './components/Header'
 
 
 interface Props {
   managedQuestions: ManagedQuestionJSON;
   allTags: string[];
-  integration: string;
-  setIntegration: Function;
-  tags: string[];
-  setTags: Function;
-  search: string;
-  questionNumber: number;
-  setQuestionNumber: Function;
 }
 
-const Main = (props : Props) => {
+const Main = (props: Props) => {
+  const history = useHistory()
+
+  const params = queryString.parse(history.location.search)
+  if (typeof params.integration !== 'string') {
+    params.integration = ''
+  }
+  if (typeof params.search !== 'string') {
+    params.search = ''
+  }
+  if (typeof params.tags !== 'string') {
+    params.tags = ''
+  }
+
+  const [integration, setIntegration] = useState((params.integration === '') ? 'none' : params.integration)
+  const [tags, setTags] = useState<string[]>((params.tags !== '') ? params.tags.split(',') : [])
+  const [questionNumber, setQuestionNumber] = useState<number>(10)
+  const [search, setSearch] = useState((params.integration === '') ? '' : params.search)
+
+  useEffect(() => {
+    history.replace(`/filter?tags=${tags.join(',')}&integration=${(integration !== 'none') ? integration : ''}&search=${search}`)
+  }, [tags, integration, search])
+
   return (
-    <Box mt={2} style={{display: 'flex'}}>
-      <Filters
-        managedQuestions={props.managedQuestions}
-        allTags={props.allTags}
-        integration={props.integration}
-        integrationClicked={props.setIntegration}
-        tags={props.tags}
-        search={props.search}
-        tagCheckClicked={(tag: string) => {
-          props.setTags((prev: any) => {
-            if (props.tags.includes(tag)) {
-              const index = prev.indexOf(tag);
-              if (index > -1) {
-                prev.splice(index, 1);
-              }
-            } else {
-              prev.push(tag)
-            }
-            prev = uniqueArray(prev)
-            return prev
-          })
-        }}/>
-      <QuestionsDisplay
-        integration={props.integration}
-        tags={props.tags}
-        managedQuestions={props.managedQuestions}
-        search={props.search}
-        questionNumber={props.questionNumber}
-        setQuestionNumber={props.setQuestionNumber}
-      />
-    </Box>
+    <>
+      <Header setSeach={setSearch}/>
+      <Container maxWidth="lg">
+        <Box mt={2} style={{display: 'flex'}}>
+          <Filters
+            managedQuestions={props.managedQuestions}
+            allTags={props.allTags}
+            integration={integration === '' ? 'none' : integration}
+            integrationClicked={setIntegration}
+            tags={tags}
+            search={search}
+            tagCheckClicked={(tag: string) => {
+              setTags((prev: any) => {
+                if (tags.includes(tag)) {
+                  const index = prev.indexOf(tag);
+                  if (index > -1) {
+                    prev.splice(index, 1);
+                  }
+                } else {
+                  prev.push(tag)
+                }
+                prev = uniqueArray(prev)
+                return prev
+              })
+            }}/>
+          <QuestionsDisplay
+            integration={integration}
+            tags={tags}
+            managedQuestions={props.managedQuestions}
+            search={search}
+            questionNumber={questionNumber}
+            setQuestionNumber={setQuestionNumber}
+          />
+        </Box>
+      </Container>
+    </>
   )
 }
 

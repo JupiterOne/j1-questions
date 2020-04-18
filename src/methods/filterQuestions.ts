@@ -1,4 +1,10 @@
 import {Question} from '../types'
+ 
+// interface FilterOptions {
+//   searchText: string;
+//   integration: string | 'none';
+//   tags: string[];
+// }
 
 const filteredQuestions = (questions: Question[], integration: string, tags: string[], search: string, questionNumber: number) => (
   questions
