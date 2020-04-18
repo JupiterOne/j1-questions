@@ -4,12 +4,16 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      background: theme.palette.background.default,
+      background: theme.palette.background.paper,
       color: theme.palette.text.primary,
     },
     menuButton: {
       marginRight: theme.spacing(2),
-      color: theme.palette.text.primary
+      color: theme.palette.text.primary,
+      verticalAlign: 'center',
+      position: 'relative',
+      top: '1.5px',
+      width: theme.spacing(5)
     },
     title: {
       flexGrow: 1,
@@ -70,13 +74,13 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(0.5)
     },
     button: {
-      borderTopLeftRadius: 0,
-      borderTopRightRadius: 0,
-      textDecoration: 'none',
-      width: '100%'
+      padding: theme.spacing(1)
     },
     linkText: {
       color: '#BBC',
+    },
+    icon: {
+      paddingRight: theme.spacing(0.5)
     }
   }),
 );

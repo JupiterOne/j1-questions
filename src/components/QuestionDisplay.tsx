@@ -5,7 +5,8 @@ import {
   Typography,
   Chip,
   Container,
-  Button
+  Button,
+  IconButton
 } from '@material-ui/core'
 import {useParams, useHistory} from 'react-router'
 import {useQuestionStyles} from '../classes'
@@ -13,6 +14,8 @@ import {ManagedQuestionJSON, Question} from '../types'
 import hash from 'hash.js'
 import Header from '../components/Header'
 import copy from 'clipboard-copy'
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooksOutlined';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 interface Props {
   managedQuestions: ManagedQuestionJSON
@@ -36,6 +39,9 @@ const QuestionDisplay = (props: Props) => {
     <>
       <Header disabled/>
       <Container maxWidth="lg">
+        <Button color='secondary' className={classes.button} variant='contained' onClick={() => {
+          history.goBack()
+        }}> <ArrowBackIosIcon/> Back</Button>
         <Paper className={classes.root}>
           {question !== undefined ? (
             <div>
@@ -52,7 +58,7 @@ const QuestionDisplay = (props: Props) => {
                 {(question.queries || []).map((query : any) => (
                   <Box key={query.query} mt={2} m={0} className={classes.queryBox}>
                     <code className={classes.queryBox}>{query.query}</code>
-                    <Button color='primary' size='small' onClick={() => copy(query.query)}>Copy</Button>
+                    <IconButton color='primary' onClick={() => copy(query.query)} children={<LibraryBooksIcon/>}/>
                   </Box>
                   ))
                 }
@@ -60,9 +66,6 @@ const QuestionDisplay = (props: Props) => {
             </div>
           ) : <span/>}
         </Paper>
-        <Button color='secondary' className={classes.button} variant='contained' onClick={() => {
-          history.goBack()
-        }}> {"<<"} Back</Button>
       </Container>
     </>
   )

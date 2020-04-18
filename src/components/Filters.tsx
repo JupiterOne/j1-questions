@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {
   Paper,
-  ExpansionPanel,
+  Icon,
   ExpansionPanelSummary,
   ExpansionPanelDetails,
   Radio,
@@ -9,16 +9,20 @@ import {
   Typography,
   FormControlLabel,
   RadioGroup,
-  Box,
   Button,
   Avatar,
-  Divider
+  Box,
+  IconButton
 } from '@material-ui/core'
+import {Alert} from '@material-ui/lab'
 import {useFilterStyles} from '../classes'
 import {ManagedQuestionJSON} from '../types'
 // import {Link} from 'react-router-dom'
 import DoneIcon from '@material-ui/icons/Done';
-// import CloseIcon from '@material-ui/icons/Close';
+import TagIcon from '@material-ui/icons/LocalOfferOutlined';
+import IntegrationIcon from '@material-ui/icons/Apps';
+import FilterListIcon from '@material-ui/icons/FilterList';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import copy from 'clipboard-copy'
 
 interface Props {
@@ -34,47 +38,61 @@ interface Props {
 
 const Filters = (props: Props) => {
   const classes = useFilterStyles()
+  const [copied, setCopied] = useState(false)
 
   return (
     <Paper className={classes.root}>
-      <Paper className={classes.title}>
-        <Box p={3}>
-          <Typography variant='h6'>Filters</Typography>
-        </Box>
-      </Paper>
-      {(props.integration !== 'none' || props.tags.length !== 0 || props.search !== '') ? (
-        <Paper style={{width: '100%', borderRadius: '0'}}>
-          <Divider/>
-          <Box m={3}>
-            Search text: {(props.search === '') ? 'none' : props.search} <br/>
-            Tags: {(props.tags.length > 0) ? props.tags.join(', ') : 'none'} <br/>
-            Integration: {props.integration} <br/>
+      <ExpansionPanelSummary>
+        <Icon>
+          <FilterListIcon/>
+        </Icon>
+        <Typography variant='h6'>Filters</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelSummary>
+        <Icon>
+          <IntegrationIcon/>
+        </Icon>
+        <Typography variant='subtitle1'>Integrations</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails className={classes.notFlex}>
+        {[...Object.keys(props.managedQuestions.integrations), 'none'].map((integration: any, index: number) => (
+          <RadioGroup key={index} className={classes.notFlex} value={props.integration} onChange={() => props.integrationClicked(integration)}>
+            <FormControlLabel value={integration} control={<Radio color='primary'/>} label={integration}/>
+          </RadioGroup>
+        ))}
+      </ExpansionPanelDetails>
+
+      <ExpansionPanelSummary>
+        <Icon>
+          <TagIcon/>
+        </Icon>
+        <Typography variant='subtitle1'>Tags</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails className={classes.flexWrap}>
+        <Box mb={2}>
+          <Box>
+            <Typography variant='subtitle1'>Active Tags</Typography>
           </Box>
-          <Divider/>
-          <Button onClick={() => {
-            props.clear()
-          }} style={{width: '100%', borderRadius: '0'}} color='primary'>
-            Clear Filters
-          </Button>
-        </Paper>
-      ) : <span/>}
-      <ExpansionPanel>
-        <ExpansionPanelSummary>
-          <Typography variant='subtitle1'>Integrations</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails className={classes.notFlex}>
-          {[...Object.keys(props.managedQuestions.integrations), 'none'].map((integration: any, index: number) => (
-            <RadioGroup key={index} className={classes.notFlex} value={props.integration} onChange={() => props.integrationClicked(integration)}>
-              <FormControlLabel value={integration} control={<Radio color='primary'/>} label={integration}/>
-            </RadioGroup>
-          ))}
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary>
-          <Typography variant='subtitle1'>Tags</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails className={classes.flexWrap}>
+          <Box mt={1}>
+            {props.allTags
+              .sort()
+              .filter((tag: string) => (
+                props.tags.includes(tag)
+              ))
+              .map((tag: string, index : number) => (
+                <Chip
+                  color='primary'
+                  variant='outlined'
+                  avatar={props.tags.includes(tag) ? <Avatar><DoneIcon /></Avatar> : undefined}
+                  className={classes.tag}
+                  key={index}
+                  onClick={() => props.tagCheckClicked(tag)}
+                  label={tag}
+                />
+            ))}
+          </Box>
+        </Box>
+        <Box>
           {props.allTags
             .sort()
             .map((tag: string, index : number) => (
@@ -88,8 +106,8 @@ const Filters = (props: Props) => {
                 label={tag}
               />
           ))}
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+        </Box>
+      </ExpansionPanelDetails>
       <Button
         onClick={() => {
           copy(
@@ -98,13 +116,19 @@ const Filters = (props: Props) => {
               + ((props.integration !== 'none') ? `&integration=${props.integration}` : "")
               + ((props.search !== '') ? `&search=${props.search}` : "")
           )
+          setCopied(true)
         }}
         variant='contained'
         color='primary'
-        className={classes.button}
       >
-        Share URL
+        <OpenInNewIcon className={classes.icon}/> Share URL
       </Button>
+      <br/><br/>
+      {copied ? (
+        <Alert variant="outlined" severity="success">
+          URL copied to clipboard.
+        </Alert>
+      ) : null}
     </Paper>
   )
 }

@@ -36,9 +36,6 @@ const QuestionsDisplay = (props : Props) => {
                 <Link key={index} style={{textDecoration: 'none'}} to={`/question/${hash.sha1().update(question.title).digest('hex')}`}>
                   <Paper style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
                     <div className={classes.item}>{question.title}</div>
-                    <IconButton color='primary'>
-                      <LaunchIcon/>
-                    </IconButton>
                   </Paper>
                 </Link>
               )})

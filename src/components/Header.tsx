@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import LifeomicIcon from './lifeomic-icon.png';
 import Input from '@material-ui/core/Input';
 // import Button from '@material-ui/core/Button'
 // import InputAdornment from '@material-ui/core/InputAdornment';
@@ -26,9 +26,7 @@ const Header = (props : Props) => {
       <AppBar className={classes.root} position="static">
         <Toolbar>
           <Link to='/'>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
+            <img className={classes.menuButton} src={LifeomicIcon}/>
           </Link>
           <Typography variant="h6" className={classes.title}>
             JupiterOne Questions

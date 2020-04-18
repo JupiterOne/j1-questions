@@ -39,7 +39,7 @@ const intialState = {
 
 function App() {
   const [managedQuestions, setManagedQuestions] = useState<ManagedQuestionJSON>(intialState)
-  const [allTags, setAllTags] = useState(['tag'])
+  const [allTags, setAllTags] = useState<string[]>([])
 
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => {
