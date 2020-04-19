@@ -8,11 +8,12 @@ import uniqueArray from './methods/uniqueArray'
 import {ManagedQuestionJSON, Question} from './types'
 import { createMuiTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-
+import Header from './components/Header'
 
 import {ThemeProvider} from '@material-ui/core/styles'
 import {
-  CssBaseline
+  CssBaseline,
+  Container
 } from '@material-ui/core'
 
 const intialState = {
@@ -40,6 +41,10 @@ const intialState = {
 function App() {
   const [managedQuestions, setManagedQuestions] = useState<ManagedQuestionJSON>(intialState)
   const [allTags, setAllTags] = useState<string[]>([])
+  const [search, setSearch] = useState('')
+  const [themeDark, setTheme] = useState(false)
+
+  console.log(search)
 
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => {
@@ -53,19 +58,18 @@ function App() {
     })
   }, [])
 
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
   const theme = createMuiTheme({
     palette: {
-      type: prefersDarkMode ? 'dark' : 'light',
+      type: themeDark ? 'dark' : 'light',
       primary: {
         main: 'rgb(22, 150, 172)',
         contrastText: '#FFF'
       },
       secondary: {
         main: 'rgba(2, 130, 152)',
-        contrastText: '#FFF'
-      }
+      },
     },
   });
 
@@ -73,17 +77,23 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <CssBaseline/>
-        <div>
+        <Header color={themeDark ? 'dark' : 'light'} setTheme={setTheme} search={search} setSearch={setSearch}/>
+
+        <Container maxWidth="lg">
           <Switch>
 
             <Route exact path='/'>
               <Main
+                search={search}
+                setSearch={setSearch}
                 managedQuestions={managedQuestions}
                 allTags={allTags}
               />
             </Route>
             <Route exact path='/filter'>
               <Main
+                search={search}
+                setSearch={setSearch}
                 managedQuestions={managedQuestions}
                 allTags={allTags}
               />
@@ -94,7 +104,7 @@ function App() {
             </Route>
 
           </Switch>
-        </div>
+        </Container>
       </Router>
     </ThemeProvider>
   );

@@ -1,25 +1,35 @@
-import React, {useState} from 'react'
+import React from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 import LifeomicIcon from './lifeomic-icon.png';
 import Input from '@material-ui/core/Input';
-// import Button from '@material-ui/core/Button'
-// import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import FormControl from '@material-ui/core/FormControl'
 import {useHeaderStyles} from '../classes'
 import {Link, useLocation} from 'react-router-dom'
-import SearchIcon from '@material-ui/icons/Search';
+import Brightness7Icon from '@material-ui/icons/Brightness7';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
 
 interface Props {
   setSearch?: Function;
+  search: string;
   disabled?: boolean | undefined;
+  color: 'light' | 'dark';
+  setTheme: Function;
 }
 
 const Header = (props : Props) => {
   const classes = useHeaderStyles()
   const location = useLocation()
-  const [search, setSearch] = useState()
+
+  const debounce = (time:number, callBack: Function) => {
+    const intervalId = setInterval(() => {
+      callBack()
+      clearInterval(intervalId)
+    }, time)
+  }
+
 
   return (
     <div>
@@ -31,20 +41,23 @@ const Header = (props : Props) => {
           <Typography variant="h6" className={classes.title}>
             JupiterOne Questions
           </Typography>
+          <FormControl>
+            <IconButton color='default' onClick={() => props.setTheme((theme:boolean) => !theme)}>{!(props.color === 'light') ? <Brightness7Icon/> : <Brightness4Icon/>}</IconButton>
+          </FormControl>
           <div>
           {!props.disabled ?
-            <form onSubmit={(e : any) => {
-              e.preventDefault()
-              if (props.setSearch !== undefined && search !== '') props.setSearch(search)
-            }}>
-              <IconButton><SearchIcon color='primary'/></IconButton>
+            <div>
               <Input
                 className={classes.input}
                 placeholder={'Search'}
+                value={props.search}
                 disabled={location.pathname.includes('/question/')}
-                onChange={(e : any) => setSearch(e.target.value)}
+                onChange={(e : any) => {
+                  const value = e.target.value
+                  debounce(600, () => props.setSearch !== undefined ? props.setSearch(value) : null)
+                }}
               />
-            </form>: <span/>}
+            </div>: <span/>}
           </div>
         </Toolbar>
         <div className='border'/>

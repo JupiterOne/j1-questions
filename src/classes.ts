@@ -45,6 +45,10 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       marginBottom: '0.5%',
       textDecoration: 'none'
     },
+    arrow: {
+      position: 'relative',
+      top: theme.spacing(0.5)
+    }
   }),
 );
 
@@ -71,7 +75,8 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
     },
     tag: {
       marginRight: theme.spacing(0.5),
-      marginTop: theme.spacing(0.5)
+      marginTop: theme.spacing(0.5),
+      // color: 'rgb(224, 244, 55)'
     },
     button: {
       padding: theme.spacing(1)

@@ -12,7 +12,7 @@ import {
   Button,
   Avatar,
   Box,
-  IconButton
+  Snackbar
 } from '@material-ui/core'
 import {Alert} from '@material-ui/lab'
 import {useFilterStyles} from '../classes'
@@ -20,8 +20,8 @@ import {ManagedQuestionJSON} from '../types'
 // import {Link} from 'react-router-dom'
 import DoneIcon from '@material-ui/icons/Done';
 import TagIcon from '@material-ui/icons/LocalOfferOutlined';
-import IntegrationIcon from '@material-ui/icons/Apps';
-import FilterListIcon from '@material-ui/icons/FilterList';
+import IntegrationIcon from '@material-ui/icons/BuildOutlined';
+import FilterListIcon from '@material-ui/icons/FilterListRounded';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import copy from 'clipboard-copy'
 
@@ -56,8 +56,8 @@ const Filters = (props: Props) => {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails className={classes.notFlex}>
         {[...Object.keys(props.managedQuestions.integrations), 'none'].map((integration: any, index: number) => (
-          <RadioGroup key={index} className={classes.notFlex} value={props.integration} onChange={() => props.integrationClicked(integration)}>
-            <FormControlLabel value={integration} control={<Radio color='primary'/>} label={integration}/>
+          <RadioGroup color='secondary' key={index} className={classes.notFlex} value={props.integration} onChange={() => props.integrationClicked(integration)}>
+            <FormControlLabel value={integration} control={<Radio/>} label={integration}/>
           </RadioGroup>
         ))}
       </ExpansionPanelDetails>
@@ -71,17 +71,20 @@ const Filters = (props: Props) => {
       <ExpansionPanelDetails className={classes.flexWrap}>
         <Box mb={2}>
           <Box>
-            <Typography variant='subtitle1'>Active Tags</Typography>
+            {props.tags
+            .filter((tag: string) => (
+                props.tags.includes(tag)
+            )).length !== 0 ? <Typography variant='subtitle1'>Active Tags</Typography> : <span/>}
           </Box>
           <Box mt={1}>
             {props.allTags
               .sort()
               .filter((tag: string) => (
-                props.tags.includes(tag)
+                  props.tags.includes(tag)
               ))
               .map((tag: string, index : number) => (
                 <Chip
-                  color='primary'
+                  color='secondary'
                   variant='outlined'
                   avatar={props.tags.includes(tag) ? <Avatar><DoneIcon /></Avatar> : undefined}
                   className={classes.tag}
@@ -123,12 +126,11 @@ const Filters = (props: Props) => {
       >
         <OpenInNewIcon className={classes.icon}/> Share URL
       </Button>
-      <br/><br/>
-      {copied ? (
-        <Alert variant="outlined" severity="success">
+      <Snackbar open={copied} autoHideDuration={3000} onClose={() => setCopied(false)}>
+        <Alert severity="success">
           URL copied to clipboard.
         </Alert>
-      ) : null}
+      </Snackbar>
     </Paper>
   )
 }

@@ -1,15 +1,17 @@
 import React from 'react'
 import {
+  Divider,
   Paper,
-  IconButton,
-  Button
+  Icon,
+  Button,
+  Snackbar
 } from '@material-ui/core'
 import {ManagedQuestionJSON, Question} from '../types'
 import {useQuestionDisplayStyles} from '../classes'
-import LaunchIcon from '@material-ui/icons/Launch';
 import {Link} from 'react-router-dom'
 import filterQuestions from '../methods/filterQuestions'
 import hash from 'hash.js'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 interface Props {
   managedQuestions: ManagedQuestionJSON;
@@ -34,8 +36,10 @@ const QuestionsDisplay = (props : Props) => {
             {filteredQuestions.map((question: Question, index: number) => {
               return (
                 <Link key={index} style={{textDecoration: 'none'}} to={`/question/${hash.sha1().update(question.title).digest('hex')}`}>
-                  <Paper style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
-                    <div className={classes.item}>{question.title}</div>
+                  <Paper elevation={0} style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
+                    <span className={classes.item}>{question.title}</span>
+                    <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
+                    <Divider/>
                   </Paper>
                 </Link>
               )})

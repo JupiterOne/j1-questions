@@ -1,5 +1,7 @@
 import {Question} from '../types'
-import fuzzy from 'fuzzy';
+// import fuzzy from 'fuzzy';
+// import { test } from 'fuzzyjs'
+import matchSorter from 'match-sorter'
 
 // interface FilterOptions {
 //   searchText: string;
@@ -8,6 +10,7 @@ import fuzzy from 'fuzzy';
 // }
 
 const filteredQuestions = (questions: Question[], integration: string, tags: string[], search: string, questionNumber: number) => (
+  matchSorter(
   questions
     .slice(0, !(integration !== 'none' || tags.length !== 0 || search !== '') ? questionNumber : questions.length)
     .filter((question: Question) => integration !== 'none' ? question.integration === integration : true)
@@ -18,13 +21,7 @@ const filteredQuestions = (questions: Question[], integration: string, tags: str
       }
       return !array.includes(false)
     })
-    .filter((question: Question) => {
-      if (search !== 'none' && typeof search === 'string') {
-        return fuzzy.match(search, question.title)
-      } else {
-        return true
-      }
-    })
+  ,search, {keys: ['title', 'description', 'tags']})
 )
 
 
