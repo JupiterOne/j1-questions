@@ -54,7 +54,7 @@ const Header = (props : Props) => {
                 disabled={location.pathname.includes('/question/')}
                 onChange={(e : any) => {
                   const value = e.target.value
-                  debounce(600, () => props.setSearch !== undefined ? props.setSearch(value) : null)
+                  debounce(0, () => props.setSearch !== undefined ? props.setSearch(value) : null)
                 }}
               />
             </div>: <span/>}

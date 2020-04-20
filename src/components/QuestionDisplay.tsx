@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {
   Paper,
   Box,
   Typography,
   Chip,
   Button,
-  IconButton
+  IconButton,
+  Snackbar,
 } from '@material-ui/core'
+import {Alert} from '@material-ui/lab'
 import {useParams, useHistory} from 'react-router'
 import {useQuestionStyles} from '../classes'
 import {ManagedQuestionJSON, Question} from '../types'
@@ -20,6 +22,7 @@ interface Props {
 }
 
 const QuestionDisplay = (props: Props) => {
+  const [copied, setCopied] = useState(false)
   const params : {questionTitle?: string} = useParams()
   const history = useHistory()
   const classes = useQuestionStyles()
@@ -56,11 +59,19 @@ const QuestionDisplay = (props: Props) => {
               {(question.queries || []).map((query : any) => (
                 <Box key={query.query} mt={2} m={0} className={classes.queryBox}>
                   <code className={classes.queryBox}>{query.query}</code>
-                  <IconButton color='primary' onClick={() => copy(query.query)} children={<LibraryBooksIcon/>}/>
+                  <IconButton color='primary' onClick={() => {
+                    copy(query.query)
+                    setCopied(true)
+                  }} children={<LibraryBooksIcon/>}/>
                 </Box>
                 ))
               }
             </Box>
+            <Snackbar open={copied} autoHideDuration={3000} onClose={() => setCopied(false)}>
+              <Alert severity="success">
+                Query copied to clipboard.
+              </Alert>
+            </Snackbar>
           </div>
         ) : <span/>}
       </Paper>

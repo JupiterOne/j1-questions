@@ -7,8 +7,8 @@ import fetchQuestions from './methods/fetchQuestions'
 import uniqueArray from './methods/uniqueArray'
 import {ManagedQuestionJSON, Question} from './types'
 import { createMuiTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Header from './components/Header'
+import {useFavicon} from 'react-use'
 
 import {ThemeProvider} from '@material-ui/core/styles'
 import {
@@ -42,7 +42,8 @@ function App() {
   const [managedQuestions, setManagedQuestions] = useState<ManagedQuestionJSON>(intialState)
   const [allTags, setAllTags] = useState<string[]>([])
   const [search, setSearch] = useState('')
-  const [themeDark, setTheme] = useState(false)
+  const [themeDark, setTheme] = useState<boolean>(false)
+
 
   console.log(search)
 
