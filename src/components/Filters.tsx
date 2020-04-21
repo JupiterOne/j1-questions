@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {
   Paper,
   Icon,
@@ -9,21 +9,15 @@ import {
   Typography,
   FormControlLabel,
   RadioGroup,
-  Button,
   Avatar,
   Box,
-  Snackbar
 } from '@material-ui/core'
-import {Alert} from '@material-ui/lab'
 import {useFilterStyles} from '../classes'
 import {ManagedQuestionJSON} from '../types'
-// import {Link} from 'react-router-dom'
 import DoneIcon from '@material-ui/icons/Done';
 import TagIcon from '@material-ui/icons/LocalOfferOutlined';
 import IntegrationIcon from '@material-ui/icons/BuildOutlined';
 import FilterListIcon from '@material-ui/icons/FilterListRounded';
-import OpenInNewIcon from '@material-ui/icons/OpenInNew';
-import copy from 'clipboard-copy'
 
 interface Props {
   managedQuestions: ManagedQuestionJSON;
@@ -32,13 +26,10 @@ interface Props {
   allTags: string[];
   tagCheckClicked: Function;
   tags: string[];
-  search: string;
-  clear: Function;
 }
 
 const Filters = (props: Props) => {
   const classes = useFilterStyles()
-  const [copied, setCopied] = useState(false)
 
   return (
     <Paper className={classes.root}>
@@ -111,28 +102,8 @@ const Filters = (props: Props) => {
           ))}
         </Box>
       </ExpansionPanelDetails>
-      <Button
-        onClick={() => {
-          copy(
-            'http://localhost:3000/filter?'
-              + ((props.tags.length !== 0) ? `&tags=${props.tags.join(',')}` : "")
-              + ((props.integration !== 'none') ? `&integration=${props.integration}` : "")
-              + ((props.search !== '') ? `&search=${props.search}` : "")
-          )
-          setCopied(true)
-        }}
-        variant='contained'
-        color='primary'
-      >
-        <OpenInNewIcon className={classes.icon}/> Share URL
-      </Button>
-      <Snackbar open={copied} autoHideDuration={3000} onClose={() => setCopied(false)}>
-        <Alert severity="success">
-          URL copied to clipboard.
-        </Alert>
-      </Snackbar>
     </Paper>
   )
 }
 
-export default Filters;
+export default React.memo(Filters);

@@ -26,6 +26,12 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
     },
     inputIcon: {
       marginRight: theme.spacing(1)
+    },
+    icon: {
+      marginRight: theme.spacing(1)
+    },
+    actionButton: {
+      marginLeft: theme.spacing(1)
     }
   }),
 );

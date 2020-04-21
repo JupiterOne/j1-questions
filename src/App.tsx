@@ -8,7 +8,6 @@ import uniqueArray from './methods/uniqueArray'
 import {ManagedQuestionJSON, Question} from './types'
 import { createMuiTheme } from '@material-ui/core/styles';
 import Header from './components/Header'
-import {useFavicon} from 'react-use'
 
 import {ThemeProvider} from '@material-ui/core/styles'
 import {
@@ -44,9 +43,6 @@ function App() {
   const [search, setSearch] = useState('')
   const [themeDark, setTheme] = useState<boolean>(false)
 
-
-  console.log(search)
-
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => {
       const tags : string[] = r.questions.map((question : Question) => {
@@ -59,7 +55,7 @@ function App() {
     })
   }, [])
 
-  // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  console.info({search})
 
   const theme = createMuiTheme({
     palette: {
@@ -78,7 +74,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <CssBaseline/>
-        <Header color={themeDark ? 'dark' : 'light'} setTheme={setTheme} search={search} setSearch={setSearch}/>
+        <Header
+          color={themeDark ? 'dark' : 'light'}
+          setTheme={setTheme}
+          setSearch={setSearch}
+        />
 
         <Container maxWidth="lg">
           <Switch>
@@ -86,7 +86,6 @@ function App() {
             <Route exact path='/'>
               <Main
                 search={search}
-                setSearch={setSearch}
                 managedQuestions={managedQuestions}
                 allTags={allTags}
               />
@@ -94,7 +93,6 @@ function App() {
             <Route exact path='/filter'>
               <Main
                 search={search}
-                setSearch={setSearch}
                 managedQuestions={managedQuestions}
                 allTags={allTags}
               />

@@ -37,7 +37,7 @@ const filteredQuestions = (questions: Question[], integration: string, tags: str
     return matchesIntegration && matchesTags && matchesSearch
   })
 
-  if (!isFiltering) {
+  if (isFiltering) {
     return results.slice(0, questionNumber)
   }
 

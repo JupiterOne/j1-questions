@@ -16,6 +16,7 @@ export interface Question {
   queries: Query[];
   tags: string[];
   integration?: string;
+  hash?: string;
 }
 
 export interface ManagedQuestionJSON {

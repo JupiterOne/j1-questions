@@ -1,16 +1,14 @@
-import React from 'react'
+import React, {useMemo} from 'react'
 import {
   Divider,
   Paper,
   Icon,
   Button,
-  Snackbar
 } from '@material-ui/core'
 import {ManagedQuestionJSON, Question} from '../types'
 import {useQuestionDisplayStyles} from '../classes'
-import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import filterQuestions from '../methods/filterQuestions'
-import hash from 'hash.js'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 interface Props {
@@ -25,8 +23,17 @@ interface Props {
 
 const QuestionsDisplay = (props : Props) => {
   const classes = useQuestionDisplayStyles()
+  const history = useHistory()
 
-  const filteredQuestions : Question[] = filterQuestions(props.managedQuestions.questions, props.integration, props.tags, props.search, props.questionNumber)
+  console.log('Header rendered')
+
+  const filteredQuestions : Question[] = useMemo(() => filterQuestions(
+    props.managedQuestions.questions,
+    props.integration,
+    props.tags,
+    props.search,
+    props.questionNumber
+  ), [props])
 
   return (
     <Paper className={classes.root} style={{margin: props.center ? 'auto' : ''}}>
@@ -35,13 +42,11 @@ const QuestionsDisplay = (props : Props) => {
           <div>
             {filteredQuestions.map((question: Question, index: number) => {
               return (
-                <Link key={index} style={{textDecoration: 'none'}} to={`/question/${hash.sha1().update(question.title).digest('hex')}`}>
-                  <Paper elevation={0} style={{display: 'flex', marginBottom: '0.5%', padding: '0.5%'}}>
-                    <span className={classes.item}>{question.title}</span>
-                    <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
-                    <Divider/>
-                  </Paper>
-                </Link>
+                <div key={index} onClick={() => history.push(`/question/${question.hash}`)} style={{display: 'flex'}}>
+                  <span className={classes.item}>{question.title}</span>
+                  <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
+                  <Divider/>
+                </div>
               )})
             }
             {(props.questionNumber < props.managedQuestions.questions.length && !(props.integration !== 'none' || props.tags.length !== 0 || props.search !== '')) ? (
@@ -56,4 +61,4 @@ const QuestionsDisplay = (props : Props) => {
   )
 }
 
-export default QuestionsDisplay;
+export default React.memo(QuestionsDisplay);

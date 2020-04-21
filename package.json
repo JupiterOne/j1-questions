@@ -24,6 +24,7 @@
     "fuzzyjs": "^4.0.4",
     "hash.js": "^1.1.7",
     "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.15",
     "match-sorter": "^4.1.0",
     "qs": "^6.9.3",
     "query-string": "^6.12.1",
@@ -57,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.150",
     "@types/react-router-dom": "^5.1.4"
   }
 }
