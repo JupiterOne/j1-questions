@@ -15,6 +15,7 @@ interface Props {
   managedQuestions: ManagedQuestionJSON;
   allTags: string[];
   search: string;
+  allCategories: string[];
 }
 
 const Main = (props: Props) => {
@@ -77,6 +78,7 @@ const Main = (props: Props) => {
           managedQuestions={props.managedQuestions}
           search={props.search}
           filterLogic={filterLogic}
+          allCategories={props.allCategories}
         />
       </Box>
     </>

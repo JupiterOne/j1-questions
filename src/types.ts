@@ -16,6 +16,7 @@ export interface Question {
   queries: Query[];
   tags: string[];
   integration?: string;
+  category: string;
   hash?: string;
 }
 

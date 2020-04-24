@@ -20,6 +20,7 @@ const intialState = {
   },
   questions: [
     {
+      category: 'Here',
       compliance: [
         {
           standard: 'string'
@@ -40,6 +41,7 @@ const intialState = {
 function App() {
   const [managedQuestions, setManagedQuestions] = useState<ManagedQuestionJSON>(intialState)
   const [allTags, setAllTags] = useState<string[]>([])
+  const [allCategories, setAllCategories] = useState<string[]>([])
   const [search, setSearch] = useState('')
   const [themeDark, setTheme] = useState<boolean>(false)
 
@@ -48,6 +50,11 @@ function App() {
       const tags : string[] = r.questions.map((question : Question) => {
         return question.tags
       }).flat(2)
+      const categories : string[] = r.questions.map((question : Question) => {
+        return question.category
+      }).flat(1)
+      setAllCategories([])
+      setAllCategories(uniqueArray(categories))
       setAllTags([])
       setAllTags(uniqueArray(tags))
 
@@ -55,7 +62,7 @@ function App() {
     })
   }, [])
 
-  console.info({search})
+  console.info({allCategories})
 
   const theme = createMuiTheme({
     palette: {
@@ -104,6 +111,7 @@ function App() {
                 search={search}
                 managedQuestions={managedQuestions}
                 allTags={allTags}
+                allCategories={allCategories}
               />
             </Route>
             <Route exact path='/filter'>
@@ -111,6 +119,7 @@ function App() {
                 search={search}
                 managedQuestions={managedQuestions}
                 allTags={allTags}
+                allCategories={allCategories}
               />
             </Route>
 

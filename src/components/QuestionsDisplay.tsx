@@ -1,8 +1,10 @@
 import React, {useMemo} from 'react'
 import {
-  Chip,
+  // Chip,
+  Typography,
   Paper,
-  Icon
+  Icon,
+  Box
 } from '@material-ui/core'
 import {ManagedQuestionJSON, Question} from '../types'
 import {useQuestionDisplayStyles} from '../classes'
@@ -17,6 +19,7 @@ interface Props {
   center?: boolean | undefined;
   search: string;
   filterLogic: string;
+  allCategories: string[];
 }
 
 const QuestionsDisplay = (props : Props) => {
@@ -36,19 +39,33 @@ const QuestionsDisplay = (props : Props) => {
       {filteredQuestions.length !== 0 ?
         (
           <div>
-            {filteredQuestions.map((question: Question, index: number) => {
-              return (
-                <div key={index} onClick={() => history.push(`/question/${question.hash}`)} style={{display: 'flex'}}>
-                  <span className={classes.item}>
-                    {question.title}
-                    <div>
-                      {/* question.tags ? question.tags.map(tag => <Chip className={classes.chip} label={tag}/>) : null */}
-                    </div>
-                  </span>
-                  <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
-                </div>
-              )})
-            }
+            {[...props.allCategories, undefined].map(category =>
+              <div>
+                {filteredQuestions.filter(question =>
+                  question.category === category
+                ).length !== 0 ?
+                  <Box m={1} mt={2}>
+                    <Typography variant='h6'>{category === undefined ? 'No Category' : category}</Typography>
+                  </Box>
+                : (
+                  null
+                )}
+                
+                {filteredQuestions.filter(question =>
+                  question.category === category
+                ).map((question: Question, index: number) =>
+                  <div key={index} onClick={() => history.push(`/question/${question.hash}`)} style={{display: 'flex'}}>
+                    <span className={classes.item}>
+                      {question.title}
+                      <div>
+                        {/* question.tags ? question.tags.map(tag => <Chip className={classes.chip} label={tag}/>) : null */}
+                      </div>
+                    </span>
+                    <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         ) : (
           <i>No results.</i>

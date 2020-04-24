@@ -46,7 +46,7 @@ const QuestionDisplay = (props: Props) => {
           <div>
             <Box className={classes.title}>
               <Typography variant='h6' className={classes.titleText}>{question.title}</Typography>
-              {question.tags === undefined || question.tags.map((tag: string) => <Chip className={classes.tag} variant="outlined" color='secondary' onClick={() => {
+              {question.tags === undefined || question.tags.map((tag: string) => <Chip key={tag} className={classes.tag} variant="outlined" color='secondary' onClick={() => {
                 history.push(`/filter?&tags=${tag}`)
               }} label={tag}/>)}
             </Box>
