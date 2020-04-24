@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import QuestionDisplay from './components/QuestionDisplay'
@@ -126,28 +126,3 @@ function App() {
 }
 
 export default App;
-
-// <Route exact path='/filter' render={(props:any) => {
-//   console.log(queryString.parse(props.location.search))
-//   const params = queryString.parse(props.location.search)
-//   if (typeof params.integration !== 'string') {
-//     params.integration = ''
-//   }
-//   if (typeof params.search !== 'string') {
-//     params.search = ''
-//   }
-//   if (typeof params.tags !== 'string') {
-//     params.tags = '[]'
-//   }
-//   return (
-//     <QuestionsDisplay
-//       center
-//       integration={params.integration}
-//       tags={params.tags.split(',')}
-//       search={params.search}
-//       managedQuestions={managedQuestions}
-//       questionNumber={questionNumber}
-//       setQuestionNumber={setQuestionNumber}
-//     />
-//   )
-// }}/>
