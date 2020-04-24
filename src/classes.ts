@@ -17,21 +17,41 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
     },
     title: {
       flexGrow: 1,
+      position: 'relative',
+      left: theme.spacing(-1)
+    },
+    search: {
+      margin: 'auto',
     },
     input: {
       position: 'relative',
       color: theme.palette.text.primary,
-      width: theme.spacing(22),
-      marginLeft: theme.spacing(0.5)
+      marginLeft: theme.spacing(0.5),
+      height: theme.spacing(5),
+      width: theme.spacing(50)
     },
-    inputIcon: {
-      marginRight: theme.spacing(1)
+    inputSelected: {
+      borderColor: 'linear-gradient(0.6turn, rgb(234, 254, 65), rgb(22, 150, 172))'
     },
     icon: {
       marginRight: theme.spacing(1)
     },
     actionButton: {
       marginLeft: theme.spacing(1)
+    },
+    headerPart: {
+      flexGrow: 1,
+      display: 'flex'
+    },
+    alignRight: {
+      flexDirection: 'row-reverse'
+    },
+    thin: {
+      fontWeight: 100,
+    },
+    bold: {
+      fontWeight: 500,
+      fontFamily: "Lato"
     }
   }),
 );
@@ -51,6 +71,9 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       marginBottom: '0.5%',
       textDecoration: 'none'
     },
+    chip: {
+      marginRight: theme.spacing(0.5)
+    },
     arrow: {
       position: 'relative',
       top: theme.spacing(0.5)
@@ -65,6 +88,10 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       width: '16%',
       padding: theme.spacing(1)
     },
+    filterSection: {
+      borderRadiusBottomLeft: theme.spacing(1),
+      borderRadiusBottomRight: theme.spacing(1)
+    },
     notFlex: {
       display: 'flex',
       flexDirection: 'column',
@@ -72,12 +99,14 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
         display: 'block'
       }
     },
+    section: {
+      display: 'flex',
+      '& > *' : {
+        display: 'inline-block'
+      }
+    },
     flexWrap: {
       flexWrap: 'wrap'
-    },
-    title: {
-      borderBottomLeftRadius: 0,
-      borderBottomRightRadius: 0
     },
     tag: {
       marginRight: theme.spacing(0.5),
@@ -123,11 +152,10 @@ export const useQuestionStyles = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(2)
     },
     queryBox: {
-      display: 'flex',
-      flexGrow: 1,
-      // '& > *' : {
-      //   flexGrow: 1,
-      // }
+      paddingLeft: theme.spacing(1)
+    },
+    tag: {
+      marginLeft: theme.spacing(0.5)
     }
   }),
 );

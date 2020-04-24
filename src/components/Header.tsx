@@ -3,16 +3,17 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import LifeomicIcon from './lifeomic-icon.png';
-import Input from '@material-ui/core/Input';
+import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import Snackbar from '@material-ui/core/Snackbar';
-// import Icon from '@material-ui/core/Icon'
+import Tooltip from '@material-ui/core/Tooltip'
 import Alert from '@material-ui/lab/Alert'
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooksOutlined';
 import {useHeaderStyles} from '../classes'
 import {Link, useLocation} from 'react-router-dom'
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 import queryString from 'query-string'
 import {useHistory} from 'react-router-dom'
 import debounce from 'lodash/debounce';
@@ -31,14 +32,6 @@ const Header = (props : Props) => {
   const [searchText, setSearchText] = useState('')
   const [copied, setCopied] = useState(false)
   const history = useHistory()
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const params = queryString.parse(history.location.search)
   const setSearch = debounce(props.setSearch, 700)
@@ -55,41 +48,49 @@ const Header = (props : Props) => {
 
   return (
     <div>
-      <AppBar className={classes.root} position="static">
+      <AppBar className={classes.root} position="static" elevation={0}>
         <Toolbar>
           <Link to='/'>
             <img className={classes.menuButton} src={LifeomicIcon}/>
           </Link>
-          <Typography variant="h6" className={classes.title}>
-            JupiterOne Questions
+          <Typography variant="button" className={classes.title}>
+            <Typography className={classes.bold} variant="h5" component='span'>Jupiter<span className={classes.thin}>One</span> </Typography> Questions
           </Typography>
-          <IconButton onClick={() => {
-            copy(`http://localhost:3000${history.location.pathname}`)
-            setCopied(true)
-            handleClose()
-          }}>
-            <LibraryBooksIcon/>
-          </IconButton>
-          <IconButton onClick={() => {
-            props.setTheme((theme:boolean) => !theme)
-            handleClose()
-          }}>
-            {!(props.color === 'light') ? <Brightness7Icon /> : <Brightness4Icon />}
-          </IconButton>
-          <div>
-          {!props.disabled ?
-            <div>
-              <Input
-                className={classes.input}
-                placeholder={'Search'}
-                value={searchText}
-                disabled={location.pathname.includes('/question/')}
-                onChange={(e: any) => {
-                  setSearchText(e.target.value)
-                  setSearch(e.target.value)
-                }}
-              />
-            </div>: <span/>}
+          <div className={classes.headerPart}>
+            <TextField
+              type="search"
+              variant="outlined"
+              className={classes.input}
+              placeholder={'Search'}
+              value={searchText}
+              disabled={location.pathname.includes('/question/')}
+              onChange={(e: any) => {
+                setSearchText(e.target.value)
+                setSearch(e.target.value)
+              }}
+            />
+          </div>
+          <div className={`${classes.headerPart} ${classes.alignRight}`}>
+            <Tooltip title="Launch JupiterOne">
+              <IconButton href='https://apps.us.jupiterone.io'>
+                <OpenInNewIcon/>
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Copy URL">
+              <IconButton onClick={() => {
+                copy(`http://localhost:3000${history.location.pathname}`)
+                setCopied(true)
+              }}>
+                <LibraryBooksIcon/>
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Change theme">
+              <IconButton onClick={() => {
+                props.setTheme((theme:boolean) => !theme)
+              }}>
+                {!(props.color === 'light') ? <Brightness7Icon /> : <Brightness4Icon />}
+              </IconButton>
+            </Tooltip>
           </div>
         </Toolbar>
         <div className='border'/>

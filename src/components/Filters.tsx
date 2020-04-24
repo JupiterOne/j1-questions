@@ -2,15 +2,15 @@ import React from 'react'
 import {
   Paper,
   Icon,
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
+  Box,
   Radio,
   Chip,
   Typography,
   FormControlLabel,
   RadioGroup,
   Avatar,
-  Box,
+  Button,
+  ButtonGroup
 } from '@material-ui/core'
 import {useFilterStyles} from '../classes'
 import {ManagedQuestionJSON} from '../types'
@@ -26,66 +26,48 @@ interface Props {
   allTags: string[];
   tagCheckClicked: Function;
   tags: string[];
+  filterLogic: string;
+  setFilterLogic: Function;
 }
 
 const Filters = (props: Props) => {
   const classes = useFilterStyles()
 
   return (
-    <Paper className={classes.root}>
-      <ExpansionPanelSummary>
+    <Paper elevation={0} className={classes.root}>
+      <Box m={2} className={classes.section}>
         <Icon>
           <FilterListIcon/>
         </Icon>
         <Typography variant='h6'>Filters</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelSummary>
+      </Box>
+      <Box m={2}>
+        <ButtonGroup>
+          <Button color={(props.filterLogic === 'and') ? 'primary' : 'default'} onClick={() => props.setFilterLogic('and')}>Filter by all</Button>
+          <Button color={(props.filterLogic === 'or') ? 'primary' : 'default'} onClick={() => props.setFilterLogic('or')}>Filter by any</Button>
+        </ButtonGroup>
+      </Box>
+      <Box m={2} className={classes.section}>
         <Icon>
           <IntegrationIcon/>
         </Icon>
         <Typography variant='subtitle1'>Integrations</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails className={classes.notFlex}>
-        {[...Object.keys(props.managedQuestions.integrations), 'none'].map((integration: any, index: number) => (
+      </Box>
+      <Box m={2} className={`${classes.section} ${classes.notFlex}`}>
+        {[...Object.keys(props.managedQuestions.integrations), 'none', 'any'].map((integration: any, index: number) => (
           <RadioGroup color='secondary' key={index} className={classes.notFlex} value={props.integration} onChange={() => props.integrationClicked(integration)}>
             <FormControlLabel value={integration} control={<Radio/>} label={integration}/>
           </RadioGroup>
         ))}
-      </ExpansionPanelDetails>
+      </Box>
 
-      <ExpansionPanelSummary>
+      <Box m={2} className={classes.section}>
         <Icon>
           <TagIcon/>
         </Icon>
         <Typography variant='subtitle1'>Tags</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails className={classes.flexWrap}>
-        <Box mb={2}>
-          <Box>
-            {props.tags
-            .filter((tag: string) => (
-                props.tags.includes(tag)
-            )).length !== 0 ? <Typography variant='subtitle1'>Active Tags</Typography> : <span/>}
-          </Box>
-          <Box mt={1}>
-            {props.allTags
-              .sort()
-              .filter((tag: string) => (
-                  props.tags.includes(tag)
-              ))
-              .map((tag: string, index : number) => (
-                <Chip
-                  color='secondary'
-                  variant='outlined'
-                  avatar={props.tags.includes(tag) ? <Avatar><DoneIcon /></Avatar> : undefined}
-                  className={classes.tag}
-                  key={index}
-                  onClick={() => props.tagCheckClicked(tag)}
-                  label={tag}
-                />
-            ))}
-          </Box>
-        </Box>
+      </Box>
+      <Box m={2} className={`${classes.section} ${classes.flexWrap}`}>
         <Box>
           {props.allTags
             .sort()
@@ -101,7 +83,7 @@ const Filters = (props: Props) => {
               />
           ))}
         </Box>
-      </ExpansionPanelDetails>
+      </Box>
     </Paper>
   )
 }

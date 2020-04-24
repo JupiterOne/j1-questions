@@ -3,3 +3,7 @@
   height: 0.2em;
   width: 100%;
 }
+
+.Mui-focused {
+  border: linear-gradient(0.4turn, rgb(234, 254, 65), rgba(22, 150, 172)) 100px solid;
+}

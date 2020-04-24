@@ -42,11 +42,11 @@ const QuestionDisplay = (props: Props) => {
         history.goBack()
       }}> <ArrowBackIosIcon/> Back</Button>
       <Paper className={classes.root}>
-        {question !== undefined ? (
+        {question ? (
           <div>
             <Box className={classes.title}>
               <Typography variant='h6' className={classes.titleText}>{question.title}</Typography>
-              {question.tags.map((tag: string) => <Chip variant="outlined" color='secondary' onClick={() => {
+              {question.tags === undefined || question.tags.map((tag: string) => <Chip className={classes.tag} variant="outlined" color='secondary' onClick={() => {
                 history.push(`/filter?&tags=${tag}`)
               }} label={tag}/>)}
             </Box>
@@ -57,15 +57,24 @@ const QuestionDisplay = (props: Props) => {
             <Typography>Queries</Typography>
             <Box>
               {(question.queries || []).map((query : any) => (
-                <Box key={query.query} mt={2} m={0} className={classes.queryBox}>
-                  <code className={classes.queryBox}>{query.query}</code>
+                <Box key={query.query} mt={2} m={0}>
                   <IconButton color='primary' onClick={() => {
                     copy(query.query)
                     setCopied(true)
                   }} children={<LibraryBooksIcon/>}/>
+                  <code className={classes.queryBox}>{query.query}</code>
                 </Box>
                 ))
               }
+            </Box>
+            <Box>
+              {question.integration ? (
+                <div>
+                  <Typography>Integration: <Chip variant='outlined' color='primary' onClick={() => {
+                    history.push(`/filter?&integration=${question.integration}`)
+                  }}label={question.integration} /></Typography>
+                </div>
+              ) : null}
             </Box>
             <Snackbar open={copied} autoHideDuration={3000} onClose={() => setCopied(false)}>
               <Alert severity="success">
@@ -73,7 +82,7 @@ const QuestionDisplay = (props: Props) => {
               </Alert>
             </Snackbar>
           </div>
-        ) : <span/>}
+        ) : <div>Nothing to display.</div>}
       </Paper>
     </>
   )

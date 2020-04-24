@@ -27,20 +27,24 @@ const Main = (props: Props) => {
   if (typeof params.tags !== 'string') {
     params.tags = ''
   }
+  if (typeof params.filterLogic !== 'string') {
+    params.filterLogic = ''
+  }
 
-  const [integration, setIntegration] = useState((params.integration === '') ? 'none' : params.integration)
+  const [integration, setIntegration] = useState((params.integration === '') ? 'any' : params.integration)
   const [tags, setTags] = useState<string[]>((params.tags !== '') ? params.tags.split(',') : [])
-  const [questionNumber, setQuestionNumber] = useState<number>(10)
+  const [filterLogic, setFilterLogic] = useState<string>((params.filterLogic !== '') ? params.filterLogic : 'and')
 
   useEffect(() => {
     const searchString : string = '/filter?'
       + ((tags.length !== 0) ? `&tags=${tags.join(',')}` : "")
-      + ((integration !== 'none') ? `&integration=${integration}` : "")
+      + ((integration !== '') ? `&integration=${integration}` : "")
       + ((props.search !== '') ? `&search=${props.search}` : "")
+      + ((filterLogic !== '') ? `&filterLogic=${filterLogic}` : "")
 
     history.replace(searchString)
 
-  }, [tags, integration, props.search])
+  }, [tags, integration, props.search, filterLogic])
 
   return (
     <>
@@ -51,6 +55,8 @@ const Main = (props: Props) => {
           integration={integration === '' ? 'none' : integration}
           integrationClicked={setIntegration}
           tags={tags}
+          filterLogic={filterLogic}
+          setFilterLogic={setFilterLogic}
           tagCheckClicked={(tag: string) => {
             setTags((prev: any) => {
               if (tags.includes(tag)) {
@@ -70,8 +76,7 @@ const Main = (props: Props) => {
           tags={tags}
           managedQuestions={props.managedQuestions}
           search={props.search}
-          questionNumber={questionNumber}
-          setQuestionNumber={setQuestionNumber}
+          filterLogic={filterLogic}
         />
       </Box>
     </>
