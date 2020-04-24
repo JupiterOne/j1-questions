@@ -15,5 +15,3 @@ const fetchQuestions = async () => {
 }
 
 export default fetchQuestions
-// http://localhost:5000/managed-questions.json
-// https://apps.dev.jupiterone.io/static/managed-questions.json
