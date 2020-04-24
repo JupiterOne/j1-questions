@@ -28,7 +28,7 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       color: theme.palette.text.primary,
       marginLeft: theme.spacing(0.5),
       height: theme.spacing(5),
-      width: theme.spacing(50)
+      maxWidth: theme.spacing(50)
     },
     inputSelected: {
       borderColor: 'linear-gradient(0.6turn, rgb(234, 254, 65), rgb(22, 150, 172))'
@@ -65,6 +65,14 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       marginLeft: '1%',
       textDecoration: 'none'
     },
+    smallRoot: {
+      display: 'block',
+      width: '100%',
+      padding: theme.spacing(1),
+      marginTop: '1%',
+      marginBottom: '1%',
+      textDecoration: 'none'
+    },
     item: {
       flexGrow: 1,
       padding: '1%',
@@ -87,6 +95,13 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       width: '16%',
       padding: theme.spacing(1)
+    },
+    smallRoot: {
+      display: 'block',
+      width: '100%',
+      padding: theme.spacing(1),
+      marginTop: '1%',
+      textDecoration: 'none'
     },
     filterSection: {
       borderRadiusBottomLeft: theme.spacing(1),

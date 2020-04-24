@@ -11,6 +11,7 @@ import {useQuestionDisplayStyles} from '../classes'
 import {useHistory} from 'react-router-dom'
 import filterQuestions, {FilterType} from '../methods/filterQuestions'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import { useWindowSize } from "@reach/window-size";
 
 interface Props {
   managedQuestions: ManagedQuestionJSON;
@@ -20,27 +21,30 @@ interface Props {
   search: string;
   filterLogic: string;
   allCategories: string[];
+  categories: string[];
 }
 
 const QuestionsDisplay = (props : Props) => {
   const classes = useQuestionDisplayStyles()
   const history = useHistory()
+  const windowSize = useWindowSize()
 
   const filteredQuestions : Question[] = useMemo(() => filterQuestions(
     props.managedQuestions.questions,
     props.integration,
     props.tags,
     props.search,
-    (props.filterLogic === 'or') ? FilterType.ANY : FilterType.ALL
+    (props.filterLogic === 'or') ? FilterType.ANY : FilterType.ALL,
+    props.categories
   ), [props])
 
   return (
-    <Paper elevation={0} className={classes.root} style={{margin: props.center ? 'auto' : ''}}>
+    <Paper elevation={0} className={windowSize.width > 750 ? classes.root : classes.smallRoot} style={{margin: props.center ? 'auto' : ''}}>
       {filteredQuestions.length !== 0 ?
         (
           <div>
             {[...props.allCategories, undefined].map(category =>
-              <div>
+              <div key={category}>
                 {filteredQuestions.filter(question =>
                   question.category === category
                 ).length !== 0 ?
@@ -50,7 +54,7 @@ const QuestionsDisplay = (props : Props) => {
                 : (
                   null
                 )}
-                
+
                 {filteredQuestions.filter(question =>
                   question.category === category
                 ).map((question: Question, index: number) =>

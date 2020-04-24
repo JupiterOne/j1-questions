@@ -1,7 +1,18 @@
 import {Question} from '../types'
 import { test } from 'fuzzyjs'
 
-// NOTE: Christian helped me out with optimizing these functions.
+export const doesMatchCategories = (question: Question, categories: string[]): boolean => {
+  if (categories.length === 0) {
+    return true
+  } else if (question.category) {
+    return categories.includes(question.category)
+  } else {
+    return false
+  }
+}
+
+// NOTE: Christian helped me out with optimizing these functions. VV
+
 export const doesMatchAllTags = (question: Question, tags: string[]): boolean => {
   // Return true if no tags are being filtered
   if (!question.tags) {
@@ -19,7 +30,7 @@ export const doesMatchAllTags = (question: Question, tags: string[]): boolean =>
 
 export const doesMatchAnyTags = (question: Question, tags: string[]): boolean => {
   if (!question.tags) {
-    return tags.length === 0
+    return false
   }
 
   for (let tag of tags) {
@@ -33,9 +44,7 @@ export const doesMatchAnyTags = (question: Question, tags: string[]): boolean =>
 
 export const doesMatchIntegrations = (question : Question, integration : string) => {
   if (integration === 'none') {
-    return (question.integration === undefined || question.integration === '')
-  } else if (integration === 'any') {
-    return true
+    return true // (question.integration === undefined || question.integration === '')
   } else {
     return question.integration === integration
   }
@@ -46,7 +55,7 @@ export enum FilterType {
   ALL = 'ALL'
 };
 
-const filteredQuestions = (questions: Question[], integration: string, tags: string[], search: string, filterLogic: FilterType) => {
+const filteredQuestions = (questions: Question[], integration: string, tags: string[], search: string, filterLogic: FilterType, categories: string[]) => {
 
   const results = questions.filter(question => {
     const matchesIntegration = doesMatchIntegrations(question, integration)
@@ -54,23 +63,16 @@ const filteredQuestions = (questions: Question[], integration: string, tags: str
       doesMatchAllTags(question, tags) :
       doesMatchAnyTags(question, tags)
 
-    const isSearching = search.length > 0
     const matchesSearch = test(search, `${question.title} ${question.description}`)
+    const matchesCategories = doesMatchCategories(question, categories)
 
-    console.log({
-      isSearching,
-      matchesIntegration,
-      matchesTags,
-      matchesSearch
-    })
-
-    switch (filterLogic) {
-      case FilterType.ALL:
-        return matchesIntegration && matchesTags && matchesSearch
-
-      case FilterType.ANY:
-        return matchesIntegration || matchesTags || (isSearching && matchesSearch)
-    }
+    // switch (filterLogic) {
+    //   case FilterType.ALL:
+        return matchesIntegration && matchesTags && matchesSearch && matchesCategories
+    //
+    //   case FilterType.ANY:
+    //     return matchesIntegration || matchesTags || (isSearching && matchesSearch)
+    // }
   })
 
   return results

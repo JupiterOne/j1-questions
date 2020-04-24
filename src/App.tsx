@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import QuestionDisplay from './components/QuestionDisplay'
@@ -43,7 +43,7 @@ function App() {
   const [allTags, setAllTags] = useState<string[]>([])
   const [allCategories, setAllCategories] = useState<string[]>([])
   const [search, setSearch] = useState('')
-  const [themeDark, setTheme] = useState<boolean>(false)
+  const [themeDark, setTheme] = useState<boolean>(true)
 
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => {
@@ -61,8 +61,6 @@ function App() {
       setManagedQuestions(r)
     })
   }, [])
-
-  console.info({allCategories})
 
   const theme = createMuiTheme({
     palette: {

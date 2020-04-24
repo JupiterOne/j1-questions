@@ -14,10 +14,12 @@ import {Link, useLocation} from 'react-router-dom'
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew'
+import Hidden from '@material-ui/core/Hidden';
 import queryString from 'query-string'
 import {useHistory} from 'react-router-dom'
 import debounce from 'lodash/debounce';
 import copy from 'clipboard-copy'
+import { useWindowSize } from "@reach/window-size";
 
 interface Props {
   setSearch: any;
@@ -32,13 +34,13 @@ const Header = (props : Props) => {
   const [searchText, setSearchText] = useState('')
   const [copied, setCopied] = useState(false)
   const history = useHistory()
+  const windowSize = useWindowSize()
 
   const params = queryString.parse(history.location.search)
   const setSearch = debounce(props.setSearch, 700)
 
 
   useEffect(() => {
-    console.log(params)
     if (typeof params.search !== 'string') {
       params.search = ''
     }
@@ -56,42 +58,46 @@ const Header = (props : Props) => {
           <Typography variant="button" className={classes.title}>
             <Typography className={classes.bold} variant="h5" component='span'>Jupiter<span className={classes.thin}>One</span> </Typography> Questions
           </Typography>
-          <div className={classes.headerPart}>
-            <TextField
-              type="search"
-              variant="outlined"
-              className={classes.input}
-              placeholder={'Search'}
-              value={searchText}
-              disabled={location.pathname.includes('/question/')}
-              onChange={(e: any) => {
-                setSearchText(e.target.value)
-                setSearch(e.target.value)
-              }}
-            />
+          <div className={windowSize.width < 500 ? classes.headerPart : ''}>
+            {!(location.pathname.includes('/question/')) ? (
+              <TextField
+                type="search"
+                variant="outlined"
+                className={classes.input}
+                placeholder={'Search'}
+                value={searchText}
+                // disabled={location.pathname.includes('/question/')}
+                onChange={(e: any) => {
+                  setSearchText(e.target.value)
+                  setSearch(e.target.value)
+                }}
+              />
+            ) : null}
           </div>
-          <div className={`${classes.headerPart} ${classes.alignRight}`}>
-            <Tooltip title="Launch JupiterOne">
-              <IconButton href='https://apps.us.jupiterone.io'>
-                <OpenInNewIcon/>
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Copy URL">
-              <IconButton onClick={() => {
-                copy(`http://localhost:3000${history.location.pathname}`)
-                setCopied(true)
-              }}>
-                <LibraryBooksIcon/>
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Change theme">
-              <IconButton onClick={() => {
-                props.setTheme((theme:boolean) => !theme)
-              }}>
-                {!(props.color === 'light') ? <Brightness7Icon /> : <Brightness4Icon />}
-              </IconButton>
-            </Tooltip>
-          </div>
+          <Hidden smDown>
+            <div className={`${classes.headerPart} ${classes.alignRight}`}>
+              <Tooltip title="Launch JupiterOne">
+                <IconButton href='https://apps.us.jupiterone.io'>
+                  <OpenInNewIcon/>
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Copy URL">
+                <IconButton onClick={() => {
+                  copy(`http://localhost:3000${history.location.pathname}`)
+                  setCopied(true)
+                }}>
+                  <LibraryBooksIcon/>
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Change theme">
+                <IconButton onClick={() => {
+                  props.setTheme((theme:boolean) => !theme)
+                }}>
+                  {!(props.color === 'light') ? <Brightness7Icon /> : <Brightness4Icon />}
+                </IconButton>
+              </Tooltip>
+            </div>
+          </Hidden>
         </Toolbar>
         <div className='border'/>
       </AppBar>
