@@ -23,17 +23,17 @@ const intialState = {
       category: 'Here',
       compliance: [
         {
-          standard: 'string'
+          standard: ''
         }
       ],
-      description: 'description',
-      title: 'title',
+      description: '',
+      title: '',
       queries: [
         {
-          query: 'query',
+          query: '',
         }
       ],
-      tags: ['tag'],
+      tags: [''],
     }
   ]
 }
@@ -43,7 +43,7 @@ function App() {
   const [allTags, setAllTags] = useState<string[]>([])
   const [allCategories, setAllCategories] = useState<string[]>([])
   const [search, setSearch] = useState('')
-  const [themeDark, setTheme] = useState<boolean>(true)
+  const [themeDark, setTheme] = useState<boolean>(false)
 
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => {
@@ -71,6 +71,7 @@ function App() {
       },
       secondary: {
         main: 'rgba(2, 130, 152)',
+        // contrastText: 'rgba(234, 254, 65, 1)'
       },
     },
     typography: {

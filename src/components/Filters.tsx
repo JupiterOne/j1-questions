@@ -3,11 +3,8 @@ import {
   Paper,
   Icon,
   Box,
-  Radio,
   Chip,
   Typography,
-  FormControlLabel,
-  RadioGroup,
   Avatar,
   Button,
   ButtonGroup,
@@ -26,11 +23,11 @@ import { useWindowSize } from "@reach/window-size";
 interface Props {
   managedQuestions: ManagedQuestionJSON;
   integrationClicked: Function;
-  integration: string;
+  integrations: string[];
   allTags: string[];
   tagCheckClicked: Function;
   tags: string[];
-  filterLogic: string;
+  filter: string;
   setFilterLogic: Function;
   allCategories: string[];
   categories: string[];
@@ -40,7 +37,6 @@ interface Props {
 const Filters = (props: Props) => {
   const classes = useFilterStyles()
   const windowSize = useWindowSize()
-  console.log(props.categories)
 
   return (
     <Hidden>
@@ -51,17 +47,42 @@ const Filters = (props: Props) => {
           </Icon>
           <Typography variant='h6'>Filters</Typography>
         </Box>
+        <Box m={2} className={`${classes.section} ${classes.flexWrap}`}>
+          <Icon>
+            <CategoryIcon/>
+          </Icon>
+          <Typography variant='subtitle1'>Category</Typography>
+        </Box>
+        <Box m={2}>
+          {props.allCategories.map(category =>
+            <div onClick={() => props.setCategories({category})} key={category}>
+              <Box>
+                <Checkbox
+                  edge='start'
+                  name={category}
+                  checked={props.categories.includes(category)}
+                  onChange={() => props.setCategories({category})}
+                />
+                {category}
+              </Box>
+            </div>
+          )}
+        </Box>
         <Box m={2} className={classes.section}>
           <Icon>
             <IntegrationIcon/>
           </Icon>
           <Typography variant='subtitle1'>Integrations</Typography>
         </Box>
-        <Box m={2} className={`${classes.section} ${classes.notFlex}`}>
-          {[...Object.keys(props.managedQuestions.integrations), 'none'].map((integration: any, index: number) => (
-            <RadioGroup color='secondary' key={index} className={classes.notFlex} value={props.integration} onChange={() => props.integrationClicked(integration)}>
-              <FormControlLabel value={integration} control={<Radio/>} label={integration}/>
-            </RadioGroup>
+        <Box m={0.7}>
+          {[...Object.keys(props.managedQuestions.integrations), 'none'].map((integration: string, index: number) => (
+            <div key={index}>
+              <Checkbox
+                checked={props.integrations.includes(integration)}
+                onChange={() => props.integrationClicked(integration)}
+              />
+              {Object.keys(props.managedQuestions.integrations).length > 0 && integration !== 'none' ? props.managedQuestions.integrations[integration].title : 'none'}
+            </div>
           ))}
         </Box>
         <Box m={2} className={classes.section}>
@@ -72,14 +93,9 @@ const Filters = (props: Props) => {
         </Box>
         <Box m={2}>
           <ButtonGroup>
-            <Button color={(props.filterLogic === 'and') ? 'primary' : 'default'} onClick={() => props.setFilterLogic('and')}>Filter by all</Button>
-            <Button color={(props.filterLogic === 'or') ? 'primary' : 'default'} onClick={() => props.setFilterLogic('or')}>Filter by any</Button>
+            <Button color={(props.filter === 'all') ? 'primary' : 'default'} onClick={() => props.setFilterLogic('all')}>Filter by all</Button>
+            <Button color={(props.filter === 'any') ? 'primary' : 'default'} onClick={() => props.setFilterLogic('any')}>Filter by any</Button>
           </ButtonGroup>
-          <div>
-            {props.tags.length === 0 && props.filterLogic === 'or' && props.managedQuestions.questions.length !== 0 ? (
-              <Box mt={2} style={{color: 'red'}}>You will need to select one tag for results to show.</Box>
-            ) : null}
-          </div>
         </Box>
         <Box m={2} className={`${classes.section} ${classes.flexWrap}`}>
           <Box>
@@ -96,27 +112,6 @@ const Filters = (props: Props) => {
                   label={tag}
                 />
             ))}
-          </Box>
-        </Box>
-        <Box m={2} className={`${classes.section} ${classes.flexWrap}`}>
-          <Icon>
-            <CategoryIcon/>
-          </Icon>
-          <Typography variant='subtitle1'>Category</Typography>
-          <Box mt={4}>
-            {props.allCategories.map(category =>
-              <div key={category}>
-                <Box ml={-11}>
-                  <Checkbox
-                    edge='start'
-                    name={category}
-                    checked={props.categories.includes(category)}
-                    onChange={() => props.setCategories({category})}
-                  />
-                  {category}
-                </Box>
-              </div>
-            )}
           </Box>
         </Box>
       </Paper>

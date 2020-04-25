@@ -1,10 +1,10 @@
 import React, {useMemo} from 'react'
 import {
-  // Chip,
   Typography,
-  Paper,
+  Card,
   Icon,
-  Box
+  Box,
+  Divider
 } from '@material-ui/core'
 import {ManagedQuestionJSON, Question} from '../types'
 import {useQuestionDisplayStyles} from '../classes'
@@ -15,11 +15,11 @@ import { useWindowSize } from "@reach/window-size";
 
 interface Props {
   managedQuestions: ManagedQuestionJSON;
-  integration: string;
+  integrations: string[];
   tags: string[];
   center?: boolean | undefined;
   search: string;
-  filterLogic: string;
+  filter: string;
   allCategories: string[];
   categories: string[];
 }
@@ -31,15 +31,18 @@ const QuestionsDisplay = (props : Props) => {
 
   const filteredQuestions : Question[] = useMemo(() => filterQuestions(
     props.managedQuestions.questions,
-    props.integration,
+    props.integrations,
     props.tags,
     props.search,
-    (props.filterLogic === 'or') ? FilterType.ANY : FilterType.ALL,
+    (props.filter === 'any') ? FilterType.ANY : FilterType.ALL,
     props.categories
   ), [props])
 
   return (
-    <Paper elevation={0} className={windowSize.width > 750 ? classes.root : classes.smallRoot} style={{margin: props.center ? 'auto' : ''}}>
+    <Card elevation={0} className={windowSize.width > 750 ? classes.root : classes.smallRoot} style={{margin: props.center ? 'auto' : ''}}>
+      <Box style={{textAlign: 'right'}} mr={1} mb={-3}>
+        <em>{filteredQuestions.length} of {props.managedQuestions.questions.length}</em>
+      </Box>
       {filteredQuestions.length !== 0 ?
         (
           <div>
@@ -58,24 +61,29 @@ const QuestionsDisplay = (props : Props) => {
                 {filteredQuestions.filter(question =>
                   question.category === category
                 ).map((question: Question, index: number) =>
-                  <div key={index} onClick={() => history.push(`/question/${question.hash}`)} style={{display: 'flex'}}>
-                    <span className={classes.item}>
-                      {question.title}
-                      <div>
-                        {/* question.tags ? question.tags.map(tag => <Chip className={classes.chip} label={tag}/>) : null */}
-                      </div>
-                    </span>
-                    <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
-                  </div>
+                  <>
+                    <Box key={index} onClick={() => history.push(`/question/${question.hash}`)} style={{display: 'flex'}}>
+                      <span className={classes.item}>
+                        {question.title}
+                        <div>
+                          {/* question.tags ? question.tags.map(tag => <Chip className={classes.chip} label={tag}/>) : null */}
+                        </div>
+                      </span>
+                      <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
+                    </Box>
+                    {index !== filteredQuestions.filter(question =>
+                      question.category === category
+                    ).length - 1 ? <Divider/> : <span/>}
+                  </>
                 )}
               </div>
             )}
           </div>
         ) : (
-          <i>No results.</i>
+          <Box m={1}><strong>No results.</strong></Box>
         )
       }
-    </Paper>
+    </Card>
   )
 }
 

@@ -31,6 +31,8 @@ export const doesMatchAllTags = (question: Question, tags: string[]): boolean =>
 export const doesMatchAnyTags = (question: Question, tags: string[]): boolean => {
   if (!question.tags) {
     return false
+  } else if (tags.length === 0) {
+    return true
   }
 
   for (let tag of tags) {
@@ -42,11 +44,13 @@ export const doesMatchAnyTags = (question: Question, tags: string[]): boolean =>
   return false
 }
 
-export const doesMatchIntegrations = (question : Question, integration : string) => {
-  if (integration === 'none') {
+export const doesMatchIntegrations = (question : Question, integrations : string[]) => {
+  if (integrations.length === 0) {
     return true // (question.integration === undefined || question.integration === '')
+  } else if (integrations.includes('none') && question.integration === undefined){
+    return true
   } else {
-    return question.integration === integration
+    return integrations.includes(question.integration !== undefined ? question.integration : '')
   }
 }
 
@@ -55,18 +59,18 @@ export enum FilterType {
   ALL = 'ALL'
 };
 
-const filteredQuestions = (questions: Question[], integration: string, tags: string[], search: string, filterLogic: FilterType, categories: string[]) => {
+const filteredQuestions = (questions: Question[], integrations: string[], tags: string[], search: string, filter: FilterType, categories: string[]) => {
 
   const results = questions.filter(question => {
-    const matchesIntegration = doesMatchIntegrations(question, integration)
-    const matchesTags = (filterLogic === FilterType.ALL) ?
+    const matchesIntegration = doesMatchIntegrations(question, integrations)
+    const matchesTags = (filter === FilterType.ALL) ?
       doesMatchAllTags(question, tags) :
       doesMatchAnyTags(question, tags)
 
     const matchesSearch = test(search, `${question.title} ${question.description}`)
     const matchesCategories = doesMatchCategories(question, categories)
 
-    // switch (filterLogic) {
+    // switch (filter) {
     //   case FilterType.ALL:
         return matchesIntegration && matchesTags && matchesSearch && matchesCategories
     //

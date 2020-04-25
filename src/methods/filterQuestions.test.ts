@@ -75,49 +75,49 @@ describe('filterQuestions', () => {
   test('(ALL) filters questions by integration', () => {
     expect(
       titlesOfQuestions(
-        filterQuestions(testData, 'jest', [], '', FilterType.ALL, [])
+        filterQuestions(testData, ['jest'], [], '', FilterType.ALL, [])
       )
     ).toEqual(['Why do I test things?'])
   })
   test('(ALL) filters questions by tag', () => {
     expect(
       titlesOfQuestions(
-        filterQuestions(testData, 'none', ['3'], '', FilterType.ALL, [])
+        filterQuestions(testData, ['none'], ['3'], '', FilterType.ALL, [])
       )
     ).toEqual(['Why does everything sound better in triplets?'])
   })
   test('(ALL) filters questions by title', () => {
     expect(
       titlesOfQuestions(
-        filterQuestions(testData, 'none', [], 'better', FilterType.ALL, [])
+        filterQuestions(testData, ['none'], [], 'better', FilterType.ALL, [])
       )
     ).toEqual(['Why does everything sound better in triplets?'])
   })
   test('(ALL) filters questions by integration and tag', () => {
     expect(
       titlesOfQuestions(
-        filterQuestions(testData, 'jest', ['testing'], '', FilterType.ALL, [])
+        filterQuestions(testData, ['jest'], ['testing'], '', FilterType.ALL, [])
       )
     ).toEqual(['Why do I test things?'])
   })
   test('(ALL) filters questions by integration and title', () => {
     expect(
       titlesOfQuestions(
-        filterQuestions(testData, 'jest', [], 'things', FilterType.ALL, [])
+        filterQuestions(testData, ['jest'], [], 'things', FilterType.ALL, [])
       )
     ).toEqual(['Why do I test things?'])
   })
   test('(ALL) filters questions by title and tag', () => {
     expect(
       titlesOfQuestions(
-        filterQuestions(testData, 'none', ['3'], 'triplets', FilterType.ALL, [])
+        filterQuestions(testData, ['none'], ['3'], 'triplets', FilterType.ALL, [])
       )
     ).toEqual(['Why does everything sound better in triplets?'])
   })
   test('(ALL) filters questions by integration, tag, and title', () => {
     expect(
       titlesOfQuestions(
-        filterQuestions(testData, 'jest', ['testing'], 'test', FilterType.ALL, [])
+        filterQuestions(testData, ['jest'], ['testing'], 'test', FilterType.ALL, [])
       )
     ).toEqual(['Why do I test things?'])
   })
@@ -125,7 +125,7 @@ describe('filterQuestions', () => {
   test('(ANY) filters questions by integration and tag', () => {
     expect(
       titlesOfQuestions(
-        filterQuestions(testData, 'jest', ['3'], '', FilterType.ANY, [])
+        filterQuestions(testData, ['jest'], ['3'], '', FilterType.ANY, [])
       )
     ).toEqual([
       'Why do I test things?',
@@ -135,7 +135,7 @@ describe('filterQuestions', () => {
   test('(ANY) filters questions such that it shows all results when no filters', () => {
     expect(
       titlesOfQuestions(
-        filterQuestions(testData, 'none', [], '', FilterType.ANY, [])
+        filterQuestions(testData, ['none'], [], '', FilterType.ANY, [])
       )).toEqual([])
   })
 })

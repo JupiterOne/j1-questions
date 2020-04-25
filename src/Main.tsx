@@ -24,31 +24,32 @@ const Main = (props: Props) => {
   const windowSize = useWindowSize()
 
   const params = queryString.parse(history.location.search)
-  if (typeof params.integration !== 'string') {
-    params.integration = ''
+  if (typeof params.integrations !== 'string') {
+    params.integrations = ''
   }
   if (typeof params.tags !== 'string') {
     params.tags = ''
   }
-  if (typeof params.filterLogic !== 'string') {
-    params.filterLogic = ''
+  if (typeof params.tagFilter !== 'string') {
+    params.tagFilter = ''
   }
 
-  const [integration, setIntegration] = useState((params.integration === '') ? 'any' : params.integration)
+  const [integrations, setIntegrations] = useState<string[]>((params.integrations !== '') ? params.integrations.split(',') : [])
   const [tags, setTags] = useState<string[]>((params.tags !== '') ? params.tags.split(',') : [])
-  const [filterLogic, setFilterLogic] = useState<string>((params.filterLogic !== '') ? params.filterLogic : 'and')
+  const [tagFilter, setFilterLogic] = useState<string>((params.tagFilter !== '') ? params.tagFilter : 'all')
   const [categories, setCategories] = useState<string[]>([])
 
   useEffect(() => {
+
     const searchString : string = '/filter?'
       + ((tags.length !== 0) ? `&tags=${tags.join(',')}` : "")
-      + ((integration !== '') ? `&integration=${integration}` : "")
+      + ((integrations.length !== 0) ? `&integrations=${integrations.join(',')}` : "")
       + ((props.search !== '') ? `&search=${props.search}` : "")
-      + ((filterLogic !== '') ? `&filterLogic=${filterLogic}` : "")
+      + ((tagFilter !== '') ? `&tagFilter=${tagFilter}` : "")
 
     history.replace(searchString)
 
-  }, [tags, integration, props.search, filterLogic, categories])
+  }, [tags, integrations, props.search, tagFilter, categories])
 
   return (
     <>
@@ -56,10 +57,23 @@ const Main = (props: Props) => {
         <Filters
           managedQuestions={props.managedQuestions}
           allTags={props.allTags}
-          integration={integration === '' ? 'none' : integration}
-          integrationClicked={setIntegration}
+          integrations={integrations}
+          integrationClicked={(integration: string) => {
+            setIntegrations((prev: string[]) => {
+              if (prev.includes(integration)) {
+                const index = prev.indexOf(integration);
+                if (index > -1) {
+                  prev.splice(index, 1);
+                }
+              } else {
+                prev.push(integration)
+              }
+              prev = uniqueArray(prev)
+              return prev
+            })
+          }}
           tags={tags}
-          filterLogic={filterLogic}
+          filter={tagFilter}
           setFilterLogic={setFilterLogic}
           allCategories={props.allCategories}
           categories={categories}
@@ -92,11 +106,11 @@ const Main = (props: Props) => {
             })
           }}/>
         <QuestionsDisplay
-          integration={integration}
+          integrations={integrations}
           tags={tags}
           managedQuestions={props.managedQuestions}
           search={props.search}
-          filterLogic={filterLogic}
+          filter={tagFilter}
           allCategories={props.allCategories}
           categories={categories}
         />

@@ -21,6 +21,6 @@ export interface Question {
 }
 
 export interface ManagedQuestionJSON {
-  integrations: {};
+  integrations: any;
   questions: Question[]
 }

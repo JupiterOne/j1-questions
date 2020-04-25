@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.9.11",
     "@material-ui/lab": "^4.0.0-alpha.50",
     "@reach/window-size": "^0.10.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -21,16 +22,11 @@
     "fuzzy-comparison": "^1.0.1",
     "fuzzyjs": "^4.0.4",
     "hash.js": "^1.1.7",
-    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.15",
-    "match-sorter": "^4.1.0",
-    "qs": "^6.9.3",
     "query-string": "^6.12.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "react-use": "^14.1.1",
-    "throttle-debounce": "^2.1.0",
     "typescript": "~3.7.2"
   },
   "scripts": {
