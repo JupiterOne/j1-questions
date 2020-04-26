@@ -5,24 +5,13 @@ import {
   Icon,
   Box,
 } from '@material-ui/core'
-import {ManagedQuestionJSON, Question} from '../types'
+import {Question} from '../types'
 import {useQuestionDisplayStyles} from '../classes'
 import {useHistory} from 'react-router-dom'
 import filterQuestions, {FilterType} from '../methods/filterQuestions'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { useWindowSize } from "@reach/window-size";
 import Context from '../AppContext'
-
-interface Props {
-  // managedQuestions: ManagedQuestionJSON;
-  // integrations: string[];
-  // tags: string[];
-  // center?: boolean | undefined;
-  // search: string;
-  // filter: string;
-  // allCategories: string[];
-  // categories: string[];
-}
 
 const QuestionsDisplay = () => {
   console.log('QuestionsDisplay')

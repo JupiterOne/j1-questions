@@ -36,7 +36,7 @@ function App() {
   const [integrations, setIntegrations] = useState<string[]>((params.integrations) ? params.integrations.split(',') : [])
   const [tags, setTags] = useState<string[]>((params.tags) ? params.tags.split(',') : [])
   const [tagFilter, setFilterLogic] = useState<string>(params.tagFilter ? params.tagFilter : 'all')
-  const [categories, setCategories] = useState<string[]>([])
+  const [categories, setCategories] = useState<string[]>((params.categories) ? params.categories.split(',') : [])
 
   const setSearch = throttle(setRawSearch, 700)
 
