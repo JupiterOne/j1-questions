@@ -39,6 +39,7 @@ const Main = () => {
       + ((tags.length !== 0) ? `&tags=${tags.join(',')}` : "")
       + ((integrations.length !== 0) ? `&integrations=${integrations.join(',')}` : "")
       + ((search !== '') ? `&search=${search}` : "")
+      + ((categories.length !== 0) ? `&categories=${categories.join(',')}` : "")
       + (`&tagFilter=${tagFilter}`)
 
     history.replace(searchString)

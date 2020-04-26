@@ -6,7 +6,7 @@ import {
   Box,
   Divider,
 } from '@material-ui/core'
-import {ManagedQuestionJSON, Question} from '../types'
+import {Question} from '../types'
 import {useQuestionDisplayStyles} from '../classes'
 import {useHistory} from 'react-router-dom'
 import filterQuestions, {FilterType} from '../methods/filterQuestions'
