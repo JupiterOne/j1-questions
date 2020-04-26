@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 import QuestionDisplay from './components/QuestionDisplay'
 import Main from './Main'
 import fetchQuestions from './methods/fetchQuestions'
@@ -8,7 +8,9 @@ import uniqueArray from './methods/uniqueArray'
 import {ManagedQuestionJSON, Question} from './types'
 import { createMuiTheme } from '@material-ui/core/styles';
 import Header from './components/Header'
+import Context from './AppContext'
 import queryString from 'query-string'
+import debounce from 'lodash/debounce'
 
 import {ThemeProvider} from '@material-ui/core/styles'
 import {
@@ -41,13 +43,18 @@ const themeCreator = (isDark: boolean) => createMuiTheme({
 });
 
 function App() {
+
+  const params : any = queryString.parse(window.location.search)
+
   const [managedQuestions, setManagedQuestions] = useState<ManagedQuestionJSON>(intialState)
   const [allTags, setAllTags] = useState<string[]>([])
   const [allCategories, setAllCategories] = useState<string[]>([])
-  const [themeDark, setTheme] = useState<boolean>(false)
-
-  const params = queryString.parse(window.location.search)
   const [search, setSearch] = useState((params.search as string) || '')
+  const [themeDark, setTheme] = useState<boolean>(false)
+  const [integrations, setIntegrations] = useState<string[]>((params.integrations) ? params.integrations.split(',') : [])
+  const [tags, setTags] = useState<string[]>((params.tags) ? params.tags.split(',') : [])
+  const [tagFilter, setFilterLogic] = useState<string>(params.tagFilter ? params.tagFilter : 'all')
+  const [categories, setCategories] = useState<string[]>([])
 
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => {
@@ -68,53 +75,66 @@ function App() {
     })
   }, [])
 
-  const theme = themeCreator(themeDark);
+  const theme = createMuiTheme({
+    palette: {
+      type: themeDark ? 'dark' : 'light',
+      primary: {
+        main: 'rgb(22, 150, 172)',
+        contrastText: '#FFF'
+      },
+      secondary: {
+        main: 'rgba(2, 130, 152)',
+      },
+    },
+    typography: {
+      allVariants : {
+        fontFamily: "Roboto"
+      }
+    },
+    overrides: {
+      MuiPaper: {
+        root: {
+          boxShadow: 'none'
+        }
+      },
+    }
+  });
 
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <CssBaseline/>
-        <Switch>
+    <Context.Provider value={{
+      managedQuestions,
+      allTags,
+      themeDark, setTheme,
+      allCategories,
+      search, setSearch: debounce(setSearch, 300),
+      integrations, setIntegrations,
+      tags, setTags,
+      tagFilter, setFilterLogic,
+      categories, setCategories
+    }}>
+      <ThemeProvider theme={theme}>
+          <CssBaseline/>
+          <Header/>
 
-          <Route exact path='/'>
-            <Redirect to='/filter' />
-          </Route>
+          <Container maxWidth="lg">
+            <Switch>
 
+              <Route exact path='/'>
+                <Redirect to='/filter' />
+              </Route>
 
-          <Route exact path='/filter'>
-            <Header
-              color={themeDark ? 'dark' : 'light'}
-              setTheme={setTheme}
-              setSearch={setSearch}
-              managedQuestions={managedQuestions}
-            />
+              <Route exact path='/filter'>
+                <Main/>
+              </Route>
 
-            <Container maxWidth="lg">
-              <Main
-                search={search}
-                managedQuestions={managedQuestions}
-                allTags={allTags}
-                allCategories={allCategories}
-              />
-            </Container>
-          </Route>
+              <Route exact path='/question/:questionTitle'>
+                <QuestionDisplay/>
+              </Route>
 
-
-          <Route exact path='/question/:questionTitle'>
-            <Header
-              color={themeDark ? 'dark' : 'light'}
-              setTheme={setTheme}
-              managedQuestions={managedQuestions}
-            />
-
-            <Container maxWidth="lg">
-              <QuestionDisplay managedQuestions={managedQuestions}/>
-            </Container>
-          </Route>
-
-        </Switch>
-      </Router>
-    </ThemeProvider>
+            </Switch>
+          </Container>
+      </ThemeProvider>
+    </Context.Provider>
   );
 }
 

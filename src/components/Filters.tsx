@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {
   Paper,
   Icon,
@@ -13,29 +13,32 @@ import {
   Zoom
 } from '@material-ui/core'
 import {useFilterStyles} from '../classes'
-import {ManagedQuestionJSON} from '../types'
 import DoneIcon from '@material-ui/icons/Done';
 import TagIcon from '@material-ui/icons/LocalOfferOutlined';
 import IntegrationIcon from '@material-ui/icons/BuildOutlined';
 import FilterListIcon from '@material-ui/icons/FilterListRounded';
 import CategoryIcon from '@material-ui/icons/CategoryOutlined';
 import { useWindowSize } from "@reach/window-size";
+import Context from '../AppContext'
 
 interface Props {
-  managedQuestions: ManagedQuestionJSON;
+  // managedQuestions: ManagedQuestionJSON;
   integrationClicked: Function;
-  integrations: string[];
-  allTags: string[];
+  // integrations: string[];
+  // allTags: string[];
   tagCheckClicked: Function;
-  tags: string[];
-  filter: string;
-  setFilterLogic: Function;
-  allCategories: string[];
-  categories: string[];
+  // tags: string[];
+  // filter: string;
+  // setFilterLogic: Function;
+  // allCategories: string[];
+  // categories: string[];
   setCategories: Function;
 }
 
 const Filters = (props: Props) => {
+  console.log('Filter')
+  const {allCategories, categories, managedQuestions, integrations, tagFilter, allTags, tags, setFilterLogic} = useContext(Context)
+
   const classes = useFilterStyles()
   const windowSize = useWindowSize()
 
@@ -55,13 +58,13 @@ const Filters = (props: Props) => {
           <Typography variant='subtitle1'>Category</Typography>
         </Box>
         <Box m={2}>
-          {props.allCategories.map(category =>
+          {allCategories.map((category: any) =>
             <div onClick={() => props.setCategories({category})} key={category}>
               <Box>
                 <Checkbox
                   edge='start'
                   name={category}
-                  checked={props.categories.includes(category)}
+                  checked={categories.includes(category)}
                   onChange={() => props.setCategories({category})}
                 />
                 {category}
@@ -76,13 +79,13 @@ const Filters = (props: Props) => {
           <Typography variant='subtitle1'>Integrations</Typography>
         </Box>
         <Box m={0.7}>
-          {[...Object.keys(props.managedQuestions.integrations), 'none'].map((integration: string, index: number) => (
+          {[...Object.keys(managedQuestions.integrations), 'none'].map((integration: string, index: number) => (
             <div key={index}>
               <Checkbox
-                checked={props.integrations.includes(integration)}
+                checked={integrations.includes(integration)}
                 onChange={() => props.integrationClicked(integration)}
               />
-              {Object.keys(props.managedQuestions.integrations).length > 0 && integration !== 'none' ? props.managedQuestions.integrations[integration].title : 'none'}
+              {integration /* {Object.keys(managedQuestions.integrations).length > 0 && integration !== 'none' ? managedQuestions.integrations[integration].title : 'none'} */}
             </div>
           ))}
         </Box>
@@ -94,19 +97,19 @@ const Filters = (props: Props) => {
         </Box>
         <Box m={2}>
           <ButtonGroup>
-            <Button color={(props.filter === 'all') ? 'primary' : 'default'} onClick={() => props.setFilterLogic('all')}>Filter by all</Button>
-            <Button color={(props.filter === 'any') ? 'primary' : 'default'} onClick={() => props.setFilterLogic('any')}>Filter by any</Button>
+            <Button color={(tagFilter === 'all') ? 'primary' : 'default'} onClick={() => setFilterLogic('all')}>Filter by all</Button>
+            <Button color={(tagFilter === 'any') ? 'primary' : 'default'} onClick={() => setFilterLogic('any')}>Filter by any</Button>
           </ButtonGroup>
         </Box>
         <Box m={2} className={`${classes.section} ${classes.flexWrap}`}>
           <Box>
-            {props.allTags
+            {allTags
               .sort()
               .map((tag: string, index : number) => (
                 <Chip
                   color='primary'
                   variant='outlined'
-                  avatar={props.tags.includes(tag) ? <Zoom in={props.tags.includes(tag)}><Avatar><DoneIcon /></Avatar></Zoom> : undefined}
+                  avatar={tags.includes(tag) ? <Zoom in={tags.includes(tag)}><Avatar><DoneIcon /></Avatar></Zoom> : undefined}
                   className={classes.tag}
                   key={index}
                   onClick={() => props.tagCheckClicked(tag)}

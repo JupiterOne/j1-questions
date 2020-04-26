@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react'
+import React, {useMemo, useContext} from 'react'
 import {
   Typography,
   Card,
@@ -12,15 +12,17 @@ import {useHistory} from 'react-router-dom'
 import filterQuestions, {FilterType} from '../methods/filterQuestions'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { useWindowSize } from "@reach/window-size";
+import Context from '../AppContext'
 
 import groupBy from 'lodash/groupBy';
 
 interface Props {
-  totalCount: number;
   questions: Question[];
 }
 
-const QuestionsDisplay = (props : Props) => {
+const QuestionsDisplay = (props: Props) => {
+  console.log('QuestionsDisplay')
+  const { managedQuestions } = useContext(Context)
   const classes = useQuestionDisplayStyles()
   const history = useHistory()
   const windowSize = useWindowSize()
@@ -33,7 +35,7 @@ const QuestionsDisplay = (props : Props) => {
       className={windowSize.width > 750 ? classes.root : classes.smallRoot}
     >
       <Box style={{textAlign: 'right'}} mr={1} mb={-3}>
-        <em>{props.questions.length} of {props.totalCount}</em>
+        <em>{props.questions.length} of {managedQuestions.questions.length}</em>
       </Box>
         {Object.keys(grouped).map((category, index) => (
           <div>
