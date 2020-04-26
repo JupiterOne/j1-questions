@@ -22,34 +22,18 @@ import copy from 'clipboard-copy'
 import { useWindowSize } from "@reach/window-size";
 import Context from '../AppContext'
 
-// interface Props {
-//   setSearch: any;
-//   disabled?: boolean | undefined;
-//   color: 'light' | 'dark';
-//   setTheme: Function;
-//   managedQuestions: any;
-// }
-
 const Header = () => {
-  console.log('Header')
-  const {setSearch, themeDark, setTheme, managedQuestions} = useContext(Context)
+  const {setSearch, search, themeDark, setTheme, managedQuestions} = useContext(Context)
 
   const classes = useHeaderStyles()
   const location = useLocation()
-  const [searchText, setSearchText] = useState('')
   const [copied, setCopied] = useState(false)
   const history = useHistory()
   const windowSize = useWindowSize()
 
   const params = queryString.parse(history.location.search)
 
-  useEffect(() => {
-    console.log('Header useEffect')
-
-    const rawSearchText = (params.search as string) || '';
-    setSearchText(rawSearchText)
-    setSearch(rawSearchText)
-  }, [])
+  const [searchText, setSearchText] = useState(search);
 
   return (
     <div>
@@ -62,7 +46,7 @@ const Header = () => {
             <Typography className={classes.bold} variant="h5" component='span'>Jupiter<span className={classes.thin}>One</span> </Typography> Questions
           </Typography>
           <div className={windowSize.width < 500 ? classes.headerPart : ''}>
-            {!(location.pathname.includes('/question/')) ? (
+            {setSearch && (
               <TextField
                 type="search"
                 variant="outlined"
@@ -74,7 +58,7 @@ const Header = () => {
                   setSearch(e.target.value)
                 }}
               />
-            ) : null}
+            )}
           </div>
           <Hidden smDown>
             <div className={`${classes.headerPart} ${classes.alignRight}`}>

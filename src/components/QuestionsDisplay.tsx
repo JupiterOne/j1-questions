@@ -1,9 +1,10 @@
 import React, {useMemo, useContext} from 'react'
 import {
   Typography,
-  Paper,
+  Card,
   Icon,
   Box,
+  Divider,
 } from '@material-ui/core'
 import {ManagedQuestionJSON, Question} from '../types'
 import {useQuestionDisplayStyles} from '../classes'
@@ -13,74 +14,52 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { useWindowSize } from "@reach/window-size";
 import Context from '../AppContext'
 
+import groupBy from 'lodash/groupBy';
+
 interface Props {
-  // managedQuestions: ManagedQuestionJSON;
-  // integrations: string[];
-  // tags: string[];
-  // center?: boolean | undefined;
-  // search: string;
-  // filter: string;
-  // allCategories: string[];
-  // categories: string[];
+  questions: Question[];
 }
 
-const QuestionsDisplay = () => {
-  console.log('QuestionsDisplay')
-  const {managedQuestions, integrations, tags, search, tagFilter, categories, allCategories} = useContext(Context)
+const QuestionsDisplay = (props: Props) => {
+  const { managedQuestions } = useContext(Context)
   const classes = useQuestionDisplayStyles()
   const history = useHistory()
   const windowSize = useWindowSize()
 
-  const filteredQuestions : Question[] = useMemo(() => filterQuestions(
-    managedQuestions.questions,
-    integrations,
-    tags,
-    search,
-    (tagFilter === 'any') ? FilterType.ANY : FilterType.ALL,
-    categories
-  ), [managedQuestions, integrations, tags, search, tagFilter, categories])
+  const grouped = groupBy(props.questions, 'category');
 
   return (
-    <Paper elevation={0} className={windowSize.width > 750 ? classes.root : classes.smallRoot} >
+    <Card
+      elevation={0}
+      className={windowSize.width > 750 ? classes.root : classes.smallRoot}
+    >
       <Box style={{textAlign: 'right'}} mr={1} mb={-3}>
-        <em>{filteredQuestions.length} of {managedQuestions.questions.length}</em>
+        <em>{props.questions.length} of {managedQuestions.questions.length}</em>
       </Box>
-      {filteredQuestions.length !== 0 ?
-        (
+        {Object.keys(grouped).map((category, index) => (
           <div>
-            {[...allCategories, undefined].map(category =>
-              <div>
-                {filteredQuestions.filter(question =>
-                  question.category === category
-                ).length !== 0 ?
-                  <Box m={1} mt={2}>
-                    <Typography variant='h6'>{category === undefined ? 'No Category' : category}</Typography>
-                  </Box>
-                : (
-                  null
-                )}
+            <Box m={1} mt={2}>
+              <Typography variant='h6'>{category === 'undefined' ? 'No Category' : category}</Typography>
+            </Box>
 
-                {filteredQuestions.filter(question =>
-                  question.category === category
-                ).map((question: Question, index: number) => (
-                  <div>
-                    <Box key={index} onClick={() => history.push(`/question/${question.hash}`)} style={{display: 'flex'}}>
-                      <span className={classes.item}>
-                        {question.title}
-                      </span>
-                      <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
-                    </Box>
+            {
+              grouped[category].map((question, questionIndex) => (
+                <>
+                  <div style={{ display: 'flex' }} key={index} onClick={() => history.push(`/question/${question.hash}`)}>
+                    <span className={classes.item}>
+                      {question.title}
+                    </span>
+                    <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
                   </div>
-                ))}
-              </div>
-            )}
+                  <Divider/>
+                </>
+              ))
+            }
           </div>
-        ) : (
-          <Box m={1}><strong>No results.</strong></Box>
-        )
+        ))
       }
-    </Paper>
+    </Card>
   )
 }
 
-export default React.memo(QuestionsDisplay);
+export default QuestionsDisplay;
