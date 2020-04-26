@@ -13,6 +13,8 @@ import filterQuestions, {FilterType} from '../methods/filterQuestions'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { useWindowSize } from "@reach/window-size";
 
+import groupBy from 'lodash/groupBy';
+
 interface Props {
   managedQuestions: ManagedQuestionJSON;
   integrations: string[];
@@ -29,56 +31,58 @@ const QuestionsDisplay = (props : Props) => {
   const history = useHistory()
   const windowSize = useWindowSize()
 
-  const filteredQuestions : Question[] = useMemo(() => filterQuestions(
+  const filteredQuestions : Question[] = filterQuestions(
     props.managedQuestions.questions,
     props.integrations,
     props.tags,
     props.search,
     (props.filter === 'any') ? FilterType.ANY : FilterType.ALL,
     props.categories
-  ), [props])
+  )
+
+  if (filteredQuestions.length === 0) {
+    return (
+      <Card elevation={0} className={windowSize.width > 750 ? classes.root : classes.smallRoot} style={{margin: props.center ? 'auto' : ''}}>
+        <Box style={{textAlign: 'right'}} mr={1} mb={-3}>
+          <em>{filteredQuestions.length} of {props.managedQuestions.questions.length}</em>
+        </Box>
+        <Box m={1}><strong>No results.</strong></Box>
+      </Card>
+    )
+  }
+
+  const grouped = groupBy(filteredQuestions, 'category');
 
   return (
-    <Card elevation={0} className={windowSize.width > 750 ? classes.root : classes.smallRoot} style={{margin: props.center ? 'auto' : ''}}>
+    <Card
+      elevation={0}
+      className={windowSize.width > 750 ? classes.root : classes.smallRoot}
+      style={{margin: props.center ? 'auto' : ''}}
+    >
       <Box style={{textAlign: 'right'}} mr={1} mb={-3}>
         <em>{filteredQuestions.length} of {props.managedQuestions.questions.length}</em>
       </Box>
-      {filteredQuestions.length !== 0 ?
-        (
+        {Object.keys(grouped).map((category, index) => (
           <div>
-            {[...props.allCategories, undefined].map(category =>
-              <div>
-                {filteredQuestions.filter(question =>
-                  question.category === category
-                ).length !== 0 ?
-                  <Box m={1} mt={2}>
-                    <Typography variant='h6'>{category === undefined ? 'No Category' : category}</Typography>
-                  </Box>
-                : (
-                  null
-                )}
+            <Box m={1} mt={2}>
+              <Typography variant='h6'>{category === 'undefined' ? 'No Category' : category}</Typography>
+            </Box>
 
-                {filteredQuestions.filter(question =>
-                  question.category === category
-                ).map((question: Question, index: number) => (
-                  <div>
-                    <Box key={index} onClick={() => history.push(`/question/${question.hash}`)} style={{display: 'flex'}}>
-                      <span className={classes.item}>
-                        {question.title}
-                      </span>
-                      <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
-                    </Box>
-                    {index !== filteredQuestions.filter(question =>
-                      question.category === category
-                    ).length - 1 ? <Divider/> : <span/>}
-                  </div>
-                ))}
-              </div>
-            )}
+            {
+              grouped[category].map((question, questionIndex) => (
+                <>
+                  <Box key={index} onClick={() => history.push(`/question/${question.hash}`)} style={{display: 'flex'}}>
+                    <span className={classes.item}>
+                      {question.title}
+                    </span>
+                    <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
+                  </Box>
+                  <Divider/>
+                </>
+              ))
+            }
           </div>
-        ) : (
-          <Box m={1}><strong>No results.</strong></Box>
-        )
+        ))
       }
     </Card>
   )

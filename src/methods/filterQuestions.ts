@@ -59,7 +59,14 @@ export enum FilterType {
   ALL = 'ALL'
 };
 
-const filteredQuestions = (questions: Question[], integrations: string[], tags: string[], search: string, filter: FilterType, categories: string[]) => {
+const filteredQuestions = (
+  questions: Question[],
+  integrations: string[],
+  tags: string[],
+  search: string,
+  filter: FilterType,
+  categories: string[]
+) => {
 
   const results = questions.filter(question => {
     const matchesIntegration = doesMatchIntegrations(question, integrations)
