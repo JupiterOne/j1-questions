@@ -23,7 +23,6 @@ import { useWindowSize } from "@reach/window-size";
 import Context from '../AppContext'
 
 const Header = () => {
-  console.log('Header')
   const {setSearch, search, themeDark, setTheme, managedQuestions} = useContext(Context)
 
   const classes = useHeaderStyles()

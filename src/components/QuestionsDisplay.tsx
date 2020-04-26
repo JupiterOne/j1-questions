@@ -21,7 +21,6 @@ interface Props {
 }
 
 const QuestionsDisplay = (props: Props) => {
-  console.log('QuestionsDisplay')
   const { managedQuestions } = useContext(Context)
   const classes = useQuestionDisplayStyles()
   const history = useHistory()
