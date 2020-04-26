@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import {
   Paper,
   Box,
@@ -11,17 +11,15 @@ import {
 import {Alert} from '@material-ui/lab'
 import {useParams, useHistory} from 'react-router'
 import {useQuestionStyles} from '../classes'
-import {ManagedQuestionJSON, Question} from '../types'
+import {Question} from '../types'
 import hash from 'hash.js'
 import copy from 'clipboard-copy'
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooksOutlined';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import Context from '../AppContext'
 
-interface Props {
-  managedQuestions: ManagedQuestionJSON
-}
-
-const QuestionDisplay = (props: Props) => {
+const QuestionDisplay = () => {
+  const {managedQuestions} = useContext(Context)
   const [copied, setCopied] = useState(false)
   const params : {questionTitle?: string} = useParams()
   const history = useHistory()
@@ -30,7 +28,7 @@ const QuestionDisplay = (props: Props) => {
     params.questionTitle
   ) : ''
 
-  const question = props.managedQuestions.questions.filter((question : Question) => {
+  const question : Question = managedQuestions.questions.filter((question : Question) => {
     return (
       hash.sha1().update(question.title).digest('hex') === title
     )
@@ -41,7 +39,7 @@ const QuestionDisplay = (props: Props) => {
       <Button color='secondary' className={classes.button} variant='contained' onClick={() => {
         history.goBack()
       }}> <ArrowBackIosIcon/> Back</Button>
-      <Paper className={classes.root}>
+      <Paper elevation={0} className={classes.root}>
         {question ? (
           <div>
             <Box className={classes.title}>

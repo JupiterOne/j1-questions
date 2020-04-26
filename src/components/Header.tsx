@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -18,19 +18,22 @@ import Hidden from '@material-ui/core/Hidden';
 import LinearProgress from '@material-ui/core/LinearProgress'
 import queryString from 'query-string'
 import {useHistory} from 'react-router-dom'
-import debounce from 'lodash/debounce';
 import copy from 'clipboard-copy'
 import { useWindowSize } from "@reach/window-size";
+import Context from '../AppContext'
 
-interface Props {
-  setSearch: any;
-  disabled?: boolean | undefined;
-  color: 'light' | 'dark';
-  setTheme: Function;
-  managedQuestions: any;
-}
+// interface Props {
+//   setSearch: any;
+//   disabled?: boolean | undefined;
+//   color: 'light' | 'dark';
+//   setTheme: Function;
+//   managedQuestions: any;
+// }
 
-const Header = (props : Props) => {
+const Header = () => {
+  console.log('Header')
+  const {setSearch, themeDark, setTheme, managedQuestions} = useContext(Context)
+
   const classes = useHeaderStyles()
   const location = useLocation()
   const [searchText, setSearchText] = useState('')
@@ -39,15 +42,13 @@ const Header = (props : Props) => {
   const windowSize = useWindowSize()
 
   const params = queryString.parse(history.location.search)
-  const setSearch = debounce(props.setSearch, 700)
-
 
   useEffect(() => {
-    if (typeof params.search !== 'string') {
-      params.search = ''
-    }
-    setSearchText((params.search) ? params.search : '')
-    setSearch(params.search)
+    console.log('Header useEffect')
+
+    const rawSearchText = (params.search as string) || '';
+    setSearchText(rawSearchText)
+    setSearch(rawSearchText)
   }, [])
 
   return (
@@ -92,15 +93,15 @@ const Header = (props : Props) => {
               </Tooltip>
               <Tooltip title="Change theme">
                 <IconButton onClick={() => {
-                  props.setTheme((theme:boolean) => !theme)
+                  setTheme((theme:boolean) => !theme)
                 }}>
-                  {!(props.color === 'light') ? <Brightness7Icon /> : <Brightness4Icon />}
+                  {!(themeDark) ? <Brightness7Icon /> : <Brightness4Icon />}
                 </IconButton>
               </Tooltip>
             </div>
           </Hidden>
         </Toolbar>
-        {props.managedQuestions.questions.length === 1 ? <LinearProgress />: <div className='border'/>}
+        {managedQuestions.questions.length === 1 ? <LinearProgress />: <div className='border'/>}
       </AppBar>
       <Snackbar open={copied} autoHideDuration={3000} onClose={() => setCopied(false)}>
         <Alert severity="success">
