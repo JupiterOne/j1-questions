@@ -85,7 +85,7 @@ const Header = (props : Props) => {
               </Tooltip>
               <Tooltip title="Copy URL">
                 <IconButton onClick={() => {
-                  copy(`http://localhost:3000${history.location.pathname}`)
+                  copy(window.location.href)
                   setCopied(true)
                 }}>
                   <LibraryBooksIcon/>
