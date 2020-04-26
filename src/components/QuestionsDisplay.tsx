@@ -5,16 +5,13 @@ import {
   Icon,
   Box,
   Divider,
-  Zoom,
 } from '@material-ui/core'
-import {Skeleton} from '@material-ui/lab'
 import {ManagedQuestionJSON, Question} from '../types'
 import {useQuestionDisplayStyles} from '../classes'
 import {useHistory} from 'react-router-dom'
 import filterQuestions, {FilterType} from '../methods/filterQuestions'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { useWindowSize } from "@reach/window-size";
-import TrackVisibility from "react-on-screen"
 
 interface Props {
   managedQuestions: ManagedQuestionJSON;
@@ -50,45 +47,33 @@ const QuestionsDisplay = (props : Props) => {
         (
           <div>
             {[...props.allCategories, undefined].map(category =>
-              <TrackVisibility partialVisibility offset={500} key={category}>
-                {visible =>
-                  <div>
-                    {filteredQuestions.filter(question =>
-                      question.category === category
-                    ).length !== 0 ?
-                      <Box m={1} mt={2}>
-                        <Typography variant='h6'>{category === undefined ? 'No Category' : category}</Typography>
-                      </Box>
-                    : (
-                      null
-                    )}
+              <div>
+                {filteredQuestions.filter(question =>
+                  question.category === category
+                ).length !== 0 ?
+                  <Box m={1} mt={2}>
+                    <Typography variant='h6'>{category === undefined ? 'No Category' : category}</Typography>
+                  </Box>
+                : (
+                  null
+                )}
 
-                    {filteredQuestions.filter(question =>
+                {filteredQuestions.filter(question =>
+                  question.category === category
+                ).map((question: Question, index: number) => (
+                  <div>
+                    <Box key={index} onClick={() => history.push(`/question/${question.hash}`)} style={{display: 'flex'}}>
+                      <span className={classes.item}>
+                        {question.title}
+                      </span>
+                      <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
+                    </Box>
+                    {index !== filteredQuestions.filter(question =>
                       question.category === category
-                    ).map((question: Question, index: number) => (
-                      <div>
-                        {!visible.isVisible ?
-                          <Box mb={1}><Skeleton variant="rect" width={'100%'} height={20} /></Box>
-                          :
-                          <Zoom in={visible.isVisible}>
-                            <div>
-                              <Box key={index} onClick={() => history.push(`/question/${question.hash}`)} style={{display: 'flex'}}>
-                                <span className={classes.item}>
-                                  {question.title}
-                                </span>
-                                <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
-                              </Box>
-                              {index !== filteredQuestions.filter(question =>
-                                question.category === category
-                              ).length - 1 ? <Divider/> : <span/>}
-                            </div>
-                          </Zoom>
-                        }
-                      </div>
-                    ))}
+                    ).length - 1 ? <Divider/> : <span/>}
                   </div>
-                }
-              </TrackVisibility>
+                ))}
+              </div>
             )}
           </div>
         ) : (

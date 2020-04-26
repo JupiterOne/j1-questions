@@ -68,7 +68,6 @@ const Header = (props : Props) => {
                 className={classes.input}
                 placeholder={'Search'}
                 value={searchText}
-                // disabled={location.pathname.includes('/question/')}
                 onChange={(e: any) => {
                   setSearchText(e.target.value)
                   setSearch(e.target.value)

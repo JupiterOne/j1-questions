@@ -77,7 +77,8 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       padding: '1%',
       marginBottom: '0.5%',
-      textDecoration: 'none'
+      textDecoration: 'none',
+      cursor: 'pointer'
     },
     chip: {
       marginRight: theme.spacing(0.5)
