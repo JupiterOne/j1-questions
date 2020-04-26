@@ -1,92 +1,115 @@
-import React, {useState} from 'react'
+import React, {useContext} from 'react'
 import {
   Paper,
   Icon,
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
-  Radio,
+  Box,
   Chip,
   Typography,
-  FormControlLabel,
-  RadioGroup,
-  Button,
   Avatar,
-  Box,
-  Snackbar
+  Button,
+  ButtonGroup,
+  Hidden,
+  Checkbox,
+  Zoom
 } from '@material-ui/core'
-import {Alert} from '@material-ui/lab'
 import {useFilterStyles} from '../classes'
-import {ManagedQuestionJSON} from '../types'
-// import {Link} from 'react-router-dom'
 import DoneIcon from '@material-ui/icons/Done';
 import TagIcon from '@material-ui/icons/LocalOfferOutlined';
 import IntegrationIcon from '@material-ui/icons/BuildOutlined';
 import FilterListIcon from '@material-ui/icons/FilterListRounded';
-import OpenInNewIcon from '@material-ui/icons/OpenInNew';
-import copy from 'clipboard-copy'
+import CategoryIcon from '@material-ui/icons/CategoryOutlined';
+import { useWindowSize } from "@reach/window-size";
+import Context from '../AppContext'
 
 interface Props {
-  managedQuestions: ManagedQuestionJSON;
+  // managedQuestions: ManagedQuestionJSON;
   integrationClicked: Function;
-  integration: string;
-  allTags: string[];
+  // integrations: string[];
+  // allTags: string[];
   tagCheckClicked: Function;
-  tags: string[];
-  search: string;
-  clear: Function;
+  // tags: string[];
+  // filter: string;
+  // setFilterLogic: Function;
+  // allCategories: string[];
+  // categories: string[];
+  setCategories: Function;
 }
 
 const Filters = (props: Props) => {
+  console.log('Filter')
+  const {allCategories, categories, managedQuestions, integrations, tagFilter, allTags, tags, setFilterLogic} = useContext(Context)
+
   const classes = useFilterStyles()
-  const [copied, setCopied] = useState(false)
+  const windowSize = useWindowSize()
 
   return (
-    <Paper className={classes.root}>
-      <ExpansionPanelSummary>
-        <Icon>
-          <FilterListIcon/>
-        </Icon>
-        <Typography variant='h6'>Filters</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelSummary>
-        <Icon>
-          <IntegrationIcon/>
-        </Icon>
-        <Typography variant='subtitle1'>Integrations</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails className={classes.notFlex}>
-        {[...Object.keys(props.managedQuestions.integrations), 'none'].map((integration: any, index: number) => (
-          <RadioGroup color='secondary' key={index} className={classes.notFlex} value={props.integration} onChange={() => props.integrationClicked(integration)}>
-            <FormControlLabel value={integration} control={<Radio/>} label={integration}/>
-          </RadioGroup>
-        ))}
-      </ExpansionPanelDetails>
-
-      <ExpansionPanelSummary>
-        <Icon>
-          <TagIcon/>
-        </Icon>
-        <Typography variant='subtitle1'>Tags</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails className={classes.flexWrap}>
-        <Box mb={2}>
+    <Hidden>
+      <Paper elevation={0} className={windowSize.width > 750 ? classes.root : classes.smallRoot}>
+        <Box m={2} className={classes.section}>
+          <Icon>
+            <FilterListIcon/>
+          </Icon>
+          <Typography variant='h6'>Filters</Typography>
+        </Box>
+        <Box m={2} className={`${classes.section} ${classes.flexWrap}`}>
+          <Icon>
+            <CategoryIcon/>
+          </Icon>
+          <Typography variant='subtitle1'>Category</Typography>
+        </Box>
+        <Box m={2}>
+          {allCategories.map((category: any) =>
+            <div onClick={() => props.setCategories({category})} key={category}>
+              <Box>
+                <Checkbox
+                  edge='start'
+                  name={category}
+                  checked={categories.includes(category)}
+                  onChange={() => props.setCategories({category})}
+                />
+                {category}
+              </Box>
+            </div>
+          )}
+        </Box>
+        <Box m={2} className={classes.section}>
+          <Icon>
+            <IntegrationIcon/>
+          </Icon>
+          <Typography variant='subtitle1'>Integrations</Typography>
+        </Box>
+        <Box m={0.7}>
+          {[...Object.keys(managedQuestions.integrations), 'none'].map((integration: string, index: number) => (
+            <div key={index}>
+              <Checkbox
+                checked={integrations.includes(integration)}
+                onChange={() => props.integrationClicked(integration)}
+              />
+              {integration /* {Object.keys(managedQuestions.integrations).length > 0 && integration !== 'none' ? managedQuestions.integrations[integration].title : 'none'} */}
+            </div>
+          ))}
+        </Box>
+        <Box m={2} className={classes.section}>
+          <Icon>
+            <TagIcon/>
+          </Icon>
+          <Typography variant='subtitle1'>Tags</Typography>
+        </Box>
+        <Box m={2}>
+          <ButtonGroup>
+            <Button color={(tagFilter === 'all') ? 'primary' : 'default'} onClick={() => setFilterLogic('all')}>Filter by all</Button>
+            <Button color={(tagFilter === 'any') ? 'primary' : 'default'} onClick={() => setFilterLogic('any')}>Filter by any</Button>
+          </ButtonGroup>
+        </Box>
+        <Box m={2} className={`${classes.section} ${classes.flexWrap}`}>
           <Box>
-            {props.tags
-            .filter((tag: string) => (
-                props.tags.includes(tag)
-            )).length !== 0 ? <Typography variant='subtitle1'>Active Tags</Typography> : <span/>}
-          </Box>
-          <Box mt={1}>
-            {props.allTags
+            {allTags
               .sort()
-              .filter((tag: string) => (
-                  props.tags.includes(tag)
-              ))
               .map((tag: string, index : number) => (
                 <Chip
-                  color='secondary'
+                  color='primary'
                   variant='outlined'
-                  avatar={props.tags.includes(tag) ? <Avatar><DoneIcon /></Avatar> : undefined}
+                  avatar={tags.includes(tag) ? <Zoom in={tags.includes(tag)}><Avatar><DoneIcon /></Avatar></Zoom> : undefined}
                   className={classes.tag}
                   key={index}
                   onClick={() => props.tagCheckClicked(tag)}
@@ -95,44 +118,9 @@ const Filters = (props: Props) => {
             ))}
           </Box>
         </Box>
-        <Box>
-          {props.allTags
-            .sort()
-            .map((tag: string, index : number) => (
-              <Chip
-                color='primary'
-                variant='outlined'
-                avatar={props.tags.includes(tag) ? <Avatar><DoneIcon /></Avatar> : undefined}
-                className={classes.tag}
-                key={index}
-                onClick={() => props.tagCheckClicked(tag)}
-                label={tag}
-              />
-          ))}
-        </Box>
-      </ExpansionPanelDetails>
-      <Button
-        onClick={() => {
-          copy(
-            'http://localhost:3000/filter?'
-              + ((props.tags.length !== 0) ? `&tags=${props.tags.join(',')}` : "")
-              + ((props.integration !== 'none') ? `&integration=${props.integration}` : "")
-              + ((props.search !== '') ? `&search=${props.search}` : "")
-          )
-          setCopied(true)
-        }}
-        variant='contained'
-        color='primary'
-      >
-        <OpenInNewIcon className={classes.icon}/> Share URL
-      </Button>
-      <Snackbar open={copied} autoHideDuration={3000} onClose={() => setCopied(false)}>
-        <Alert severity="success">
-          URL copied to clipboard.
-        </Alert>
-      </Snackbar>
-    </Paper>
+      </Paper>
+    </Hidden>
   )
 }
 
-export default Filters;
+export default React.memo(Filters);

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useContext} from 'react';
 import './App.css';
 import {useHistory} from 'react-router-dom'
 import QuestionsDisplay from './components/QuestionsDisplay'
@@ -6,89 +6,62 @@ import Filters from './components/Filters'
 import uniqueArray from './methods/uniqueArray'
 import {
   Box,
+  Zoom,
 } from '@material-ui/core'
-import {ManagedQuestionJSON} from './types'
-import queryString from 'query-string'
+import { useWindowSize } from "@reach/window-size";
+import Context from './AppContext'
 
 
-interface Props {
-  managedQuestions: ManagedQuestionJSON;
-  allTags: string[];
-  search: string;
-  setSearch: Function;
-}
+// interface Props {
+//   managedQuestions: ManagedQuestionJSON;
+//   allTags: string[];
+//   search: string;
+//   allCategories: string[];
+// }
 
-const Main = (props: Props) => {
+const Main = () => {
+  const {tags, integrations, search, tagFilter, categories, setIntegrations, setCategories, managedQuestions, setTags} = useContext(Context)
   const history = useHistory()
+  const windowSize = useWindowSize()
 
-  const params = queryString.parse(history.location.search)
-  if (typeof params.search !== 'string') {
-    params.search = ''
-  }
-  if (typeof params.integration !== 'string') {
-    params.integration = ''
-  }
-  if (typeof params.tags !== 'string') {
-    params.tags = ''
+  const handleChangeInMultiOptions = (option: string, setOptions : Function) => {
+    setOptions((prev: string[]) => {
+      if (prev.includes(option)) {
+        const index = prev.indexOf(option);
+        if (index > -1) {
+          prev.splice(index, 1);
+        }
+      } else {
+        prev.push(option)
+      }
+      prev = uniqueArray(prev)
+      return prev
+    })
   }
 
   useEffect(() => {
-    console.log(params)
-    props.setSearch(params.search)
-  }, [])
 
-  const [integration, setIntegration] = useState((params.integration === '') ? 'none' : params.integration)
-  const [tags, setTags] = useState<string[]>((params.tags !== '') ? params.tags.split(',') : [])
-  const [questionNumber, setQuestionNumber] = useState<number>(10)
-
-  useEffect(() => {
     const searchString : string = '/filter?'
       + ((tags.length !== 0) ? `&tags=${tags.join(',')}` : "")
-      + ((integration !== 'none') ? `&integration=${integration}` : "")
-      + ((props.search !== '') ? `&search=${props.search}` : "")
+      + ((integrations.length !== 0) ? `&integrations=${integrations.join(',')}` : "")
+      + ((search !== '') ? `&search=${search}` : "")
+      + (`&tagFilter=${tagFilter}`)
 
     history.replace(searchString)
 
-  }, [tags, integration, props.search])
+  }, [tags, integrations, search, tagFilter, categories])
 
   return (
     <>
-      <Box mt={2} style={{display: 'flex'}}>
-        <Filters
-          clear={() => {
-            setIntegration('none')
-            setTags([])
-            props.setSearch('')
-          }}
-          managedQuestions={props.managedQuestions}
-          allTags={props.allTags}
-          integration={integration === '' ? 'none' : integration}
-          integrationClicked={setIntegration}
-          tags={tags}
-          search={props.search}
-          tagCheckClicked={(tag: string) => {
-            setTags((prev: any) => {
-              if (tags.includes(tag)) {
-                const index = prev.indexOf(tag);
-                if (index > -1) {
-                  prev.splice(index, 1);
-                }
-              } else {
-                prev.push(tag)
-              }
-              prev = uniqueArray(prev)
-              return prev
-            })
-          }}/>
-        <QuestionsDisplay
-          integration={integration}
-          tags={tags}
-          managedQuestions={props.managedQuestions}
-          search={props.search}
-          questionNumber={questionNumber}
-          setQuestionNumber={setQuestionNumber}
-        />
-      </Box>
+      <Zoom in={managedQuestions.questions.length >= 1}>
+        <Box mt={2} style={{display: windowSize.width > 750 ? 'flex' : 'block'}}>
+          <Filters
+            integrationClicked={(integration: string) => handleChangeInMultiOptions(integration, setIntegrations)}
+            setCategories={({category} : {category : string}) => handleChangeInMultiOptions(category, setCategories)}
+            tagCheckClicked={(tag: string) => handleChangeInMultiOptions(tag, setTags)}/>
+          <QuestionsDisplay/>
+        </Box>
+      </Zoom>
     </>
   )
 }

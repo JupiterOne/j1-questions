@@ -1,48 +1,141 @@
-import filterQuestions from './filterQuestions'
+import filterQuestions, { FilterType, doesMatchAllTags, doesMatchAnyTags } from './filterQuestions'
 import {Question} from '../types'
 
 const testData : Question[] = [
   {
-    compliance: [
-      {
-        standard: 'string'
-      }
-    ],
-    description: 'description',
-    title: 'This is my title.',
-    queries: [
-      {
-        query: 'query',
-      }
-    ],
-    tags: ['tag'],
+    compliance: [],
+    integration: 'jest',
+    description: '',
+    title: 'Why do I test things?',
+    queries: [],
+    tags: ['testing'],
   },
   {
-    compliance: [
-      {
-        standard: 'string'
-      }
-    ],
-    description: 'description',
-    title: 'This is my second item.',
-    queries: [
-      {
-        query: 'query',
-      }
-    ],
-    tags: ['tag2'],
+    compliance: [],
+    description: '',
+    title: 'What do I need to do before submitting my code?',
+    queries: [],
+    tags: ['code', 'submitting'],
+  },
+  {
+    compliance: [],
+    description: 'Santa party',
+    title: 'Why does everything sound better in triplets?',
+    queries: [],
+    tags: ['three', '3', 'triplets'],
   }
 ]
 
-describe('filterQuestions', () => {
-  test('filters questions by tag', () => {
-    const questions = filterQuestions(testData, 'none', ['tag2'], '', 5);
+describe('doesMatchAnyTags', () => {
+  const sample: Question = {
+    compliance: [],
+    description: '',
+    title: '',
+    queries: [],
+    tags: ['a', 'b']
+  }
 
-    expect(questions).toHaveLength(1);
-    expect(questions[0].title).toEqual('This is my second item.')
+  test('matches single tag', () => {
+    expect(doesMatchAnyTags(sample, ['a'])).toBeTruthy();
+    expect(doesMatchAnyTags(sample, ['b'])).toBeTruthy();
+    expect(doesMatchAnyTags(sample, ['c'])).toBeFalsy();
   })
 
-  test('filters questions by title', () => {
-    expect(filterQuestions(testData, 'none', [], 'tite', 5).length).toBe(2)
+  test('matches with multiple tags', () => {
+    expect(doesMatchAnyTags(sample, ['a', 'b'])).toBeTruthy();
+    expect(doesMatchAnyTags(sample, ['b', 'c'])).toBeTruthy();
+  });
+})
+
+describe('doesMatchAllTags', () => {
+  const sample: Question = {
+    compliance: [],
+    description: '',
+    title: '',
+    queries: [],
+    tags: ['a', 'b']
+  }
+
+  test('matches single tag', () => {
+    expect(doesMatchAllTags(sample, ['a'])).toBeTruthy();
+    expect(doesMatchAllTags(sample, ['b'])).toBeTruthy();
+    expect(doesMatchAllTags(sample, ['c'])).toBeFalsy();
+  })
+
+  test('matches with multiple tags', () => {
+    expect(doesMatchAllTags(sample, ['a', 'b'])).toBeTruthy();
+    expect(doesMatchAllTags(sample, ['b', 'c'])).toBeFalsy();
+  });
+})
+
+describe('filterQuestions', () => {
+  const titlesOfQuestions = (questions: Question[]) => {
+    return questions.map(question => question.title)
+  }
+  test('(ALL) filters questions by integration', () => {
+    expect(
+      titlesOfQuestions(
+        filterQuestions(testData, ['jest'], [], '', FilterType.ALL, [])
+      )
+    ).toEqual(['Why do I test things?'])
+  })
+  test('(ALL) filters questions by tag', () => {
+    expect(
+      titlesOfQuestions(
+        filterQuestions(testData, ['none'], ['3'], '', FilterType.ALL, [])
+      )
+    ).toEqual(['Why does everything sound better in triplets?'])
+  })
+  test('(ALL) filters questions by title', () => {
+    expect(
+      titlesOfQuestions(
+        filterQuestions(testData, ['none'], [], 'better', FilterType.ALL, [])
+      )
+    ).toEqual(['Why does everything sound better in triplets?'])
+  })
+  test('(ALL) filters questions by integration and tag', () => {
+    expect(
+      titlesOfQuestions(
+        filterQuestions(testData, ['jest'], ['testing'], '', FilterType.ALL, [])
+      )
+    ).toEqual(['Why do I test things?'])
+  })
+  test('(ALL) filters questions by integration and title', () => {
+    expect(
+      titlesOfQuestions(
+        filterQuestions(testData, ['jest'], [], 'things', FilterType.ALL, [])
+      )
+    ).toEqual(['Why do I test things?'])
+  })
+  test('(ALL) filters questions by title and tag', () => {
+    expect(
+      titlesOfQuestions(
+        filterQuestions(testData, ['none'], ['3'], 'triplets', FilterType.ALL, [])
+      )
+    ).toEqual(['Why does everything sound better in triplets?'])
+  })
+  test('(ALL) filters questions by integration, tag, and title', () => {
+    expect(
+      titlesOfQuestions(
+        filterQuestions(testData, ['jest'], ['testing'], 'test', FilterType.ALL, [])
+      )
+    ).toEqual(['Why do I test things?'])
+  })
+
+  test('(ANY) filters questions by integration and tag', () => {
+    expect(
+      titlesOfQuestions(
+        filterQuestions(testData, ['jest'], ['3'], '', FilterType.ANY, [])
+      )
+    ).toEqual([
+      'Why do I test things?',
+      'Why does everything sound better in triplets?'
+    ])
+  })
+  test('(ANY) filters questions such that it shows all results when no filters', () => {
+    expect(
+      titlesOfQuestions(
+        filterQuestions(testData, ['none'], [], '', FilterType.ANY, [])
+      )).toEqual([])
   })
 })
