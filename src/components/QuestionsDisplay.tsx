@@ -75,9 +75,6 @@ const QuestionsDisplay = (props : Props) => {
                               <Box key={index} onClick={() => history.push(`/question/${question.hash}`)} style={{display: 'flex'}}>
                                 <span className={classes.item}>
                                   {question.title}
-                                  <div>
-                                    {/* question.tags ? question.tags.map(tag => <Chip className={classes.chip} label={tag}/>) : null */}
-                                  </div>
                                 </span>
                                 <Icon className={classes.arrow}><ArrowForwardIosIcon/></Icon>
                               </Box>

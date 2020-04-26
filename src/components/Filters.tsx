@@ -10,8 +10,7 @@ import {
   ButtonGroup,
   Hidden,
   Checkbox,
-  Zoom,
-  Fade
+  Zoom
 } from '@material-ui/core'
 import {useFilterStyles} from '../classes'
 import {ManagedQuestionJSON} from '../types'

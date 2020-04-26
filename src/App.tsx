@@ -18,24 +18,7 @@ import {
 const intialState = {
   integrations: {
   },
-  questions: [
-    {
-      category: 'Here',
-      compliance: [
-        {
-          standard: ''
-        }
-      ],
-      description: '',
-      title: '',
-      queries: [
-        {
-          query: '',
-        }
-      ],
-      tags: [''],
-    }
-  ]
+  questions: []
 }
 
 function App() {
@@ -73,23 +56,11 @@ function App() {
       },
       secondary: {
         main: 'rgba(2, 130, 152)',
-        // contrastText: 'rgba(234, 254, 65, 1)'
       },
     },
     typography: {
       allVariants : {
         fontFamily: "Roboto"
-      }
-    },
-    overrides: {
-      MuiOutlinedInput: {
-        root : {
-          '&$focused': {
-            // borderImage: 'linear-gradient(0.4deg, rgba(22, 150, 172, 1), rgba(234, 254, 65, 1))'
-          }
-          // background: 'rgba(22, 150, 172, 1)',
-          // color: 'rgba(22, 150, 172, 1)' // 'rgba(234, 254, 65, 1)'
-        }
       }
     }
   });
