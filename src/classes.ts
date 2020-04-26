@@ -27,7 +27,7 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       position: 'relative',
       color: theme.palette.text.primary,
       marginLeft: theme.spacing(0.5),
-      height: theme.spacing(5),
+      height: theme.spacing(7),
       maxWidth: theme.spacing(50)
     },
     inputSelected: {
