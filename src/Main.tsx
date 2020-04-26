@@ -3,6 +3,7 @@ import './App.css';
 import {useHistory} from 'react-router-dom'
 import QuestionsDisplay from './components/QuestionsDisplay'
 import Filters from './components/Filters'
+import filterQuestions, { FilterType } from './methods/filterQuestions'
 import uniqueArray from './methods/uniqueArray'
 import {
   Box,
@@ -11,6 +12,7 @@ import {
 import {ManagedQuestionJSON} from './types'
 import queryString from 'query-string'
 import { useWindowSize } from "@reach/window-size";
+import {Question} from './types'
 
 
 interface Props {
@@ -67,6 +69,16 @@ const Main = (props: Props) => {
 
   }, [tags, integrations, props.search, tagFilter, categories])
 
+
+  const filteredQuestions : Question[] = filterQuestions(
+    props.managedQuestions.questions,
+    integrations,
+    tags,
+    props.search,
+    (tagFilter === 'any') ? FilterType.ANY : FilterType.ALL,
+    categories
+  )
+
   return (
     <>
       <Zoom in={props.managedQuestions.questions.length >= 1}>
@@ -83,14 +95,10 @@ const Main = (props: Props) => {
             categories={categories}
             setCategories={({category} : {category : string}) => handleChangeInMultiOptions(category, setCategories)}
             tagCheckClicked={(tag: string) => handleChangeInMultiOptions(tag, setTags)}/>
+
           <QuestionsDisplay
-            integrations={integrations}
-            tags={tags}
-            managedQuestions={props.managedQuestions}
-            search={props.search}
-            filter={tagFilter}
-            allCategories={props.allCategories}
-            categories={categories}
+            totalCount={props.managedQuestions.questions.length}
+            questions={filteredQuestions}
           />
         </Box>
       </Zoom>

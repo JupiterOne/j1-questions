@@ -1,5 +1,4 @@
 import {Question} from '../types'
-import { test } from 'fuzzyjs'
 
 export const doesMatchCategories = (question: Question, categories: string[]): boolean => {
   if (categories.length === 0) {
@@ -74,7 +73,7 @@ const filteredQuestions = (
       doesMatchAllTags(question, tags) :
       doesMatchAnyTags(question, tags)
 
-    const matchesSearch = test(search, `${question.title} ${question.description}`)
+    const matchesSearch = `${question.title} ${question.description}`.toLowerCase().includes(search.toLowerCase())
     const matchesCategories = doesMatchCategories(question, categories)
 
       return matchesIntegration && matchesTags && matchesSearch && matchesCategories

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import QuestionDisplay from './components/QuestionDisplay'
 import Main from './Main'
 import fetchQuestions from './methods/fetchQuestions'
@@ -8,6 +8,7 @@ import uniqueArray from './methods/uniqueArray'
 import {ManagedQuestionJSON, Question} from './types'
 import { createMuiTheme } from '@material-ui/core/styles';
 import Header from './components/Header'
+import queryString from 'query-string'
 
 import {ThemeProvider} from '@material-ui/core/styles'
 import {
@@ -21,12 +22,32 @@ const intialState = {
   questions: []
 }
 
+const themeCreator = (isDark: boolean) => createMuiTheme({
+  palette: {
+    type: isDark ? 'dark' : 'light',
+    primary: {
+      main: 'rgb(22, 150, 172)',
+      contrastText: '#FFF'
+    },
+    secondary: {
+      main: 'rgba(2, 130, 152)',
+    },
+  },
+  typography: {
+    allVariants : {
+      fontFamily: "Roboto"
+    }
+  }
+});
+
 function App() {
   const [managedQuestions, setManagedQuestions] = useState<ManagedQuestionJSON>(intialState)
   const [allTags, setAllTags] = useState<string[]>([])
   const [allCategories, setAllCategories] = useState<string[]>([])
-  const [search, setSearch] = useState('')
   const [themeDark, setTheme] = useState<boolean>(false)
+
+  const params = queryString.parse(window.location.search)
+  const [search, setSearch] = useState((params.search as string) || '')
 
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => {
@@ -47,61 +68,51 @@ function App() {
     })
   }, [])
 
-  const theme = createMuiTheme({
-    palette: {
-      type: themeDark ? 'dark' : 'light',
-      primary: {
-        main: 'rgb(22, 150, 172)',
-        contrastText: '#FFF'
-      },
-      secondary: {
-        main: 'rgba(2, 130, 152)',
-      },
-    },
-    typography: {
-      allVariants : {
-        fontFamily: "Roboto"
-      }
-    }
-  });
+  const theme = themeCreator(themeDark);
 
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <CssBaseline/>
-        <Header
-          color={themeDark ? 'dark' : 'light'}
-          setTheme={setTheme}
-          setSearch={setSearch}
-          managedQuestions={managedQuestions}
-        />
+        <Switch>
 
-        <Container maxWidth="lg">
-          <Switch>
+          <Route exact path='/'>
+            <Redirect to='/filter' />
+          </Route>
 
-            <Route exact path='/'>
+
+          <Route exact path='/filter'>
+            <Header
+              color={themeDark ? 'dark' : 'light'}
+              setTheme={setTheme}
+              setSearch={setSearch}
+              managedQuestions={managedQuestions}
+            />
+
+            <Container maxWidth="lg">
               <Main
                 search={search}
                 managedQuestions={managedQuestions}
                 allTags={allTags}
                 allCategories={allCategories}
               />
-            </Route>
-            <Route exact path='/filter'>
-              <Main
-                search={search}
-                managedQuestions={managedQuestions}
-                allTags={allTags}
-                allCategories={allCategories}
-              />
-            </Route>
+            </Container>
+          </Route>
 
-            <Route exact path='/question/:questionTitle'>
+
+          <Route exact path='/question/:questionTitle'>
+            <Header
+              color={themeDark ? 'dark' : 'light'}
+              setTheme={setTheme}
+              managedQuestions={managedQuestions}
+            />
+
+            <Container maxWidth="lg">
               <QuestionDisplay managedQuestions={managedQuestions}/>
-            </Route>
+            </Container>
+          </Route>
 
-          </Switch>
-        </Container>
+        </Switch>
       </Router>
     </ThemeProvider>
   );

@@ -23,7 +23,7 @@ import copy from 'clipboard-copy'
 import { useWindowSize } from "@reach/window-size";
 
 interface Props {
-  setSearch: any;
+  setSearch?: (searchText: string) => void;
   disabled?: boolean | undefined;
   color: 'light' | 'dark';
   setTheme: Function;
@@ -33,22 +33,16 @@ interface Props {
 const Header = (props : Props) => {
   const classes = useHeaderStyles()
   const location = useLocation()
-  const [searchText, setSearchText] = useState('')
   const [copied, setCopied] = useState(false)
   const history = useHistory()
   const windowSize = useWindowSize()
 
   const params = queryString.parse(history.location.search)
-  const setSearch = debounce(props.setSearch, 700)
+  const [searchText, setSearchText] = useState((params.search as string) || '')
 
+  const { setSearch: rawSetSearch } = props;
 
-  useEffect(() => {
-    if (typeof params.search !== 'string') {
-      params.search = ''
-    }
-    setSearchText((params.search) ? params.search : '')
-    setSearch(params.search)
-  }, [])
+  const setSearch = rawSetSearch ? debounce(rawSetSearch, 300) : rawSetSearch
 
   return (
     <div>
@@ -61,7 +55,7 @@ const Header = (props : Props) => {
             <Typography className={classes.bold} variant="h5" component='span'>Jupiter<span className={classes.thin}>One</span> </Typography> Questions
           </Typography>
           <div className={windowSize.width < 500 ? classes.headerPart : ''}>
-            {!(location.pathname.includes('/question/')) ? (
+            {setSearch && (
               <TextField
                 type="search"
                 variant="outlined"
@@ -73,7 +67,7 @@ const Header = (props : Props) => {
                   setSearch(e.target.value)
                 }}
               />
-            ) : null}
+            )}
           </div>
           <Hidden smDown>
             <div className={`${classes.headerPart} ${classes.alignRight}`}>
