@@ -2,3 +2,18 @@
   background: linear-gradient(0.6turn, rgb(234, 254, 65), rgba(22, 150, 172));
   height: 0.2em;
 }
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}

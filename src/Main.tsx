@@ -6,6 +6,7 @@ import Filters from './components/Filters'
 import uniqueArray from './methods/uniqueArray'
 import {
   Box,
+  Zoom,
 } from '@material-ui/core'
 import {ManagedQuestionJSON} from './types'
 import queryString from 'query-string'
@@ -34,6 +35,21 @@ const Main = (props: Props) => {
     params.tagFilter = ''
   }
 
+  const handleChangeInMultiOptions = (option: string, setOptions : Function) => {
+    setOptions((prev: string[]) => {
+      if (prev.includes(option)) {
+        const index = prev.indexOf(option);
+        if (index > -1) {
+          prev.splice(index, 1);
+        }
+      } else {
+        prev.push(option)
+      }
+      prev = uniqueArray(prev)
+      return prev
+    })
+  }
+
   const [integrations, setIntegrations] = useState<string[]>((params.integrations !== '') ? params.integrations.split(',') : [])
   const [tags, setTags] = useState<string[]>((params.tags !== '') ? params.tags.split(',') : [])
   const [tagFilter, setFilterLogic] = useState<string>((params.tagFilter !== '') ? params.tagFilter : 'all')
@@ -53,68 +69,31 @@ const Main = (props: Props) => {
 
   return (
     <>
-      <Box mt={2} style={{display: windowSize.width > 750 ? 'flex' : 'block'}}>
-        <Filters
-          managedQuestions={props.managedQuestions}
-          allTags={props.allTags}
-          integrations={integrations}
-          integrationClicked={(integration: string) => {
-            setIntegrations((prev: string[]) => {
-              if (prev.includes(integration)) {
-                const index = prev.indexOf(integration);
-                if (index > -1) {
-                  prev.splice(index, 1);
-                }
-              } else {
-                prev.push(integration)
-              }
-              prev = uniqueArray(prev)
-              return prev
-            })
-          }}
-          tags={tags}
-          filter={tagFilter}
-          setFilterLogic={setFilterLogic}
-          allCategories={props.allCategories}
-          categories={categories}
-          setCategories={(props : any) => {
-            setCategories((prev: string[]) => {
-              if (prev.includes(props.category)) {
-                const index = prev.indexOf(props.category);
-                if (index > -1) {
-                  prev.splice(index, 1);
-                }
-              } else {
-                prev.push(props.category)
-              }
-              prev = uniqueArray(prev)
-              return prev
-            })
-          }}
-          tagCheckClicked={(tag: string) => {
-            setTags((prev: any) => {
-              if (tags.includes(tag)) {
-                const index = prev.indexOf(tag);
-                if (index > -1) {
-                  prev.splice(index, 1);
-                }
-              } else {
-                prev.push(tag)
-              }
-              prev = uniqueArray(prev)
-              return prev
-            })
-          }}/>
-        <QuestionsDisplay
-          integrations={integrations}
-          tags={tags}
-          managedQuestions={props.managedQuestions}
-          search={props.search}
-          filter={tagFilter}
-          allCategories={props.allCategories}
-          categories={categories}
-        />
-      </Box>
+      <Zoom in={props.managedQuestions.questions.length >= 1}>
+        <Box mt={2} style={{display: windowSize.width > 750 ? 'flex' : 'block'}}>
+          <Filters
+            managedQuestions={props.managedQuestions}
+            allTags={props.allTags}
+            integrations={integrations}
+            integrationClicked={(integration: string) => handleChangeInMultiOptions(integration, setIntegrations)}
+            tags={tags}
+            filter={tagFilter}
+            setFilterLogic={setFilterLogic}
+            allCategories={props.allCategories}
+            categories={categories}
+            setCategories={({category} : {category : string}) => handleChangeInMultiOptions(category, setCategories)}
+            tagCheckClicked={(tag: string) => handleChangeInMultiOptions(tag, setTags)}/>
+          <QuestionsDisplay
+            integrations={integrations}
+            tags={tags}
+            managedQuestions={props.managedQuestions}
+            search={props.search}
+            filter={tagFilter}
+            allCategories={props.allCategories}
+            categories={categories}
+          />
+        </Box>
+      </Zoom>
     </>
   )
 }

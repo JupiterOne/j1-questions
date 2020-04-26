@@ -47,12 +47,14 @@ function App() {
 
   useEffect(() => {
     fetchQuestions().then((r : ManagedQuestionJSON) => {
-      const tags : string[] = r.questions.map((question : Question) => {
+      const tags : string[] = r.questions.flatMap((question : Question) => {
         return question.tags
-      }).flat(2)
-      const categories : string[] = r.questions.map((question : Question) => {
-        return question.category
-      }).flat(1)
+      })
+      const categories : any[] = r.questions.flatMap((question : Question) => {
+        if (question.category !== undefined) {
+          return question.category
+        }
+      })
       setAllCategories([])
       setAllCategories(uniqueArray(categories))
       setAllTags([])
@@ -100,6 +102,7 @@ function App() {
           color={themeDark ? 'dark' : 'light'}
           setTheme={setTheme}
           setSearch={setSearch}
+          managedQuestions={managedQuestions}
         />
 
         <Container maxWidth="lg">

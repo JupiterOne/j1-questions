@@ -46,7 +46,7 @@ export const doesMatchAnyTags = (question: Question, tags: string[]): boolean =>
 
 export const doesMatchIntegrations = (question : Question, integrations : string[]) => {
   if (integrations.length === 0) {
-    return true // (question.integration === undefined || question.integration === '')
+    return true
   } else if (integrations.includes('none') && question.integration === undefined){
     return true
   } else {
@@ -70,13 +70,7 @@ const filteredQuestions = (questions: Question[], integrations: string[], tags: 
     const matchesSearch = test(search, `${question.title} ${question.description}`)
     const matchesCategories = doesMatchCategories(question, categories)
 
-    // switch (filter) {
-    //   case FilterType.ALL:
-        return matchesIntegration && matchesTags && matchesSearch && matchesCategories
-    //
-    //   case FilterType.ANY:
-    //     return matchesIntegration || matchesTags || (isSearching && matchesSearch)
-    // }
+      return matchesIntegration && matchesTags && matchesSearch && matchesCategories
   })
 
   return results

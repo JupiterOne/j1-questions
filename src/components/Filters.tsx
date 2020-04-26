@@ -10,6 +10,8 @@ import {
   ButtonGroup,
   Hidden,
   Checkbox,
+  Zoom,
+  Fade
 } from '@material-ui/core'
 import {useFilterStyles} from '../classes'
 import {ManagedQuestionJSON} from '../types'
@@ -105,7 +107,7 @@ const Filters = (props: Props) => {
                 <Chip
                   color='primary'
                   variant='outlined'
-                  avatar={props.tags.includes(tag) ? <Avatar><DoneIcon /></Avatar> : undefined}
+                  avatar={props.tags.includes(tag) ? <Zoom in={props.tags.includes(tag)}><Avatar><DoneIcon /></Avatar></Zoom> : undefined}
                   className={classes.tag}
                   key={index}
                   onClick={() => props.tagCheckClicked(tag)}

@@ -15,6 +15,7 @@ import Brightness7Icon from '@material-ui/icons/Brightness7';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew'
 import Hidden from '@material-ui/core/Hidden';
+import LinearProgress from '@material-ui/core/LinearProgress'
 import queryString from 'query-string'
 import {useHistory} from 'react-router-dom'
 import debounce from 'lodash/debounce';
@@ -26,6 +27,7 @@ interface Props {
   disabled?: boolean | undefined;
   color: 'light' | 'dark';
   setTheme: Function;
+  managedQuestions: any;
 }
 
 const Header = (props : Props) => {
@@ -99,7 +101,7 @@ const Header = (props : Props) => {
             </div>
           </Hidden>
         </Toolbar>
-        <div className='border'/>
+        {props.managedQuestions.questions.length === 1 ? <LinearProgress />: <div className='border'/>}
       </AppBar>
       <Snackbar open={copied} autoHideDuration={3000} onClose={() => setCopied(false)}>
         <Alert severity="success">
@@ -111,23 +113,3 @@ const Header = (props : Props) => {
 }
 
 export default Header
-// <Button
-//   onClick={() => {
-//     copy(
-//       'http://localhost:3000/filter?'
-//         + ((props.tags.length !== 0) ? `&tags=${props.tags.join(',')}` : "")
-//         + ((props.integration !== 'none') ? `&integration=${props.integration}` : "")
-//         + ((props.search !== '') ? `&search=${props.search}` : "")
-//     )
-//     setCopied(true)
-//   }}
-//   variant='contained'
-//   color='primary'
-// >
-//   <OpenInNewIcon className={classes.icon}/> Share URL
-// </Button>
-// <Snackbar open={copied} autoHideDuration={3000} onClose={() => setCopied(false)}>
-//   <Alert severity="success">
-//     URL copied to clipboard.
-//   </Alert>
-// </Snackbar>
