@@ -36,17 +36,7 @@ interface Props {
 }
 
 const Filters = (props: Props) => {
-  console.log("Filter");
-  const {
-    allCategories,
-    categories,
-    managedQuestions,
-    integrations,
-    tagFilter,
-    allTags,
-    tags,
-    setFilterLogic
-  } = useContext(Context);
+  const {allCategories, categories, managedQuestions, integrations, tagFilter, allTags, tags, setFilterLogic} = useContext(Context)
 
   const classes = useFilterStyles();
   const windowSize = useWindowSize();

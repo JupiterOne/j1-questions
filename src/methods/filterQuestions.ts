@@ -1,5 +1,4 @@
 import {Question} from '../types'
-import { test } from 'fuzzyjs'
 
 export const doesMatchCategories = (question: Question, categories: string[]): boolean => {
   if (categories.length === 0) {
@@ -59,7 +58,14 @@ export enum FilterType {
   ALL = 'ALL'
 };
 
-const filteredQuestions = (questions: Question[], integrations: string[], tags: string[], search: string, filter: FilterType, categories: string[]) => {
+const filteredQuestions = (
+  questions: Question[],
+  integrations: string[],
+  tags: string[],
+  search: string,
+  filter: FilterType,
+  categories: string[]
+) => {
 
   const results = questions.filter(question => {
     const matchesIntegration = doesMatchIntegrations(question, integrations)
@@ -67,7 +73,7 @@ const filteredQuestions = (questions: Question[], integrations: string[], tags: 
       doesMatchAllTags(question, tags) :
       doesMatchAnyTags(question, tags)
 
-    const matchesSearch = test(search, `${question.title} ${question.description}`)
+    const matchesSearch = `${question.title} ${question.description}`.toLowerCase().includes(search.toLowerCase())
     const matchesCategories = doesMatchCategories(question, categories)
 
       return matchesIntegration && matchesTags && matchesSearch && matchesCategories
