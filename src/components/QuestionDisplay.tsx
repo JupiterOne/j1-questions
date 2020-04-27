@@ -4,7 +4,6 @@ import {
   Box,
   Typography,
   Chip,
-  Card,
   Button,
   IconButton,
   Snackbar
