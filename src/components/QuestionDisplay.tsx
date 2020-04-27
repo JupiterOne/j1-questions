@@ -99,7 +99,7 @@ const QuestionDisplay = () => {
             <Typography>Queries</Typography>
             <Box>
               {(question.queries || []).map((query: any) => (
-                <Box key={query.query} mt={2} m={0}>
+                <Box key={query.query} style={{ display: "flex" }} mt={2} m={0}>
                   <IconButton
                     color="primary"
                     onClick={() => {
@@ -108,7 +108,12 @@ const QuestionDisplay = () => {
                     }}
                     children={<LibraryBooksIcon />}
                   />
-                  <code className={classes.queryBox}>{query.query}</code>
+                  <code
+                    style={{ marginTop: "1em" }}
+                    className={classes.queryBox}
+                  >
+                    {query.query}
+                  </code>
                 </Box>
               ))}
             </Box>
