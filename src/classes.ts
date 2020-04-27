@@ -170,9 +170,7 @@ export const useQuestionStyles = makeStyles((theme: Theme) =>
       width: theme.spacing(6)
     },
     copyContainer: {
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center"
+      verticalAlign: "top"
     },
     button: {
       // marginLeft: theme.spacing(4),
