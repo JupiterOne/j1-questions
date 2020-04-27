@@ -10,7 +10,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import Alert from "@material-ui/lab/Alert";
 import LibraryBooksIcon from "@material-ui/icons/LibraryBooksOutlined";
 import { useHeaderStyles } from "../classes";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Brightness7Icon from "@material-ui/icons/Brightness7";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
@@ -32,6 +32,7 @@ const Header = () => {
   const classes = useHeaderStyles();
   const [copied, setCopied] = useState(false);
   const windowSize = useWindowSize();
+  const history = useHistory();
 
   const [searchText, setSearchText] = useState(search);
 
@@ -49,7 +50,7 @@ const Header = () => {
             Questions
           </Typography>
           <div className={windowSize.width < 500 ? classes.headerPart : ""}>
-            {setSearch && (
+            {setSearch && !history.location.pathname.includes("/question") ? (
               <TextField
                 type="search"
                 variant="outlined"
@@ -61,7 +62,7 @@ const Header = () => {
                   setSearch(e.target.value);
                 }}
               />
-            )}
+            ) : null}
           </div>
           <Hidden smDown>
             <div className={`${classes.headerPart} ${classes.alignRight}`}>
