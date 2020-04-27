@@ -99,16 +99,21 @@ const QuestionDisplay = () => {
             <Typography>Queries</Typography>
             <Box>
               {(question.queries || []).map((query: any) => (
-                <Box key={query.query} mt={2} m={0}>
-                  <IconButton
-                    color="primary"
-                    onClick={() => {
-                      copy(query.query);
-                      setCopied(true);
-                    }}
-                    children={<LibraryBooksIcon />}
-                  />
-                  <code className={classes.queryBox}>{query.query}</code>
+                <Box key={query.query} style={{ display: "flex" }} mt={2} m={0}>
+                  <div className={classes.copyContainer}>
+                    <IconButton
+                      color="primary"
+                      className={classes.copy}
+                      onClick={() => {
+                        copy(query.query);
+                        setCopied(true);
+                      }}
+                      children={<LibraryBooksIcon />}
+                    />
+                  </div>
+                  <code className={classes.queryBox}>
+                    <pre>{query.query}</pre>
+                  </code>
                 </Box>
               ))}
             </Box>
