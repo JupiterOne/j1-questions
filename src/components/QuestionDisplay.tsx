@@ -4,6 +4,7 @@ import {
   Box,
   Typography,
   Chip,
+  Card,
   Button,
   IconButton,
   Snackbar
@@ -54,6 +55,26 @@ const QuestionDisplay = () => {
       <Paper elevation={0} className={classes.root}>
         {question ? (
           <div>
+            <Box>
+              {question.integration ? (
+                <div>
+                  <img
+                    style={{ margin: "auto", width: "2em" }}
+                    src={`https://raw.githubusercontent.com/JupiterOne/docs/master/assets/icons/${
+                      managedQuestions.integrations[question.integration].type
+                    }.svg`}
+                  />
+                  <Typography
+                    style={{ position: "relative", top: "-7px" }}
+                    variant="subtitle1"
+                    component="span"
+                  >
+                    {" "}
+                    {managedQuestions.integrations[question.integration].title}
+                  </Typography>
+                </div>
+              ) : null}
+            </Box>
             <Box className={classes.title}>
               <Typography variant="h6" className={classes.titleText}>
                 {question.title}
@@ -91,25 +112,6 @@ const QuestionDisplay = () => {
                   <code className={classes.queryBox}>{query.query}</code>
                 </Box>
               ))}
-            </Box>
-            <Box>
-              {question.integration ? (
-                <div>
-                  <Typography>
-                    Integration:{" "}
-                    <Chip
-                      variant="outlined"
-                      color="primary"
-                      onClick={() => {
-                        history.push(
-                          `/filter?&integration=${question.integration}`
-                        );
-                      }}
-                      label={question.integration}
-                    />
-                  </Typography>
-                </div>
-              ) : null}
             </Box>
             <Snackbar
               open={copied}
