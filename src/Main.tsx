@@ -5,7 +5,7 @@ import QuestionsDisplay from "./components/QuestionsDisplay";
 import Filters from "./components/Filters";
 import filterQuestions, { FilterType } from "./methods/filterQuestions";
 import uniqueArray from "./methods/uniqueArray";
-import { Box, Zoom } from "@material-ui/core";
+import { Zoom } from "@material-ui/core";
 import { useWindowSize } from "@reach/window-size";
 import { Question } from "./types";
 import Context from "./AppContext";
