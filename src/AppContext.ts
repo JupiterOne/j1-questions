@@ -1,32 +1,44 @@
-import {createContext} from "react"
-const Context = createContext({
+import { createContext } from "react";
+import { ManagedQuestionJSON } from "./types";
+
+interface AppContext {
+  managedQuestions: ManagedQuestionJSON;
+  allTags: string[];
+  themeDark: boolean;
+  setTheme: (param: any) => void;
+  allCategories: string[];
+  search: string;
+  setSearch: (search: string) => void;
+  integrations: string[];
+  setIntegrations: (integrations: string[]) => void;
+  tags: string[];
+  setTags: (tags: string[]) => void;
+  tagFilter: string;
+  setFilterLogic: (tagFilter: string) => void;
+  categories: string[];
+  setCategories: (categories: string[]) => void;
+}
+
+const initialState: AppContext = {
   managedQuestions: {
-    integrations: {
-      'x' : {
-        title: 'X'
-      }
-    },
-    questions: [
-      {
-        compliance: [
-          {
-            standard: ''
-          }
-        ],
-        description: '',
-        title: 'Why do I test things?',
-        queries: [{query: ''}],
-        tags: ['testing'],
-      }
-    ]
+    integrations: {},
+    questions: []
   },
-  allTags:  [''],
-  themeDark: false, setTheme: (a: any) => {},
-  allCategories:  [''],
-  search:'', setSearch: (a: any) => {},
-  integrations: [''], setIntegrations: (a: any) => {},
-  tags: [''], setTags: (a: any) => {},
-  tagFilter: '', setFilterLogic: (a: any) => {},
-  categories: [''], setCategories: (a: any) => {}
-})
-export default Context
+  allTags: [],
+  themeDark: false,
+  setTheme: () => {},
+  allCategories: [],
+  search: "",
+  setSearch: () => {},
+  integrations: [],
+  setIntegrations: () => {},
+  tags: [],
+  setTags: () => {},
+  tagFilter: "",
+  setFilterLogic: () => {},
+  categories: [],
+  setCategories: () => {}
+};
+
+const Context = createContext(initialState);
+export default Context;
