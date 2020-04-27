@@ -112,7 +112,7 @@ const QuestionDisplay = () => {
                     style={{ marginTop: "1em" }}
                     className={classes.queryBox}
                   >
-                    {query.query}
+                    <pre>{query.query}</pre>
                   </code>
                 </Box>
               ))}
