@@ -50,7 +50,7 @@ const Header = () => {
             Questions
           </Typography>
           <div className={windowSize.width < 500 ? classes.headerPart : ""}>
-            {!history.location.pathname.includes("/question") || (
+            {!history.location.pathname.includes("/question") && (
               <TextField
                 type="search"
                 variant="outlined"
