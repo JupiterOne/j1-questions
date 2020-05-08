@@ -4,7 +4,6 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      background: theme.palette.background.paper,
       color: theme.palette.text.primary
     },
     menuButton: {

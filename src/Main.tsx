@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import QuestionsDisplay from "./components/QuestionsDisplay";
 import Filters from "./components/Filters";
 import filterQuestions, { FilterType } from "./methods/filterQuestions";
-import uniqueArray from "./methods/uniqueArray";
 import { Zoom } from "@material-ui/core";
 import { useWindowSize } from "@reach/window-size";
 import { Question } from "./types";
@@ -18,28 +17,10 @@ const Main = () => {
     search,
     tagFilter,
     categories,
-    setIntegrations,
-    setCategories,
-    managedQuestions,
-    setTags
+    managedQuestions
   } = useContext(Context);
   const history = useHistory();
   const windowSize = useWindowSize();
-
-  const handleChangeInMultiOptions = (option: string, setOptions: Function) => {
-    setOptions((prev: string[]) => {
-      if (prev.includes(option)) {
-        const index = prev.indexOf(option);
-        if (index > -1) {
-          prev.splice(index, 1);
-        }
-      } else {
-        prev.push(option);
-      }
-      prev = uniqueArray(prev);
-      return prev;
-    });
-  };
 
   const commaSeparated = (list: string[]): string | undefined => {
     return list.length > 0 ? list.join(",") : undefined;
@@ -75,17 +56,7 @@ const Main = () => {
             marginTop: "1.5em"
           }}
         >
-          <Filters
-            integrationClicked={(integration: string) =>
-              handleChangeInMultiOptions(integration, setIntegrations)
-            }
-            setCategories={({ category }: { category: string }) =>
-              handleChangeInMultiOptions(category, setCategories)
-            }
-            tagCheckClicked={(tag: string) =>
-              handleChangeInMultiOptions(tag, setTags)
-            }
-          />
+          <Filters />
 
           <QuestionsDisplay questions={filteredQuestions} />
         </div>

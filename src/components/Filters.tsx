@@ -10,7 +10,8 @@ import {
   ButtonGroup,
   Hidden,
   Checkbox,
-  Zoom
+  Zoom,
+  FormControlLabel
 } from "@material-ui/core";
 import { useFilterStyles } from "../classes";
 import DoneIcon from "@material-ui/icons/Done";
@@ -21,22 +22,20 @@ import CategoryIcon from "@material-ui/icons/CategoryOutlined";
 import { useWindowSize } from "@reach/window-size";
 import Context from "../AppContext";
 
-interface Props {
-  // managedQuestions: ManagedQuestionJSON;
-  integrationClicked: Function;
-  // integrations: string[];
-  // allTags: string[];
-  tagCheckClicked: Function;
-  // tags: string[];
-  // filter: string;
-  // setFilterLogic: Function;
-  // allCategories: string[];
-  // categories: string[];
-  setCategories: Function;
-}
-
-const Filters = (props: Props) => {
-  const {allCategories, categories, managedQuestions, integrations, tagFilter, allTags, tags, setFilterLogic} = useContext(Context)
+const Filters = () => {
+  const {
+    allCategories,
+    categories,
+    managedQuestions,
+    integrations,
+    tagFilter,
+    allTags,
+    tags,
+    setFilterLogic,
+    setCategory,
+    setTag,
+    setIntegration
+  } = useContext(Context);
 
   const classes = useFilterStyles();
   const windowSize = useWindowSize();
@@ -61,20 +60,18 @@ const Filters = (props: Props) => {
         </Box>
         <Box m={2}>
           {allCategories.map((category: any) => (
-            <div
-              onClick={() => props.setCategories({ category })}
+            <FormControlLabel
+              style={{ display: "block", width: "100%" }}
+              onChange={() => setCategory(category)}
               key={category}
-            >
-              <Box>
+              control={
                 <Checkbox
-                  edge="start"
                   name={category}
                   checked={categories.includes(category)}
-                  onChange={() => props.setCategories({ category })}
                 />
-                {category}
-              </Box>
-            </div>
+              }
+              label={category}
+            />
           ))}
         </Box>
         <Box m={2} className={classes.section}>
@@ -89,7 +86,7 @@ const Filters = (props: Props) => {
               <div key={index}>
                 <Checkbox
                   checked={integrations.includes(integration)}
-                  onChange={() => props.integrationClicked(integration)}
+                  onChange={() => setIntegration(integration)}
                 />
                 {Object.keys(managedQuestions.integrations).length > 0 &&
                 integration !== "none"
@@ -140,7 +137,7 @@ const Filters = (props: Props) => {
                 }
                 className={classes.tag}
                 key={index}
-                onClick={() => props.tagCheckClicked(tag)}
+                onClick={() => setTag(tag)}
                 label={tag}
               />
             ))}
