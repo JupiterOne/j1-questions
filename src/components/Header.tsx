@@ -38,7 +38,12 @@ const Header = () => {
 
   return (
     <div>
-      <AppBar className={classes.root} position="static" elevation={0}>
+      <AppBar
+        className={classes.root}
+        position="static"
+        elevation={0}
+        color="inherit"
+      >
         <Toolbar>
           <Link to="/">
             <img className={classes.menuButton} src={LifeomicIcon} />
