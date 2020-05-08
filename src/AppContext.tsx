@@ -41,9 +41,7 @@ const initialState: AppContext = {
   tagFilter: "",
   setFilterLogic: () => {},
   categories: [],
-  setCategory: () => {
-    console.log("fail");
-  }
+  setCategory: () => {}
 };
 
 const Context = React.createContext(initialState);
