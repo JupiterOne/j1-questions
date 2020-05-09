@@ -1,12 +1,12 @@
 export interface Compliance {
   standard: string;
   controls?: any[];
-  requirements?: any[]
+  requirements?: any[];
 }
 
 export interface Query {
   query: string;
-  name?: 'good' | 'bad';
+  name?: "good" | "bad";
 }
 
 export interface Question {
@@ -22,5 +22,5 @@ export interface Question {
 
 export interface ManagedQuestionJSON {
   integrations: any;
-  questions: Question[]
+  questions: Question[];
 }
