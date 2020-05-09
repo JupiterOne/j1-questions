@@ -12,7 +12,7 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       verticalAlign: "center",
       position: "relative",
       top: "1.5px",
-      width: theme.spacing(5)
+      width: theme.spacing(20)
     },
     title: {
       flexGrow: 1,

@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import LifeomicIcon from "./lifeomic-icon.png";
+import JupiterOneLogo from "./jupiterone-logo.png";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -46,13 +46,10 @@ const Header = () => {
       >
         <Toolbar>
           <Link to="/">
-            <img className={classes.menuButton} src={LifeomicIcon} />
+            <img className={classes.menuButton} src={JupiterOneLogo} />
           </Link>
           <Typography variant="button" className={classes.title}>
-            <Typography className={classes.bold} variant="h5" component="span">
-              Jupiter<span className={classes.thin}>One</span>{" "}
-            </Typography>{" "}
-            Questions
+            &nbsp; Questions Library
           </Typography>
           <div className={windowSize.width < 500 ? classes.headerPart : ""}>
             {!history.location.pathname.includes("/question") && (
