@@ -3,9 +3,9 @@ import hash from "hash.js";
 
 const fetchQuestions = async () => {
   const host = window.location.host;
-  const domain = 'https://apps.' + (
-    host.includes('localhost') ? 'localhost.dev.jupiterone.io' : host
-  ).split('.').slice(1).join('.');
+  const domain = host.includes('localhost') || host.includes('dev') ?
+    'https://apps.dev.jupiterone.io' :
+    'https://apps.us.jupiterone.io';
   
   let result: ManagedQuestionJSON = await fetch(
     `${domain}/static/managed-questions.json`
