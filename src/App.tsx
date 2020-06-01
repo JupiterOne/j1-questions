@@ -16,6 +16,10 @@ function App() {
   const theme = createMuiTheme({
     palette: {
       type: themeDark ? "dark" : "light",
+      background: {
+        default: themeDark ? "#00062a" : "#eff0f5",
+        paper: themeDark ? "#021a40" : "#fff",
+      },
       primary: {
         main: "rgb(22, 150, 172)",
         contrastText: "#FFF"
@@ -37,7 +41,7 @@ function App() {
       },
       MuiAppBar: {
         root: {
-          background: themeDark ? "#424242" : "#FFF"
+          background: themeDark ? "#021a40" : "#FFF"
         }
       }
     }
@@ -48,7 +52,7 @@ function App() {
       <CssBaseline />
       <Header />
 
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" style={{ top: 67, position: "relative", paddingBottom: 16 }}>
         <Switch>
           <Route exact path="/">
             <Redirect to="/filter" />
