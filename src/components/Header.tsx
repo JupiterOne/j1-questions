@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import JupiterOneLogo from "./jupiterone-logo.png";
+import JupiterOneLogo from "./jupiterone-logo.svg";
+import JupiterOneLogoDark from "./jupiterone-logo-reversed.svg";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -46,7 +47,7 @@ const Header = () => {
       >
         <Toolbar>
           <Link to="/">
-            <img className={classes.menuButton} src={JupiterOneLogo} />
+            <img className={classes.menuButton} src={themeDark ? JupiterOneLogoDark : JupiterOneLogo } />
           </Link>
           <Typography variant="button" className={classes.title}>
             &nbsp; Questions Library
