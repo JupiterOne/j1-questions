@@ -1,4 +1,4 @@
 .border {
-  background: linear-gradient(0.6turn, rgb(234, 254, 65), rgb(22, 150, 172));
+  background: linear-gradient(315deg, rgb(234, 255, 21, 0.9) 0%, rgba(42, 204, 255) 80%, rgb(0, 6, 42) 100%);
   height: 0.2em;
 }
