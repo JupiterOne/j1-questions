@@ -41,7 +41,7 @@ const Header = () => {
     <div>
       <AppBar
         className={classes.root}
-        position="static"
+        position="fixed"
         elevation={0}
         color="inherit"
       >
@@ -49,8 +49,8 @@ const Header = () => {
           <Link className={classes.homeLink} to="/">
             <img className={classes.menuButton} src={themeDark ? JupiterOneLogoDark : JupiterOneLogo } />
           </Link>
-          <Typography variant="button" className={classes.title}>
-            &nbsp; Questions Library
+          <Typography className={classes.title}>
+            Questions Library
           </Typography>
           <div className={windowSize.width < 500 ? classes.headerPart : ""}>
             {!history.location.pathname.includes("/question") && (
