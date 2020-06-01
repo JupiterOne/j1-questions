@@ -6,6 +6,9 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       color: theme.palette.text.primary
     },
+    homeLink: {
+      height: 35.38,
+    },
     menuButton: {
       marginRight: theme.spacing(2),
       color: theme.palette.text.primary,
@@ -16,8 +19,8 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
     },
     title: {
       flexGrow: 1,
-      position: "relative",
-      left: theme.spacing(-1)
+      lineHeight: 1,
+      marginTop: theme.spacing(0.125),
     },
     search: {
       margin: "auto"

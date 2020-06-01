@@ -46,7 +46,7 @@ const Header = () => {
         color="inherit"
       >
         <Toolbar>
-          <Link to="/">
+          <Link className={classes.homeLink} to="/">
             <img className={classes.menuButton} src={themeDark ? JupiterOneLogoDark : JupiterOneLogo } />
           </Link>
           <Typography variant="button" className={classes.title}>
