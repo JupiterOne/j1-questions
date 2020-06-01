@@ -58,6 +58,7 @@ const Header = () => {
                 type="search"
                 variant="outlined"
                 className={classes.input}
+                size="small"
                 placeholder={"Search"}
                 value={searchText}
                 onChange={(e: any) => {
