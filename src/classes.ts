@@ -18,9 +18,12 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       width: theme.spacing(20)
     },
     title: {
+      marginLeft: theme.spacing(3.125),
+      color: "#6b758a",
       flexGrow: 1,
+      fontSize: 13,
       lineHeight: 1,
-      marginTop: theme.spacing(0.125),
+      textTransform: "uppercase",
     },
     search: {
       margin: "auto"
@@ -64,7 +67,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       width: "60%",
       padding: theme.spacing(1),
       marginLeft: "1%",
-      textDecoration: "none"
+      textDecoration: "none",
     },
     smallRoot: {
       display: "block",
