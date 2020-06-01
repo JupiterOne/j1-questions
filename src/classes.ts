@@ -125,6 +125,7 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       flexWrap: "wrap"
     },
     tag: {
+      fontFamily: 'Lato',
       marginRight: theme.spacing(0.5),
       marginTop: theme.spacing(0.5)
       // color: 'rgb(224, 244, 55)'
@@ -139,9 +140,9 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       paddingRight: theme.spacing(0.5)
     }
   })
-);
-
-export const useQuestionStyles = makeStyles((theme: Theme) =>
+  );
+  
+  export const useQuestionStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
@@ -179,7 +180,9 @@ export const useQuestionStyles = makeStyles((theme: Theme) =>
       paddingLeft: theme.spacing(1)
     },
     tag: {
+      fontFamily: 'Lato',
       marginLeft: theme.spacing(0.5)
     }
   })
-);
+  );
+  

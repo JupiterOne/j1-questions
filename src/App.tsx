@@ -26,7 +26,7 @@ function App() {
     },
     typography: {
       allVariants: {
-        fontFamily: "Roboto"
+        fontFamily: "Lato"
       }
     },
     overrides: {
