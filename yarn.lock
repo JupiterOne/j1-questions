@@ -1092,6 +1092,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
+"@lifeomic/react-brand-icons@^1.6.19":
+  version "1.6.19"
+  resolved "https://registry.yarnpkg.com/@lifeomic/react-brand-icons/-/react-brand-icons-1.6.19.tgz#527ccaa260f2ea9d66ee522fdb6a6e7da9e2fd28"
+  integrity sha512-E0tE2P4ENRaQf1DYCZ0xtif3Fws/Md+UHAfqMPpbEygDxRd0xnQD/EhrxuDsc1dpS2rHAVQ6a/eNPkrpwicfOA==
+
 "@material-ui/core@^4.9.11":
   version "4.9.11"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.9.11.tgz#02f45f4dbea6db191fdc0d993323d64cfae613fd"
@@ -7754,6 +7759,13 @@ react-dom@^16.13.1:
 react-error-overlay@^6.0.7:
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
+
+react-feather@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/react-feather/-/react-feather-2.0.8.tgz#455baf1470f756a57e2ad6c72545444ce5925781"
+  integrity sha512-J0dCEOvOxpovHeOVj3+8mAhN3/UERTfX6rSxnV6x4E+0s+STY536jhSjRfpSvTQA0SSFjYr4KrpPfdsLmK+zZg==
+  dependencies:
+    prop-types "^15.7.2"
 
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.13.1"

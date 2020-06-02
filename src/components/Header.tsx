@@ -9,12 +9,12 @@ import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
 import Tooltip from "@material-ui/core/Tooltip";
 import Alert from "@material-ui/lab/Alert";
-import LibraryBooksIcon from "@material-ui/icons/LibraryBooksOutlined";
+import CopyIcon from "react-feather/dist/icons/copy";
 import { useHeaderStyles } from "../classes";
 import { Link, useHistory } from "react-router-dom";
-import Brightness7Icon from "@material-ui/icons/Brightness7";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
-import OpenInNewIcon from "@material-ui/icons/OpenInNew";
+import MoonIcon from "react-feather/dist/icons/moon";
+import SunIcon from "react-feather/dist/icons/sun";
+import LaunchIcon from "@lifeomic/react-brand-icons/jupiterone/class/CodeDeploy";
 import Hidden from "@material-ui/core/Hidden";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import copy from "clipboard-copy";
@@ -72,7 +72,7 @@ const Header = () => {
             <div className={`${classes.headerPart} ${classes.alignRight}`}>
               <Tooltip title="Launch JupiterOne">
                 <IconButton href="https://apps.us.jupiterone.io">
-                  <OpenInNewIcon />
+                  <LaunchIcon />
                 </IconButton>
               </Tooltip>
               <Tooltip title="Copy URL">
@@ -82,7 +82,7 @@ const Header = () => {
                     setCopied(true);
                   }}
                 >
-                  <LibraryBooksIcon />
+                  <CopyIcon />
                 </IconButton>
               </Tooltip>
               <Tooltip title="Change theme">
@@ -91,7 +91,7 @@ const Header = () => {
                     setTheme((theme: boolean) => !theme);
                   }}
                 >
-                  {!themeDark ? <Brightness7Icon /> : <Brightness4Icon />}
+                  {!themeDark ? <SunIcon /> : <MoonIcon />}
                 </IconButton>
               </Tooltip>
             </div>

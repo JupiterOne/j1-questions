@@ -15,10 +15,10 @@ import {
 } from "@material-ui/core";
 import { useFilterStyles } from "../classes";
 import DoneIcon from "@material-ui/icons/Done";
-import TagIcon from "@material-ui/icons/LocalOfferOutlined";
-import IntegrationIcon from "@material-ui/icons/BuildOutlined";
-import FilterListIcon from "@material-ui/icons/FilterListRounded";
-import CategoryIcon from "@material-ui/icons/CategoryOutlined";
+import TagIcon from "react-feather/dist/icons/tag";
+import IntegrationIcon from "react-feather/dist/icons/zap";
+import FilterListIcon from "@lifeomic/react-brand-icons/jupiterone/filter";
+import CategoryIcon from "react-feather/dist/icons/grid";
 import { useWindowSize } from "@reach/window-size";
 import Context from "../AppContext";
 

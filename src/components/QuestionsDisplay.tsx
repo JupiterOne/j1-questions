@@ -3,7 +3,7 @@ import { Typography, Card, Icon, Box, Divider } from "@material-ui/core";
 import { Question } from "../types";
 import { useQuestionDisplayStyles } from "../classes";
 import { useHistory } from "react-router-dom";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import ChevronRightIcon from "react-feather/dist/icons/chevron-right";
 import { useWindowSize } from "@reach/window-size";
 import Context from "../AppContext";
 
@@ -47,8 +47,8 @@ const QuestionsDisplay = (props: Props) => {
                 onClick={() => history.push(`/question/${question.hash}`)}
               >
                 <span className={classes.item}>{question.title}</span>
-                <Icon className={classes.arrow}>
-                  <ArrowForwardIosIcon />
+                <Icon className={classes.chevronRight}>
+                  <ChevronRightIcon />
                 </Icon>
               </div>
               <Divider />

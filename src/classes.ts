@@ -87,7 +87,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
     chip: {
       marginRight: theme.spacing(0.5)
     },
-    arrow: {
+    chevronRight: {
       position: "relative",
       top: theme.spacing(0.5)
     }
@@ -177,8 +177,8 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       verticalAlign: "top"
     },
     button: {
-      // marginLeft: theme.spacing(4),
-      marginTop: theme.spacing(2)
+      marginTop: theme.spacing(2),
+      paddingLeft: theme.spacing(0.75),
     },
     queryBox: {
       paddingLeft: theme.spacing(1)
