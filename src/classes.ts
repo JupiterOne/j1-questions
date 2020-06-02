@@ -77,19 +77,29 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       marginBottom: "1%",
       textDecoration: "none"
     },
+    heading: {
+      fontWeight: 900,
+      color: theme.palette.primary.main,
+    },
     item: {
       flexGrow: 1,
-      padding: "1%",
-      marginBottom: "0.5%",
+      padding: theme.spacing(1),
       textDecoration: "none",
       cursor: "pointer"
+    },
+    divider: {
+      margin: theme.spacing(0, -1),
     },
     chip: {
       marginRight: theme.spacing(0.5)
     },
+    question: {
+      alignItems: 'center',
+      display: 'flex',
+    },
     chevronRight: {
-      position: "relative",
-      top: theme.spacing(0.5)
+      color: theme.palette.primary.main,
+      marginTop: theme.spacing(-0.5),
     }
   })
 );

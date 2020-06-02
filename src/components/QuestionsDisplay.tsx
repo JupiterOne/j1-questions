@@ -34,15 +34,15 @@ const QuestionsDisplay = (props: Props) => {
       {Object.keys(grouped).map((category, index) => (
         <div>
           <Box m={1} mt={2}>
-            <Typography variant="h6">
+            <Typography variant="h6" className={classes.heading}>
               {category === "undefined" ? "No Category" : category}
             </Typography>
           </Box>
-
+          <Divider className={classes.divider}/>
           {grouped[category].map(question => (
             <>
               <div
-                style={{ display: "flex" }}
+                className={classes.question}
                 key={index}
                 onClick={() => history.push(`/question/${question.hash}`)}
               >
@@ -51,7 +51,7 @@ const QuestionsDisplay = (props: Props) => {
                   <ChevronRightIcon />
                 </Icon>
               </div>
-              <Divider />
+              <Divider className={classes.divider}/>
             </>
           ))}
         </div>
