@@ -34,16 +34,16 @@ function App() {
       }
     },
     overrides: {
+      MuiAppBar: {
+        root: {
+          background: themeDark ? "#021a40" : "#FFF"
+        }
+      },
       MuiPaper: {
         root: {
           boxShadow: "none"
         }
       },
-      MuiAppBar: {
-        root: {
-          background: themeDark ? "#021a40" : "#FFF"
-        }
-      }
     }
   });
 
