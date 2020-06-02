@@ -112,6 +112,14 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       borderRadiusBottomLeft: theme.spacing(1),
       borderRadiusBottomRight: theme.spacing(1)
     },
+    checkboxItem: {
+      display: "flex",
+      alignItems: "flex-start",
+    },
+    checkboxLabel: {
+      lineHeight: 1.25,
+      marginTop: theme.spacing(1.375),
+    },
     notFlex: {
       display: "flex",
       flexDirection: "column",
@@ -141,7 +149,7 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       color: "#BBC"
     },
     icon: {
-      paddingRight: theme.spacing(0.5)
+      margin: theme.spacing(0, 1, 0, 0.75),
     }
   })
   );

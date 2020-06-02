@@ -17,7 +17,6 @@ import { useFilterStyles } from "../classes";
 import DoneIcon from "@material-ui/icons/Done";
 import TagIcon from "react-feather/dist/icons/tag";
 import IntegrationIcon from "react-feather/dist/icons/zap";
-import FilterListIcon from "@lifeomic/react-brand-icons/jupiterone/filter";
 import CategoryIcon from "react-feather/dist/icons/grid";
 import { useWindowSize } from "@reach/window-size";
 import Context from "../AppContext";
@@ -46,14 +45,8 @@ const Filters = () => {
         elevation={0}
         className={windowSize.width > 750 ? classes.root : classes.smallRoot}
       >
-        <Box m={2} className={classes.section}>
-          <Icon>
-            <FilterListIcon />
-          </Icon>
-          <Typography variant="h6">Filters</Typography>
-        </Box>
-        <Box m={2} className={`${classes.section} ${classes.flexWrap}`}>
-          <Icon>
+        <Box m={1} className={`${classes.section} ${classes.flexWrap}`}>
+          <Icon classes={{ root: classes.icon}}>
             <CategoryIcon />
           </Icon>
           <Typography variant="subtitle1">Category</Typography>
@@ -61,7 +54,8 @@ const Filters = () => {
         <Box m={2}>
           {allCategories.map((category: any) => (
             <FormControlLabel
-              style={{ display: "block", width: "100%" }}
+              className={classes.checkboxItem}
+              classes={{ label: classes.checkboxLabel}}
               onChange={() => setCategory(category)}
               key={category}
               control={
@@ -74,30 +68,39 @@ const Filters = () => {
             />
           ))}
         </Box>
-        <Box m={2} className={classes.section}>
-          <Icon>
+        <Box m={1} className={classes.section}>
+          <Icon classes={{ root: classes.icon}}>
             <IntegrationIcon />
           </Icon>
           <Typography variant="subtitle1">Integrations</Typography>
         </Box>
-        <Box m={0.7}>
+        <Box m={2}>
           {[...Object.keys(managedQuestions.integrations), "none"].map(
             (integration: string, index: number) => (
-              <div key={index}>
-                <Checkbox
-                  checked={integrations.includes(integration)}
-                  onChange={() => setIntegration(integration)}
+                <FormControlLabel
+                  className={classes.checkboxItem}
+                  classes={{ label: classes.checkboxLabel}}
+                  key={index}
+                  control={
+                    <Checkbox
+                      checked={integrations.includes(integration)}
+                      onChange={() => setIntegration(integration)}
+                    />
+                  }
+                  label={
+                    <>
+                      {Object.keys(managedQuestions.integrations).length > 0 &&
+                      integration !== "none"
+                      ? managedQuestions.integrations[integration].title
+                      : "None"}
+                    </>
+                  }
                 />
-                {Object.keys(managedQuestions.integrations).length > 0 &&
-                integration !== "none"
-                  ? managedQuestions.integrations[integration].title
-                  : "none"}
-              </div>
             )
           )}
         </Box>
-        <Box m={2} className={classes.section}>
-          <Icon>
+        <Box m={1} className={classes.section}>
+          <Icon classes={{ root: classes.icon}}>
             <TagIcon />
           </Icon>
           <Typography variant="subtitle1">Tags</Typography>
