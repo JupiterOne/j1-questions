@@ -122,6 +122,21 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       borderRadiusBottomLeft: theme.spacing(1),
       borderRadiusBottomRight: theme.spacing(1)
     },
+    divider: {
+      margin: theme.spacing(0, -1, 2),
+    },
+    subtitle: {
+      color: "#8e97ab",
+      fontSize: 12,
+      fontWeight: 700,
+      marginTop: theme.spacing(0.625),
+      letterSpacing: 1.6,
+      textTransform: "uppercase",
+    },
+    icon: {
+      color: "#8e97ab",
+      margin: theme.spacing(0, 1, 0, 0.75),
+    },
     checkboxItem: {
       display: "flex",
       alignItems: "flex-start",
@@ -130,27 +145,13 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       lineHeight: 1.25,
       marginTop: theme.spacing(1.375),
     },
-    notFlex: {
-      display: "flex",
-      flexDirection: "column",
-      "& > *": {
-        display: "block"
-      }
-    },
     section: {
       display: "flex",
-      "& > *": {
-        display: "inline-block"
-      }
-    },
-    flexWrap: {
-      flexWrap: "wrap"
     },
     tag: {
       fontFamily: 'Lato',
       marginRight: theme.spacing(0.5),
       marginTop: theme.spacing(0.5)
-      // color: 'rgb(224, 244, 55)'
     },
     button: {
       padding: theme.spacing(1)
@@ -158,9 +159,6 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
     linkText: {
       color: "#BBC"
     },
-    icon: {
-      margin: theme.spacing(0, 1, 0, 0.75),
-    }
   })
   );
   

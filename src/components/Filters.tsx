@@ -11,7 +11,8 @@ import {
   Hidden,
   Checkbox,
   Zoom,
-  FormControlLabel
+  FormControlLabel,
+  Divider
 } from "@material-ui/core";
 import { useFilterStyles } from "../classes";
 import DoneIcon from "@material-ui/icons/Done";
@@ -45,11 +46,11 @@ const Filters = () => {
         elevation={0}
         className={windowSize.width > 750 ? classes.root : classes.smallRoot}
       >
-        <Box m={1} className={`${classes.section} ${classes.flexWrap}`}>
+        <Box m={1} className={classes.section}>
           <Icon classes={{ root: classes.icon}}>
             <CategoryIcon />
           </Icon>
-          <Typography variant="subtitle1">Category</Typography>
+          <Typography variant="h6" className={classes.subtitle}>Category</Typography>
         </Box>
         <Box m={2}>
           {allCategories.map((category: any) => (
@@ -68,42 +69,44 @@ const Filters = () => {
             />
           ))}
         </Box>
+        <Divider className={classes.divider} />
         <Box m={1} className={classes.section}>
           <Icon classes={{ root: classes.icon}}>
             <IntegrationIcon />
           </Icon>
-          <Typography variant="subtitle1">Integrations</Typography>
+          <Typography variant="h6" className={classes.subtitle}>Integrations</Typography>
         </Box>
         <Box m={2}>
           {[...Object.keys(managedQuestions.integrations), "none"].map(
             (integration: string, index: number) => (
-                <FormControlLabel
-                  className={classes.checkboxItem}
-                  classes={{ label: classes.checkboxLabel}}
-                  key={index}
-                  control={
-                    <Checkbox
-                      checked={integrations.includes(integration)}
-                      onChange={() => setIntegration(integration)}
-                    />
-                  }
-                  label={
-                    <>
+              <FormControlLabel
+              className={classes.checkboxItem}
+              classes={{ label: classes.checkboxLabel}}
+              key={index}
+              control={
+                <Checkbox
+                checked={integrations.includes(integration)}
+                onChange={() => setIntegration(integration)}
+                />
+              }
+              label={
+                <>
                       {Object.keys(managedQuestions.integrations).length > 0 &&
                       integration !== "none"
                       ? managedQuestions.integrations[integration].title
                       : "None"}
                     </>
                   }
-                />
-            )
-          )}
+                  />
+                  )
+                  )}
         </Box>
+        <Divider className={classes.divider} />
         <Box m={1} className={classes.section}>
           <Icon classes={{ root: classes.icon}}>
             <TagIcon />
           </Icon>
-          <Typography variant="subtitle1">Tags</Typography>
+          <Typography variant="h6" className={classes.subtitle}>Tags</Typography>
         </Box>
         <Box m={2}>
           <ButtonGroup>
@@ -121,7 +124,7 @@ const Filters = () => {
             </Button>
           </ButtonGroup>
         </Box>
-        <Box m={2} className={`${classes.section} ${classes.flexWrap}`}>
+        <Box m={2} className={classes.section}>
           <Box>
             {allTags.sort().map((tag: string, index: number) => (
               <Chip
