@@ -3,7 +3,7 @@ import { Typography, Card, Icon, Box, Divider } from "@material-ui/core";
 import { Question } from "../types";
 import { useQuestionDisplayStyles } from "../classes";
 import { useHistory } from "react-router-dom";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import ChevronRightIcon from "react-feather/dist/icons/chevron-right";
 import { useWindowSize } from "@reach/window-size";
 import Context from "../AppContext";
 
@@ -34,24 +34,24 @@ const QuestionsDisplay = (props: Props) => {
       {Object.keys(grouped).map((category, index) => (
         <div>
           <Box m={1} mt={2}>
-            <Typography variant="h6">
+            <Typography variant="h5" className={classes.heading}>
               {category === "undefined" ? "No Category" : category}
             </Typography>
           </Box>
-
+          <Divider className={classes.divider}/>
           {grouped[category].map(question => (
             <>
               <div
-                style={{ display: "flex" }}
+                className={classes.question}
                 key={index}
                 onClick={() => history.push(`/question/${question.hash}`)}
               >
                 <span className={classes.item}>{question.title}</span>
-                <Icon className={classes.arrow}>
-                  <ArrowForwardIosIcon />
+                <Icon className={classes.chevronRight}>
+                  <ChevronRightIcon />
                 </Icon>
               </div>
-              <Divider />
+              <Divider className={classes.divider}/>
             </>
           ))}
         </div>

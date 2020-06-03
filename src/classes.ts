@@ -6,6 +6,9 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       color: theme.palette.text.primary
     },
+    homeLink: {
+      height: 35.38,
+    },
     menuButton: {
       marginRight: theme.spacing(2),
       color: theme.palette.text.primary,
@@ -15,9 +18,12 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       width: theme.spacing(20)
     },
     title: {
+      marginLeft: theme.spacing(3.125),
+      color: "#6b758a",
       flexGrow: 1,
-      position: "relative",
-      left: theme.spacing(-1)
+      fontSize: 13,
+      lineHeight: 1,
+      textTransform: "uppercase",
     },
     search: {
       margin: "auto"
@@ -25,9 +31,7 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
     input: {
       position: "relative",
       color: theme.palette.text.primary,
-      marginLeft: theme.spacing(0.5),
-      height: theme.spacing(7),
-      maxWidth: theme.spacing(50)
+      minWidth: theme.spacing(45),
     },
     inputSelected: {
       borderColor:
@@ -63,7 +67,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       width: "60%",
       padding: theme.spacing(1),
       marginLeft: "1%",
-      textDecoration: "none"
+      textDecoration: "none",
     },
     smallRoot: {
       display: "block",
@@ -73,19 +77,29 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       marginBottom: "1%",
       textDecoration: "none"
     },
+    heading: {
+      fontWeight: 900,
+      color: theme.palette.primary.main,
+    },
     item: {
       flexGrow: 1,
-      padding: "1%",
-      marginBottom: "0.5%",
+      padding: theme.spacing(1),
       textDecoration: "none",
       cursor: "pointer"
+    },
+    divider: {
+      margin: theme.spacing(0, -1),
     },
     chip: {
       marginRight: theme.spacing(0.5)
     },
-    arrow: {
-      position: "relative",
-      top: theme.spacing(0.5)
+    question: {
+      alignItems: 'center',
+      display: 'flex',
+    },
+    chevronRight: {
+      color: theme.palette.primary.main,
+      marginTop: theme.spacing(-0.5),
     }
   })
 );
@@ -108,26 +122,36 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       borderRadiusBottomLeft: theme.spacing(1),
       borderRadiusBottomRight: theme.spacing(1)
     },
-    notFlex: {
+    divider: {
+      margin: theme.spacing(0, -1, 2),
+    },
+    subtitle: {
+      color: "#8e97ab",
+      fontSize: 12,
+      fontWeight: 700,
+      marginTop: theme.spacing(0.625),
+      letterSpacing: 1.6,
+      textTransform: "uppercase",
+    },
+    icon: {
+      color: "#8e97ab",
+      margin: theme.spacing(0, 1, 0, 0.75),
+    },
+    checkboxItem: {
       display: "flex",
-      flexDirection: "column",
-      "& > *": {
-        display: "block"
-      }
+      alignItems: "flex-start",
+    },
+    checkboxLabel: {
+      lineHeight: 1.25,
+      marginTop: theme.spacing(1.375),
     },
     section: {
       display: "flex",
-      "& > *": {
-        display: "inline-block"
-      }
-    },
-    flexWrap: {
-      flexWrap: "wrap"
     },
     tag: {
+      fontFamily: 'Lato',
       marginRight: theme.spacing(0.5),
       marginTop: theme.spacing(0.5)
-      // color: 'rgb(224, 244, 55)'
     },
     button: {
       padding: theme.spacing(1)
@@ -135,13 +159,10 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
     linkText: {
       color: "#BBC"
     },
-    icon: {
-      paddingRight: theme.spacing(0.5)
-    }
   })
-);
-
-export const useQuestionStyles = makeStyles((theme: Theme) =>
+  );
+  
+  export const useQuestionStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
@@ -172,14 +193,16 @@ export const useQuestionStyles = makeStyles((theme: Theme) =>
       verticalAlign: "top"
     },
     button: {
-      // marginLeft: theme.spacing(4),
-      marginTop: theme.spacing(2)
+      marginTop: theme.spacing(2),
+      paddingLeft: theme.spacing(0.75),
     },
     queryBox: {
       paddingLeft: theme.spacing(1)
     },
     tag: {
+      fontFamily: 'Lato',
       marginLeft: theme.spacing(0.5)
     }
   })
-);
+  );
+  

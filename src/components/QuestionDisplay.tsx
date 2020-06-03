@@ -6,7 +6,8 @@ import {
   Chip,
   Button,
   IconButton,
-  Snackbar
+  Snackbar,
+  Tooltip,
 } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import { useParams, useHistory } from "react-router";
@@ -14,8 +15,8 @@ import { useQuestionStyles } from "../classes";
 import { Question } from "../types";
 import hash from "hash.js";
 import copy from "clipboard-copy";
-import LibraryBooksIcon from "@material-ui/icons/LibraryBooksOutlined";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import CopyIcon from "react-feather/dist/icons/copy";
+import ChevronLeftIcon from "react-feather/dist/icons/chevron-left";
 import Context from "../AppContext";
 
 const QuestionDisplay = () => {
@@ -49,7 +50,7 @@ const QuestionDisplay = () => {
         }}
       >
         {" "}
-        <ArrowBackIosIcon /> Back
+        <ChevronLeftIcon /> Back
       </Button>
       <Paper elevation={0} className={classes.root}>
         {question ? (
@@ -101,15 +102,17 @@ const QuestionDisplay = () => {
               {(question.queries || []).map((query: any) => (
                 <Box key={query.query} style={{ display: "flex" }} mt={2} m={0}>
                   <div className={classes.copyContainer}>
-                    <IconButton
-                      color="primary"
-                      className={classes.copy}
-                      onClick={() => {
-                        copy(query.query);
-                        setCopied(true);
-                      }}
-                      children={<LibraryBooksIcon />}
-                    />
+                    <Tooltip title="Copy query">
+                      <IconButton
+                        color="primary"
+                        className={classes.copy}
+                        onClick={() => {
+                          copy(query.query);
+                          setCopied(true);
+                        }}
+                        children={<CopyIcon />}
+                        />
+                    </Tooltip>
                   </div>
                   <code className={classes.queryBox}>
                     <pre>{query.query}</pre>
@@ -122,7 +125,7 @@ const QuestionDisplay = () => {
               autoHideDuration={3000}
               onClose={() => setCopied(false)}
             >
-              <Alert severity="success">Query copied to clipboard.</Alert>
+              <Alert severity="success">Query copied to clipboard</Alert>
             </Snackbar>
           </div>
         ) : (

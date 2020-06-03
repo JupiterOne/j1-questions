@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  font-family: Lato;
+  font-family: 'Lato';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+code, pre {
+  font-family: 'Ubuntu Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
