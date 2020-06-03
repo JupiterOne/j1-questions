@@ -41,7 +41,7 @@ const Header = () => {
     <div>
       <AppBar
         className={classes.root}
-        position="fixed"
+        position="static"
         elevation={0}
         color="inherit"
       >

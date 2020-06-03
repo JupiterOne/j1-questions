@@ -12,9 +12,6 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
     menuButton: {
       marginRight: theme.spacing(2),
       color: theme.palette.text.primary,
-      verticalAlign: "center",
-      position: "relative",
-      top: "1.5px",
       width: theme.spacing(20)
     },
     title: {
@@ -23,6 +20,7 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       fontSize: 13,
       lineHeight: 1,
+      marginTop: theme.spacing(-0.25),
       textTransform: "uppercase",
     },
     search: {
@@ -63,18 +61,20 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
 export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      flexGrow: 1,
-      width: "60%",
+      flex: 3.5,
+      height: 'calc(100vh - 99px)',
       padding: theme.spacing(1),
-      marginLeft: "1%",
+      margin: theme.spacing(0, 2),
       textDecoration: "none",
+      overflowY: 'auto',
+      [theme.breakpoints.down('md')]: {
+        flex: 2
+      },
     },
     smallRoot: {
       display: "block",
       width: "100%",
       padding: theme.spacing(1),
-      marginTop: "1%",
-      marginBottom: "1%",
       textDecoration: "none"
     },
     heading: {
@@ -107,15 +107,15 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
 export const useFilterStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      flexGrow: 1,
-      width: "16%",
-      padding: theme.spacing(1)
+      flex: 1,
+      height: 'calc(100vh - 99px)',
+      overflowY: 'auto',
+      padding: theme.spacing(1),
     },
     smallRoot: {
       display: "block",
       width: "100%",
       padding: theme.spacing(1),
-      marginTop: "1%",
       textDecoration: "none"
     },
     filterSection: {
@@ -127,6 +127,7 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
     },
     subtitle: {
       color: "#8e97ab",
+      flex: 1,
       fontSize: 12,
       fontWeight: 700,
       marginTop: theme.spacing(0.625),
@@ -148,6 +149,9 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
     section: {
       display: "flex",
     },
+    tags: {
+      margin: theme.spacing(1.25, 1, 2),
+    },
     tag: {
       fontFamily: 'Lato',
       marginRight: theme.spacing(0.5),
@@ -166,11 +170,9 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      marginTop: "1%",
       padding: theme.spacing(4)
     },
     description: {
-      padding: "1%",
       background: "rgba(0,0,0, 0.05)",
       borderRadius: theme.spacing(1)
     },
@@ -179,7 +181,6 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       "& > *": {
         flexGrow: 1
       },
-      marginBottom: "0.5%"
     },
     titleText: {
       width: "85%"

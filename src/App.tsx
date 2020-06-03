@@ -52,7 +52,7 @@ function App() {
       <CssBaseline />
       <Header />
 
-      <Container maxWidth="lg" style={{ top: 67, position: "relative", paddingBottom: 16 }}>
+      <Container maxWidth="xl" style={{ padding: "16px" }}>
         <Switch>
           <Route exact path="/">
             <Redirect to="/filter" />
