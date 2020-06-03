@@ -34,7 +34,7 @@ const QuestionsDisplay = (props: Props) => {
       {Object.keys(grouped).map((category, index) => (
         <div>
           <Box m={1} mt={2}>
-            <Typography variant="h6" className={classes.heading}>
+            <Typography variant="h5" className={classes.heading}>
               {category === "undefined" ? "No Category" : category}
             </Typography>
           </Box>
