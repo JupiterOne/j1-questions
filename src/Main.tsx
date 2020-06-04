@@ -53,7 +53,8 @@ const Main = () => {
       <Zoom in={managedQuestions.questions.length >= 1}>
         <div
           style={{
-            display: windowSize.width > 750 ? "flex" : "block",
+            display: "flex",
+            flexFlow: windowSize.width > 960 ? "row" : "column",
           }}
         >
           <Filters />

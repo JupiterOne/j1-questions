@@ -35,14 +35,14 @@ const Tags = () => {
     <Hidden>
       <Paper
         elevation={0}
-        className={windowSize.width > 750 ? classes.root : classes.smallRoot}
+        className={clsx(classes.tagsPaper, windowSize.width > 750 ? classes.root : classes.smallRoot)}
       >
         <Box m={1} className={classes.section}>
           <Icon classes={{ root: classes.icon}}>
             <TagIcon />
           </Icon>
           <Typography variant="h6" className={classes.subtitle}>Tags</Typography>
-          <ButtonGroup>
+          <ButtonGroup className={classes.buttonGroup}>
             <Tooltip title="Filter by All">
               <Button
                 size="small"

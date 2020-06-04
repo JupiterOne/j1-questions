@@ -113,6 +113,13 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(1),
       textDecoration: "none"
     },
+    questionsCard: {
+      [theme.breakpoints.down('sm')]: {
+        borderRadius: theme.spacing(0, 0, 0.5, 0.5),
+        margin: 0,
+        order: 3,
+      },
+    },
     headingBox: {
       margin: theme.spacing(3, 1, 2),
       "&:first-of-type": {
@@ -159,9 +166,9 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(-0.5),
     }
   })
-);
-
-export const useFilterStyles = makeStyles((theme: Theme) =>
+  );
+  
+  export const useFilterStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flex: 1,
@@ -177,7 +184,10 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
     },
     filterSection: {
       borderRadiusBottomLeft: theme.spacing(1),
-      borderRadiusBottomRight: theme.spacing(1)
+      borderRadiusBottomRight: theme.spacing(1),
+      [theme.breakpoints.down('sm')]: {
+        borderRadius: theme.spacing(),
+      },
     },
     divider: {
       margin: theme.spacing(0, -1, 2),
@@ -205,6 +215,18 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
     },
     section: {
       display: "flex",
+      [theme.breakpoints.down('sm')]: {
+        flexFlow: "wrap",
+      },
+      [theme.breakpoints.down('xs')]: {
+        flexFlow: "nowrap",
+      },
+    },
+    tagsPaper: {
+      [theme.breakpoints.down('sm')]: {
+        borderRadius: 0,
+        order: 2,
+      },
     },
     tags: {
       margin: theme.spacing(1.25, 1, 2),
@@ -216,6 +238,21 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
     },
     button: {
       padding: theme.spacing(1)
+    },
+    buttonGroup: {
+      [theme.breakpoints.down('sm')]: {
+        margin: theme.spacing(2, 0, 1),
+        width: "100%",
+      },
+      [theme.breakpoints.down('xs')]: {
+        margin: 0,
+        width: "35%",
+      },
+      "& button": {
+        [theme.breakpoints.down('sm')]: {
+          flex: 1,
+        },
+      }
     },
     linkText: {
       color: "#BBC"
@@ -229,6 +266,7 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       display: "flex",
       [theme.breakpoints.down('md')]: {
         flexFlow: "column",
+        order: 3,
       },
     },
     root: {
@@ -237,7 +275,8 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       overflowX: "auto",
       padding: theme.spacing(4),
       [theme.breakpoints.down('md')]: {
-        order: 2
+        order: 2,
+        borderRadius: theme.spacing(0, 0, 0.5, 0.5),
       },
     },
     title: {
@@ -290,6 +329,9 @@ export const useFilterStyles = makeStyles((theme: Theme) =>
       flex: 1,
       padding: theme.spacing(4),
       position: "relative",
+      [theme.breakpoints.down('md')]: {
+        borderRadius: theme.spacing(0.5, 0.5, 0, 0),
+      },
       '&:before': {
         background: "rgba(227, 229, 239, 0.2)",
         display: "block",
