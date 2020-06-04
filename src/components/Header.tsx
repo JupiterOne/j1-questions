@@ -5,7 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import JupiterOneLogo from "./jupiterone-logo.svg";
 import JupiterOneLogoDark from "./jupiterone-logo-reversed.svg";
-import TextField from "@material-ui/core/TextField";
+import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -53,24 +53,20 @@ const Header = () => {
           <Typography className={clsx(classes.title, themeDark ? classes.titleDark : undefined)}>
             Questions Library
           </Typography>
-          <div className={windowSize.width < 500 ? classes.headerPart : ""}>
-            {!history.location.pathname.includes("/question") && (
-              <TextField
-                type="search"
-                variant="outlined"
-                className={classes.input}
-                size="small"
-                placeholder={"Search"}
-                value={searchText}
-                onChange={(e: any) => {
-                  setSearchText(e.target.value);
-                  setSearch(e.target.value);
-                }}
-              />
-            )}
-          </div>
+          {!history.location.pathname.includes("/question") && (
+            <InputBase
+              type="search"
+              className={clsx(classes.input, themeDark ? classes.inputDark : undefined)}
+              placeholder={"Search"}
+              value={searchText}
+              onChange={(e: any) => {
+                setSearchText(e.target.value);
+                setSearch(e.target.value);
+              }}
+            />
+          )}
           <Hidden smDown>
-            <div className={`${classes.headerPart} ${classes.alignRight}`}>
+            <div className={clsx(classes.headerPart, classes.alignRight)}>
               <Tooltip title="Launch JupiterOne">
                 <IconButton href="https://apps.us.jupiterone.io">
                   <LaunchIcon />

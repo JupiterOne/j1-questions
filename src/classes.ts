@@ -31,13 +31,31 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       margin: "auto"
     },
     input: {
-      position: "relative",
+      background: "#eff0f5",
+      borderRadius: theme.spacing(0.5),
       color: theme.palette.text.primary,
+      height: 40,
       minWidth: theme.spacing(45),
+      padding: "10.5px 8px 10.5px 14px",
+      position: "relative",
+      [theme.breakpoints.down('md')]: {
+        marginLeft: "auto",
+        marginRight: theme.spacing(-1),
+      },
+      [theme.breakpoints.down('sm')]: {
+        minWidth: theme.spacing(35),
+      },
+      "& ::-webkit-search-cancel-button": {
+        "-webkit-appearance": "none",
+        cursor: "pointer",
+        height: 20,
+        width: 20,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg%3E%3Cline x1='15' y1='5' x2='5' y2='15' fill='none' stroke='%237a849c' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3Cline x1='5' y1='5' x2='15' y2='15' fill='none' stroke='%237a849c' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E%0A")`,
+      },
     },
-    inputSelected: {
-      borderColor:
-        "linear-gradient(0.6turn, rgb(234, 254, 65), rgb(22, 150, 172))"
+    inputDark: {
+      background: "#00062a",
+      color: "#e2e4ea",
     },
     icon: {
       marginRight: theme.spacing(1)
