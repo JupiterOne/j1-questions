@@ -9,4 +9,6 @@ code, pre {
   font-size: 16px;
   font-family: 'Ubuntu Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
