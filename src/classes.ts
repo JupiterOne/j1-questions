@@ -103,8 +103,9 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       margin: theme.spacing(0, 2),
       textDecoration: "none",
       overflowY: "auto",
-      [theme.breakpoints.down('md')]: {
-        flex: 2
+      [theme.breakpoints.down('sm')]: {
+        flex: 2,
+        maxHeight: "none",
       },
     },
     smallRoot: {
@@ -215,21 +216,26 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
     },
     section: {
       display: "flex",
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('md')]: {
         flexFlow: "wrap",
       },
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('sm')]: {
         flexFlow: "nowrap",
       },
     },
     tagsPaper: {
       [theme.breakpoints.down('sm')]: {
         borderRadius: 0,
+        borderBottom: `solid 1px ${theme.palette.divider}`, 
+        borderTop: `solid 1px ${theme.palette.divider}`, 
         order: 2,
       },
     },
     tags: {
-      margin: theme.spacing(1.25, 1, 2),
+      margin: theme.spacing(1.625, 1, 2),
+      [theme.breakpoints.down('md')]: {
+        marginTop: 0,
+      },
     },
     tag: {
       fontFamily: 'Lato',
@@ -240,16 +246,16 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(1)
     },
     buttonGroup: {
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('md')]: {
         margin: theme.spacing(2, 0, 1),
         width: "100%",
       },
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('sm')]: {
         margin: 0,
         width: "35%",
       },
       "& button": {
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('md')]: {
           flex: 1,
         },
       }
@@ -331,6 +337,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       position: "relative",
       [theme.breakpoints.down('md')]: {
         borderRadius: theme.spacing(0.5, 0.5, 0, 0),
+        borderBottom: "solid 1px #d4d6e3",
       },
       '&:before': {
         background: "rgba(227, 229, 239, 0.2)",
