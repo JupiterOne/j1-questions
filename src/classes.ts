@@ -8,9 +8,13 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
     },
     homeLink: {
       height: 35.38,
+      marginRight: theme.spacing(2),
+      [theme.breakpoints.down('sm')]: {
+        width: 35.38,
+        overflow: "hidden",
+      },
     },
     menuButton: {
-      marginRight: theme.spacing(2),
       color: theme.palette.text.primary,
       width: theme.spacing(20)
     },
@@ -23,6 +27,12 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       lineHeight: 1,
       marginTop: theme.spacing(-0.25),
       textTransform: "uppercase",
+      [theme.breakpoints.down('sm')]: {
+        marginLeft: 0,
+      },
+      [theme.breakpoints.down('xs')]: {
+        display: "none"
+      },
     },
     titleDark: {
       color: "#26cbe5",
@@ -43,7 +53,11 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
         marginRight: theme.spacing(-1),
       },
       [theme.breakpoints.down('sm')]: {
-        minWidth: theme.spacing(35),
+        flex: 5,
+        minWidth: 0,
+      },
+      [theme.breakpoints.down('xs')]: {
+        marginRight: 0,
       },
       "& ::-webkit-search-cancel-button": {
         "-webkit-appearance": "none",
