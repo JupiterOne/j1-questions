@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import clsx from "clsx";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -49,7 +50,7 @@ const Header = () => {
           <Link className={classes.homeLink} to="/">
             <img className={classes.menuButton} src={themeDark ? JupiterOneLogoDark : JupiterOneLogo } />
           </Link>
-          <Typography className={classes.title}>
+          <Typography className={clsx(classes.title, themeDark ? classes.titleDark : undefined)}>
             Questions Library
           </Typography>
           <div className={windowSize.width < 500 ? classes.headerPart : ""}>

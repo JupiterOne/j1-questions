@@ -21,11 +21,16 @@ function App() {
         paper: themeDark ? "#021a40" : "#fff",
       },
       primary: {
-        main: "rgb(22, 150, 172)",
+        main: themeDark ? "#26cbe5" : "#0096ad",
         contrastText: "#FFF"
       },
       secondary: {
         main: "rgba(2, 130, 152)"
+      },
+      text: {
+        primary: themeDark ? "#FFFFFF" : "#353945",
+        secondary: themeDark ? "#d4d6e3" : "#596173",
+        hint: themeDark ? "#17305d" : "#8e97ab",
       }
     },
     typography: {
@@ -36,8 +41,53 @@ function App() {
     overrides: {
       MuiAppBar: {
         root: {
-          background: themeDark ? "#021a40" : "#FFF"
+          background: themeDark ? "#021a40" : "#FFF",
         }
+      },
+      MuiCheckbox: {
+        root: {
+          color: themeDark ? "#5a6887" : "#7a849c",
+          padding: '2px 8px',
+        },
+        colorSecondary: {
+          '&$checked': {
+            '&:hover': {
+              backgroundColor: 'transparent',
+            }
+          }
+        }
+      },
+      MuiIconButton: {
+        root: {
+          color: themeDark ? "#b5bccb" : "#7a849c",
+          '&:hover': {
+            backgroundColor: 'transparent',
+          },
+        },
+        colorPrimary: {
+          '&:hover': {
+            backgroundColor: 'transparent',
+          },
+        },
+        colorSecondary: {
+          '&:hover': {
+            backgroundColor: 'transparent',
+          },
+        },
+      },
+      MuiTouchRipple: {
+        rippleVisible: {
+          animation: 'none',
+          display: 'none',
+        },
+        childLeaving: {
+          animation: 'none',
+          display: 'none',
+        },
+        childPulsate: {
+          animation: 'none',
+          display: 'none',
+        },
       },
       MuiPaper: {
         root: {

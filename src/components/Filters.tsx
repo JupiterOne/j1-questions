@@ -79,15 +79,15 @@ const Filters = () => {
               }
               label={
                 <>
-                      {Object.keys(managedQuestions.integrations).length > 0 &&
-                      integration !== "none"
-                      ? managedQuestions.integrations[integration].title
-                      : "None"}
-                    </>
-                  }
-                  />
-                  )
-                  )}
+                  {Object.keys(managedQuestions.integrations).length > 0 &&
+                  integration !== "none"
+                  ? managedQuestions.integrations[integration].title
+                  : "None"}
+                </>
+              }
+            />
+          )
+        )}
         </Box>
       </Paper>
     </Hidden>

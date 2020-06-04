@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import clsx from "clsx";
 import { Typography, Card, Icon, Box, Divider } from "@material-ui/core";
 import { Question } from "../types";
 import { useQuestionDisplayStyles } from "../classes";
@@ -14,6 +15,7 @@ interface Props {
 }
 
 const QuestionsDisplay = (props: Props) => {
+  const { themeDark } = React.useContext(Context);
   const { managedQuestions } = useContext(Context);
   const classes = useQuestionDisplayStyles();
   const history = useHistory();
@@ -26,18 +28,16 @@ const QuestionsDisplay = (props: Props) => {
       elevation={0}
       className={windowSize.width > 750 ? classes.root : classes.smallRoot}
     >
-      <Box style={{ textAlign: "right" }} mr={1} mb={-3}>
-        <em>
-          {props.questions.length} of {managedQuestions.questions.length}
-        </em>
+      <Box className={clsx(classes.results, themeDark ? classes.resultsDark : undefined)}>
+        {props.questions.length} of {managedQuestions.questions.length}
       </Box>
       {Object.keys(grouped).map((category, index) => (
-        <div>
-          <Box m={1} mt={2}>
+        <>
+          <p className={classes.headingBox}>
             <Typography variant="h5" className={classes.heading}>
               {category === "undefined" ? "No Category" : category}
             </Typography>
-          </Box>
+          </p>
           <Divider className={classes.divider}/>
           {grouped[category].map(question => (
             <>
@@ -54,7 +54,7 @@ const QuestionsDisplay = (props: Props) => {
               <Divider className={classes.divider}/>
             </>
           ))}
-        </div>
+        </>
       ))}
     </Card>
   );
