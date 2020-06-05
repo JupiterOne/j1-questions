@@ -68,7 +68,7 @@ const Header = () => {
           <Hidden smDown>
             <div className={clsx(classes.headerPart, classes.alignRight)}>
               <Tooltip title="Launch JupiterOne">
-                <IconButton href="https://apps.us.jupiterone.io">
+                <IconButton href="https://apps.us.jupiterone.io" target="_blank">
                   <LaunchIcon />
                 </IconButton>
               </Tooltip>
