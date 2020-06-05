@@ -3,20 +3,13 @@ import {
   Paper,
   Icon,
   Box,
-  Chip,
   Typography,
-  Avatar,
-  Button,
-  ButtonGroup,
   Hidden,
   Checkbox,
-  Zoom,
   FormControlLabel,
   Divider
 } from "@material-ui/core";
 import { useFilterStyles } from "../classes";
-import DoneIcon from "@material-ui/icons/Done";
-import TagIcon from "react-feather/dist/icons/tag";
 import IntegrationIcon from "react-feather/dist/icons/zap";
 import CategoryIcon from "react-feather/dist/icons/grid";
 import { useWindowSize } from "@reach/window-size";
@@ -28,12 +21,7 @@ const Filters = () => {
     categories,
     managedQuestions,
     integrations,
-    tagFilter,
-    allTags,
-    tags,
-    setFilterLogic,
     setCategory,
-    setTag,
     setIntegration
   } = useContext(Context);
 
@@ -91,63 +79,15 @@ const Filters = () => {
               }
               label={
                 <>
-                      {Object.keys(managedQuestions.integrations).length > 0 &&
-                      integration !== "none"
-                      ? managedQuestions.integrations[integration].title
-                      : "None"}
-                    </>
-                  }
-                  />
-                  )
-                  )}
-        </Box>
-        <Divider className={classes.divider} />
-        <Box m={1} className={classes.section}>
-          <Icon classes={{ root: classes.icon}}>
-            <TagIcon />
-          </Icon>
-          <Typography variant="h6" className={classes.subtitle}>Tags</Typography>
-        </Box>
-        <Box m={2}>
-          <ButtonGroup>
-            <Button
-              color={tagFilter === "all" ? "primary" : "default"}
-              onClick={() => setFilterLogic("all")}
-            >
-              Filter by all
-            </Button>
-            <Button
-              color={tagFilter === "any" ? "primary" : "default"}
-              onClick={() => setFilterLogic("any")}
-            >
-              Filter by any
-            </Button>
-          </ButtonGroup>
-        </Box>
-        <Box m={2} className={classes.section}>
-          <Box>
-            {allTags.sort().map((tag: string, index: number) => (
-              <Chip
-                color="primary"
-                variant="outlined"
-                avatar={
-                  tags.includes(tag) ? (
-                    <Zoom in={tags.includes(tag)}>
-                      <Avatar>
-                        <DoneIcon />
-                      </Avatar>
-                    </Zoom>
-                  ) : (
-                    undefined
-                  )
-                }
-                className={classes.tag}
-                key={index}
-                onClick={() => setTag(tag)}
-                label={tag}
-              />
-            ))}
-          </Box>
+                  {Object.keys(managedQuestions.integrations).length > 0 &&
+                  integration !== "none"
+                  ? managedQuestions.integrations[integration].title
+                  : "None"}
+                </>
+              }
+            />
+          )
+        )}
         </Box>
       </Paper>
     </Hidden>

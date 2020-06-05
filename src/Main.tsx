@@ -3,6 +3,7 @@ import "./App.css";
 import { useHistory } from "react-router-dom";
 import QuestionsDisplay from "./components/QuestionsDisplay";
 import Filters from "./components/Filters";
+import Tags from "./components/Tags";
 import filterQuestions, { FilterType } from "./methods/filterQuestions";
 import { Zoom } from "@material-ui/core";
 import { useWindowSize } from "@reach/window-size";
@@ -52,13 +53,13 @@ const Main = () => {
       <Zoom in={managedQuestions.questions.length >= 1}>
         <div
           style={{
-            display: windowSize.width > 750 ? "flex" : "block",
-            marginTop: "1.5em"
+            display: "flex",
+            flexFlow: windowSize.width > 960 ? "row" : "column",
           }}
         >
           <Filters />
-
           <QuestionsDisplay questions={filteredQuestions} />
+          <Tags />
         </div>
       </Zoom>
     </>

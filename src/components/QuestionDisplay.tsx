@@ -8,7 +8,10 @@ import {
   IconButton,
   Snackbar,
   Tooltip,
+  Container,
+  Divider,
 } from "@material-ui/core";
+import clsx from "clsx";
 import { Alert } from "@material-ui/lab";
 import { useParams, useHistory } from "react-router";
 import { useQuestionStyles } from "../classes";
@@ -20,6 +23,7 @@ import ChevronLeftIcon from "react-feather/dist/icons/chevron-left";
 import Context from "../AppContext";
 
 const QuestionDisplay = () => {
+  const { themeDark } = React.useContext(Context);
   const { managedQuestions } = useContext(Context);
   const [copied, setCopied] = useState(false);
   const params: { questionTitle?: string } = useParams();
@@ -41,85 +45,92 @@ const QuestionDisplay = () => {
 
   return (
     <>
-      <Button
-        color="secondary"
-        className={classes.button}
-        variant="contained"
-        onClick={() => {
-          history.goBack();
-        }}
-      >
-        {" "}
-        <ChevronLeftIcon /> Back
-      </Button>
-      <Paper elevation={0} className={classes.root}>
+      <Container>
+        <Button
+          color="primary"
+          className={classes.button}
+          size="small"
+          variant="outlined"
+          onClick={() => {
+            history.goBack();
+          }}
+        >
+          <ChevronLeftIcon /> Back
+        </Button>
         {question ? (
-          <div>
-            <Box>
+          <div className={classes.container}>
+            <Paper elevation={0} className={classes.root}>
+              <Box className={classes.title}>
+                <Typography variant="h5" className={classes.titleText}>
+                  {question.title}
+                </Typography>
+              </Box>
+              <div className={classes.queryDescLayout}>
+                <Box className={classes.queries}>
+                  <Box  className={clsx(classes.description, themeDark ? classes.descriptionDark : undefined)}>{question.description}</Box>
+                  <Divider />
+                  {(question.queries || []).map((query: any) => (
+                    <>
+                      <Box className={classes.queryGroup} key={query.query}>
+                        <div className={classes.copyContainer}>
+                          <Tooltip title="Copy query">
+                            <IconButton
+                              color="primary"
+                              className={classes.copy}
+                              onClick={() => {
+                                copy(query.query);
+                                setCopied(true);
+                              }}
+                              children={<CopyIcon />}
+                              />
+                          </Tooltip>
+                        </div>
+                        <code className={classes.queryBox}>
+                          <pre>{query.query}</pre>
+                        </code>
+                      </Box>
+                      <Divider />
+                    </>
+                  ))}
+                </Box>
+              </div>
+            </Paper>
+            <Paper elevation={0} className={clsx(classes.sidebar, themeDark ? classes.sidebarDark : undefined)}>
               {question.integration ? (
-                <div>
+                <div className={classes.integrationGroup}>
                   <img
-                    style={{ margin: "auto", width: "2em" }}
+                    className={classes.integrationIcon}
                     src={`https://raw.githubusercontent.com/JupiterOne/docs/master/assets/icons/${
                       managedQuestions.integrations[question.integration].type
                     }.svg`}
                   />
                   <Typography
-                    style={{ position: "relative", top: "-7px" }}
+                    className={classes.integrationTitle}
                     variant="subtitle1"
                     component="span"
                   >
-                    {" "}
                     {managedQuestions.integrations[question.integration].title}
                   </Typography>
                 </div>
               ) : null}
-            </Box>
-            <Box className={classes.title}>
-              <Typography variant="h6" className={classes.titleText}>
-                {question.title}
-              </Typography>
-              {question.tags === undefined ||
-                question.tags.map((tag: string) => (
-                  <Chip
-                    key={tag}
-                    className={classes.tag}
-                    variant="outlined"
-                    color="secondary"
-                    onClick={() => {
-                      window.location.replace(
-                        `/filter?tags=${tag}&tagFilter=all`
-                      );
-                    }}
-                    label={tag}
-                  />
-                ))}
-            </Box>
-            <Box className={classes.description}>{question.description}</Box>
-            <br />
-            <Typography>Queries</Typography>
-            <Box>
-              {(question.queries || []).map((query: any) => (
-                <Box key={query.query} style={{ display: "flex" }} mt={2} m={0}>
-                  <div className={classes.copyContainer}>
-                    <Tooltip title="Copy query">
-                      <IconButton
-                        color="primary"
-                        className={classes.copy}
-                        onClick={() => {
-                          copy(query.query);
-                          setCopied(true);
+              <div className={classes.tags}>
+                {question.tags === undefined ||
+                  question.tags.map((tag: string) => (
+                    <Chip
+                      key={tag}
+                      className={classes.tag}
+                      variant="outlined"
+                      color="primary"
+                      onClick={() => {
+                        window.location.replace(
+                          `/filter?tags=${tag}&tagFilter=all`
+                          );
                         }}
-                        children={<CopyIcon />}
-                        />
-                    </Tooltip>
-                  </div>
-                  <code className={classes.queryBox}>
-                    <pre>{query.query}</pre>
-                  </code>
-                </Box>
-              ))}
-            </Box>
+                        label={tag}
+                    />
+                ))}
+              </div>
+            </Paper>
             <Snackbar
               open={copied}
               autoHideDuration={3000}
@@ -129,9 +140,9 @@ const QuestionDisplay = () => {
             </Snackbar>
           </div>
         ) : (
-          <div>Nothing to display.</div>
+          <Paper elevation={0} className={classes.root}>Nothing to display.</Paper>
         )}
-      </Paper>
+      </Container>
     </>
   );
 };
