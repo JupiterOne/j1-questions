@@ -61,12 +61,13 @@ const QuestionDisplay = () => {
           <div className={classes.container}>
             <Paper elevation={0} className={classes.root}>
               <Box className={classes.title}>
-                <Typography variant="h6" className={classes.titleText}>
+                <Typography variant="h5" className={classes.titleText}>
                   {question.title}
                 </Typography>
               </Box>
               <div className={classes.queryDescLayout}>
                 <Box className={classes.queries}>
+                  <Box  className={clsx(classes.description, themeDark ? classes.descriptionDark : undefined)}>{question.description}</Box>
                   <Divider />
                   {(question.queries || []).map((query: any) => (
                     <>
@@ -112,22 +113,23 @@ const QuestionDisplay = () => {
                   </Typography>
                 </div>
               ) : null}
-              <Box className={classes.description}>{question.description}</Box>
-              {question.tags === undefined ||
-                question.tags.map((tag: string) => (
-                  <Chip
-                    key={tag}
-                    className={classes.tag}
-                    variant="outlined"
-                    color="primary"
-                    onClick={() => {
-                      window.location.replace(
-                        `/filter?tags=${tag}&tagFilter=all`
-                      );
-                    }}
-                    label={tag}
-                  />
+              <div className={classes.tags}>
+                {question.tags === undefined ||
+                  question.tags.map((tag: string) => (
+                    <Chip
+                      key={tag}
+                      className={classes.tag}
+                      variant="outlined"
+                      color="primary"
+                      onClick={() => {
+                        window.location.replace(
+                          `/filter?tags=${tag}&tagFilter=all`
+                          );
+                        }}
+                        label={tag}
+                    />
                 ))}
+              </div>
             </Paper>
             <Snackbar
               open={copied}

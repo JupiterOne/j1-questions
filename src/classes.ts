@@ -293,15 +293,25 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       fontWeight: 900,
       lineHeight: 1.25,
       marginTop: theme.spacing(-0.5),
+      width: "92.5%",
+      [theme.breakpoints.down('sm')]: {
+        width: "100%",
+      },
     },
     queryDescLayout: {
       display: "flex",
     },
     description: {
-      marginBottom: theme.spacing(2),
-      [theme.breakpoints.down('md')]: {
-        fontSize: 18,
+      color: theme.palette.text.secondary,
+      fontSize: 18,
+      marginBottom: theme.spacing(2.5),
+      width: "92.5%",
+      [theme.breakpoints.down('sm')]: {
+        width: "100%",
       },
+    },
+    descriptionDark: {
+      color: "#8690a8",
     },
     queries: {
       flex: 4,
@@ -336,8 +346,14 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(4),
       position: "relative",
       [theme.breakpoints.down('md')]: {
+        alignItems: "center",
         borderRadius: theme.spacing(0.5, 0.5, 0, 0),
         borderBottom: "solid 1px #d4d6e3",
+        display: "flex",
+        flexFlow: "wrap",
+        paddingBottom: theme.spacing(3),
+        paddingTop: theme.spacing(3),
+        justifyContent: "space-between",
       },
       '&:before': {
         background: "rgba(227, 229, 239, 0.2)",
@@ -351,6 +367,9 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       }
     },
     sidebarDark: {
+      [theme.breakpoints.down('md')]: {
+        borderBottom: "solid 1px #00062a",
+      },
       '&:before': {
         background: "rgba(0, 6, 42, 0.2)",
       }
@@ -358,7 +377,14 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
     integrationGroup: {
       alignItems: 'center',
       display: 'flex',
-      marginBottom: theme.spacing(2.5),
+      margin: theme.spacing(0, 2, 2, 0),
+      [theme.breakpoints.down('md')]: {
+        marginBottom: 0,
+      },
+      [theme.breakpoints.down('sm')]: {
+        marginBottom: theme.spacing(1.5),
+        flex: "100%",
+      },
     },
     integrationIcon: {
       marginRight: theme.spacing(1.5),
@@ -369,6 +395,15 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       color: theme.palette.text.secondary,
       fontSize: 18,
       fontWeight: 900,
+    },
+    tags: {
+      [theme.breakpoints.down('md')]: {
+        margin: theme.spacing(-0.5, 0, 0, 0),
+        textAlign: "right",
+      },
+      [theme.breakpoints.down('sm')]: {
+        textAlign: "left",
+      },
     },
     tag: {
       fontFamily: 'Lato',
