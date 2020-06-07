@@ -21,6 +21,7 @@ import copy from "clipboard-copy";
 import CopyIcon from "react-feather/dist/icons/copy";
 import ChevronLeftIcon from "react-feather/dist/icons/chevron-left";
 import Context from "../AppContext";
+import integrationIconPath from "../util/integrationIconPath";
 
 const QuestionDisplay = () => {
   const { themeDark } = React.useContext(Context);
@@ -100,9 +101,7 @@ const QuestionDisplay = () => {
                 <div className={classes.integrationGroup}>
                   <img
                     className={classes.integrationIcon}
-                    src={`https://raw.githubusercontent.com/JupiterOne/docs/master/assets/icons/${
-                      managedQuestions.integrations[question.integration].type
-                    }.svg`}
+                    src={integrationIconPath(managedQuestions.integrations[question.integration].type)}
                   />
                   <Typography
                     className={classes.integrationTitle}
