@@ -43,8 +43,10 @@ const Filters = () => {
         <Box m={2}>
           {allCategories.map((category: any) => (
             <FormControlLabel
-              className={classes.checkboxItem}
-              classes={{ label: classes.checkboxLabel}}
+              classes={{
+                root: classes.checkboxItem,
+                label: classes.checkboxLabel
+              }}
               onChange={() => setCategory(category)}
               key={category}
               control={
@@ -68,8 +70,10 @@ const Filters = () => {
           {[...Object.keys(managedQuestions.integrations), "none"].map(
             (integration: string, index: number) => (
               <FormControlLabel
-              className={classes.checkboxItem}
-              classes={{ label: classes.checkboxLabel}}
+              classes={{
+                root: classes.checkboxItem,
+                label: classes.checkboxLabel
+              }}
               key={index}
               control={
                 <Checkbox
