@@ -30,7 +30,7 @@ function App() {
       text: {
         primary: themeDark ? "#FFFFFF" : "#353945",
         secondary: themeDark ? "#d4d6e3" : "#596173",
-        hint: themeDark ? "#17305d" : "#8e97ab",
+        hint: themeDark ? "#3a4b7a" : "#8e97ab",
       }
     },
     typography: {
@@ -47,6 +47,7 @@ function App() {
       MuiCard: {
         root: {
           overflowY: "auto",
+          position: "relative",
         }
       },
       MuiCheckbox: {
@@ -64,8 +65,9 @@ function App() {
       },
       MuiFormControlLabel: {
         root: {
-          display: "flex",
           alignItems: "flex-start",
+          display: "flex",
+          marginRight: 0,
         }
       },
       MuiIconButton: {
