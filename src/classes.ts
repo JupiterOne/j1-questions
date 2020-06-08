@@ -332,7 +332,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       paddingLeft: theme.spacing(0.75),
       position: "absolute",
       left: 24,
-      [theme.breakpoints.down('md')]: {
+      "@media (max-width: 1470px)": {
         position: "static",
         marginBottom: theme.spacing(2),
       },

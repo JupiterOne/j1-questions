@@ -26,7 +26,9 @@ const QuestionsDisplay = (props: Props) => {
   return (
     <Card
       elevation={0}
-      className={clsx(classes.questionsCard, windowSize.width > 750 ? classes.root : classes.smallRoot)}
+      classes={{
+        root: clsx(classes.questionsCard, windowSize.width > 750 ? classes.root : classes.smallRoot)
+      }}
     >
       <Box className={clsx(classes.results, themeDark ? classes.resultsDark : undefined)}>
         {props.questions.length} of {managedQuestions.questions.length}
