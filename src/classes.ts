@@ -98,7 +98,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flex: 3.5,
-      maxHeight: "calc(100vh - 99px)",
+      height: "calc(100vh - 99px)",
       padding: theme.spacing(1, 2, 2),
       margin: theme.spacing(0, 2),
       textDecoration: "none",
@@ -164,6 +164,26 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
     chevronRight: {
       color: theme.palette.primary.main,
       marginTop: theme.spacing(-0.5),
+    },
+    empty: {
+      alignItems: "center",
+      color: theme.palette.text.hint,
+      display: "flex",
+      flexFlow: "column",
+      height: "98%",
+      justifyContent: "center",
+      minHeight: 300,
+      textAlign: "center",
+      width: "100%",
+      [theme.breakpoints.down('sm')]: {
+        height: "auto"
+      },
+    },
+    emptyIcon: {
+      marginBottom: theme.spacing(1),
+      height: 60,
+      strokeWidth: 1.25,
+      width: 60,
     }
   })
   );
@@ -172,7 +192,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flex: 1,
-      maxHeight: "calc(100vh - 99px)",
+      height: "calc(100vh - 99px)",
       overflowY: "auto",
       padding: theme.spacing(1),
     },
@@ -204,6 +224,19 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
     icon: {
       color: "#8e97ab",
       margin: theme.spacing(0, 1, 0, 0.75),
+    },
+    checklist: {
+      [theme.breakpoints.down('sm')]: {
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr 1fr",
+        gridGap: theme.spacing(0, 2),
+      },
+      "@media (max-width: 800px)": {
+        gridTemplateColumns: "1fr 1fr",
+      },
+      "@media (max-width: 600px)": {
+        gridTemplateColumns: "1fr",
+      },
     },
     checkboxLabel: {
       lineHeight: 1.25,

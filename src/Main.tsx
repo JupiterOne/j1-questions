@@ -5,7 +5,7 @@ import QuestionsDisplay from "./components/QuestionsDisplay";
 import Filters from "./components/Filters";
 import Tags from "./components/Tags";
 import filterQuestions, { FilterType } from "./methods/filterQuestions";
-import { Zoom } from "@material-ui/core";
+import { Fade } from "@material-ui/core";
 import { useWindowSize } from "@reach/window-size";
 import { Question } from "./types";
 import Context from "./AppContext";
@@ -50,7 +50,7 @@ const Main = () => {
 
   return (
     <>
-      <Zoom in={managedQuestions.questions.length >= 1}>
+      <Fade in={managedQuestions.questions.length >= 1}>
         <div
           style={{
             display: "flex",
@@ -61,7 +61,7 @@ const Main = () => {
           <QuestionsDisplay questions={filteredQuestions} />
           <Tags />
         </div>
-      </Zoom>
+      </Fade>
     </>
   );
 };

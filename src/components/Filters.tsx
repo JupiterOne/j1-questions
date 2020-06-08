@@ -40,7 +40,7 @@ const Filters = () => {
           </Icon>
           <Typography variant="h6" className={classes.subtitle}>Category</Typography>
         </Box>
-        <Box m={2}>
+        <Box className={classes.checklist} m={2}>
           {allCategories.map((category: any) => (
             <FormControlLabel
               classes={{
@@ -65,7 +65,7 @@ const Filters = () => {
           </Icon>
           <Typography variant="h6" className={classes.subtitle}>Integrations</Typography>
         </Box>
-        <Box m={2}>
+        <Box className={classes.checklist} m={2}>
           {[...Object.keys(managedQuestions.integrations), "none"].map(
             (integration: string, index: number) => (
               <FormControlLabel
