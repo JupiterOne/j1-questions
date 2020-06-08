@@ -102,7 +102,6 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(1, 2, 2),
       margin: theme.spacing(0, 2),
       textDecoration: "none",
-      overflowY: "auto",
       [theme.breakpoints.down('sm')]: {
         flex: 2,
         maxHeight: "none",
@@ -205,10 +204,6 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
     icon: {
       color: "#8e97ab",
       margin: theme.spacing(0, 1, 0, 0.75),
-    },
-    checkboxItem: {
-      display: "flex",
-      alignItems: "flex-start",
     },
     checkboxLabel: {
       lineHeight: 1.25,
