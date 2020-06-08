@@ -44,6 +44,11 @@ function App() {
           background: themeDark ? "#021a40" : "#FFF",
         }
       },
+      MuiCard: {
+        root: {
+          overflowY: "auto",
+        }
+      },
       MuiCheckbox: {
         root: {
           color: themeDark ? "#5a6887" : "#7a849c",
@@ -55,6 +60,12 @@ function App() {
               backgroundColor: 'transparent',
             }
           }
+        }
+      },
+      MuiFormControlLabel: {
+        root: {
+          display: "flex",
+          alignItems: "flex-start",
         }
       },
       MuiIconButton: {

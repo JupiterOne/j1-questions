@@ -44,7 +44,6 @@ const Filters = () => {
           {allCategories.map((category: any) => (
             <FormControlLabel
               classes={{
-                root: classes.checkboxItem,
                 label: classes.checkboxLabel
               }}
               onChange={() => setCategory(category)}
@@ -71,7 +70,6 @@ const Filters = () => {
             (integration: string, index: number) => (
               <FormControlLabel
               classes={{
-                root: classes.checkboxItem,
                 label: classes.checkboxLabel
               }}
               key={index}
