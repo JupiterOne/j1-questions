@@ -1,2 +1,2 @@
-declare module '@lifeomic/react-brand-icons*';
+declare module '@jupiterone/react-brand-icons*';
 declare module 'react-feather*';

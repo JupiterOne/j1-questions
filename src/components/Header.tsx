@@ -15,7 +15,7 @@ import { useHeaderStyles } from "../classes";
 import { Link, useHistory } from "react-router-dom";
 import MoonIcon from "react-feather/dist/icons/moon";
 import SunIcon from "react-feather/dist/icons/sun";
-import LaunchIcon from "@lifeomic/react-brand-icons/jupiterone/class/CodeDeploy";
+import LaunchIcon from "@jupiterone/react-brand-icons/jupiterone/class/CodeDeploy";
 import Hidden from "@material-ui/core/Hidden";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import copy from "clipboard-copy";

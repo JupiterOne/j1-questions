@@ -4,7 +4,7 @@ import { Typography, Card, Icon, Box, Divider, Fade } from "@material-ui/core";
 import { Question } from "../types";
 import { useQuestionDisplayStyles } from "../classes";
 import { useHistory } from "react-router-dom";
-import UnavailableIcon from "@lifeomic/react-brand-icons/jupiterone/unavailable";
+import UnavailableIcon from "@jupiterone/react-brand-icons/jupiterone/unavailable";
 import ChevronRightIcon from "react-feather/dist/icons/chevron-right";
 import { useWindowSize } from "@reach/window-size";
 import Context from "../AppContext";
