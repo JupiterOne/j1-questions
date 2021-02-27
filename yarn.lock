@@ -1092,10 +1092,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@lifeomic/react-brand-icons@^1.6.19":
-  version "1.6.19"
-  resolved "https://registry.yarnpkg.com/@lifeomic/react-brand-icons/-/react-brand-icons-1.6.19.tgz#527ccaa260f2ea9d66ee522fdb6a6e7da9e2fd28"
-  integrity sha512-E0tE2P4ENRaQf1DYCZ0xtif3Fws/Md+UHAfqMPpbEygDxRd0xnQD/EhrxuDsc1dpS2rHAVQ6a/eNPkrpwicfOA==
+"@jupiterone/react-brand-icons@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@jupiterone/react-brand-icons/-/react-brand-icons-1.7.0.tgz#85bcc952d5b1747867d27205cea200892559b06c"
+  integrity sha512-4eBWjkeKZYOUpmH2FkrbgaKjbZuX+yuFucMA+NCesiL10ize+1eXq8XDNoToSrdo2G8B9RM4U6zBt4KvwQNp1A==
 
 "@material-ui/core@^4.9.11":
   version "4.9.11"
