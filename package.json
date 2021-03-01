@@ -18,7 +18,7 @@
     "react-feather": "^2.0.8",
     "react-on-screen": "^2.1.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^4.0.3",
     "typescript": "~3.7.2"
   },
   "scripts": {
