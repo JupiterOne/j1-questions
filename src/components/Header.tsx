@@ -19,7 +19,6 @@ import LaunchIcon from "@jupiterone/react-brand-icons/jupiterone/class/CodeDeplo
 import Hidden from "@material-ui/core/Hidden";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import copy from "clipboard-copy";
-import { useWindowSize } from "@reach/window-size";
 import Context from "../AppContext";
 
 const Header = () => {
@@ -33,7 +32,6 @@ const Header = () => {
 
   const classes = useHeaderStyles();
   const [copied, setCopied] = useState(false);
-  const windowSize = useWindowSize();
   const history = useHistory();
 
   const [searchText, setSearchText] = useState(search);
@@ -48,7 +46,7 @@ const Header = () => {
       >
         <Toolbar>
           <Link className={classes.homeLink} to="/">
-            <img className={classes.menuButton} src={themeDark ? JupiterOneLogoDark : JupiterOneLogo } />
+            <img alt="j1Logo" className={classes.menuButton} src={themeDark ? JupiterOneLogoDark : JupiterOneLogo } />
           </Link>
           <Typography className={clsx(classes.title, themeDark ? classes.titleDark : undefined)}>
             Questions Library

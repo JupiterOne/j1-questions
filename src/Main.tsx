@@ -37,7 +37,7 @@ const Main = () => {
     });
 
     history.replace(`/filter?${query}`);
-  }, [tags, integrations, search, tagFilter, categories]);
+  }, [tags, integrations, search, tagFilter, categories, history]);
 
   const filteredQuestions: Question[] = filterQuestions(
     managedQuestions.questions,
