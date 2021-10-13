@@ -79,6 +79,7 @@ export const Provider = (props: { children: any }) => {
         if (question.category !== undefined) {
           return question.category;
         }
+        return [];
       });
       setAllCategories([]);
       setAllCategories(uniqueArray(categories));
