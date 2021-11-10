@@ -50,7 +50,7 @@ const QuestionsDisplay = (props: Props) => {
           <>
             <p className={classes.headingBox}>
               <Typography variant="h5" className={classes.heading}>
-                {category === "undefined" ? "No Category" : category}
+                {category === "undefined" ? "Integration Provider Specific Questions" : category}
               </Typography>
             </p>
             <Divider className={classes.divider}/>
