@@ -2,3 +2,6 @@
   background: linear-gradient(315deg, #EAFCA2 0%, #3CE3B5 80%, #6647FF 100%);
   height: 0.2em;
 }
+
+.ask-j1-header .menu-item img {  padding-bottom: 0px !important;}
+.ask-j1-header .ask-j1-header-container .mobile-toggler {  top: 32px !important;}

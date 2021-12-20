@@ -4,19 +4,19 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-      color: theme.palette.text.primary
+      color: theme.palette.text.primary,
     },
     homeLink: {
       height: 35.38,
-      marginRight: theme.spacing(2),
-      [theme.breakpoints.down('sm')]: {
+      // marginRight: theme.spacing(2),
+      [theme.breakpoints.down("sm")]: {
         width: 35.38,
         overflow: "hidden",
       },
     },
     menuButton: {
       color: theme.palette.text.primary,
-      width: theme.spacing(20)
+      width: theme.spacing(20),
     },
     title: {
       marginLeft: theme.spacing(3.125),
@@ -27,36 +27,36 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       lineHeight: 1,
       marginTop: theme.spacing(-0.25),
       textTransform: "uppercase",
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         marginLeft: 0,
       },
-      [theme.breakpoints.down('xs')]: {
-        display: "none"
+      [theme.breakpoints.down("xs")]: {
+        display: "none",
       },
     },
     titleDark: {
       color: "#26cbe5",
     },
     search: {
-      margin: "auto"
+      margin: "auto",
     },
     input: {
-      background: "#eff0f5",
+      border: `solid 1px #c4c4c4`,
       borderRadius: theme.spacing(0.5),
       color: theme.palette.text.primary,
-      height: 40,
+      height: 34,
       minWidth: theme.spacing(45),
       padding: "10.5px 8px 10.5px 14px",
       position: "relative",
-      [theme.breakpoints.down('md')]: {
-        marginLeft: "auto",
+      [theme.breakpoints.down("md")]: {
+        // marginLeft: "auto",
         marginRight: theme.spacing(-1),
       },
-      [theme.breakpoints.down('sm')]: {
-        flex: 5,
+      [theme.breakpoints.down("sm")]: {
+        // flex: 5,
         minWidth: 0,
       },
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down("xs")]: {
         marginRight: 0,
       },
       "& ::-webkit-search-cancel-button": {
@@ -72,25 +72,25 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       color: "#e2e4ea",
     },
     icon: {
-      marginRight: theme.spacing(1)
+      marginRight: theme.spacing(1),
     },
     actionButton: {
-      marginLeft: theme.spacing(1)
+      marginLeft: theme.spacing(1),
     },
     headerPart: {
       flexGrow: 1,
-      display: "flex"
+      display: "flex",
     },
     alignRight: {
-      flexDirection: "row-reverse"
+      flexDirection: "row-reverse",
     },
     thin: {
-      fontWeight: 100
+      fontWeight: 100,
     },
     bold: {
       fontWeight: 500,
-      fontFamily: "Lato"
-    }
+      fontFamily: "Lato",
+    },
   })
 );
 
@@ -102,7 +102,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(1, 2, 2),
       margin: theme.spacing(0, 2),
       textDecoration: "none",
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         flex: 2,
         maxHeight: "none",
       },
@@ -111,10 +111,10 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       display: "block",
       width: "100%",
       padding: theme.spacing(1),
-      textDecoration: "none"
+      textDecoration: "none",
     },
     questionsCard: {
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         borderRadius: theme.spacing(0, 0, 0.5, 0.5),
         margin: 0,
         order: 3,
@@ -124,7 +124,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       margin: theme.spacing(3, 1, 2),
       "&:first-of-type": {
         marginTop: theme.spacing(0.75),
-      }
+      },
     },
     heading: {
       fontWeight: 900,
@@ -149,17 +149,17 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       fontSize: 15,
       padding: theme.spacing(1),
       textDecoration: "none",
-      cursor: "pointer"
+      cursor: "pointer",
     },
     divider: {
       margin: theme.spacing(0, -2),
     },
     chip: {
-      marginRight: theme.spacing(0.5)
+      marginRight: theme.spacing(0.5),
     },
     question: {
-      alignItems: 'center',
-      display: 'flex',
+      alignItems: "center",
+      display: "flex",
     },
     chevronRight: {
       color: theme.palette.primary.main,
@@ -175,8 +175,8 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       minHeight: 300,
       textAlign: "center",
       width: "100%",
-      [theme.breakpoints.down('sm')]: {
-        height: "auto"
+      [theme.breakpoints.down("sm")]: {
+        height: "auto",
       },
     },
     emptyIcon: {
@@ -184,11 +184,11 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       height: 60,
       strokeWidth: 1.25,
       width: 60,
-    }
+    },
   })
-  );
-  
-  export const useFilterStyles = makeStyles((theme: Theme) =>
+);
+
+export const useFilterStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flex: 1,
@@ -200,12 +200,12 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       display: "block",
       width: "100%",
       padding: theme.spacing(1),
-      textDecoration: "none"
+      textDecoration: "none",
     },
     filterSection: {
       borderRadiusBottomLeft: theme.spacing(1),
       borderRadiusBottomRight: theme.spacing(1),
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         borderRadius: theme.spacing(),
       },
     },
@@ -226,7 +226,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       margin: theme.spacing(0, 1, 0, 0.75),
     },
     checklist: {
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         display: "grid",
         gridTemplateColumns: "1fr 1fr 1fr",
         gridGap: theme.spacing(0, 2),
@@ -244,61 +244,61 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
     },
     section: {
       display: "flex",
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down("md")]: {
         flexFlow: "wrap",
       },
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         flexFlow: "nowrap",
       },
     },
     tagsPaper: {
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         borderRadius: 0,
-        borderBottom: `solid 1px ${theme.palette.divider}`, 
-        borderTop: `solid 1px ${theme.palette.divider}`, 
+        borderBottom: `solid 1px ${theme.palette.divider}`,
+        borderTop: `solid 1px ${theme.palette.divider}`,
         order: 2,
       },
     },
     tags: {
       margin: theme.spacing(1.625, 1, 2),
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down("md")]: {
         marginTop: 0,
       },
     },
     tag: {
-      fontFamily: 'Lato',
+      fontFamily: "Lato",
       marginRight: theme.spacing(0.5),
       marginTop: theme.spacing(0.5),
     },
     button: {
-      padding: theme.spacing(1)
+      padding: theme.spacing(1),
     },
     buttonGroup: {
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down("md")]: {
         margin: theme.spacing(2, 0, 1),
         width: "100%",
       },
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         margin: 0,
         width: "35%",
       },
       "& button": {
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down("md")]: {
           flex: 1,
         },
-      }
+      },
     },
     linkText: {
-      color: "#BBC"
+      color: "#BBC",
     },
   })
-  );
-  
-  export const useQuestionStyles = makeStyles((theme: Theme) =>
+);
+
+export const useQuestionStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       display: "flex",
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down("md")]: {
         flexFlow: "column",
         order: 3,
       },
@@ -308,7 +308,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       flex: 4,
       overflowX: "auto",
       padding: theme.spacing(4),
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down("md")]: {
         order: 2,
         borderRadius: theme.spacing(0, 0, 0.5, 0.5),
       },
@@ -322,7 +322,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       lineHeight: 1.25,
       marginTop: theme.spacing(-0.5),
       width: "92.5%",
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         width: "100%",
       },
     },
@@ -334,7 +334,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       fontSize: 18,
       marginBottom: theme.spacing(2.5),
       width: "92.5%",
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         width: "100%",
       },
     },
@@ -351,7 +351,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
     copy: {
       verticalAlign: "center",
       height: theme.spacing(6),
-      width: theme.spacing(6)
+      width: theme.spacing(6),
     },
     copyContainer: {
       marginTop: theme.spacing(0.375),
@@ -373,7 +373,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       flex: 1,
       padding: theme.spacing(4),
       position: "relative",
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down("md")]: {
         alignItems: "center",
         borderRadius: theme.spacing(0.5, 0.5, 0, 0),
         borderBottom: "solid 1px #d4d6e3",
@@ -383,7 +383,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
         paddingTop: theme.spacing(3),
         justifyContent: "space-between",
       },
-      '&:before': {
+      "&:before": {
         background: "rgba(227, 229, 239, 0.2)",
         display: "block",
         content: `""`,
@@ -392,24 +392,24 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
         width: "100%",
         left: 0,
         top: 0,
-      }
+      },
     },
     sidebarDark: {
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down("md")]: {
         borderBottom: "solid 1px #00062a",
       },
-      '&:before': {
+      "&:before": {
         background: "rgba(0, 6, 42, 0.2)",
-      }
+      },
     },
     integrationGroup: {
-      alignItems: 'center',
-      display: 'flex',
+      alignItems: "center",
+      display: "flex",
       margin: theme.spacing(0, 2, 2, 0),
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down("md")]: {
         marginBottom: 0,
       },
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         marginBottom: theme.spacing(1.5),
         flex: "100%",
       },
@@ -425,19 +425,18 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       fontWeight: 900,
     },
     tags: {
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down("md")]: {
         margin: theme.spacing(-0.5, 0, 0, 0),
         textAlign: "right",
       },
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down("sm")]: {
         textAlign: "left",
       },
     },
     tag: {
-      fontFamily: 'Lato',
+      fontFamily: "Lato",
       marginRight: theme.spacing(0.5),
       marginTop: theme.spacing(0.5),
     },
   })
-  );
-  
+);
