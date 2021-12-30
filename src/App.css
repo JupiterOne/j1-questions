@@ -3,5 +3,6 @@
   height: 0.2em;
 }
 
-.ask-j1-header .menu-item img {  padding-bottom: 0px !important;}
+.ask-j1-header .menu-item  { display: flex;}
+.ask-j1-header .menu-item a { letter-spacing: 0em;}
 .ask-j1-header .ask-j1-header-container .mobile-toggler {  top: 32px !important;}

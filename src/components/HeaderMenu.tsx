@@ -5,7 +5,7 @@ const HeaderMenu = () => {
   const classes = useHeaderStyles();
   const menuItem = [
     {title: "Community", url: "/",type: "link"},
-    {title: "Question Library", url: "/",type: "link"},
+    {title: "Questions Library", url: "/",type: "link"},
     {title: "Documentation", url: "/",type: "link"},
     {title: "Blog", url: "/",type: "link"},
     {title: "Events", url: "/",type: "link"},
