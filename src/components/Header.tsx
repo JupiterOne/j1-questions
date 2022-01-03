@@ -11,7 +11,6 @@ import { useHeaderStyles } from "../classes";
 import { Link, useHistory } from "react-router-dom";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Context from "../AppContext";
-
 import HeaderMenu from "./HeaderMenu";
 
 import MenuMobile from "./MenuMobile.png";
@@ -64,6 +63,7 @@ const Header = () => {
                 <div className="submenu" style={{ background: '#ECEFF1' }}>
                   <div className="submenu-items" style={{ display: 'flex' }}>
                     {!history.location.pathname.includes("/question") && (
+                     <div className="input-holder">
                       <InputBase
                         type="search"
                         className={clsx(classes.input, themeDark ? classes.inputDark : undefined)}
@@ -74,6 +74,8 @@ const Header = () => {
                           setSearch(e.target.value);
                         }}
                       />
+                       <img className="search-icon" alt="search-icon" src="https://try.jupiterone.com/hubfs/Vector.svg" />
+                      </div>
                     )}
                  
                   </div>
