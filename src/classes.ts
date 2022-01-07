@@ -45,7 +45,7 @@ export const useHeaderStyles = makeStyles((theme: Theme) =>
       borderRadius: theme.spacing(0.5),
       color: theme.palette.text.primary,
       height: 34,
-      minWidth: theme.spacing(45),
+      minWidth: '276px',
       padding: "10.5px 8px 10.5px 14px",
       position: "relative",
       [theme.breakpoints.down("md")]: {
