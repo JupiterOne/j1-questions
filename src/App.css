@@ -9,6 +9,10 @@
 .ask-j1-header .menu-item:hover a {
   color: rgb(140, 158, 255) !important
 }
+
+.ask-j1-header .menu-item a {
+  height: unset !important;
+}
 .ask-j1-header .ask-j1-header-container .submenu-items .input-holder {position: relative;}
 .ask-j1-header .ask-j1-header-container .submenu-items .search-icon {
     position: absolute;
