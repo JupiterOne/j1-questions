@@ -20,12 +20,13 @@ const HeaderMenu = () => {
       {menuItem.map(link =>
                  { 
                  const linkColor = link.isActive ? '#8C9EFF': 'white'; 
+                 const to = link.url
                 return ( 
                 <div className="menu-item"  >
                     {link.type === "divider" ? <div className="divider"></div> :
-                <Link className={classes.homeLink} to={link.url} style={{ textDecoration: 'none', color: linkColor }}>
+                <a className={classes.homeLink} href={to} style={{ textDecoration: 'none', color: linkColor }}>
                     {link.title}
-                  </Link>}
+                  </a>}
                   { link.type === "button" ?
                   <img alt="open-in-new-tab" src="https://info.jupiterone.com/hubfs/open_in_new_24px.svg"></img> : ''
                 }
