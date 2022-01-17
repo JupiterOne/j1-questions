@@ -13,6 +13,17 @@
 .ask-j1-header .menu-item a {
   height: unset !important;
 }
+
+.ask-j1-header .ask-j1-header-container .submenu-items .input-holder input::placeholder {
+color: #080B12;
+letter-spacing: 0.15px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+
+}
 .ask-j1-header .ask-j1-header-container .submenu-items .input-holder {position: relative;}
 .ask-j1-header .ask-j1-header-container .submenu-items .search-icon {
     position: absolute;
