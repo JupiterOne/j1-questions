@@ -23,7 +23,7 @@ const HeaderMenu = () => {
                 return ( 
                 <div className="menu-item"  >
                     {link.type === "divider" ? <div className="divider"></div> :
-                <Link className={classes.homeLink} to="/" style={{ textDecoration: 'none', color: linkColor }}>
+                <Link className={classes.homeLink} to={link.url} style={{ textDecoration: 'none', color: linkColor }}>
                     {link.title}
                   </Link>}
                   { link.type === "button" ?
