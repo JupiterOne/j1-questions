@@ -2,3 +2,36 @@
   background: linear-gradient(315deg, #EAFCA2 0%, #3CE3B5 80%, #6647FF 100%);
   height: 0.2em;
 }
+
+.ask-j1-header .menu-item  { display: flex;}
+.ask-j1-header .menu-item a { letter-spacing: 0em;}
+.ask-j1-header .ask-j1-header-container .mobile-toggler {  top: 32px !important;}
+.ask-j1-header .menu-item:hover a {
+  color: rgb(140, 158, 255) !important
+}
+
+.ask-j1-header .menu-item a {
+  height: unset !important;
+}
+
+.ask-j1-header .ask-j1-header-container .submenu-items .input-holder input::placeholder {
+color: #080B12;
+letter-spacing: 0.15px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+
+}
+.ask-j1-header .ask-j1-header-container .submenu-items .input-holder {position: relative;}
+.ask-j1-header .ask-j1-header-container .submenu-items .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    width: 18px;
+}
+
+.ask-j1-header-container .ask-j1-menu-container .submenu {
+  display: block;
+}

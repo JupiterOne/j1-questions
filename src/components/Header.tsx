@@ -2,31 +2,25 @@ import React, { useState, useContext } from "react";
 import clsx from "clsx";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import JupiterOneLogo from "./jupiterone-logo.svg";
-import JupiterOneLogoDark from "./jupiterone-logo-reversed.svg";
+import JupiterOneLogo from "./Logomark1.png";
+import JupiterOneLogoDark from "./Logomark1.png";
 import InputBase from "@material-ui/core/InputBase";
-import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
-import Tooltip from "@material-ui/core/Tooltip";
 import Alert from "@material-ui/lab/Alert";
-import CopyIcon from "react-feather/dist/icons/copy";
 import { useHeaderStyles } from "../classes";
 import { Link, useHistory } from "react-router-dom";
-import MoonIcon from "react-feather/dist/icons/moon";
-import SunIcon from "react-feather/dist/icons/sun";
-import LaunchIcon from "@jupiterone/react-brand-icons/jupiterone/class/CodeDeploy";
-import Hidden from "@material-ui/core/Hidden";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import copy from "clipboard-copy";
 import Context from "../AppContext";
+import HeaderMenu from "./HeaderMenu";
+
+import MenuMobile from "./MenuMobile.png";
+import LogoMobile from "./logo-mobile.png";
 
 const Header = () => {
   const {
     setSearch,
     search,
     themeDark,
-    setTheme,
     managedQuestions
   } = useContext(Context);
 
@@ -34,8 +28,14 @@ const Header = () => {
   const [copied, setCopied] = useState(false);
   const history = useHistory();
 
+  const [isActive, setActive] = useState(false);
   const [searchText, setSearchText] = useState(search);
-
+  const toggleActiveClass = () => {
+    setActive(!isActive);
+  };
+  const removeActiveClass = () => {
+    setActive(false);
+  };
   return (
     <div>
       <AppBar
@@ -44,59 +44,56 @@ const Header = () => {
         elevation={0}
         color="inherit"
       >
-        <Toolbar>
-          <Link className={classes.homeLink} to="/">
-            <img alt="j1Logo" className={classes.menuButton} src={themeDark ? JupiterOneLogoDark : JupiterOneLogo } />
-          </Link>
-          <Typography className={clsx(classes.title, themeDark ? classes.titleDark : undefined)}>
-            Questions Library
-          </Typography>
-          {!history.location.pathname.includes("/question") && (
-            <InputBase
-              type="search"
-              className={clsx(classes.input, themeDark ? classes.inputDark : undefined)}
-              placeholder={"Search"}
-              value={searchText}
-              onChange={(e: any) => {
-                setSearchText(e.target.value);
-                setSearch(e.target.value);
-              }}
-            />
-          )}
-          <Hidden smDown>
-            <div className={clsx(classes.headerPart, classes.alignRight)}>
-              <Tooltip title="Launch JupiterOne">
-                <IconButton href="https://apps.us.jupiterone.io" target="_blank">
-                  <LaunchIcon />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Copy URL">
-                <IconButton
-                  onClick={() => {
-                    copy(window.location.href);
-                    setCopied(true);
-                  }}
-                >
-                  <CopyIcon />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Change theme">
-                <IconButton
-                  onClick={() => {
-                    setTheme((theme: boolean) => !theme);
-                  }}
-                >
-                  {!themeDark ? <SunIcon /> : <MoonIcon />}
-                </IconButton>
-              </Tooltip>
+        <Toolbar disableGutters={true}>
+
+          <div className="ask-j1-header" style={{ width: "100%" }}>
+            <div className={"ask-j1-header-container" + (isActive ? ' menu-active' : '')}>
+              <div className="ask-j1-header-logo">
+                <Link className="atmc-header_logo" to="/" style={{ textDecoration: 'none' }}>
+                  <img alt="j1Logo" src={themeDark ? JupiterOneLogoDark : JupiterOneLogo} style={{ height: 'auto', maxWidth: '100%' }} />
+                </Link>
+              </div>
+              <div className="ask-j1-header-logo-mobile">
+                <img alt="j1Logo" src={LogoMobile} />
+              </div>
+              <div className={"ask-j1-menu-container" + (isActive ? ' menu-active' : '')} >
+                <div className="ask-j1-header_navigation">
+                  <HeaderMenu />
+                </div>
+                <div className="submenu" style={{ background: '#ECEFF1' }}>
+                  <div className="submenu-items" style={{ display: 'flex' }}>
+                    {!history.location.pathname.includes("/question") && (
+                     <div className="input-holder">
+                      <InputBase
+                        type="search"
+                        className={clsx(classes.input, themeDark ? classes.inputDark : undefined)}
+                        placeholder={"Search"}
+                        value={searchText}
+                        onChange={(e: any) => {
+                          setSearchText(e.target.value);
+                          setSearch(e.target.value);
+                        }}
+                      />
+                      {!searchText && <img className="search-icon" alt="search-icon" src="https://try.jupiterone.com/hubfs/Vector.svg" />}
+                      </div>
+                    )}
+                 
+                  </div>
+                </div>
+                <div className="close-button" onClick={removeActiveClass}>X</div>
+              </div>
+              <div className={"mobile-toggler" + (isActive ? ' menu-active' : '')}
+                onClick={toggleActiveClass} >
+                <img alt="toggler" src={MenuMobile} />
+              </div>
             </div>
-          </Hidden>
+          </div>
+
+
         </Toolbar>
-        {managedQuestions.questions.length === 1 ? (
-          <LinearProgress />
-        ) : (
-          <div className="border" />
-        )}
+        {
+          managedQuestions.questions.length === 1 && <LinearProgress />
+        }
       </AppBar>
       <Snackbar
         open={copied}
