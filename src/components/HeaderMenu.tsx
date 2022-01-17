@@ -6,7 +6,7 @@ const HeaderMenu = () => {
   const menuItem = [
     {title: "Community", url: "https://community.askj1.com",type: "link",isActive: false},
     {title: "Questions Library", url: "https://ask.us.jupiterone.io/",type: "link", isActive: true},
-    {title: "Documentation", url: "https://community.askj1.com/kb/docs",type: "link",isActive: false},
+    {title: "Docs", url: "https://community.askj1.com/kb/docs",type: "link",isActive: false},
     {title: "Blog", url: "https://try.jupiterone.com/",type: "link",isActive: false},
     {title: "Events", url: "https://try.jupiterone.com/events",type: "link",isActive: false},
     {title: "Swag", url: "/",type: "link",isActive: false},
