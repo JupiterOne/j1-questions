@@ -8,7 +8,7 @@ const HeaderMenu = () => {
     {title: "Docs", url: "https://community.askj1.com/kb/docs",type: "link",isActive: false},
     {title: "Blog", url: "https://try.jupiterone.com/",type: "link",isActive: false},
     {title: "Events", url: "https://try.jupiterone.com/events",type: "link",isActive: false},
-    {title: "Swag", url: "/",type: "link",isActive: false},
+    {title: "Swag", url: "https://shop.askj1.com/",type: "link",isActive: false},
     {title: "Divider", type: "divider",isActive: false},
     {title: "Github", url: "https://github.com/JupiterOne",type: "button",isActive: false},
     {title: "Slack", url: "https://join.slack.com/t/jupiterone-community/shared_invite/zt-9b0a2htx-m8PmSWMbkjqCzF2dIZiabw",type: "button",isActive: false},
