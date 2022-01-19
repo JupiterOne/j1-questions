@@ -8,7 +8,7 @@ import InputBase from "@material-ui/core/InputBase";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 import { useHeaderStyles } from "../classes";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Context from "../AppContext";
 import HeaderMenu from "./HeaderMenu";
@@ -49,9 +49,9 @@ const Header = () => {
           <div className="ask-j1-header" style={{ width: "100%" }}>
             <div className={"ask-j1-header-container" + (isActive ? ' menu-active' : '')}>
               <div className="ask-j1-header-logo">
-                <Link className="atmc-header_logo" to="/" style={{ textDecoration: 'none' }}>
+                <a className="atmc-header_logo" href="https://askj1.com" style={{ textDecoration: 'none' }}>
                   <img alt="j1Logo" src={themeDark ? JupiterOneLogoDark : JupiterOneLogo} style={{ height: 'auto', maxWidth: '100%' }} />
-                </Link>
+                </a>
               </div>
               <div className="ask-j1-header-logo-mobile">
                 <img alt="j1Logo" src={LogoMobile} />
@@ -77,7 +77,7 @@ const Header = () => {
                       {!searchText && <img className="search-icon" alt="search-icon" src="https://try.jupiterone.com/hubfs/Vector.svg" />}
                       </div>
                     )}
-                 
+
                   </div>
                 </div>
                 <div className="close-button" onClick={removeActiveClass}>X</div>
