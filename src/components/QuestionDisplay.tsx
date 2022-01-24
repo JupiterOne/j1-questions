@@ -13,9 +13,9 @@ import {
 } from "@material-ui/core";
 import clsx from "clsx";
 import { Alert } from "@material-ui/lab";
-import { useParams, useHistory } from "react-router";
+import { useParams, useHistory, useLocation } from "react-router-dom";
 import { useQuestionStyles } from "../classes";
-import { Question } from "../types";
+import { Query, Question } from "../types";
 import hash from "hash.js";
 import copy from "clipboard-copy";
 import CopyIcon from "react-feather/dist/icons/copy";
@@ -28,11 +28,12 @@ const QuestionDisplay = () => {
   const [copied, setCopied] = useState(false);
   const params: { questionTitle?: string } = useParams();
   const history = useHistory();
+  const location = useLocation();
   const classes = useQuestionStyles();
   const title: string =
     params.questionTitle !== undefined ? params.questionTitle : "";
 
-  const question: Question = managedQuestions.questions.filter(
+  const question: Question | undefined = managedQuestions.questions.filter(
     (question: Question) => {
       return (
         hash
@@ -43,6 +44,26 @@ const QuestionDisplay = () => {
     }
   )[0];
 
+  let questionQueries: Query[];
+
+  if (question?.queries) {
+    if (Array.isArray(question.queries)) {
+      questionQueries = question.queries;
+    } else {
+      questionQueries = Object.entries(question.queries).map(([name, query]) => {
+        const item: Query = {name, query}
+        return item;
+      });
+    }
+  } else {
+    questionQueries = [];
+  }
+
+
+  const handleClickBack = () => {
+    history.push(`/${location.search}`)
+  };
+
   return (
     <>
       <Container>
@@ -51,9 +72,7 @@ const QuestionDisplay = () => {
           className={classes.button}
           size="small"
           variant="outlined"
-          onClick={() => {
-            history.goBack();
-          }}
+          onClick={handleClickBack}
         >
           <ChevronLeftIcon /> Back
         </Button>
@@ -69,8 +88,8 @@ const QuestionDisplay = () => {
                 <Box className={classes.queries}>
                   <Box  className={clsx(classes.description, themeDark ? classes.descriptionDark : undefined)}>{question.description}</Box>
                   <Divider />
-                  {(question.queries || []).map((query: any) => (
-                    <>
+                  {questionQueries.map((query, index) => (
+                    <div key={index}>
                       <Box className={classes.queryGroup} key={query.query}>
                         <div className={classes.copyContainer}>
                           <Tooltip title="Copy query">
@@ -90,7 +109,7 @@ const QuestionDisplay = () => {
                         </code>
                       </Box>
                       <Divider />
-                    </>
+                    </div>
                   ))}
                 </Box>
               </div>
