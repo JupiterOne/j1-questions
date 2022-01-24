@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Typography, Card, Icon, Box, Divider, Fade } from "@material-ui/core";
 import { Question } from "../types";
 import { useQuestionDisplayStyles } from "../classes";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import UnavailableIcon from "@jupiterone/react-brand-icons/jupiterone/unavailable";
 import ChevronRightIcon from "react-feather/dist/icons/chevron-right";
 import { useWindowSize } from "@reach/window-size";
@@ -20,6 +20,7 @@ const QuestionsDisplay = (props: Props) => {
   const { managedQuestions } = useContext(Context);
   const classes = useQuestionDisplayStyles();
   const history = useHistory();
+  const location = useLocation();
   const windowSize = useWindowSize();
 
   const grouped = groupBy(props.questions, "category");
@@ -46,20 +47,19 @@ const QuestionsDisplay = (props: Props) => {
           </Fade>
         </>
       ) : (
-        Object.keys(grouped).map((category, index) => (
-          <>
-            <p className={classes.headingBox}>
-              <Typography variant="h5" className={classes.heading}>
-                {category === "undefined" ? "Integration Provider Specific Questions" : category}
-              </Typography>
-            </p>
+        Object.keys(grouped).map((category, categoryIndex) => (
+          <div key={categoryIndex}>
+            <Typography variant="h5" className={classes.heading}>
+              {category === "undefined" ? "Integration Provider Specific Questions" : category}
+            </Typography>
             <Divider className={classes.divider}/>
-            {grouped[category].map(question => (
-              <>
+            {grouped[category].map((question, questionIndex) => (
+              <div key={questionIndex}>
                 <div
                   className={classes.question}
-                  key={index}
-                  onClick={() => history.push(`/question/${question.hash}`)}
+                  onClick={() => {
+                    history.push(`/question/${question.hash}${location.search}`)
+                  }}
                 >
                   <span className={classes.item}>{question.title}</span>
                   <Icon className={classes.chevronRight}>
@@ -67,9 +67,9 @@ const QuestionsDisplay = (props: Props) => {
                   </Icon>
                 </div>
                 <Divider className={classes.divider}/>
-              </>
+              </div>
             ))}
-          </>
+          </div>
         ))
       )}
     </Card>

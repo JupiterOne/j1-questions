@@ -6,14 +6,14 @@ export interface Compliance {
 
 export interface Query {
   query: string;
-  name?: "good" | "bad";
+  name?: string;
 }
 
 export interface Question {
   compliance: Compliance[];
   description: string;
   title: string;
-  queries: Query[];
+  queries: Query[] | Record<string, string>;
   tags: string[];
   integration?: string;
   category?: string;

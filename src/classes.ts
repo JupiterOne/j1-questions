@@ -121,12 +121,13 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       },
     },
     headingBox: {
-      margin: theme.spacing(3, 1, 2),
-      "&:first-of-type": {
-        marginTop: theme.spacing(0.75),
-      },
+      
     },
     heading: {
+      padding: theme.spacing(3, 1, 2),
+      "&:first-of-type": {
+        paddingTop: theme.spacing(0.75),
+      },
       fontWeight: 900,
       color: theme.palette.primary.main,
     },
