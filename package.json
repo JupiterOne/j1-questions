@@ -34,13 +34,16 @@
     "hash.js": "^1.1.7",
     "lodash": "^4.17.15",
     "query-string": "^6.12.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "17",
+    "react-dom": "17",
     "react-feather": "^2.0.8",
     "react-on-screen": "^2.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^4.0.3",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "uuid": "^8.3.2",
+    "vis-data": "^7.1.4",
+    "vis-network": "^9.1.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -51,9 +54,10 @@
     "@types/lodash": "^4.14.150",
     "@types/match-sorter": "^4.0.0",
     "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
+    "@types/react": "17",
+    "@types/react-dom": "17",
     "@types/react-router-dom": "^5.1.4",
-    "@types/throttle-debounce": "^2.1.0"
+    "@types/throttle-debounce": "^2.1.0",
+    "@types/uuid": "^8.3.4"
   }
 }

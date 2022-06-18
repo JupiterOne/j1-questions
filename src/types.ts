@@ -24,3 +24,22 @@ export interface ManagedQuestionJSON {
   integrations: any;
   questions: Question[];
 }
+
+export type IntegrationSchema = {
+  integrationDefinitionId: string;
+  integrationTag: string;
+  entities: any[];
+  relationships: Relationship[];
+};
+
+export type Entity = {
+  resourceName: string;
+  type: string;
+}
+
+export type Relationship = {
+  fromEntityType: string;
+  toEntityType: string;
+  type: string;
+  class: string;
+}

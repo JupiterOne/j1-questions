@@ -1,20 +1,26 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
+
 import clsx from "clsx";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import JupiterOneLogo from "./Logomark1.png";
-import JupiterOneLogoDark from "./Logomark1.png";
+import Button from "@material-ui/core/Button";
+import LinearProgress from "@material-ui/core/LinearProgress";
 import InputBase from "@material-ui/core/InputBase";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
-import { useHeaderStyles } from "../classes";
-import { useHistory } from "react-router-dom";
-import LinearProgress from "@material-ui/core/LinearProgress";
-import Context from "../AppContext";
-import HeaderMenu from "./HeaderMenu";
 
+// temp
+import ChevronLeftIcon from "react-feather/dist/icons/chevron-left";
+
+import JupiterOneLogo from "./Logomark1.png";
+import JupiterOneLogoDark from "./Logomark1.png";
 import MenuMobile from "./MenuMobile.png";
 import LogoMobile from "./logo-mobile.png";
+
+import { useHeaderStyles } from "../classes";
+import Context from "../AppContext";
+import HeaderMenu from "./HeaderMenu";
 
 const Header = () => {
   const {
@@ -36,6 +42,10 @@ const Header = () => {
   const removeActiveClass = () => {
     setActive(false);
   };
+
+  const handleClickGraphViewer = () =>
+    history.push('/integration-graph');
+
   return (
     <div>
       <AppBar
@@ -61,23 +71,34 @@ const Header = () => {
                   <HeaderMenu />
                 </div>
                 <div className="submenu" style={{ background: '#ECEFF1' }}>
-                  <div className="submenu-items" style={{ display: 'flex' }}>
+                  <div className="submenu-items">
                     {!history.location.pathname.includes("/question") && (
-                     <div className="input-holder">
-                      <InputBase
-                        type="search"
-                        className={clsx(classes.input, themeDark ? classes.inputDark : undefined)}
-                        placeholder={"Search"}
-                        value={searchText}
-                        onChange={(e: any) => {
-                          setSearchText(e.target.value);
-                          setSearch(e.target.value);
-                        }}
-                      />
-                      {!searchText && <img className="search-icon" alt="search-icon" src="https://try.jupiterone.com/hubfs/Vector.svg" />}
-                      </div>
-                    )}
+                      <>
+                        <div className="input-holder">
+                          <InputBase
+                            type="search"
+                            className={clsx(classes.input, themeDark ? classes.inputDark : undefined)}
+                            placeholder={"Search"}
+                            value={searchText}
+                            onChange={(e: any) => {
+                              setSearchText(e.target.value);
+                              setSearch(e.target.value);
+                            }}
+                          />
+                          {!searchText && <img className="search-icon" alt="search-icon" src="https://try.jupiterone.com/hubfs/Vector.svg" />}
+                        </div>
 
+                        <Button
+                          color="primary"
+                          className={classes.actionButton}
+                          size="small"
+                          variant="outlined"
+                          onClick={handleClickGraphViewer}
+                        >
+                          <ChevronLeftIcon /> Graph Viewer
+                        </Button>
+                      </>
+                    )}
                   </div>
                 </div>
                 <div className="close-button" onClick={removeActiveClass}>X</div>

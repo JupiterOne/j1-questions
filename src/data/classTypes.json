@@ -1,0 +1,1829 @@
+{
+  "byClass": {
+    "Account": [
+      "aws_account",
+      "carbonblack_psc_account",
+      "cobalt_account",
+      "google_account",
+      "jira_account",
+      "jupiterone_account",
+      "slack_team",
+      "snipeit_account"
+    ],
+    "Vendor": [
+      "atlassian",
+      "aws",
+      "carbonblack",
+      "cloudflare",
+      "cobalt_vendor",
+      "culture_amp",
+      "github",
+      "google",
+      "google_chrome",
+      "jira",
+      "jupiterone",
+      "knowbe4",
+      "lever",
+      "mapped_entity",
+      "ramp",
+      "slack",
+      "snipeit",
+      "zendesk",
+      "zoom"
+    ],
+    "UserGroup": [
+      "everyone",
+      "google_group",
+      "knowbe4_user_group",
+      "npm_team"
+    ],
+    "User": [
+      "aws_iam_user",
+      "cloudflare_account_member",
+      "google_user",
+      "jira_user",
+      "knowbe4_user",
+      "npm_user",
+      "slack_user"
+    ],
+    "Channel": [
+      "aws_sns_topic",
+      "slack_channel"
+    ],
+    "Requirement": [
+      "compliance_requirement"
+    ],
+    "Section": [
+      "compliance_section"
+    ],
+    "Standard": [
+      "compliance_standard"
+    ],
+    "DomainZone": [
+      "aws_route53_zone"
+    ],
+    "Network": [
+      "aws_subnet",
+      "aws_vpc",
+      "internet"
+    ],
+    "AccessPolicy": [
+      "aws_iam_policy",
+      "aws_iam_role_policy",
+      "aws_s3_bucket_policy"
+    ],
+    "DataStore": [
+      "aws_dynamodb_table",
+      "aws_ebs_snapshot",
+      "aws_ebs_volume",
+      "aws_elasticache_cluster_node",
+      "aws_elasticache_redis_cluster",
+      "aws_elasticsearch_domain",
+      "aws_rds_cluster",
+      "aws_s3_bucket"
+    ],
+    "Gateway": [
+      "aws_api_gateway_rest_api",
+      "aws_cloudfront_distribution",
+      "aws_internet_gateway",
+      "aws_nat_gateway"
+    ],
+    "Service": [
+      "aws_a4b",
+      "aws_accessanalyzer",
+      "aws_acm",
+      "aws_acmpca",
+      "aws_airflow",
+      "aws_amplify",
+      "aws_amplifybackend",
+      "aws_apigateway",
+      "aws_apigatewayv2",
+      "aws_appconfig",
+      "aws_appflow",
+      "aws_applicationautoscaling",
+      "aws_applicationinsights",
+      "aws_appmesh",
+      "aws_appmeshpreview",
+      "aws_appstream",
+      "aws_appsync",
+      "aws_aps",
+      "aws_arsenal",
+      "aws_athena",
+      "aws_auditmanager",
+      "aws_autoscaling",
+      "aws_autoscalingplans",
+      "aws_awsbillingconsole",
+      "aws_awsconnector",
+      "aws_awsmarketplace",
+      "aws_awsmarketplace-management",
+      "aws_awsmarketplacemanagement",
+      "aws_awsportal",
+      "aws_backup",
+      "aws_backupstorage",
+      "aws_batch",
+      "aws_braket",
+      "aws_budgets",
+      "aws_bugbust",
+      "aws_cassandra",
+      "aws_ce",
+      "aws_chatbot",
+      "aws_chime",
+      "aws_clientvpn",
+      "aws_cloud9",
+      "aws_clouddirectory",
+      "aws_cloudformation",
+      "aws_cloudfront",
+      "aws_cloudhsm",
+      "aws_cloudsearch",
+      "aws_cloudshell",
+      "aws_cloudtrail",
+      "aws_cloudwatch",
+      "aws_cloudwatch_events",
+      "aws_cloudwatch_logs",
+      "aws_codeartifact",
+      "aws_codebuild",
+      "aws_codecommit",
+      "aws_codedeploy",
+      "aws_codeguru",
+      "aws_codeguruprofiler",
+      "aws_codegurureviewer",
+      "aws_codepipeline",
+      "aws_codestar",
+      "aws_codestarconnections",
+      "aws_codestarnotifications",
+      "aws_cognitoidentity",
+      "aws_cognitoidp",
+      "aws_cognitosync",
+      "aws_comprehend",
+      "aws_comprehendmedical",
+      "aws_computeoptimizer",
+      "aws_config",
+      "aws_connect",
+      "aws_contributorinsights",
+      "aws_controltower",
+      "aws_cur",
+      "aws_databrew",
+      "aws_dataexchange",
+      "aws_datapipeline",
+      "aws_datasync",
+      "aws_dax",
+      "aws_dbqms",
+      "aws_deepcomposer",
+      "aws_deeplens",
+      "aws_deepracer",
+      "aws_detective",
+      "aws_devicefarm",
+      "aws_devopsguru",
+      "aws_directconnect",
+      "aws_discovery",
+      "aws_dlm",
+      "aws_dms",
+      "aws_ds",
+      "aws_dynamodb",
+      "aws_ec2",
+      "aws_ec2_vpc",
+      "aws_ecr",
+      "aws_ecrpublic",
+      "aws_ecs",
+      "aws_ecs_service",
+      "aws_efs",
+      "aws_eks",
+      "aws_elasticache",
+      "aws_elasticbeanstalk",
+      "aws_elasticfilesystem",
+      "aws_elasticinference",
+      "aws_elasticloadbalancing",
+      "aws_elasticmapreduce",
+      "aws_elastictranscoder",
+      "aws_elementalactivations",
+      "aws_elementalappliances-software",
+      "aws_elementalappliancessoftware",
+      "aws_elementalsupport-cases",
+      "aws_elementalsupport-content",
+      "aws_elementalsupportcases",
+      "aws_elementalsupportcontent",
+      "aws_email",
+      "aws_es",
+      "aws_executeapi",
+      "aws_firehose",
+      "aws_fis",
+      "aws_fms",
+      "aws_forecast",
+      "aws_frauddetector",
+      "aws_freertos",
+      "aws_fsx",
+      "aws_gamelift",
+      "aws_glacier",
+      "aws_globalaccelerator",
+      "aws_glue",
+      "aws_grafana",
+      "aws_greengrass",
+      "aws_groundstation",
+      "aws_groundtruthlabeling",
+      "aws_guardduty",
+      "aws_health",
+      "aws_healthlake",
+      "aws_honeycode",
+      "aws_iam",
+      "aws_iam_saml_provider",
+      "aws_identitystore",
+      "aws_imagebuilder",
+      "aws_importexport",
+      "aws_inspector",
+      "aws_iot",
+      "aws_iot1click",
+      "aws_iotanalytics",
+      "aws_iotdevice-tester",
+      "aws_iotdevicetester",
+      "aws_iotevents",
+      "aws_iotfleethub",
+      "aws_iotsitewise",
+      "aws_iotwireless",
+      "aws_iq",
+      "aws_iqpermission",
+      "aws_ivs",
+      "aws_kafka",
+      "aws_kendra",
+      "aws_kinesis",
+      "aws_kinesisanalytics",
+      "aws_kinesisvideo",
+      "aws_kms",
+      "aws_lakeformation",
+      "aws_lambda",
+      "aws_launchwizard",
+      "aws_lex",
+      "aws_licensemanager",
+      "aws_lightsail",
+      "aws_lookoutequipment",
+      "aws_lookoutmetrics",
+      "aws_lookoutvision",
+      "aws_machinelearning",
+      "aws_macie",
+      "aws_managedblockchain",
+      "aws_mechanicalturk",
+      "aws_mediaconnect",
+      "aws_mediaconvert",
+      "aws_medialive",
+      "aws_mediapackage",
+      "aws_mediastore",
+      "aws_mediatailor",
+      "aws_mgh",
+      "aws_mgn",
+      "aws_mobileanalytics",
+      "aws_mobilehub",
+      "aws_mobiletargeting",
+      "aws_monitron",
+      "aws_mq",
+      "aws_networkfirewall",
+      "aws_networkmanager",
+      "aws_nimble",
+      "aws_opsworks",
+      "aws_opsworkscm",
+      "aws_organizations",
+      "aws_outposts",
+      "aws_panorama",
+      "aws_personalize",
+      "aws_pi",
+      "aws_polly",
+      "aws_pricing",
+      "aws_proton",
+      "aws_purchaseorders",
+      "aws_qldb",
+      "aws_quicksight",
+      "aws_ram",
+      "aws_rds",
+      "aws_rdsdata",
+      "aws_redshift",
+      "aws_redshiftdata",
+      "aws_rekognition",
+      "aws_replicator",
+      "aws_resourcegroups",
+      "aws_robomaker",
+      "aws_route53",
+      "aws_route53domains",
+      "aws_route53recovery-cluster",
+      "aws_route53recovery-control-config",
+      "aws_route53recovery-readiness",
+      "aws_route53resolver",
+      "aws_s3",
+      "aws_s3object-lambda",
+      "aws_s3outposts",
+      "aws_sagemaker",
+      "aws_savingsplans",
+      "aws_schemas",
+      "aws_sdb",
+      "aws_secretsmanager",
+      "aws_securityhub",
+      "aws_serverlessrepo",
+      "aws_service",
+      "aws_servicecatalog",
+      "aws_servicediscovery",
+      "aws_servicequotas",
+      "aws_ses",
+      "aws_shield",
+      "aws_signer",
+      "aws_sms",
+      "aws_smsvoice",
+      "aws_snowball",
+      "aws_sns",
+      "aws_sqs",
+      "aws_ssm",
+      "aws_ssmcontacts",
+      "aws_ssmincidents",
+      "aws_ssmmessages",
+      "aws_sso",
+      "aws_ssodirectory",
+      "aws_states",
+      "aws_stepfunctions",
+      "aws_storagegateway",
+      "aws_sumerian",
+      "aws_support",
+      "aws_swf",
+      "aws_synthetics",
+      "aws_tag",
+      "aws_textract",
+      "aws_timestream",
+      "aws_transcribe",
+      "aws_transfer",
+      "aws_translate",
+      "aws_trustedadvisor",
+      "aws_waf",
+      "aws_wafregional",
+      "aws_wafv2",
+      "aws_wam",
+      "aws_wellarchitected",
+      "aws_workdocs",
+      "aws_worklink",
+      "aws_workmail",
+      "aws_workmailmessageflow",
+      "aws_workspaces",
+      "aws_xray",
+      "aws_zocalo",
+      "cb_endpoint_protection",
+      "cobalt_service",
+      "snipeit_service"
+    ],
+    "Firewall": [
+      "aws_network_acl",
+      "aws_security_group",
+      "aws_waf_v2_web_acl",
+      "aws_waf_web_acl"
+    ],
+    "AccessRole": [
+      "aws_iam_role",
+      "cloudflare_account_role"
+    ],
+    "Assessment": [
+      "aws_guardduty_detector",
+      "aws_inspector_assessment",
+      "cobalt_pentest",
+      "risk_assessment"
+    ],
+    "Scanner": [
+      "aws_guardduty_detector"
+    ],
+    "ControlPolicy": [
+      "aws_config_rule"
+    ],
+    "Task": [
+      "aws_cloudwatch_event_rule"
+    ],
+    "CryptoKey": [
+      "aws_kms_key"
+    ],
+    "Key": [
+      "aws_key_pair",
+      "aws_kms_key"
+    ],
+    "Database": [
+      "aws_dynamodb_table",
+      "aws_elasticache_cluster_node",
+      "aws_elasticache_redis_cluster",
+      "aws_elasticsearch_domain",
+      "aws_rds_cluster"
+    ],
+    "Subscription": [
+      "aws_sns_subscription"
+    ],
+    "Function": [
+      "aws_ecs_task_definition",
+      "aws_lambda_function"
+    ],
+    "Logs": [
+      "aws_cloudwatch_log_group"
+    ],
+    "Monitor": [
+      "aws_cloudwatch_metric_alarm"
+    ],
+    "NetworkInterface": [
+      "aws_eni"
+    ],
+    "Internet": [
+      "internet"
+    ],
+    "Queue": [
+      "aws_sqs_queue"
+    ],
+    "Configuration": [
+      "aws_cloudformation_stack",
+      "aws_cloudfront_distribution_origin",
+      "aws_db_parameter_group",
+      "aws_ec2_settings",
+      "aws_ecs_task_definition",
+      "aws_rds_cluster_parameter_group",
+      "aws_route_table",
+      "google_group_settings"
+    ],
+    "Repository": [
+      "aws_ecr_repository"
+    ],
+    "IpAddress": [
+      "aws_eip"
+    ],
+    "Cluster": [
+      "aws_ecs_cluster",
+      "aws_elasticache_redis_cluster",
+      "aws_elasticsearch_domain",
+      "aws_rds_cluster"
+    ],
+    "AccessKey": [
+      "aws_key_pair",
+      "google_token"
+    ],
+    "PasswordPolicy": [
+      "aws_iam_account_password_policy"
+    ],
+    "Backup": [
+      "aws_ebs_snapshot"
+    ],
+    "Disk": [
+      "aws_ebs_snapshot",
+      "aws_ebs_volume"
+    ],
+    "Image": [
+      "aws_ami",
+      "aws_ebs_snapshot",
+      "aws_ecr_image"
+    ],
+    "Group": [
+      "aws_lb_target_group",
+      "aws_organization_root",
+      "aws_organizational_unit"
+    ],
+    "Host": [
+      "aws_elasticache_cluster_node",
+      "aws_instance",
+      "discovered_host",
+      "mapped_entity",
+      "user_endpoint"
+    ],
+    "Resource": [
+      "aws_ami",
+      "aws_sns_topic"
+    ],
+    "Domain": [
+      "google_domain",
+      "internet_domain"
+    ],
+    "Policy": [
+      "security_policy"
+    ],
+    "Procedure": [
+      "security_document",
+      "security_procedure"
+    ],
+    "Document": [
+      "security_document"
+    ],
+    "CodeModule": [
+      "npm_package"
+    ],
+    "HostAgent": [
+      "cbdefense_sensor",
+      "stethoscope_agent"
+    ],
+    "Finding": [
+      "aws_accessanalyzer_finding",
+      "aws_ecr_image_scan_finding",
+      "cobalt_finding",
+      "deferred_maintenance"
+    ],
+    "Training": [
+      "training_campaign",
+      "training_module"
+    ],
+    "Module": [
+      "training_module"
+    ],
+    "Device": [
+      "mapped_entity",
+      "user_endpoint"
+    ],
+    "Site": [
+      "location"
+    ],
+    "Person": [
+      "employee",
+      "mapped_entity"
+    ],
+    "Risk": [
+      "technical_risk"
+    ],
+    "Organization": [
+      "awesome_company",
+      "awesome_investors",
+      "aws_organization",
+      "aws_organization_root",
+      "aws_organizational_unit",
+      "root"
+    ],
+    "Root": [
+      "root"
+    ],
+    "Everyone": [
+      "everyone"
+    ],
+    "Application": [
+      "cobalt_asset",
+      "macos_app"
+    ],
+    "Vulnerability": [
+      "cve"
+    ],
+    "Rule": [
+      "aws_lb_listener_rule"
+    ],
+    "ApplicationEndpoint": [
+      "aws_lb_listener",
+      "http_endpoint"
+    ],
+    "Alert": [
+      "jupiterone_rule_alert"
+    ],
+    "Problem": [
+      "jupiterone_rule_alert"
+    ],
+    "Record": [
+      "jira_issue"
+    ],
+    "Issue": [
+      "jira_issue"
+    ],
+    "Project": [
+      "jira_project"
+    ]
+  },
+  "byType": {
+    "jupiterone_account": [
+      "Account"
+    ],
+    "github": [
+      "Vendor"
+    ],
+    "google_group": [
+      "UserGroup"
+    ],
+    "google_user": [
+      "User"
+    ],
+    "google_account": [
+      "Account"
+    ],
+    "slack_channel": [
+      "Channel"
+    ],
+    "slack_user": [
+      "User"
+    ],
+    "slack_team": [
+      "Account"
+    ],
+    "compliance_requirement": [
+      "Requirement"
+    ],
+    "compliance_section": [
+      "Section"
+    ],
+    "compliance_standard": [
+      "Standard"
+    ],
+    "aws_account": [
+      "Account"
+    ],
+    "aws_route53_zone": [
+      "DomainZone"
+    ],
+    "aws_subnet": [
+      "Network"
+    ],
+    "aws_iam_policy": [
+      "AccessPolicy"
+    ],
+    "aws_s3_bucket": [
+      "DataStore"
+    ],
+    "aws_internet_gateway": [
+      "Gateway"
+    ],
+    "aws_cloudformation": [
+      "Service"
+    ],
+    "aws_ses": [
+      "Service"
+    ],
+    "aws_vpc": [
+      "Network"
+    ],
+    "aws_network_acl": [
+      "Firewall"
+    ],
+    "aws_iam_role": [
+      "AccessRole"
+    ],
+    "aws_security_group": [
+      "Firewall"
+    ],
+    "aws_ecr": [
+      "Service"
+    ],
+    "aws_elasticloadbalancing": [
+      "Service"
+    ],
+    "aws_config": [
+      "Service"
+    ],
+    "aws_cloudhsm": [
+      "Service"
+    ],
+    "aws_es": [
+      "Service"
+    ],
+    "aws_guardduty": [
+      "Service"
+    ],
+    "aws_iam": [
+      "Service"
+    ],
+    "aws_guardduty_detector": [
+      "Assessment",
+      "Scanner"
+    ],
+    "aws_config_rule": [
+      "ControlPolicy"
+    ],
+    "aws_elasticmapreduce": [
+      "Service"
+    ],
+    "aws_transfer": [
+      "Service"
+    ],
+    "aws_acm": [
+      "Service"
+    ],
+    "aws_states": [
+      "Service"
+    ],
+    "aws_ec2": [
+      "Service"
+    ],
+    "aws_workspaces": [
+      "Service"
+    ],
+    "aws_batch": [
+      "Service"
+    ],
+    "aws_ec2_vpc": [
+      "Service"
+    ],
+    "aws_iam_saml_provider": [
+      "Service"
+    ],
+    "aws_redshift": [
+      "Service"
+    ],
+    "aws_route53": [
+      "Service"
+    ],
+    "aws_s3": [
+      "Service"
+    ],
+    "aws_cloudwatch_event_rule": [
+      "Task"
+    ],
+    "aws_eks": [
+      "Service"
+    ],
+    "aws_cloudtrail": [
+      "Service"
+    ],
+    "aws_athena": [
+      "Service"
+    ],
+    "aws_cloudwatch_events": [
+      "Service"
+    ],
+    "aws_iam_role_policy": [
+      "AccessPolicy"
+    ],
+    "aws_sns": [
+      "Service"
+    ],
+    "aws_cloudfront": [
+      "Service"
+    ],
+    "aws_sqs": [
+      "Service"
+    ],
+    "aws_rds": [
+      "Service"
+    ],
+    "aws_ecs": [
+      "Service"
+    ],
+    "aws_elasticache": [
+      "Service"
+    ],
+    "aws_dynamodb": [
+      "Service"
+    ],
+    "aws_apigateway": [
+      "Service"
+    ],
+    "aws_accessanalyzer": [
+      "Service"
+    ],
+    "aws_lambda": [
+      "Service"
+    ],
+    "aws_inspector": [
+      "Service"
+    ],
+    "aws_cloudwatch": [
+      "Service"
+    ],
+    "aws_waf": [
+      "Service"
+    ],
+    "aws_kms_key": [
+      "CryptoKey",
+      "Key"
+    ],
+    "aws_efs": [
+      "Service"
+    ],
+    "aws_dynamodb_table": [
+      "DataStore",
+      "Database"
+    ],
+    "aws_cloudwatch_logs": [
+      "Service"
+    ],
+    "aws_kms": [
+      "Service"
+    ],
+    "aws_sns_subscription": [
+      "Subscription"
+    ],
+    "aws_lambda_function": [
+      "Function"
+    ],
+    "aws_cloudwatch_log_group": [
+      "Logs"
+    ],
+    "aws_cloudwatch_metric_alarm": [
+      "Monitor"
+    ],
+    "aws_eni": [
+      "NetworkInterface"
+    ],
+    "internet": [
+      "Internet",
+      "Network"
+    ],
+    "aws_sqs_queue": [
+      "Queue"
+    ],
+    "aws_db_parameter_group": [
+      "Configuration"
+    ],
+    "aws_ecr_repository": [
+      "Repository"
+    ],
+    "aws_api_gateway_rest_api": [
+      "Gateway"
+    ],
+    "aws_waf_web_acl": [
+      "Firewall"
+    ],
+    "aws_s3_bucket_policy": [
+      "AccessPolicy"
+    ],
+    "aws_sns_topic": [
+      "Channel",
+      "Resource"
+    ],
+    "aws_nat_gateway": [
+      "Gateway"
+    ],
+    "aws_rds_cluster_parameter_group": [
+      "Configuration"
+    ],
+    "aws_inspector_assessment": [
+      "Assessment"
+    ],
+    "aws_cloudfront_distribution": [
+      "Gateway"
+    ],
+    "aws_eip": [
+      "IpAddress"
+    ],
+    "aws_elasticsearch_domain": [
+      "Cluster",
+      "DataStore",
+      "Database"
+    ],
+    "aws_ecs_cluster": [
+      "Cluster"
+    ],
+    "aws_key_pair": [
+      "AccessKey",
+      "Key"
+    ],
+    "aws_iam_account_password_policy": [
+      "PasswordPolicy"
+    ],
+    "aws_ecs_service": [
+      "Service"
+    ],
+    "aws_ebs_snapshot": [
+      "Backup",
+      "DataStore",
+      "Disk",
+      "Image"
+    ],
+    "aws_lb_target_group": [
+      "Group"
+    ],
+    "aws_ecr_image": [
+      "Image"
+    ],
+    "aws_instance": [
+      "Host"
+    ],
+    "aws_ebs_volume": [
+      "DataStore",
+      "Disk"
+    ],
+    "aws_ecs_task_definition": [
+      "Configuration",
+      "Function"
+    ],
+    "aws_ami": [
+      "Image",
+      "Resource"
+    ],
+    "google_token": [
+      "AccessKey"
+    ],
+    "google_domain": [
+      "Domain"
+    ],
+    "mapped_entity": [
+      "Device",
+      "Host",
+      "Person",
+      "Vendor"
+    ],
+    "slack": [
+      "Vendor"
+    ],
+    "atlassian": [
+      "Vendor"
+    ],
+    "aws_route_table": [
+      "Configuration"
+    ],
+    "security_policy": [
+      "Policy"
+    ],
+    "security_document": [
+      "Document",
+      "Procedure"
+    ],
+    "zendesk": [
+      "Vendor"
+    ],
+    "aws_macie": [
+      "Service"
+    ],
+    "discovered_host": [
+      "Host"
+    ],
+    "npm_package": [
+      "CodeModule"
+    ],
+    "stethoscope_agent": [
+      "HostAgent"
+    ],
+    "ramp": [
+      "Vendor"
+    ],
+    "deferred_maintenance": [
+      "Finding"
+    ],
+    "security_procedure": [
+      "Procedure"
+    ],
+    "internet_domain": [
+      "Domain"
+    ],
+    "lever": [
+      "Vendor"
+    ],
+    "training_campaign": [
+      "Training"
+    ],
+    "knowbe4_user": [
+      "User"
+    ],
+    "knowbe4_user_group": [
+      "UserGroup"
+    ],
+    "training_module": [
+      "Module",
+      "Training"
+    ],
+    "google_chrome": [
+      "Vendor"
+    ],
+    "jupiterone": [
+      "Vendor"
+    ],
+    "location": [
+      "Site"
+    ],
+    "snipeit_account": [
+      "Account"
+    ],
+    "snipeit": [
+      "Vendor"
+    ],
+    "snipeit_service": [
+      "Service"
+    ],
+    "npm_user": [
+      "User"
+    ],
+    "npm_team": [
+      "UserGroup"
+    ],
+    "cbdefense_sensor": [
+      "HostAgent"
+    ],
+    "carbonblack": [
+      "Vendor"
+    ],
+    "carbonblack_psc_account": [
+      "Account"
+    ],
+    "cb_endpoint_protection": [
+      "Service"
+    ],
+    "culture_amp": [
+      "Vendor"
+    ],
+    "google": [
+      "Vendor"
+    ],
+    "employee": [
+      "Person"
+    ],
+    "risk_assessment": [
+      "Assessment"
+    ],
+    "technical_risk": [
+      "Risk"
+    ],
+    "zoom": [
+      "Vendor"
+    ],
+    "root": [
+      "Organization",
+      "Root"
+    ],
+    "knowbe4": [
+      "Vendor"
+    ],
+    "aws": [
+      "Vendor"
+    ],
+    "user_endpoint": [
+      "Device",
+      "Host"
+    ],
+    "aws_servicequotas": [
+      "Service"
+    ],
+    "aws_quicksight": [
+      "Service"
+    ],
+    "aws_cognitosync": [
+      "Service"
+    ],
+    "aws_mediastore": [
+      "Service"
+    ],
+    "aws_ds": [
+      "Service"
+    ],
+    "aws_autoscaling": [
+      "Service"
+    ],
+    "aws_xray": [
+      "Service"
+    ],
+    "aws_kendra": [
+      "Service"
+    ],
+    "aws_devopsguru": [
+      "Service"
+    ],
+    "aws_amplify": [
+      "Service"
+    ],
+    "aws_route53domains": [
+      "Service"
+    ],
+    "aws_health": [
+      "Service"
+    ],
+    "aws_pi": [
+      "Service"
+    ],
+    "aws_replicator": [
+      "Service"
+    ],
+    "aws_licensemanager": [
+      "Service"
+    ],
+    "aws_iotwireless": [
+      "Service"
+    ],
+    "aws_chatbot": [
+      "Service"
+    ],
+    "aws_kinesis": [
+      "Service"
+    ],
+    "aws_deepcomposer": [
+      "Service"
+    ],
+    "aws_iotevents": [
+      "Service"
+    ],
+    "aws_budgets": [
+      "Service"
+    ],
+    "aws_computeoptimizer": [
+      "Service"
+    ],
+    "aws_outposts": [
+      "Service"
+    ],
+    "aws_tag": [
+      "Service"
+    ],
+    "aws_iotanalytics": [
+      "Service"
+    ],
+    "aws_mediatailor": [
+      "Service"
+    ],
+    "aws_iotsitewise": [
+      "Service"
+    ],
+    "aws_snowball": [
+      "Service"
+    ],
+    "aws_networkmanager": [
+      "Service"
+    ],
+    "aws_awsportal": [
+      "Service"
+    ],
+    "aws_mobilehub": [
+      "Service"
+    ],
+    "aws_elasticfilesystem": [
+      "Service"
+    ],
+    "aws_appstream": [
+      "Service"
+    ],
+    "aws_contributorinsights": [
+      "Service"
+    ],
+    "aws_braket": [
+      "Service"
+    ],
+    "aws_workdocs": [
+      "Service"
+    ],
+    "aws_chime": [
+      "Service"
+    ],
+    "aws_discovery": [
+      "Service"
+    ],
+    "aws_kinesisvideo": [
+      "Service"
+    ],
+    "aws_opsworkscm": [
+      "Service"
+    ],
+    "everyone": [
+      "Everyone",
+      "UserGroup"
+    ],
+    "aws_elastictranscoder": [
+      "Service"
+    ],
+    "aws_worklink": [
+      "Service"
+    ],
+    "aws_support": [
+      "Service"
+    ],
+    "aws_resourcegroups": [
+      "Service"
+    ],
+    "aws_acmpca": [
+      "Service"
+    ],
+    "aws_controltower": [
+      "Service"
+    ],
+    "aws_datasync": [
+      "Service"
+    ],
+    "aws_applicationinsights": [
+      "Service"
+    ],
+    "aws_pricing": [
+      "Service"
+    ],
+    "aws_signer": [
+      "Service"
+    ],
+    "aws_codepipeline": [
+      "Service"
+    ],
+    "aws_codegurureviewer": [
+      "Service"
+    ],
+    "aws_servicecatalog": [
+      "Service"
+    ],
+    "aws_codestar": [
+      "Service"
+    ],
+    "aws_ce": [
+      "Service"
+    ],
+    "aws_swf": [
+      "Service"
+    ],
+    "aws_backup": [
+      "Service"
+    ],
+    "aws_organizations": [
+      "Service"
+    ],
+    "aws_ram": [
+      "Service"
+    ],
+    "aws_kinesisanalytics": [
+      "Service"
+    ],
+    "aws_firehose": [
+      "Service"
+    ],
+    "aws_cloudsearch": [
+      "Service"
+    ],
+    "aws_importexport": [
+      "Service"
+    ],
+    "aws_servicediscovery": [
+      "Service"
+    ],
+    "aws_personalize": [
+      "Service"
+    ],
+    "aws_networkfirewall": [
+      "Service"
+    ],
+    "aws_kafka": [
+      "Service"
+    ],
+    "aws_smsvoice": [
+      "Service"
+    ],
+    "aws_sagemaker": [
+      "Service"
+    ],
+    "aws_detective": [
+      "Service"
+    ],
+    "aws_codebuild": [
+      "Service"
+    ],
+    "aws_shield": [
+      "Service"
+    ],
+    "aws_polly": [
+      "Service"
+    ],
+    "aws_applicationautoscaling": [
+      "Service"
+    ],
+    "aws_globalaccelerator": [
+      "Service"
+    ],
+    "aws_cloud9": [
+      "Service"
+    ],
+    "aws_codestarnotifications": [
+      "Service"
+    ],
+    "aws_glue": [
+      "Service"
+    ],
+    "aws_appsync": [
+      "Service"
+    ],
+    "aws_devicefarm": [
+      "Service"
+    ],
+    "aws_directconnect": [
+      "Service"
+    ],
+    "aws_autoscalingplans": [
+      "Service"
+    ],
+    "aws_transcribe": [
+      "Service"
+    ],
+    "aws_mediapackage": [
+      "Service"
+    ],
+    "aws_cognitoidentity": [
+      "Service"
+    ],
+    "aws_greengrass": [
+      "Service"
+    ],
+    "aws_mgh": [
+      "Service"
+    ],
+    "aws_gamelift": [
+      "Service"
+    ],
+    "aws_cognitoidp": [
+      "Service"
+    ],
+    "aws_rekognition": [
+      "Service"
+    ],
+    "aws_synthetics": [
+      "Service"
+    ],
+    "aws_machinelearning": [
+      "Service"
+    ],
+    "aws_email": [
+      "Service"
+    ],
+    "aws_robomaker": [
+      "Service"
+    ],
+    "aws_codeguruprofiler": [
+      "Service"
+    ],
+    "aws_serverlessrepo": [
+      "Service"
+    ],
+    "aws_sso": [
+      "Service"
+    ],
+    "aws_a4b": [
+      "Service"
+    ],
+    "aws_elementalappliancessoftware": [
+      "Service"
+    ],
+    "aws_qldb": [
+      "Service"
+    ],
+    "aws_wafregional": [
+      "Service"
+    ],
+    "aws_launchwizard": [
+      "Service"
+    ],
+    "aws_storagegateway": [
+      "Service"
+    ],
+    "aws_stepfunctions": [
+      "Service"
+    ],
+    "aws_awsmarketplace": [
+      "Service"
+    ],
+    "aws_codecommit": [
+      "Service"
+    ],
+    "aws_mobiletargeting": [
+      "Service"
+    ],
+    "aws_medialive": [
+      "Service"
+    ],
+    "aws_lightsail": [
+      "Service"
+    ],
+    "aws_secretsmanager": [
+      "Service"
+    ],
+    "aws_datapipeline": [
+      "Service"
+    ],
+    "aws_wafv2": [
+      "Service"
+    ],
+    "aws_cassandra": [
+      "Service"
+    ],
+    "aws_comprehend": [
+      "Service"
+    ],
+    "aws_ssodirectory": [
+      "Service"
+    ],
+    "aws_mediaconnect": [
+      "Service"
+    ],
+    "aws_imagebuilder": [
+      "Service"
+    ],
+    "aws_mq": [
+      "Service"
+    ],
+    "aws_securityhub": [
+      "Service"
+    ],
+    "aws_schemas": [
+      "Service"
+    ],
+    "aws_forecast": [
+      "Service"
+    ],
+    "aws_iot": [
+      "Service"
+    ],
+    "aws_managedblockchain": [
+      "Service"
+    ],
+    "aws_freertos": [
+      "Service"
+    ],
+    "aws_route53resolver": [
+      "Service"
+    ],
+    "aws_sdb": [
+      "Service"
+    ],
+    "aws_trustedadvisor": [
+      "Service"
+    ],
+    "aws_dataexchange": [
+      "Service"
+    ],
+    "aws_clouddirectory": [
+      "Service"
+    ],
+    "aws_elasticbeanstalk": [
+      "Service"
+    ],
+    "aws_fms": [
+      "Service"
+    ],
+    "aws_codeartifact": [
+      "Service"
+    ],
+    "aws_dax": [
+      "Service"
+    ],
+    "aws_dlm": [
+      "Service"
+    ],
+    "aws_lex": [
+      "Service"
+    ],
+    "aws_sms": [
+      "Service"
+    ],
+    "aws_workmail": [
+      "Service"
+    ],
+    "aws_glacier": [
+      "Service"
+    ],
+    "aws_mediaconvert": [
+      "Service"
+    ],
+    "aws_fsx": [
+      "Service"
+    ],
+    "aws_appmesh": [
+      "Service"
+    ],
+    "aws_codedeploy": [
+      "Service"
+    ],
+    "aws_mobileanalytics": [
+      "Service"
+    ],
+    "aws_opsworks": [
+      "Service"
+    ],
+    "aws_dms": [
+      "Service"
+    ],
+    "aws_translate": [
+      "Service"
+    ],
+    "aws_databrew": [
+      "Service"
+    ],
+    "aws_connect": [
+      "Service"
+    ],
+    "aws_ssm": [
+      "Service"
+    ],
+    "aws_clientvpn": [
+      "Service"
+    ],
+    "aws_purchaseorders": [
+      "Service"
+    ],
+    "aws_cur": [
+      "Service"
+    ],
+    "aws_awsbillingconsole": [
+      "Service"
+    ],
+    "aws_accessanalyzer_finding": [
+      "Finding"
+    ],
+    "aws_ecr_image_scan_finding": [
+      "Finding"
+    ],
+    "google_group_settings": [
+      "Configuration"
+    ],
+    "aws_ivs": [
+      "Service"
+    ],
+    "aws_iotfleethub": [
+      "Service"
+    ],
+    "aws_savingsplans": [
+      "Service"
+    ],
+    "aws_fis": [
+      "Service"
+    ],
+    "aws_ecrpublic": [
+      "Service"
+    ],
+    "cobalt_finding": [
+      "Finding"
+    ],
+    "cobalt_asset": [
+      "Application"
+    ],
+    "cobalt_account": [
+      "Account"
+    ],
+    "cve": [
+      "Vulnerability"
+    ],
+    "cobalt_vendor": [
+      "Vendor"
+    ],
+    "cobalt_pentest": [
+      "Assessment"
+    ],
+    "cobalt_service": [
+      "Service"
+    ],
+    "awesome_company": [
+      "Organization"
+    ],
+    "awesome_investors": [
+      "Organization"
+    ],
+    "aws_mgn": [
+      "Service"
+    ],
+    "aws_ssmincidents": [
+      "Service"
+    ],
+    "aws_ssmcontacts": [
+      "Service"
+    ],
+    "aws_auditmanager": [
+      "Service"
+    ],
+    "aws_lookoutvision": [
+      "Service"
+    ],
+    "aws_groundstation": [
+      "Service"
+    ],
+    "aws_lakeformation": [
+      "Service"
+    ],
+    "aws_elementalsupportcases": [
+      "Service"
+    ],
+    "aws_proton": [
+      "Service"
+    ],
+    "aws_redshiftdata": [
+      "Service"
+    ],
+    "aws_identitystore": [
+      "Service"
+    ],
+    "aws_awsconnector": [
+      "Service"
+    ],
+    "aws_monitron": [
+      "Service"
+    ],
+    "aws_aps": [
+      "Service"
+    ],
+    "aws_deeplens": [
+      "Service"
+    ],
+    "aws_rdsdata": [
+      "Service"
+    ],
+    "aws_wellarchitected": [
+      "Service"
+    ],
+    "aws_awsmarketplacemanagement": [
+      "Service"
+    ],
+    "aws_panorama": [
+      "Service"
+    ],
+    "aws_elementalactivations": [
+      "Service"
+    ],
+    "aws_lookoutmetrics": [
+      "Service"
+    ],
+    "aws_executeapi": [
+      "Service"
+    ],
+    "aws_lookoutequipment": [
+      "Service"
+    ],
+    "aws_iq": [
+      "Service"
+    ],
+    "aws_wam": [
+      "Service"
+    ],
+    "aws_zocalo": [
+      "Service"
+    ],
+    "aws_codestarconnections": [
+      "Service"
+    ],
+    "aws_s3outposts": [
+      "Service"
+    ],
+    "aws_appmeshpreview": [
+      "Service"
+    ],
+    "aws_sumerian": [
+      "Service"
+    ],
+    "aws_ssmmessages": [
+      "Service"
+    ],
+    "aws_dbqms": [
+      "Service"
+    ],
+    "aws_nimble": [
+      "Service"
+    ],
+    "aws_backupstorage": [
+      "Service"
+    ],
+    "aws_codeguru": [
+      "Service"
+    ],
+    "aws_cloudshell": [
+      "Service"
+    ],
+    "aws_amplifybackend": [
+      "Service"
+    ],
+    "aws_arsenal": [
+      "Service"
+    ],
+    "aws_groundtruthlabeling": [
+      "Service"
+    ],
+    "aws_iqpermission": [
+      "Service"
+    ],
+    "aws_deepracer": [
+      "Service"
+    ],
+    "aws_timestream": [
+      "Service"
+    ],
+    "aws_textract": [
+      "Service"
+    ],
+    "aws_workmailmessageflow": [
+      "Service"
+    ],
+    "aws_honeycode": [
+      "Service"
+    ],
+    "aws_iotdevicetester": [
+      "Service"
+    ],
+    "aws_iot1click": [
+      "Service"
+    ],
+    "aws_comprehendmedical": [
+      "Service"
+    ],
+    "aws_healthlake": [
+      "Service"
+    ],
+    "aws_mechanicalturk": [
+      "Service"
+    ],
+    "aws_frauddetector": [
+      "Service"
+    ],
+    "aws_appflow": [
+      "Service"
+    ],
+    "aws_elasticinference": [
+      "Service"
+    ],
+    "aws_grafana": [
+      "Service"
+    ],
+    "aws_elementalsupportcontent": [
+      "Service"
+    ],
+    "aws_waf_v2_web_acl": [
+      "Firewall"
+    ],
+    "aws_apigatewayv2": [
+      "Service"
+    ],
+    "aws_iotdevice-tester": [
+      "Service"
+    ],
+    "aws_elementalappliances-software": [
+      "Service"
+    ],
+    "aws_awsmarketplace-management": [
+      "Service"
+    ],
+    "aws_elementalsupport-cases": [
+      "Service"
+    ],
+    "aws_elementalsupport-content": [
+      "Service"
+    ],
+    "aws_service": [
+      "Service"
+    ],
+    "aws_lb_listener_rule": [
+      "Rule"
+    ],
+    "aws_lb_listener": [
+      "ApplicationEndpoint"
+    ],
+    "aws_cloudformation_stack": [
+      "Configuration"
+    ],
+    "aws_iam_user": [
+      "User"
+    ],
+    "jupiterone_rule_alert": [
+      "Alert",
+      "Problem"
+    ],
+    "aws_cloudfront_distribution_origin": [
+      "Configuration"
+    ],
+    "aws_bugbust": [
+      "Service"
+    ],
+    "aws_airflow": [
+      "Service"
+    ],
+    "jira_issue": [
+      "Issue",
+      "Record"
+    ],
+    "jira_user": [
+      "User"
+    ],
+    "jira_project": [
+      "Project"
+    ],
+    "jira": [
+      "Vendor"
+    ],
+    "jira_account": [
+      "Account"
+    ],
+    "aws_elasticache_cluster_node": [
+      "DataStore",
+      "Database",
+      "Host"
+    ],
+    "aws_elasticache_redis_cluster": [
+      "Cluster",
+      "DataStore",
+      "Database"
+    ],
+    "macos_app": [
+      "Application"
+    ],
+    "aws_organization": [
+      "Organization"
+    ],
+    "aws_rds_cluster": [
+      "Cluster",
+      "DataStore",
+      "Database"
+    ],
+    "aws_organization_root": [
+      "Group",
+      "Organization"
+    ],
+    "aws_organizational_unit": [
+      "Group",
+      "Organization"
+    ],
+    "cloudflare_account_member": [
+      "User"
+    ],
+    "cloudflare": [
+      "Vendor"
+    ],
+    "cloudflare_account_role": [
+      "AccessRole"
+    ],
+    "http_endpoint": [
+      "ApplicationEndpoint"
+    ],
+    "aws_ec2_settings": [
+      "Configuration"
+    ],
+    "aws_route53recovery-cluster": [
+      "Service"
+    ],
+    "aws_route53recovery-readiness": [
+      "Service"
+    ],
+    "aws_route53recovery-control-config": [
+      "Service"
+    ],
+    "aws_s3object-lambda": [
+      "Service"
+    ],
+    "aws_appconfig": [
+      "Service"
+    ]
+  }
+}
+

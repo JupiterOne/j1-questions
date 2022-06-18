@@ -1,14 +1,14 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route, Redirect } from "react-router-dom";
-import QuestionDisplay from "./components/QuestionDisplay";
-import Main from "./Main";
-import { createMuiTheme } from "@material-ui/core/styles";
-import Header from "./components/Header";
-import Context from "./AppContext";
-
-import { ThemeProvider } from "@material-ui/core/styles";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { CssBaseline, Container } from "@material-ui/core";
+
+import Main from "./Main";
+import QuestionDisplay from "./components/QuestionDisplay";
+import Header from "./components/Header";
+import IntegrationGraph from "./components/IntegrationGraph";
+import Context from "./AppContext";
 
 function App() {
   const { themeDark } = React.useContext(Context);
@@ -123,6 +123,10 @@ function App() {
 
           <Route exact path="/filter">
             <Main />
+          </Route>
+
+          <Route exact path="/integration-graph">
+            <IntegrationGraph />
           </Route>
 
           <Route exact path="/question/:questionTitle">

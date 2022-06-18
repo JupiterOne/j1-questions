@@ -16,15 +16,6 @@ import { useWindowSize } from "@reach/window-size";
 import Context from "../AppContext";
 
 const Filters = () => {
-  const {
-    allCategories,
-    categories,
-    managedQuestions,
-    integrations,
-    setCategory,
-    setIntegration
-  } = useContext(Context);
-
   const classes = useFilterStyles();
   const windowSize = useWindowSize();
 
@@ -34,6 +25,25 @@ const Filters = () => {
         elevation={0}
         className={windowSize.width > 750 ? classes.root : classes.smallRoot}
       >
+        <QuestionCategoryFilters/>
+        <Divider className={classes.divider} />
+        <IntegrationFilters/>
+      </Paper>
+    </Hidden>
+  );
+};
+
+export const QuestionCategoryFilters = () => {
+  const {
+    allCategories,
+    categories,
+    setCategory
+  } = useContext(Context);
+
+  const classes = useFilterStyles();
+
+  return (
+    <>
         <Box m={1} className={classes.section}>
           <Icon classes={{ root: classes.icon}}>
             <CategoryIcon />
@@ -58,42 +68,55 @@ const Filters = () => {
             />
           ))}
         </Box>
-        <Divider className={classes.divider} />
-        <Box m={1} className={classes.section}>
-          <Icon classes={{ root: classes.icon}}>
-            <IntegrationIcon />
-          </Icon>
-          <Typography variant="h6" className={classes.subtitle}>Integrations</Typography>
-        </Box>
-        <Box className={classes.checklist} m={2}>
-          {[...Object.keys(managedQuestions.integrations), "none"].map(
-            (integration: string, index: number) => (
-              <FormControlLabel
-              classes={{
-                label: classes.checkboxLabel
-              }}
-              key={index}
-              control={
-                <Checkbox
-                checked={integrations.includes(integration)}
-                onChange={() => setIntegration(integration)}
-                />
-              }
-              label={
-                <>
-                  {Object.keys(managedQuestions.integrations).length > 0 &&
-                  integration !== "none"
-                  ? managedQuestions.integrations[integration].title
-                  : "None"}
-                </>
-              }
-            />
-          )
-        )}
-        </Box>
-      </Paper>
-    </Hidden>
+    </>
   );
 };
+
+export const IntegrationFilters = () => {
+  const {
+    managedQuestions,
+    integrations,
+    setIntegration
+  } = useContext(Context);
+
+  const classes = useFilterStyles();
+
+  return (
+    <>
+      <Box m={1} className={classes.section}>
+        <Icon classes={{ root: classes.icon}}>
+          <IntegrationIcon />
+        </Icon>
+        <Typography variant="h6" className={classes.subtitle}>Integrations</Typography>
+      </Box>
+      <Box className={classes.checklist} m={2}>
+        {[...Object.keys(managedQuestions.integrations), "none"].map(
+          (integration: string, index: number) => (
+            <FormControlLabel
+            classes={{
+              label: classes.checkboxLabel
+            }}
+            key={index}
+            control={
+              <Checkbox
+              checked={integrations.includes(integration)}
+              onChange={() => setIntegration(integration)}
+              />
+            }
+            label={
+              <>
+                {Object.keys(managedQuestions.integrations).length > 0 &&
+                integration !== "none"
+                ? managedQuestions.integrations[integration].title
+                : "None"}
+              </>
+            }
+          />
+        )
+      )}
+      </Box>
+    </>
+  );
+}
 
 export default React.memo(Filters);

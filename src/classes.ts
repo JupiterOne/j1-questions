@@ -121,7 +121,7 @@ export const useQuestionDisplayStyles = makeStyles((theme: Theme) =>
       },
     },
     headingBox: {
-      
+
     },
     heading: {
       padding: theme.spacing(3, 1, 2),

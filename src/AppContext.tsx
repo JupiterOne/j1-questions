@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { ManagedQuestionJSON, Question } from "./types";
+import { ManagedQuestionJSON, IntegrationSchema, Question } from "./types";
 import queryString from "query-string";
 import fetchQuestions from "./methods/fetchQuestions";
 import uniqueArray from "./methods/uniqueArray";
 import debounce from "lodash/debounce";
+
+import integrationSchemas from './data/integrationSchemas.json';
 
 interface AppContext {
   managedQuestions: ManagedQuestionJSON;
@@ -21,6 +23,7 @@ interface AppContext {
   setFilterLogic: (tagFilter: string) => void;
   categories: string[];
   setCategory: (category: string) => void;
+  integrationSchemaMap: Map<string, IntegrationSchema>;
 }
 
 const initialState: AppContext = {
@@ -41,7 +44,8 @@ const initialState: AppContext = {
   tagFilter: "",
   setFilterLogic: () => {},
   categories: [],
-  setCategory: () => {}
+  setCategory: () => {},
+  integrationSchemaMap: new Map()
 };
 
 const Context = React.createContext(initialState);
@@ -70,6 +74,10 @@ export const Provider = (props: { children: any }) => {
     params.categories ? params.categories.split(",") : []
   );
 
+  const [integrationSchemaMap, setIntegrationSchemaMap] = useState<Map<string, IntegrationSchema>>(
+    new Map()
+  );
+
   useEffect(() => {
     fetchQuestions().then((r: ManagedQuestionJSON) => {
       const tags: string[] = r.questions.flatMap((question: Question) => {
@@ -87,6 +95,12 @@ export const Provider = (props: { children: any }) => {
       setAllTags(uniqueArray(tags));
 
       setManagedQuestions(r);
+
+      const schemaMap = new Map<string, IntegrationSchema>();
+      for (const schema of integrationSchemas) {
+        schemaMap.set(schema.integrationTag, schema as unknown as IntegrationSchema);
+      }
+      setIntegrationSchemaMap(schemaMap);
     });
   }, []);
 
@@ -124,7 +138,8 @@ export const Provider = (props: { children: any }) => {
         setFilterLogic,
         categories,
         setCategory: category =>
-          handleChangeInMultiOptions(category, setCategories)
+          handleChangeInMultiOptions(category, setCategories),
+        integrationSchemaMap
       }}
     >
       {props.children}

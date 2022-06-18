@@ -6,11 +6,11 @@ const fetchQuestions = async () => {
   const domain = host.includes('localhost') || host.includes('dev') ?
     'https://apps.dev.jupiterone.io' :
     'https://apps.us.jupiterone.io';
-  
+
   let result: ManagedQuestionJSON = await fetch(
     `${domain}/static/managed-questions.json`
   ).then((r: any) => r.json());
-  
+
   const impropvedResultQuestions = result.questions.map(question => {
     return {
       ...question,
