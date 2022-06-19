@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 export const useGraphStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      flex: 3.5,
+      display: 'flex',
       height: "100%",
       overflowY: "auto",
       padding: theme.spacing(2, 2),

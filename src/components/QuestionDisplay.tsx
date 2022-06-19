@@ -30,10 +30,14 @@ const QuestionDisplay = () => {
   const { managedQuestions } = useContext(Context);
   const [copied, setCopied] = useState(false);
 
-  const [selectedQueryToVisualize, setSelectedQueryToVisualize] = useState<
-    string | null
-  >(null);
-  const handleCloseQueryVisualizerModal = () => {
+  const [selectedQueriesToVisualize, setSelectedQueriesToVisualize] = useState<
+    string[]
+  >([]);
+
+  const onVisualizeQuery= (query) => {
+    setSelectedQueryToVisualize([query]);
+  };
+  const handleCloseQueryVisualizer= () => {
     setSelectedQueryToVisualize(null);
   };
 

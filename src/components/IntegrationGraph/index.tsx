@@ -11,6 +11,7 @@ import { IntegrationFilters } from "../Filters";
 
 import { useIntegrationGraphStyles } from "./styles";
 import { IntegrationSchema } from "../../types";
+import { createEdgeIdFromRelationship } from "../QueryVisualizer/graph";
 
 const IntegrationGraph = () => {
   const {
@@ -38,7 +39,6 @@ const IntegrationGraph = () => {
       nodes: convertEntitiesToNodes(entities),
       edges: convertRelationshipsToEdges(relationships)
     });
-
   }, [integrations])
 
   return (
@@ -56,10 +56,15 @@ const IntegrationGraph = () => {
           >
             <IntegrationFilters/>
           </Paper>
-          <Graph
-            nodes={nodes}
-            edges={edges}
-          />
+
+          <div
+            className={classes.graphContainer}
+          >
+            <Graph
+              nodes={nodes}
+              edges={edges}
+            />
+          </div>
         </div>
       </Fade>
     </>
@@ -75,7 +80,7 @@ function convertEntitiesToNodes(entities: IntegrationSchema['entities']): Node[]
 
 function convertRelationshipsToEdges(relationships: IntegrationSchema['relationships']): Edge[] {
   return relationships.map(r => ({
-    id: r.type,
+    id: createEdgeIdFromRelationship(r),
     label: r.class,
     from: r.fromEntityType,
     to: r.toEntityType

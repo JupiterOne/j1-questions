@@ -17,5 +17,9 @@ export const useIntegrationGraphStyles = makeStyles((theme: Theme) =>
       textDecoration: "none",
       flexFlow: 'row'
     },
+    graphContainer: {
+      height: "calc(100vh - 99px)",
+      flex: 3.5
+    }
   })
 );
