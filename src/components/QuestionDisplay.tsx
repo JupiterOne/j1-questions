@@ -10,6 +10,7 @@ import {
   Tooltip,
   Container,
   Divider,
+  Modal,
 } from "@material-ui/core";
 import clsx from "clsx";
 import { Alert } from "@material-ui/lab";
@@ -19,13 +20,23 @@ import { Query, Question } from "../types";
 import hash from "hash.js";
 import copy from "clipboard-copy";
 import CopyIcon from "react-feather/dist/icons/copy";
+import EyeIcon from "react-feather/dist/icons/eye";
 import ChevronLeftIcon from "react-feather/dist/icons/chevron-left";
 import Context from "../AppContext";
+import QueryVisualizer from "./QueryVisualizer";
 
 const QuestionDisplay = () => {
   const { themeDark } = React.useContext(Context);
   const { managedQuestions } = useContext(Context);
   const [copied, setCopied] = useState(false);
+
+  const [selectedQueryToVisualize, setSelectedQueryToVisualize] = useState<
+    string | null
+  >(null);
+  const handleCloseQueryVisualizerModal = () => {
+    setSelectedQueryToVisualize(null);
+  };
+
   const params: { questionTitle?: string } = useParams();
   const history = useHistory();
   const location = useLocation();
@@ -35,12 +46,7 @@ const QuestionDisplay = () => {
 
   const question: Question | undefined = managedQuestions.questions.filter(
     (question: Question) => {
-      return (
-        hash
-          .sha1()
-          .update(question.title)
-          .digest("hex") === title
-      );
+      return hash.sha1().update(question.title).digest("hex") === title;
     }
   )[0];
 
@@ -50,18 +56,19 @@ const QuestionDisplay = () => {
     if (Array.isArray(question.queries)) {
       questionQueries = question.queries;
     } else {
-      questionQueries = Object.entries(question.queries).map(([name, query]) => {
-        const item: Query = {name, query}
-        return item;
-      });
+      questionQueries = Object.entries(question.queries).map(
+        ([name, query]) => {
+          const item: Query = { name, query };
+          return item;
+        }
+      );
     }
   } else {
     questionQueries = [];
   }
 
-
   const handleClickBack = () => {
-    history.push(`/${location.search}`)
+    history.push(`/${location.search}`);
   };
 
   return (
@@ -86,7 +93,14 @@ const QuestionDisplay = () => {
               </Box>
               <div className={classes.queryDescLayout}>
                 <Box className={classes.queries}>
-                  <Box  className={clsx(classes.description, themeDark ? classes.descriptionDark : undefined)}>{question.description}</Box>
+                  <Box
+                    className={clsx(
+                      classes.description,
+                      themeDark ? classes.descriptionDark : undefined
+                    )}
+                  >
+                    {question.description}
+                  </Box>
                   <Divider />
                   {questionQueries.map((query, index) => (
                     <div key={index}>
@@ -101,20 +115,41 @@ const QuestionDisplay = () => {
                                 setCopied(true);
                               }}
                               children={<CopyIcon />}
-                              />
+                            />
+                          </Tooltip>
+                          <Tooltip title="Visualize with graph">
+                            <IconButton
+                              color="primary"
+                              className={classes.copy}
+                              onClick={() => {
+                                setSelectedQueryToVisualize(query.query);
+                              }}
+                              children={<EyeIcon />}
+                            />
                           </Tooltip>
                         </div>
                         <code className={classes.queryBox}>
                           <pre>{query.query}</pre>
                         </code>
                       </Box>
+                      {query.query.toLowerCase().includes('that') &&
+                        <div className={classes.queryVisualizerContainer}>
+                          <QueryVisualizer query={query.query}/>
+                        </div>
+                      }
                       <Divider />
                     </div>
                   ))}
                 </Box>
               </div>
             </Paper>
-            <Paper elevation={0} className={clsx(classes.sidebar, themeDark ? classes.sidebarDark : undefined)}>
+            <Paper
+              elevation={0}
+              className={clsx(
+                classes.sidebar,
+                themeDark ? classes.sidebarDark : undefined
+              )}
+            >
               {question.integration ? (
                 <div className={classes.integrationGroup}>
                   <img
@@ -144,11 +179,11 @@ const QuestionDisplay = () => {
                       onClick={() => {
                         window.location.replace(
                           `/filter?tags=${tag}&tagFilter=all`
-                          );
-                        }}
-                        label={tag}
+                        );
+                      }}
+                      label={tag}
                     />
-                ))}
+                  ))}
               </div>
             </Paper>
             <Snackbar
@@ -160,7 +195,9 @@ const QuestionDisplay = () => {
             </Snackbar>
           </div>
         ) : (
-          <Paper elevation={0} className={classes.root}>Nothing to display.</Paper>
+          <Paper elevation={0} className={classes.root}>
+            Nothing to display.
+          </Paper>
         )}
       </Container>
     </>

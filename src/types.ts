@@ -28,7 +28,7 @@ export interface ManagedQuestionJSON {
 export type IntegrationSchema = {
   integrationDefinitionId: string;
   integrationTag: string;
-  entities: any[];
+  entities: Entity[];
   relationships: Relationship[];
 };
 
@@ -40,6 +40,5 @@ export type Entity = {
 export type Relationship = {
   fromEntityType: string;
   toEntityType: string;
-  type: string;
   class: string;
 }

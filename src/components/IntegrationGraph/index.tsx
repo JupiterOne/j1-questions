@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useWindowSize } from "@reach/window-size";
 
 import Fade from "@material-ui/core/Fade";
@@ -22,11 +22,24 @@ const IntegrationGraph = () => {
   const windowSize = useWindowSize();
   const classes = useIntegrationGraphStyles();
 
-  const schemas = integrations.map(id => integrationSchemaMap.get(id))
-    .filter((schema): schema is IntegrationSchema => schema !== undefined);
+  const [{ nodes, edges}, setNodesAndEdges] = useState<{
+    nodes: Node[];
+    edges: Edge[];
+  }>({ nodes: [], edges: []});
 
-  const entities = schemas.flatMap(schema => schema.entities);
-  const relationships = schemas.flatMap(schema => schema.relationships);
+  useEffect(() => {
+    const schemas = integrations.map(id => integrationSchemaMap.get(id))
+      .filter((schema): schema is IntegrationSchema => schema !== undefined);
+
+    const entities = schemas.flatMap(schema => schema.entities);
+    const relationships = schemas.flatMap(schema => schema.relationships);
+
+    setNodesAndEdges({
+      nodes: convertEntitiesToNodes(entities),
+      edges: convertRelationshipsToEdges(relationships)
+    });
+
+  }, [integrations])
 
   return (
     <>
@@ -44,12 +57,8 @@ const IntegrationGraph = () => {
             <IntegrationFilters/>
           </Paper>
           <Graph
-            nodes={
-              convertEntitiesToNodes(entities)
-            }
-            edges={
-              convertRelationshipsToEdges(relationships)
-            }
+            nodes={nodes}
+            edges={edges}
           />
         </div>
       </Fade>

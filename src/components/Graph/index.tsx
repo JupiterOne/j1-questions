@@ -10,11 +10,6 @@ import { Node, Edge } from './types';
 import VisGraph from './VisGraph';
 import GraphNodeIcon from './GraphNodeIcon';
 
-type GraphProps = {
-  nodes: Node[];
-  edges: Edge[];
-};
-
 const DEFAULT_EDGE_COLOR = '#000000';
 
 const DEFAULT_GRAPH_OPTIONS = {
@@ -42,11 +37,12 @@ const DEFAULT_GRAPH_OPTIONS = {
     // physics: false,
   },
   interaction: {
+    navigationButtons: true,
     selectConnectedEdges: false,
     zoomView: true,
   },
   physics: {
-    solver: 'forceAtlas2Based',
+    // solver: 'forceAtlas2Based',
     stabilization: {
       enabled: true,
       fit: true
@@ -54,12 +50,35 @@ const DEFAULT_GRAPH_OPTIONS = {
   },
 }
 
+
+type GraphProps = {
+  nodes: Node[];
+  edges: Edge[];
+  applyHierarchy?: boolean;
+};
+
 const Graph = (props: GraphProps) => {
-  const { nodes, edges } = props;
+  const { nodes, edges, applyHierarchy } = props;
   const windowSize = useWindowSize();
   const classes = useGraphStyles();
 
-  const graphOptions = DEFAULT_GRAPH_OPTIONS;
+  const graphOptions = {
+    ...DEFAULT_GRAPH_OPTIONS,
+    layout: {
+      ...DEFAULT_GRAPH_OPTIONS.layout,
+      hierarchical: applyHierarchy
+        ? {
+            enabled: true,
+            direction: 'LR'
+          }
+        : false
+    },
+
+    physics: {
+      ...DEFAULT_GRAPH_OPTIONS.physics,
+      ...(applyHierarchy ? {}: { solver: 'forceAtlas2Based'}),
+    },
+  };
 
   return (
     <Paper elevation={0} className={windowSize.width > 750 ? classes.root : classes.smallRoot}>

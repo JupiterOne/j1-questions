@@ -27,6 +27,7 @@ async function main() {
   const awsTriplets = filterTripletTypes(typeTriplets, 'aws');
   const githubTriplets = filterTripletTypes(typeTriplets, 'github');
   const jiraTriplets = filterTripletTypes(typeTriplets, 'jira');
+  const oktaTriplets = filterTripletTypes(typeTriplets, 'okta');
 
   const integrationSchemas = [
     {
@@ -46,6 +47,12 @@ async function main() {
       integrationTag: 'jira',
       entities: deriveEntitiesFromTriplets(jiraTriplets, 'jira'),
       relationships: jiraTriplets
+    },
+    {
+      integrationDefinitionId: 'bc9510d4-27b8-4102-a51f-16f62291cdf6',
+      integrationTag: 'okta',
+      entities: deriveEntitiesFromTriplets(oktaTriplets, 'okta'),
+      relationships: oktaTriplets
     }
   ];
 
@@ -62,7 +69,7 @@ async function main() {
 
 function filterTripletTypes (triplets, type) {
   return triplets.filter(triplet => {
-    return triplet.fromEntityType.startsWith(type) || triplet.toEntityType.startsWith(type)
+    return triplet.fromEntityType.startsWith(type) && triplet.toEntityType.startsWith(type)
   });
 }
 

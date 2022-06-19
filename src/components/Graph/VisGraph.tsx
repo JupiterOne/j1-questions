@@ -105,14 +105,11 @@ class VisGraph extends Component<GraphProps, GraphState> {
 
   componentDidMount() {
     this.edges.add(this.props.graph.edges);
-    console.log('componentDidMount', this.props.graph.nodes);
     this.nodes.add(this.props.graph.nodes);
     this.updateGraph();
   }
 
   shouldComponentUpdate(nextProps: GraphProps) {
-    console.log('props', this.props.graph.nodes);
-    console.log('next', nextProps.graph.nodes)
     let nodesChange = !isEqual(this.props.graph.nodes, nextProps.graph.nodes);
     let edgesChange = !isEqual(this.props.graph.edges, nextProps.graph.edges);
     let optionsChange = !isEqual(this.props.options, nextProps.options);
@@ -173,7 +170,6 @@ class VisGraph extends Component<GraphProps, GraphState> {
   }
 
   patchNodes({ nodesRemoved, nodesAdded, nodesChanged }: { nodesRemoved: Node[], nodesAdded: Node[], nodesChanged: Node[] }) {
-    console.log('patchNodes', {nodesRemoved, nodesAdded, nodesChanged})
     this.nodes.remove(nodesRemoved);
     this.nodes.update(nodesAdded);
     this.nodes.update(nodesChanged);
@@ -200,12 +196,6 @@ class VisGraph extends Component<GraphProps, GraphState> {
 
     // merge user provied options with our default ones
     let options = defaultsDeep(defaultOptions, this.props.options);
-    console.log('updateGraph', {
-      merged: Object.assign({}, this.props.graph, {
-        edges: this.edges,
-        nodes: this.nodes
-      })
-    });
     this.network = new Network(
       this.container.current as HTMLElement,
       Object.assign({}, this.props.graph, {

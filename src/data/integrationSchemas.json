@@ -36,10 +36,6 @@
         "resourceName": "Some aws_workmail"
       },
       {
-        "type": "aws_instance",
-        "resourceName": "Some aws_instance"
-      },
-      {
         "type": "aws_rds_cluster",
         "resourceName": "Some aws_rds_cluster"
       },
@@ -60,8 +56,8 @@
         "resourceName": "Some aws_security_group"
       },
       {
-        "type": "aws_elasticache_memcached_cluster",
-        "resourceName": "Some aws_elasticache_memcached_cluster"
+        "type": "aws_instance",
+        "resourceName": "Some aws_instance"
       },
       {
         "type": "aws_computeoptimizer",
@@ -110,10 +106,6 @@
       {
         "type": "aws_cloudwatch_event_rule",
         "resourceName": "Some aws_cloudwatch_event_rule"
-      },
-      {
-        "type": "aws_elasticsearch_domain",
-        "resourceName": "Some aws_elasticsearch_domain"
       },
       {
         "type": "aws_cloudwatch_logs",
@@ -168,10 +160,6 @@
         "resourceName": "Some aws_s3"
       },
       {
-        "type": "aws_elastictranscoder",
-        "resourceName": "Some aws_elastictranscoder"
-      },
-      {
         "type": "aws_db_instance",
         "resourceName": "Some aws_db_instance"
       },
@@ -188,20 +176,8 @@
         "resourceName": "Some aws_kms"
       },
       {
-        "type": "aws_iotevents",
-        "resourceName": "Some aws_iotevents"
-      },
-      {
         "type": "aws_s3_bucket",
         "resourceName": "Some aws_s3_bucket"
-      },
-      {
-        "type": "aws_medialive",
-        "resourceName": "Some aws_medialive"
-      },
-      {
-        "type": "aws_apigatewayv2",
-        "resourceName": "Some aws_apigatewayv2"
       },
       {
         "type": "aws_organization_root",
@@ -214,14 +190,6 @@
       {
         "type": "aws_autoscaling_launch_configuration",
         "resourceName": "Some aws_autoscaling_launch_configuration"
-      },
-      {
-        "type": "aws_detective",
-        "resourceName": "Some aws_detective"
-      },
-      {
-        "type": "aws_cognitoidp",
-        "resourceName": "Some aws_cognitoidp"
       },
       {
         "type": "aws_waf_v2_web_acl",
@@ -332,10 +300,6 @@
         "resourceName": "Some aws_codestarnotifications"
       },
       {
-        "type": "aws_api_gateway_v2_api",
-        "resourceName": "Some aws_api_gateway_v2_api"
-      },
-      {
         "type": "aws_rds_cluster_parameter_group",
         "resourceName": "Some aws_rds_cluster_parameter_group"
       },
@@ -360,12 +324,8 @@
         "resourceName": "Some aws_replicator"
       },
       {
-        "type": "aws_databrew",
-        "resourceName": "Some aws_databrew"
-      },
-      {
-        "type": "aws_db_parameter_group",
-        "resourceName": "Some aws_db_parameter_group"
+        "type": "aws_elasticsearch_domain",
+        "resourceName": "Some aws_elasticsearch_domain"
       },
       {
         "type": "aws_dynamodb_table",
@@ -412,32 +372,8 @@
         "resourceName": "Some aws_applicationautoscaling"
       },
       {
-        "type": "aws_athena",
-        "resourceName": "Some aws_athena"
-      },
-      {
-        "type": "aws_organizations",
-        "resourceName": "Some aws_organizations"
-      },
-      {
-        "type": "aws_cloudsearch",
-        "resourceName": "Some aws_cloudsearch"
-      },
-      {
         "type": "aws_route53_record",
         "resourceName": "Some aws_route53_record"
-      },
-      {
-        "type": "aws_health",
-        "resourceName": "Some aws_health"
-      },
-      {
-        "type": "aws_wafv2",
-        "resourceName": "Some aws_wafv2"
-      },
-      {
-        "type": "aws_mediaconnect",
-        "resourceName": "Some aws_mediaconnect"
       },
       {
         "type": "aws_glue",
@@ -460,32 +396,8 @@
         "resourceName": "Some aws_budgets"
       },
       {
-        "type": "aws_gamelift",
-        "resourceName": "Some aws_gamelift"
-      },
-      {
-        "type": "aws_apprunner",
-        "resourceName": "Some aws_apprunner"
-      },
-      {
-        "type": "aws_cognitoidentity",
-        "resourceName": "Some aws_cognitoidentity"
-      },
-      {
-        "type": "aws_states",
-        "resourceName": "Some aws_states"
-      },
-      {
-        "type": "aws_awsmarketplace",
-        "resourceName": "Some aws_awsmarketplace"
-      },
-      {
         "type": "aws_cloudwatch_events",
         "resourceName": "Some aws_cloudwatch_events"
-      },
-      {
-        "type": "aws_eks",
-        "resourceName": "Some aws_eks"
       },
       {
         "type": "aws_textract",
@@ -536,44 +448,24 @@
         "resourceName": "Some aws_eks_cluster"
       },
       {
-        "type": "aws_mobiletargeting",
-        "resourceName": "Some aws_mobiletargeting"
-      },
-      {
-        "type": "aws_launchwizard",
-        "resourceName": "Some aws_launchwizard"
+        "type": "aws_health",
+        "resourceName": "Some aws_health"
       },
       {
         "type": "aws_elb",
         "resourceName": "Some aws_elb"
       },
       {
-        "type": "aws_licensemanager",
-        "resourceName": "Some aws_licensemanager"
-      },
-      {
         "type": "aws_mobilehub",
         "resourceName": "Some aws_mobilehub"
       },
       {
-        "type": "aws_ram",
-        "resourceName": "Some aws_ram"
+        "type": "aws_db_snapshot",
+        "resourceName": "Some aws_db_snapshot"
       },
       {
         "type": "aws_eip",
         "resourceName": "Some aws_eip"
-      },
-      {
-        "type": "aws_sqs",
-        "resourceName": "Some aws_sqs"
-      },
-      {
-        "type": "aws_controltower",
-        "resourceName": "Some aws_controltower"
-      },
-      {
-        "type": "aws_db_snapshot",
-        "resourceName": "Some aws_db_snapshot"
       },
       {
         "type": "aws_elasticloadbalancing",
@@ -590,14 +482,6 @@
       {
         "type": "aws_sms",
         "resourceName": "Some aws_sms"
-      },
-      {
-        "type": "aws_lightsail",
-        "resourceName": "Some aws_lightsail"
-      },
-      {
-        "type": "aws_datasync",
-        "resourceName": "Some aws_datasync"
       },
       {
         "type": "aws_api_gateway_v2_authorizer",
@@ -620,16 +504,16 @@
         "resourceName": "Some aws_devicefarm"
       },
       {
+        "type": "aws_eks",
+        "resourceName": "Some aws_eks"
+      },
+      {
         "type": "aws_cognitosync",
         "resourceName": "Some aws_cognitosync"
       },
       {
         "type": "aws_config_rule",
         "resourceName": "Some aws_config_rule"
-      },
-      {
-        "type": "aws_mediaconvert",
-        "resourceName": "Some aws_mediaconvert"
       },
       {
         "type": "aws_workchips-virtual-back-end-compress-berkshire-focused-cambridgeshire-service",
@@ -652,12 +536,12 @@
         "resourceName": "Some aws_rds"
       },
       {
-        "type": "aws_events",
-        "resourceName": "Some aws_events"
-      },
-      {
         "type": "aws_email",
         "resourceName": "Some aws_email"
+      },
+      {
+        "type": "aws_gamelift",
+        "resourceName": "Some aws_gamelift"
       },
       {
         "type": "aws_iam_oidc_provider",
@@ -668,12 +552,8 @@
         "resourceName": "Some aws_macie"
       },
       {
-        "type": "aws_importexport",
-        "resourceName": "Some aws_importexport"
-      },
-      {
-        "type": "aws_guardduty",
-        "resourceName": "Some aws_guardduty"
+        "type": "aws_detective",
+        "resourceName": "Some aws_detective"
       },
       {
         "type": "aws_nlb",
@@ -684,20 +564,12 @@
         "resourceName": "Some aws_inspector"
       },
       {
-        "type": "aws_servicecatalog",
-        "resourceName": "Some aws_servicecatalog"
+        "type": "aws_lightsail",
+        "resourceName": "Some aws_lightsail"
       },
       {
         "type": "aws_transfer",
         "resourceName": "Some aws_transfer"
-      },
-      {
-        "type": "aws_iam_access_key",
-        "resourceName": "Some aws_iam_access_key"
-      },
-      {
-        "type": "aws_acmpca",
-        "resourceName": "Some aws_acmpca"
       },
       {
         "type": "aws_service",
@@ -708,8 +580,20 @@
         "resourceName": "Some aws_galaxy"
       },
       {
+        "type": "aws_cognitoidp",
+        "resourceName": "Some aws_cognitoidp"
+      },
+      {
         "type": "aws_applicationinsights",
         "resourceName": "Some aws_applicationinsights"
+      },
+      {
+        "type": "aws_iam_access_key",
+        "resourceName": "Some aws_iam_access_key"
+      },
+      {
+        "type": "aws_states",
+        "resourceName": "Some aws_states"
       },
       {
         "type": "aws_sns_subscription",
@@ -720,12 +604,16 @@
         "resourceName": "Some aws_elasticfilesystem"
       },
       {
-        "type": "aws_servicediscovery",
-        "resourceName": "Some aws_servicediscovery"
+        "type": "aws_sqs",
+        "resourceName": "Some aws_sqs"
       },
       {
         "type": "aws_elasticache_redis_cluster",
         "resourceName": "Some aws_elasticache_redis_cluster"
+      },
+      {
+        "type": "aws_servicecatalog",
+        "resourceName": "Some aws_servicecatalog"
       },
       {
         "type": "aws_servicequotas",
@@ -760,10 +648,6 @@
         "resourceName": "Some aws_sdb"
       },
       {
-        "type": "aws_serverlessrepo",
-        "resourceName": "Some aws_serverlessrepo"
-      },
-      {
         "type": "aws_lakeformation",
         "resourceName": "Some aws_lakeformation"
       },
@@ -774,10 +658,6 @@
       {
         "type": "aws_organization",
         "resourceName": "Some aws_organization"
-      },
-      {
-        "type": "aws_lb_listener",
-        "resourceName": "Some aws_lb_listener"
       },
       {
         "type": "aws_wafregional",
@@ -796,16 +676,12 @@
         "resourceName": "Some aws_kafka"
       },
       {
-        "type": "aws_elasticache_cluster_node",
-        "resourceName": "Some aws_elasticache_cluster_node"
-      },
-      {
         "type": "aws_translate",
         "resourceName": "Some aws_translate"
       },
       {
-        "type": "aws_discovery",
-        "resourceName": "Some aws_discovery"
+        "type": "aws_lb_listener",
+        "resourceName": "Some aws_lb_listener"
       },
       {
         "type": "aws_dataexchange",
@@ -816,32 +692,8 @@
         "resourceName": "Some aws_connect"
       },
       {
-        "type": "aws_route53recovery-readiness",
-        "resourceName": "Some aws_route53recovery-readiness"
-      },
-      {
-        "type": "aws_worklink",
-        "resourceName": "Some aws_worklink"
-      },
-      {
-        "type": "aws_ecs_task",
-        "resourceName": "Some aws_ecs_task"
-      },
-      {
         "type": "aws_eksnodegroup",
         "resourceName": "Some aws_eksnodegroup"
-      },
-      {
-        "type": "aws_api_gateway_v2_route",
-        "resourceName": "Some aws_api_gateway_v2_route"
-      },
-      {
-        "type": "aws_cloudhsm",
-        "resourceName": "Some aws_cloudhsm"
-      },
-      {
-        "type": "aws_quicksight",
-        "resourceName": "Some aws_quicksight"
       },
       {
         "type": "aws_forecast",
@@ -868,28 +720,8 @@
         "resourceName": "Some aws_accessanalyzer"
       },
       {
-        "type": "aws_xray",
-        "resourceName": "Some aws_xray"
-      },
-      {
-        "type": "aws_airflow",
-        "resourceName": "Some aws_airflow"
-      },
-      {
-        "type": "aws_autoscalingplans",
-        "resourceName": "Some aws_autoscalingplans"
-      },
-      {
-        "type": "aws_outposts",
-        "resourceName": "Some aws_outposts"
-      },
-      {
-        "type": "aws_cloudwatch",
-        "resourceName": "Some aws_cloudwatch"
-      },
-      {
-        "type": "aws_a4b",
-        "resourceName": "Some aws_a4b"
+        "type": "aws_mediaconnect",
+        "resourceName": "Some aws_mediaconnect"
       },
       {
         "type": "aws_auditmanager",
@@ -898,6 +730,10 @@
       {
         "type": "aws_secretsmanager",
         "resourceName": "Some aws_secretsmanager"
+      },
+      {
+        "type": "aws_athena",
+        "resourceName": "Some aws_athena"
       },
       {
         "type": "aws_macie_finding",
@@ -916,8 +752,8 @@
         "resourceName": "Some aws_redshift"
       },
       {
-        "type": "aws_sso",
-        "resourceName": "Some aws_sso"
+        "type": "aws_cloudhsm",
+        "resourceName": "Some aws_cloudhsm"
       },
       {
         "type": "aws_s3_bucket_policy",
@@ -932,20 +768,40 @@
         "resourceName": "Some aws_ssodirectory"
       },
       {
+        "type": "aws_api_gateway_v2_route",
+        "resourceName": "Some aws_api_gateway_v2_route"
+      },
+      {
         "type": "aws_api_gateway_v2_integration",
         "resourceName": "Some aws_api_gateway_v2_integration"
       },
       {
-        "type": "aws_rekognition",
-        "resourceName": "Some aws_rekognition"
+        "type": "aws_wafv2",
+        "resourceName": "Some aws_wafv2"
+      },
+      {
+        "type": "aws_elasticache_memcached_cluster",
+        "resourceName": "Some aws_elasticache_memcached_cluster"
+      },
+      {
+        "type": "aws_elastictranscoder",
+        "resourceName": "Some aws_elastictranscoder"
       },
       {
         "type": "aws_snowball",
         "resourceName": "Some aws_snowball"
       },
       {
+        "type": "aws_organizations",
+        "resourceName": "Some aws_organizations"
+      },
+      {
         "type": "aws_iot",
         "resourceName": "Some aws_iot"
+      },
+      {
+        "type": "aws_acmpca",
+        "resourceName": "Some aws_acmpca"
       },
       {
         "type": "aws_ssm",
@@ -956,12 +812,12 @@
         "resourceName": "Some aws_batch"
       },
       {
-        "type": "aws_s2svpn",
-        "resourceName": "Some aws_s2svpn"
+        "type": "aws_mediaconvert",
+        "resourceName": "Some aws_mediaconvert"
       },
       {
-        "type": "aws_backupstorage",
-        "resourceName": "Some aws_backupstorage"
+        "type": "aws_guardduty",
+        "resourceName": "Some aws_guardduty"
       },
       {
         "type": "aws_route53_domain",
@@ -972,12 +828,12 @@
         "resourceName": "Some aws_cloudhsm_cluster"
       },
       {
-        "type": "aws_kendra",
-        "resourceName": "Some aws_kendra"
+        "type": "aws_cloudwatch",
+        "resourceName": "Some aws_cloudwatch"
       },
       {
-        "type": "aws_route53resolver",
-        "resourceName": "Some aws_route53resolver"
+        "type": "aws_sso",
+        "resourceName": "Some aws_sso"
       },
       {
         "type": "aws_codedeploy",
@@ -990,6 +846,10 @@
       {
         "type": "aws_fsx",
         "resourceName": "Some aws_fsx"
+      },
+      {
+        "type": "aws_backupstorage",
+        "resourceName": "Some aws_backupstorage"
       },
       {
         "type": "aws_awsportal",
@@ -1012,6 +872,10 @@
         "resourceName": "Some aws_inspector_assessment"
       },
       {
+        "type": "aws_ecs_task",
+        "resourceName": "Some aws_ecs_task"
+      },
+      {
         "type": "aws_spot",
         "resourceName": "Some aws_spot"
       },
@@ -1020,8 +884,20 @@
         "resourceName": "Some aws_managedblockchain"
       },
       {
+        "type": "aws_kendra",
+        "resourceName": "Some aws_kendra"
+      },
+      {
+        "type": "aws_cognitoidentity",
+        "resourceName": "Some aws_cognitoidentity"
+      },
+      {
         "type": "aws_efs",
         "resourceName": "Some aws_efs"
+      },
+      {
+        "type": "aws_iotevents",
+        "resourceName": "Some aws_iotevents"
       },
       {
         "type": "aws_stepfunctions",
@@ -1044,12 +920,12 @@
         "resourceName": "Some aws_config"
       },
       {
-        "type": "aws_trustedadvisor",
-        "resourceName": "Some aws_trustedadvisor"
+        "type": "aws_servicediscovery",
+        "resourceName": "Some aws_servicediscovery"
       },
       {
-        "type": "aws_ce",
-        "resourceName": "Some aws_ce"
+        "type": "aws_trustedadvisor",
+        "resourceName": "Some aws_trustedadvisor"
       },
       {
         "type": "aws_batch_compute_environment",
@@ -1060,10 +936,6 @@
         "resourceName": "Some aws_elasticinference"
       },
       {
-        "type": "aws_swf",
-        "resourceName": "Some aws_swf"
-      },
-      {
         "type": "aws_lookoutvision",
         "resourceName": "Some aws_lookoutvision"
       },
@@ -1072,32 +944,24 @@
         "resourceName": "Some aws_elementalappliances-software"
       },
       {
-        "type": "aws_machinelearning",
-        "resourceName": "Some aws_machinelearning"
-      },
-      {
-        "type": "aws_resourcegroups",
-        "resourceName": "Some aws_resourcegroups"
+        "type": "aws_quicksight",
+        "resourceName": "Some aws_quicksight"
       },
       {
         "type": "aws_freertos",
         "resourceName": "Some aws_freertos"
       },
       {
-        "type": "awscognito_account",
-        "resourceName": "Some awscognito_account"
-      },
-      {
         "type": "aws_route53recovery-control-config",
         "resourceName": "Some aws_route53recovery-control-config"
       },
       {
-        "type": "aws_opsworks",
-        "resourceName": "Some aws_opsworks"
+        "type": "aws_rekognition",
+        "resourceName": "Some aws_rekognition"
       },
       {
-        "type": "aws_ecrpublic",
-        "resourceName": "Some aws_ecrpublic"
+        "type": "aws_opsworks",
+        "resourceName": "Some aws_opsworks"
       },
       {
         "type": "aws_batch_job_definition",
@@ -1132,12 +996,12 @@
         "resourceName": "Some aws_cohesive-port-avon-checking-disintermediate-planner-service"
       },
       {
-        "type": "aws_elasticmapreduce",
-        "resourceName": "Some aws_elasticmapreduce"
-      },
-      {
         "type": "aws_monitron",
         "resourceName": "Some aws_monitron"
+      },
+      {
+        "type": "aws_datasync",
+        "resourceName": "Some aws_datasync"
       },
       {
         "type": "aws_codegurureviewer",
@@ -1148,12 +1012,16 @@
         "resourceName": "Some aws_mediatailor"
       },
       {
+        "type": "aws_elasticmapreduce",
+        "resourceName": "Some aws_elasticmapreduce"
+      },
+      {
         "type": "aws_sns",
         "resourceName": "Some aws_sns"
       },
       {
-        "type": "aws_iotsitewise",
-        "resourceName": "Some aws_iotsitewise"
+        "type": "aws_ce",
+        "resourceName": "Some aws_ce"
       },
       {
         "type": "aws_ssmmessages",
@@ -1164,24 +1032,16 @@
         "resourceName": "Some aws_mediastore"
       },
       {
-        "type": "aws_workdocs",
-        "resourceName": "Some aws_workdocs"
+        "type": "aws_awsmarketplace",
+        "resourceName": "Some aws_awsmarketplace"
       },
       {
         "type": "aws_glacier",
         "resourceName": "Some aws_glacier"
       },
       {
-        "type": "aws_networkfirewall",
-        "resourceName": "Some aws_networkfirewall"
-      },
-      {
-        "type": "aws_workspacesweb",
-        "resourceName": "Some aws_workspacesweb"
-      },
-      {
-        "type": "aws_pricing",
-        "resourceName": "Some aws_pricing"
+        "type": "aws_airflow",
+        "resourceName": "Some aws_airflow"
       },
       {
         "type": "aws_ec2_settings",
@@ -1190,10 +1050,6 @@
       {
         "type": "aws_appflow",
         "resourceName": "Some aws_appflow"
-      },
-      {
-        "type": "aws_elasticbeanstalk",
-        "resourceName": "Some aws_elasticbeanstalk"
       },
       {
         "type": "aws_deepcomposer",
@@ -1236,8 +1092,8 @@
         "resourceName": "Some aws_spotfleet"
       },
       {
-        "type": "aws_s3object-lambda",
-        "resourceName": "Some aws_s3object-lambda"
+        "type": "aws_iotsitewise",
+        "resourceName": "Some aws_iotsitewise"
       },
       {
         "type": "aws_devopsguru",
@@ -1256,10 +1112,6 @@
         "resourceName": "Some aws_tag"
       },
       {
-        "type": "aws_appsync",
-        "resourceName": "Some aws_appsync"
-      },
-      {
         "type": "aws_cloud9",
         "resourceName": "Some aws_cloud9"
       },
@@ -1268,28 +1120,8 @@
         "resourceName": "Some aws_iotfleethub"
       },
       {
-        "type": "aws_mq",
-        "resourceName": "Some aws_mq"
-      },
-      {
-        "type": "aws_iotwireless",
-        "resourceName": "Some aws_iotwireless"
-      },
-      {
         "type": "aws_cur",
         "resourceName": "Some aws_cur"
-      },
-      {
-        "type": "aws_redshiftdata",
-        "resourceName": "Some aws_redshiftdata"
-      },
-      {
-        "type": "aws_savingsplans",
-        "resourceName": "Some aws_savingsplans"
-      },
-      {
-        "type": "aws_codestar",
-        "resourceName": "Some aws_codestar"
       },
       {
         "type": "aws_resiliencehub",
@@ -1300,8 +1132,16 @@
         "resourceName": "Some aws_route53domains"
       },
       {
+        "type": "aws_a4b",
+        "resourceName": "Some aws_a4b"
+      },
+      {
         "type": "aws_kinesisanalytics",
         "resourceName": "Some aws_kinesisanalytics"
+      },
+      {
+        "type": "aws_s3object-lambda",
+        "resourceName": "Some aws_s3object-lambda"
       },
       {
         "type": "aws_braket",
@@ -1316,20 +1156,52 @@
         "resourceName": "Some aws_emrcontainers"
       },
       {
+        "type": "aws_iotwireless",
+        "resourceName": "Some aws_iotwireless"
+      },
+      {
         "type": "aws_robomaker",
         "resourceName": "Some aws_robomaker"
+      },
+      {
+        "type": "aws_mq",
+        "resourceName": "Some aws_mq"
+      },
+      {
+        "type": "aws_appsync",
+        "resourceName": "Some aws_appsync"
+      },
+      {
+        "type": "aws_resourcegroups",
+        "resourceName": "Some aws_resourcegroups"
       },
       {
         "type": "aws_qldb",
         "resourceName": "Some aws_qldb"
       },
       {
-        "type": "aws_dax",
-        "resourceName": "Some aws_dax"
+        "type": "aws_databrew",
+        "resourceName": "Some aws_databrew"
+      },
+      {
+        "type": "aws_route53recovery-readiness",
+        "resourceName": "Some aws_route53recovery-readiness"
       },
       {
         "type": "aws_elementalappliancessoftware",
         "resourceName": "Some aws_elementalappliancessoftware"
+      },
+      {
+        "type": "aws_serverlessrepo",
+        "resourceName": "Some aws_serverlessrepo"
+      },
+      {
+        "type": "aws_xray",
+        "resourceName": "Some aws_xray"
+      },
+      {
+        "type": "aws_api_gateway_v2_api",
+        "resourceName": "Some aws_api_gateway_v2_api"
       },
       {
         "type": "aws_purchaseorders",
@@ -1344,12 +1216,24 @@
         "resourceName": "Some aws_cataloguser"
       },
       {
+        "type": "aws_autoscalingplans",
+        "resourceName": "Some aws_autoscalingplans"
+      },
+      {
         "type": "aws_awsencoding-plastic-switchable-berkshire-transmitter-convergence-soap-service-keypairetplace",
         "resourceName": "Some aws_awsencoding-plastic-switchable-berkshire-transmitter-convergence-soap-service-keypairetplace"
       },
       {
         "type": "aws_authenticated_users",
         "resourceName": "Some aws_authenticated_users"
+      },
+      {
+        "type": "aws_controltower",
+        "resourceName": "Some aws_controltower"
+      },
+      {
+        "type": "aws_s2svpn",
+        "resourceName": "Some aws_s2svpn"
       },
       {
         "type": "aws_cloudwatch_metric_alarm",
@@ -1364,24 +1248,40 @@
         "resourceName": "Some aws_proton"
       },
       {
+        "type": "aws_workdocs",
+        "resourceName": "Some aws_workdocs"
+      },
+      {
+        "type": "aws_elasticache_cluster_node",
+        "resourceName": "Some aws_elasticache_cluster_node"
+      },
+      {
+        "type": "aws_cloudsearch",
+        "resourceName": "Some aws_cloudsearch"
+      },
+      {
         "type": "aws_payment-texas-white-input-bike-user-rss-product-serviceing",
         "resourceName": "Some aws_payment-texas-white-input-bike-user-rss-product-serviceing"
+      },
+      {
+        "type": "aws_apprunner",
+        "resourceName": "Some aws_apprunner"
       },
       {
         "type": "aws_fms",
         "resourceName": "Some aws_fms"
       },
       {
-        "type": "aws_storagegateway",
-        "resourceName": "Some aws_storagegateway"
-      },
-      {
-        "type": "aws_amplify",
-        "resourceName": "Some aws_amplify"
-      },
-      {
         "type": "aws_comprehend",
         "resourceName": "Some aws_comprehend"
+      },
+      {
+        "type": "aws_mobiletargeting",
+        "resourceName": "Some aws_mobiletargeting"
+      },
+      {
+        "type": "aws_redshiftdata",
+        "resourceName": "Some aws_redshiftdata"
       },
       {
         "type": "aws_imagedrives-granite-blue-service",
@@ -1392,12 +1292,12 @@
         "resourceName": "Some aws_greengrass"
       },
       {
-        "type": "aws_rbin",
-        "resourceName": "Some aws_rbin"
-      },
-      {
         "type": "aws_batch_job_queue",
         "resourceName": "Some aws_batch_job_queue"
+      },
+      {
+        "type": "aws_elasticbeanstalk",
+        "resourceName": "Some aws_elasticbeanstalk"
       },
       {
         "type": "aws_awsbillingconsole",
@@ -1416,36 +1316,76 @@
         "resourceName": "Some aws_directconnect"
       },
       {
-        "type": "aws_customer_gateway",
-        "resourceName": "Some aws_customer_gateway"
+        "type": "aws_dax",
+        "resourceName": "Some aws_dax"
+      },
+      {
+        "type": "aws_route53resolver",
+        "resourceName": "Some aws_route53resolver"
+      },
+      {
+        "type": "aws_discovery",
+        "resourceName": "Some aws_discovery"
+      },
+      {
+        "type": "aws_worklink",
+        "resourceName": "Some aws_worklink"
+      },
+      {
+        "type": "aws_codestar",
+        "resourceName": "Some aws_codestar"
+      },
+      {
+        "type": "aws_pricing",
+        "resourceName": "Some aws_pricing"
+      },
+      {
+        "type": "aws_medialive",
+        "resourceName": "Some aws_medialive"
+      },
+      {
+        "type": "aws_ram",
+        "resourceName": "Some aws_ram"
       },
       {
         "type": "aws_kafkaconnect",
         "resourceName": "Some aws_kafkaconnect"
       },
       {
-        "type": "aws_iam_account_password_policy",
-        "resourceName": "Some aws_iam_account_password_policy"
-      },
-      {
         "type": "aws_comprehendmedical",
         "resourceName": "Some aws_comprehendmedical"
+      },
+      {
+        "type": "aws_savingsplans",
+        "resourceName": "Some aws_savingsplans"
+      },
+      {
+        "type": "aws_importexport",
+        "resourceName": "Some aws_importexport"
+      },
+      {
+        "type": "aws_launchwizard",
+        "resourceName": "Some aws_launchwizard"
       },
       {
         "type": "aws",
         "resourceName": "Some aws"
       },
       {
+        "type": "aws_apigatewayv2",
+        "resourceName": "Some aws_apigatewayv2"
+      },
+      {
         "type": "aws_lambda_layer",
         "resourceName": "Some aws_lambda_layer"
       },
       {
-        "type": "aws_groundstation",
-        "resourceName": "Some aws_groundstation"
+        "type": "aws_machinelearning",
+        "resourceName": "Some aws_machinelearning"
       },
       {
-        "type": "awsapilogin_account",
-        "resourceName": "Some awsapilogin_account"
+        "type": "aws_groundstation",
+        "resourceName": "Some aws_groundstation"
       },
       {
         "type": "aws_managedupdates",
@@ -1456,20 +1396,68 @@
         "resourceName": "Some aws_mgh"
       },
       {
+        "type": "aws_outposts",
+        "resourceName": "Some aws_outposts"
+      },
+      {
         "type": "aws_lb_listener_rule",
         "resourceName": "Some aws_lb_listener_rule"
+      },
+      {
+        "type": "aws_storagegateway",
+        "resourceName": "Some aws_storagegateway"
+      },
+      {
+        "type": "aws_rbin",
+        "resourceName": "Some aws_rbin"
       },
       {
         "type": "aws_iotroborunner",
         "resourceName": "Some aws_iotroborunner"
       },
       {
+        "type": "aws_workspacesweb",
+        "resourceName": "Some aws_workspacesweb"
+      },
+      {
         "type": "aws_codestarconnections",
         "resourceName": "Some aws_codestarconnections"
       },
       {
+        "type": "aws_licensemanager",
+        "resourceName": "Some aws_licensemanager"
+      },
+      {
+        "type": "aws_ecrpublic",
+        "resourceName": "Some aws_ecrpublic"
+      },
+      {
+        "type": "aws_customer_gateway",
+        "resourceName": "Some aws_customer_gateway"
+      },
+      {
+        "type": "aws_swf",
+        "resourceName": "Some aws_swf"
+      },
+      {
+        "type": "aws_iam_account_password_policy",
+        "resourceName": "Some aws_iam_account_password_policy"
+      },
+      {
+        "type": "aws_amplify",
+        "resourceName": "Some aws_amplify"
+      },
+      {
         "type": "aws_backupgateway",
         "resourceName": "Some aws_backupgateway"
+      },
+      {
+        "type": "aws_networkfirewall",
+        "resourceName": "Some aws_networkfirewall"
+      },
+      {
+        "type": "aws_db_parameter_group",
+        "resourceName": "Some aws_db_parameter_group"
       },
       {
         "type": "aws_aps",
@@ -1508,12 +1496,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_workmail"
       },
       {
-        "fromEntityType": "qualys_vulnerability_manager",
-        "toEntityType": "aws_instance",
-        "class": "SCANS",
-        "type": "qualys_vulnerability_manager|SCANS|aws_instance"
-      },
-      {
         "fromEntityType": "aws_rds_cluster",
         "toEntityType": "aws_db_cluster_snapshot",
         "class": "HAS",
@@ -1530,12 +1512,6 @@
         "toEntityType": "aws_instance",
         "class": "PROTECTS",
         "type": "aws_security_group|PROTECTS|aws_instance"
-      },
-      {
-        "fromEntityType": "aws_elasticache_memcached_cluster",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elasticache_memcached_cluster|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -1560,12 +1536,6 @@
         "toEntityType": "aws_route_table",
         "class": "USES",
         "type": "aws_subnet|USES|aws_route_table"
-      },
-      {
-        "fromEntityType": "aws_rds_cluster",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_rds_cluster|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -1622,22 +1592,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_sns_topic"
       },
       {
-        "fromEntityType": "aws_elasticsearch_domain",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elasticsearch_domain|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_cloudwatch_logs",
         "toEntityType": "aws_cloudwatch_log_group",
         "class": "HAS",
         "type": "aws_cloudwatch_logs|HAS|aws_cloudwatch_log_group"
-      },
-      {
-        "fromEntityType": "aws_iam_role",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_iam_role|HAS|jupiterone_compliance_gap"
       },
       {
         "fromEntityType": "aws_vpc_endpoint",
@@ -1694,12 +1652,6 @@
         "type": "aws_iam_group_policy|DENIES|aws_s3"
       },
       {
-        "fromEntityType": "aws_elastictranscoder",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elastictranscoder|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_db_instance",
         "toEntityType": "aws_kms_key",
         "class": "USES",
@@ -1718,34 +1670,10 @@
         "type": "aws_account|HAS|aws_kms"
       },
       {
-        "fromEntityType": "aws_iotevents",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iotevents|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_s3_bucket",
         "toEntityType": "aws_kms_key",
         "class": "USES",
         "type": "aws_s3_bucket|USES|aws_kms_key"
-      },
-      {
-        "fromEntityType": "aws_medialive",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_medialive|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_apigatewayv2",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_apigatewayv2|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_computeoptimizer",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_computeoptimizer|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_organization_root",
@@ -1758,18 +1686,6 @@
         "toEntityType": "aws_autoscaling_launch_configuration",
         "class": "USES",
         "type": "aws_ami|USES|aws_autoscaling_launch_configuration"
-      },
-      {
-        "fromEntityType": "aws_detective",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_detective|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_cognitoidp",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cognitoidp|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_waf_v2_web_acl",
@@ -1806,12 +1722,6 @@
         "toEntityType": "aws_alb",
         "class": "HAS",
         "type": "aws_vpc|HAS|aws_alb"
-      },
-      {
-        "fromEntityType": "everyone",
-        "toEntityType": "aws_s3_bucket",
-        "class": "DENIES",
-        "type": "everyone|DENIES|aws_s3_bucket"
       },
       {
         "fromEntityType": "aws_ecr_image",
@@ -1916,12 +1826,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_clouddirectory"
       },
       {
-        "fromEntityType": "aws_internet_gateway",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_internet_gateway|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_acm",
         "toEntityType": "aws_acm_certificate",
         "class": "HAS",
@@ -1938,12 +1842,6 @@
         "toEntityType": "aws_codestarnotifications",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_codestarnotifications"
-      },
-      {
-        "fromEntityType": "aws_api_gateway_v2_api",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_api_gateway_v2_api|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_rds_cluster",
@@ -1982,30 +1880,6 @@
         "type": "aws_iam_role|TRUSTS|aws_replicator"
       },
       {
-        "fromEntityType": "aws_iam_role",
-        "toEntityType": "amazon_cognito_login",
-        "class": "TRUSTS",
-        "type": "aws_iam_role|TRUSTS|amazon_cognito_login"
-      },
-      {
-        "fromEntityType": "aws_inspector_finding",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_inspector_finding|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_databrew",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_databrew|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_db_parameter_group",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_db_parameter_group|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_subnet",
         "toEntityType": "aws_elasticsearch_domain",
         "class": "HAS",
@@ -2018,12 +1892,6 @@
         "type": "aws_lambda_function|ASYNC_NOTIFIES|aws_sqs_queue"
       },
       {
-        "fromEntityType": "aws_db_instance",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_db_instance|HAS|jupiterone_compliance_gap"
-      },
-      {
         "fromEntityType": "aws_dynamodb_table",
         "toEntityType": "aws_cloudtrail",
         "class": "SENDS",
@@ -2034,12 +1902,6 @@
         "toEntityType": "aws_instance",
         "class": "HAS",
         "type": "aws_ec2|HAS|aws_instance"
-      },
-      {
-        "fromEntityType": "aws_iam_role",
-        "toEntityType": "okta_account",
-        "class": "TRUSTS",
-        "type": "aws_iam_role|TRUSTS|okta_account"
       },
       {
         "fromEntityType": "aws_alb",
@@ -2066,12 +1928,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_polly"
       },
       {
-        "fromEntityType": "aws_iam_user",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iam_user|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_mgn",
         "class": "ALLOWS",
@@ -2096,12 +1952,6 @@
         "type": "aws_iam_role_policy|ALLOWS|aws_acm_certificate"
       },
       {
-        "fromEntityType": "internet",
-        "toEntityType": "aws_network_acl",
-        "class": "DENIES",
-        "type": "internet|DENIES|aws_network_acl"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_codeartifact",
         "class": "ALLOWS",
@@ -2114,24 +1964,6 @@
         "type": "aws_iam_role_policy|ALLOWS|aws_applicationautoscaling"
       },
       {
-        "fromEntityType": "aws_athena",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_athena|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_organizations",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_organizations|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_cloudsearch",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudsearch|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role",
         "toEntityType": "aws_autoscaling",
         "class": "TRUSTS",
@@ -2142,24 +1974,6 @@
         "toEntityType": "aws_alb",
         "class": "CONNECTS",
         "type": "aws_route53_record|CONNECTS|aws_alb"
-      },
-      {
-        "fromEntityType": "aws_health",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_health|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_wafv2",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_wafv2|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_mediaconnect",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_mediaconnect|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -2198,42 +2012,6 @@
         "type": "aws_iam_role_policy|DENIES|aws_account"
       },
       {
-        "fromEntityType": "aws_gamelift",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_gamelift|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_workmail",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_workmail|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_apprunner",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_apprunner|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_cognitoidentity",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cognitoidentity|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_states",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_states|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_awsmarketplace",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_awsmarketplace|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_elasticsearch_domain",
         "toEntityType": "aws_security_group",
         "class": "HAS",
@@ -2252,12 +2030,6 @@
         "type": "aws_subnet|ALLOWS|aws_s3_bucket"
       },
       {
-        "fromEntityType": "aws_eks",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_eks|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_textract",
         "class": "ALLOWS",
@@ -2274,12 +2046,6 @@
         "toEntityType": "aws_imagebuilder",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_imagebuilder"
-      },
-      {
-        "fromEntityType": "aws_iam_role",
-        "toEntityType": "okta_user",
-        "class": "ASSIGNED",
-        "type": "aws_iam_role|ASSIGNED|okta_user"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -2330,12 +2096,6 @@
         "type": "aws_account|HAS|aws_acm"
       },
       {
-        "fromEntityType": "aws_polly",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_polly|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_account",
         "toEntityType": "aws_ec2_vpc",
         "class": "HAS",
@@ -2366,18 +2126,6 @@
         "type": "aws_iam_role_policy|ALLOWS|aws_s3"
       },
       {
-        "fromEntityType": "aws_mobiletargeting",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_mobiletargeting|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_launchwizard",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_launchwizard|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_health",
         "class": "ALLOWS",
@@ -2390,22 +2138,10 @@
         "type": "aws_elb|HAS|aws_security_group"
       },
       {
-        "fromEntityType": "aws_licensemanager",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_licensemanager|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_mobilehub",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_mobilehub"
-      },
-      {
-        "fromEntityType": "aws_mobilehub",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_mobilehub|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -2414,52 +2150,16 @@
         "type": "aws_iam_policy|ALLOWS|aws_instance"
       },
       {
-        "fromEntityType": "aws_ram",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ram|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_eip",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_eip|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_sqs",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_sqs|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_controltower",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_controltower|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_db_instance",
         "toEntityType": "aws_db_snapshot",
         "class": "HAS",
         "type": "aws_db_instance|HAS|aws_db_snapshot"
       },
       {
-        "fromEntityType": "aws_db_cluster_snapshot",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_db_cluster_snapshot|HAS|jupiterone_compliance_gap"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_ecr_repository",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_ecr_repository"
-      },
-      {
-        "fromEntityType": "employee",
-        "toEntityType": "aws_account",
-        "class": "MANAGES",
-        "type": "employee|MANAGES|aws_account"
       },
       {
         "fromEntityType": "aws_instance",
@@ -2492,12 +2192,6 @@
         "type": "aws_ec2|HAS|aws_internet_gateway"
       },
       {
-        "fromEntityType": "aws_personalize",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_personalize|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_opsworkscm",
         "class": "ALLOWS",
@@ -2510,52 +2204,16 @@
         "type": "aws_iam_policy|ALLOWS|aws_sms"
       },
       {
-        "fromEntityType": "aws_network_acl",
-        "toEntityType": "internet",
-        "class": "DENIES",
-        "type": "aws_network_acl|DENIES|internet"
-      },
-      {
-        "fromEntityType": "aws_iam_role_policy",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iam_role_policy|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_lightsail",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_lightsail|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_datasync",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_datasync|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_api_gateway_v2_authorizer",
         "toEntityType": "aws_lambda_function",
         "class": "CONNECTS",
         "type": "aws_api_gateway_v2_authorizer|CONNECTS|aws_lambda_function"
       },
       {
-        "fromEntityType": "aws_dlm",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_dlm|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_account",
         "toEntityType": "aws_sqs_queue",
         "class": "ALLOWS",
         "type": "aws_account|ALLOWS|aws_sqs_queue"
-      },
-      {
-        "fromEntityType": "aws_ebs_snapshot",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ebs_snapshot|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -2600,12 +2258,6 @@
         "type": "aws_config_rule|EVALUATES|aws_security_group"
       },
       {
-        "fromEntityType": "aws_mediaconvert",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_mediaconvert|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_workchips-virtual-back-end-compress-berkshire-focused-cambridgeshire-service",
         "class": "ALLOWS",
@@ -2618,22 +2270,10 @@
         "type": "aws_s3_bucket|SENDS|aws_cloudtrail"
       },
       {
-        "fromEntityType": "aws_rds_cluster_parameter_group",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_rds_cluster_parameter_group|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_appconfig",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_appconfig"
-      },
-      {
-        "fromEntityType": "aws_dynamodb_table",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_dynamodb_table|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -2652,12 +2292,6 @@
         "toEntityType": "aws_rds_cluster",
         "class": "HAS",
         "type": "aws_rds|HAS|aws_rds_cluster"
-      },
-      {
-        "fromEntityType": "aws_events",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_events|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -2714,24 +2348,6 @@
         "type": "aws_cloudwatch_events|ALLOWS|aws_sns_topic"
       },
       {
-        "fromEntityType": "aws_importexport",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_importexport|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_firehose",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_firehose|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_guardduty",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_guardduty|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_elasticloadbalancing",
         "toEntityType": "aws_nlb",
         "class": "HAS",
@@ -2768,52 +2384,16 @@
         "type": "aws_iam_policy|ALLOWS|aws_lightsail"
       },
       {
-        "fromEntityType": "aws_servicecatalog",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_servicecatalog|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_vpc",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_vpc|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_transfer",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_transfer"
       },
       {
-        "fromEntityType": "aws_iam_access_key",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iam_access_key|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_acmpca",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_acmpca|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_ecs_cluster",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ecs_cluster|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_vpc_endpoint",
         "toEntityType": "aws_service",
         "class": "DENIES",
         "type": "aws_vpc_endpoint|DENIES|aws_service"
-      },
-      {
-        "fromEntityType": "employee",
-        "toEntityType": "aws_s3_bucket",
-        "class": "MANAGES",
-        "type": "employee|MANAGES|aws_s3_bucket"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -2826,12 +2406,6 @@
         "toEntityType": "aws_cloudwatch_logs",
         "class": "DENIES",
         "type": "aws_iam_policy|DENIES|aws_cloudwatch_logs"
-      },
-      {
-        "fromEntityType": "steel-data-lead-generate-compress-branding_repo",
-        "toEntityType": "aws_ecs_task_definition",
-        "class": "DEFINES",
-        "type": "steel-data-lead-generate-compress-branding_repo|DEFINES|aws_ecs_task_definition"
       },
       {
         "fromEntityType": "aws_iam_role_policy",
@@ -2912,28 +2486,10 @@
         "type": "aws_nlb|USES|aws_acm_certificate"
       },
       {
-        "fromEntityType": "aws_servicediscovery",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_servicediscovery|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_elasticache",
         "toEntityType": "aws_elasticache_redis_cluster",
         "class": "HAS",
         "type": "aws_elasticache|HAS|aws_elasticache_redis_cluster"
-      },
-      {
-        "fromEntityType": "aws_iam",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iam|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_autoscaling_launch_configuration",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_autoscaling_launch_configuration|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -2966,22 +2522,10 @@
         "type": "aws_cloudfront_distribution|USES|aws_acm_certificate"
       },
       {
-        "fromEntityType": "aws_budgets",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_budgets|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role_policy",
         "toEntityType": "aws_cloudtrail",
         "class": "ALLOWS",
         "type": "aws_iam_role_policy|ALLOWS|aws_cloudtrail"
-      },
-      {
-        "fromEntityType": "aws_clouddirectory",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_clouddirectory|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -3008,12 +2552,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_timestream"
       },
       {
-        "fromEntityType": "aws_ec2",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ec2|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_cloudwatch_event_rule",
         "class": "ALLOWS",
@@ -3030,12 +2568,6 @@
         "toEntityType": "aws_iam_role",
         "class": "RESTRICTS",
         "type": "aws_iam_policy|RESTRICTS|aws_iam_role"
-      },
-      {
-        "fromEntityType": "aws_serverlessrepo",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_serverlessrepo|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -3056,18 +2588,6 @@
         "type": "aws_organization|HAS|aws_organization_root"
       },
       {
-        "fromEntityType": "aws_cloudtrail",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_cloudtrail|HAS|jupiterone_compliance_gap"
-      },
-      {
-        "fromEntityType": "aws_lb_listener",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_lb_listener|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_wafregional",
         "class": "ALLOWS",
@@ -3078,12 +2598,6 @@
         "toEntityType": "aws_glue",
         "class": "TRUSTS",
         "type": "aws_iam_role|TRUSTS|aws_glue"
-      },
-      {
-        "fromEntityType": "aws_db_cluster_snapshot",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_db_cluster_snapshot|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_nat_gateway",
@@ -3102,12 +2616,6 @@
         "toEntityType": "aws_ecs",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_ecs"
-      },
-      {
-        "fromEntityType": "aws_iam_access_key",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_iam_access_key|HAS|jupiterone_compliance_gap"
       },
       {
         "fromEntityType": "aws_ec2",
@@ -3158,12 +2666,6 @@
         "type": "aws_iam_role_policy|ALLOWS|aws_lambda"
       },
       {
-        "fromEntityType": "aws_elasticache_cluster_node",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elasticache_cluster_node|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam",
         "toEntityType": "aws_iam_user",
         "class": "HAS",
@@ -3194,18 +2696,6 @@
         "type": "aws_vpc|HAS|aws_vpc_endpoint"
       },
       {
-        "fromEntityType": "aws_sdb",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_sdb|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_discovery",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_discovery|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_alb",
         "toEntityType": "aws_lb_listener",
         "class": "CONNECTS",
@@ -3224,52 +2714,10 @@
         "type": "aws_iam_user|ASSIGNED|aws_iam_policy"
       },
       {
-        "fromEntityType": "aws_internet_gateway",
-        "toEntityType": "internet",
-        "class": "CONNECTS",
-        "type": "aws_internet_gateway|CONNECTS|internet"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_connect",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_connect"
-      },
-      {
-        "fromEntityType": "aws_mgn",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_mgn|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_route53recovery-readiness",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_route53recovery-readiness|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_worklink",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_worklink|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_iam_policy",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_iam_policy|HAS|jupiterone_compliance_gap"
-      },
-      {
-        "fromEntityType": "aws_autoscaling_group",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_autoscaling_group|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_drs",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_drs|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -3278,34 +2726,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_ecs_cluster"
       },
       {
-        "fromEntityType": "aws_ecs_task",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ecs_task|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role",
         "toEntityType": "aws_eksnodegroup",
         "class": "TRUSTS",
         "type": "aws_iam_role|TRUSTS|aws_eksnodegroup"
-      },
-      {
-        "fromEntityType": "aws_api_gateway_v2_route",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_api_gateway_v2_route|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_cloudhsm",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudhsm|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_quicksight",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_quicksight|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -3356,12 +2780,6 @@
         "type": "aws_elb|USES|aws_eni"
       },
       {
-        "fromEntityType": "aws_route_table",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_route_table|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_ecs",
         "toEntityType": "aws_ecs_task_definition",
         "class": "HAS",
@@ -3372,12 +2790,6 @@
         "toEntityType": "aws_s3_bucket",
         "class": "ALLOWS",
         "type": "aws_s3|ALLOWS|aws_s3_bucket"
-      },
-      {
-        "fromEntityType": "internet",
-        "toEntityType": "aws_security_group",
-        "class": "ALLOWS",
-        "type": "internet|ALLOWS|aws_security_group"
       },
       {
         "fromEntityType": "aws_workspaces",
@@ -3392,24 +2804,6 @@
         "type": "aws_account|HAS|aws_accessanalyzer"
       },
       {
-        "fromEntityType": "aws_xray",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_xray|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_airflow",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_airflow|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_autoscalingplans",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_autoscalingplans|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_ec2",
         "class": "ALLOWS",
@@ -3420,42 +2814,6 @@
         "toEntityType": "aws_mediaconnect",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_mediaconnect"
-      },
-      {
-        "fromEntityType": "aws_outposts",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_outposts|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_acm_certificate",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_acm_certificate|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_cloudwatch_log_group",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudwatch_log_group|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_route53_zone",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_route53_zone|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_cloudwatch",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudwatch|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_a4b",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_a4b|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -3494,12 +2852,6 @@
         "type": "aws_iam_role_policy|ALLOWS|aws_elasticloadbalancing"
       },
       {
-        "fromEntityType": "aws_cloudfront_distribution",
-        "toEntityType": "\u0000",
-        "class": "CONNECTS",
-        "type": "aws_cloudfront_distribution|CONNECTS|\u0000"
-      },
-      {
         "fromEntityType": "aws_iam_role",
         "toEntityType": "aws_iam_saml_provider",
         "class": "TRUSTS",
@@ -3530,22 +2882,10 @@
         "type": "aws_account|HAS|aws_cloudhsm"
       },
       {
-        "fromEntityType": "aws_sso",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_sso|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role",
         "toEntityType": "aws_s3_bucket_policy",
         "class": "CREATES",
         "type": "aws_iam_role|CREATES|aws_s3_bucket_policy"
-      },
-      {
-        "fromEntityType": "aws_iam_saml_provider",
-        "toEntityType": "okta_account",
-        "class": "IS",
-        "type": "aws_iam_saml_provider|IS|okta_account"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -3564,12 +2904,6 @@
         "toEntityType": "aws_api_gateway_v2_integration",
         "class": "HAS",
         "type": "aws_api_gateway_v2_route|HAS|aws_api_gateway_v2_integration"
-      },
-      {
-        "fromEntityType": "aws_rekognition",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_rekognition|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_wafv2",
@@ -3608,12 +2942,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_securityhub"
       },
       {
-        "fromEntityType": "mapped_entity",
-        "toEntityType": "aws_security_group",
-        "class": "ALLOWS",
-        "type": "mapped_entity|ALLOWS|aws_security_group"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_organizations",
         "class": "ALLOWS",
@@ -3638,12 +2966,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_ssm"
       },
       {
-        "fromEntityType": "aws_instance",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_instance|HAS|jupiterone_compliance_gap"
-      },
-      {
         "fromEntityType": "aws_iam_role",
         "toEntityType": "aws_batch",
         "class": "TRUSTS",
@@ -3654,12 +2976,6 @@
         "toEntityType": "aws_mediaconvert",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_mediaconvert"
-      },
-      {
-        "fromEntityType": "aws_autoscaling",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_autoscaling|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_vpc",
@@ -3692,40 +3008,10 @@
         "type": "aws_iam_role|TRUSTS|aws_inspector"
       },
       {
-        "fromEntityType": "aws_ecr",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ecr|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_s2svpn",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_s2svpn|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_backupstorage",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_backupstorage|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_ecs",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ecs|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_account",
         "toEntityType": "aws_macie",
         "class": "HAS",
         "type": "aws_account|HAS|aws_macie"
-      },
-      {
-        "fromEntityType": "aws_workspace",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_workspace|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_rds_cluster",
@@ -3738,24 +3024,6 @@
         "toEntityType": "aws_route53_zone",
         "class": "HAS",
         "type": "aws_route53_domain|HAS|aws_route53_zone"
-      },
-      {
-        "fromEntityType": "aws_accessanalyzer",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_accessanalyzer|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_apigateway",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_apigateway|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_devicefarm",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_devicefarm|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_vpc",
@@ -3776,12 +3044,6 @@
         "type": "aws_lambda_function|ACCESSES|aws_elasticsearch_domain"
       },
       {
-        "fromEntityType": "aws_db_snapshot",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_db_snapshot|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_security_group",
         "toEntityType": "aws_cloudhsm_cluster",
         "class": "PROTECTS",
@@ -3789,27 +3051,9 @@
       },
       {
         "fromEntityType": "aws_iam_role_policy",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_iam_role_policy|HAS|jupiterone_compliance_gap"
-      },
-      {
-        "fromEntityType": "aws_kendra",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_kendra|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_iam_role_policy",
         "toEntityType": "aws_cloudwatch",
         "class": "ALLOWS",
         "type": "aws_iam_role_policy|ALLOWS|aws_cloudwatch"
-      },
-      {
-        "fromEntityType": "aws_route53resolver",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_route53resolver|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -3860,22 +3104,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_backupstorage"
       },
       {
-        "fromEntityType": "aws_iam_user",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_iam_user|HAS|jupiterone_compliance_gap"
-      },
-      {
         "fromEntityType": "aws_api_gateway_rest_api",
         "toEntityType": "aws_lambda_function",
         "class": "TRIGGERS",
         "type": "aws_api_gateway_rest_api|TRIGGERS|aws_lambda_function"
-      },
-      {
-        "fromEntityType": "aws_elasticache_redis_cluster",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elasticache_redis_cluster|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_subnet",
@@ -3932,12 +3164,6 @@
         "type": "aws_s3|HAS|aws_s3_bucket"
       },
       {
-        "fromEntityType": "aws_account",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_account|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_ecs_service",
         "toEntityType": "aws_ecs_task",
         "class": "TRIGGERS",
@@ -3960,12 +3186,6 @@
         "toEntityType": "aws_kendra",
         "class": "TRUSTS",
         "type": "aws_iam_role|TRUSTS|aws_kendra"
-      },
-      {
-        "fromEntityType": "aws_instance",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_instance|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role_policy",
@@ -3996,24 +3216,6 @@
         "toEntityType": "aws_stepfunctions",
         "class": "TRUSTS",
         "type": "aws_iam_role|TRUSTS|aws_stepfunctions"
-      },
-      {
-        "fromEntityType": "aws_fsx",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_fsx|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_securityhub",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_securityhub|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "user_endpoint",
-        "toEntityType": "aws_s3_bucket",
-        "class": "ALLOWS",
-        "type": "user_endpoint|ALLOWS|aws_s3_bucket"
       },
       {
         "fromEntityType": "aws_alb",
@@ -4130,40 +3332,16 @@
         "type": "aws_iam_policy|ALLOWS|aws_s3"
       },
       {
-        "fromEntityType": "aws_transfer_server",
-        "toEntityType": "internet",
-        "class": "CONNECTS",
-        "type": "aws_transfer_server|CONNECTS|internet"
-      },
-      {
         "fromEntityType": "aws_iam_role_policy",
         "toEntityType": "aws_batch",
         "class": "ALLOWS",
         "type": "aws_iam_role_policy|ALLOWS|aws_batch"
       },
       {
-        "fromEntityType": "aws_s3_bucket_policy",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_s3_bucket_policy|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_ce",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ce|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_account",
         "toEntityType": "aws_cloudwatch",
         "class": "HAS",
         "type": "aws_account|HAS|aws_cloudwatch"
-      },
-      {
-        "fromEntityType": "aws_inspector",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_inspector|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_batch_compute_environment",
@@ -4190,28 +3368,10 @@
         "type": "aws_ebs_snapshot|USES|aws_kms_key"
       },
       {
-        "fromEntityType": "aws_swf",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_swf|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_lookoutvision",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_lookoutvision"
-      },
-      {
-        "fromEntityType": "aws_managedblockchain",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_managedblockchain|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_batch",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_batch|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_sns_subscription",
@@ -4226,12 +3386,6 @@
         "type": "aws_route53_record|CONNECTS|aws_transfer_server"
       },
       {
-        "fromEntityType": "github_repo",
-        "toEntityType": "aws_lambda_function",
-        "class": "DEFINES",
-        "type": "github_repo|DEFINES|aws_lambda_function"
-      },
-      {
         "fromEntityType": "aws_efs",
         "toEntityType": "aws_efs_file_system",
         "class": "HAS",
@@ -4244,34 +3398,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_elementalappliances-software"
       },
       {
-        "fromEntityType": "aws_machinelearning",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_machinelearning|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_ec2_vpc",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ec2_vpc|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_elasticache_cluster",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elasticache_cluster|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_quicksight",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_quicksight"
-      },
-      {
-        "fromEntityType": "aws_resourcegroups",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_resourcegroups|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_nlb",
@@ -4302,18 +3432,6 @@
         "toEntityType": "aws_cognitosync",
         "class": "ALLOWS",
         "type": "aws_iam_role_policy|ALLOWS|aws_cognitosync"
-      },
-      {
-        "fromEntityType": "okta_application",
-        "toEntityType": "awscognito_account",
-        "class": "CONNECTS",
-        "type": "okta_application|CONNECTS|awscognito_account"
-      },
-      {
-        "fromEntityType": "aws_es",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_es|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -4388,40 +3506,10 @@
         "type": "aws_iam_role_policy|ALLOWS|aws_cloudwatch_logs"
       },
       {
-        "fromEntityType": "aws_wafregional",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_wafregional|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_ecrpublic",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ecrpublic|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_batch",
         "toEntityType": "aws_batch_job_definition",
         "class": "HAS",
         "type": "aws_batch|HAS|aws_batch_job_definition"
-      },
-      {
-        "fromEntityType": "aws_iam_user_policy",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iam_user_policy|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "crowdstrike_sensor",
-        "toEntityType": "aws_instance",
-        "class": "PROTECTS",
-        "type": "crowdstrike_sensor|PROTECTS|aws_instance"
-      },
-      {
-        "fromEntityType": "aws_elasticsearch_domain",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_elasticsearch_domain|HAS|jupiterone_compliance_gap"
       },
       {
         "fromEntityType": "aws_cloudwatch_log_group",
@@ -4478,18 +3566,6 @@
         "type": "aws_iam_role_policy|ALLOWS|aws_mobileanalytics"
       },
       {
-        "fromEntityType": "aws_appmesh",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_appmesh|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_lex",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_lex|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_batch",
         "class": "ALLOWS",
@@ -4514,12 +3590,6 @@
         "type": "aws_cloudwatch_event_rule|TRIGGERS|aws_sqs_queue"
       },
       {
-        "fromEntityType": "aws_codeartifact",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_codeartifact|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_cohesive-port-avon-checking-disintermediate-planner-service",
         "class": "ALLOWS",
@@ -4532,40 +3602,10 @@
         "type": "aws_cloudwatch_event_rule|TRIGGERS|aws_sns_topic"
       },
       {
-        "fromEntityType": "aws_kms",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_kms|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_awsportal",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_awsportal|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_galaxy",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_galaxy|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_ebs_snapshot",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_ebs_snapshot|HAS|jupiterone_compliance_gap"
-      },
-      {
         "fromEntityType": "aws_vpc",
         "toEntityType": "aws_nlb",
         "class": "HAS",
         "type": "aws_vpc|HAS|aws_nlb"
-      },
-      {
-        "fromEntityType": "aws_elasticmapreduce",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elasticmapreduce|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_user_policy",
@@ -4578,12 +3618,6 @@
         "toEntityType": "aws_monitron",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_monitron"
-      },
-      {
-        "fromEntityType": "aws_route53_record",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_route53_record|HAS|jupiterone_compliance_gap"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -4652,12 +3686,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_mediatailor"
       },
       {
-        "fromEntityType": "aws_sms",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_sms|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_batch_compute_environment",
         "toEntityType": "aws_security_group",
         "class": "HAS",
@@ -4712,22 +3740,10 @@
         "type": "aws_sns|ALLOWS|aws_sqs_queue"
       },
       {
-        "fromEntityType": "aws_iotsitewise",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iotsitewise|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role",
         "toEntityType": "aws_batch_compute_environment",
         "class": "ASSIGNED",
         "type": "aws_iam_role|ASSIGNED|aws_batch_compute_environment"
-      },
-      {
-        "fromEntityType": "web_app_endpoint",
-        "toEntityType": "aws_route53_record",
-        "class": "USES",
-        "type": "web_app_endpoint|USES|aws_route53_record"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -4736,22 +3752,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_ce"
       },
       {
-        "fromEntityType": "aws_macie",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_macie|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_security_group",
         "toEntityType": "aws_lambda_function",
         "class": "PROTECTS",
         "type": "aws_security_group|PROTECTS|aws_lambda_function"
-      },
-      {
-        "fromEntityType": "aws_efs_file_system",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_efs_file_system|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role_policy",
@@ -4790,82 +3794,10 @@
         "type": "aws_ecs_task|USES|aws_eni"
       },
       {
-        "fromEntityType": "aws_workspaces_bundle",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_workspaces_bundle|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_kinesis",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_kinesis|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_workdocs",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_workdocs|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_snowball",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_snowball|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_glacier",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_glacier"
-      },
-      {
-        "fromEntityType": "aws_cloudfront",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudfront|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_opsworkscm",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_opsworkscm|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_rds",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_rds|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_lookoutmetrics",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_lookoutmetrics|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_networkfirewall",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_networkfirewall|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_api_gateway_v2_integration",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_api_gateway_v2_integration|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_ssmincidents",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ssmincidents|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_cloudformation",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudformation|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -4878,12 +3810,6 @@
         "toEntityType": "aws_service",
         "class": "ALLOWS",
         "type": "aws_vpc_endpoint|ALLOWS|aws_service"
-      },
-      {
-        "fromEntityType": "aws_sns_topic",
-        "toEntityType": "mapped_entity",
-        "class": "NOTIFIES",
-        "type": "aws_sns_topic|NOTIFIES|mapped_entity"
       },
       {
         "fromEntityType": "aws_s3_bucket",
@@ -4904,52 +3830,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_airflow"
       },
       {
-        "fromEntityType": "everyone",
-        "toEntityType": "aws_s3_bucket",
-        "class": "ALLOWS",
-        "type": "everyone|ALLOWS|aws_s3_bucket"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_cloudwatch_events",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_cloudwatch_events"
-      },
-      {
-        "fromEntityType": "aws_workspacesweb",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_workspacesweb|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_pricing",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_pricing|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_applicationautoscaling",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_applicationautoscaling|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_iam_group_policy",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iam_group_policy|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_route53",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_route53|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_synthetics",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_synthetics|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_elasticloadbalancing",
@@ -4974,24 +3858,6 @@
         "toEntityType": "aws_iam_group_policy",
         "class": "HAS",
         "type": "aws_iam|HAS|aws_iam_group_policy"
-      },
-      {
-        "fromEntityType": "aws_accessanalyzer_finding",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_accessanalyzer_finding|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_elasticbeanstalk",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elasticbeanstalk|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_glacier",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_glacier|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -5036,18 +3902,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_chime"
       },
       {
-        "fromEntityType": "aws_shield",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_shield|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_ssmcontacts",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ssmcontacts|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_kms",
         "toEntityType": "aws_kms_key",
         "class": "HAS",
@@ -5076,12 +3930,6 @@
         "toEntityType": "aws_quicksight",
         "class": "TRUSTS",
         "type": "aws_iam_role|TRUSTS|aws_quicksight"
-      },
-      {
-        "fromEntityType": "aws_guardduty_finding",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_guardduty_finding|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -5132,18 +3980,6 @@
         "type": "aws_iam_role|TRUSTS|aws_cloudtrail"
       },
       {
-        "fromEntityType": "aws_globalaccelerator",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_globalaccelerator|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_kafka",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_kafka|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_account",
         "toEntityType": "aws_ecr",
         "class": "HAS",
@@ -5174,12 +4010,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_wafv2"
       },
       {
-        "fromEntityType": "aws_security_group",
-        "toEntityType": "internet",
-        "class": "ALLOWS",
-        "type": "aws_security_group|ALLOWS|internet"
-      },
-      {
         "fromEntityType": "aws_ec2",
         "toEntityType": "aws_subnet",
         "class": "HAS",
@@ -5202,12 +4032,6 @@
         "toEntityType": "aws_kms_key",
         "class": "ALLOWS",
         "type": "aws_iam_role_policy|ALLOWS|aws_kms_key"
-      },
-      {
-        "fromEntityType": "steel-data-lead-generate-compress-branding_repo",
-        "toEntityType": "aws_lambda_function",
-        "class": "DEFINES",
-        "type": "steel-data-lead-generate-compress-branding_repo|DEFINES|aws_lambda_function"
       },
       {
         "fromEntityType": "aws_cloudfront_distribution",
@@ -5258,12 +4082,6 @@
         "type": "aws_account|HAS|aws_rds"
       },
       {
-        "fromEntityType": "aws_kms_key",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_kms_key|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_cloudwatch",
         "class": "ALLOWS",
@@ -5288,18 +4106,6 @@
         "type": "aws_iam_role|TRUSTS|aws_spotfleet"
       },
       {
-        "fromEntityType": "aws_acm",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_acm|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_s3object-lambda",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_s3object-lambda|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_iotsitewise",
         "class": "ALLOWS",
@@ -5316,12 +4122,6 @@
         "toEntityType": "aws_cloudhsm",
         "class": "TRUSTS",
         "type": "aws_iam_role|TRUSTS|aws_cloudhsm"
-      },
-      {
-        "fromEntityType": "aws_iam_role",
-        "toEntityType": "amazon_login",
-        "class": "TRUSTS",
-        "type": "aws_iam_role|TRUSTS|amazon_login"
       },
       {
         "fromEntityType": "aws_vpc",
@@ -5360,12 +4160,6 @@
         "type": "aws_iam_role_policy|ALLOWS|aws_ses"
       },
       {
-        "fromEntityType": "aws_cloudwatch_logs",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudwatch_logs|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_route53_zone",
         "toEntityType": "aws_route53_record",
         "class": "HAS",
@@ -5396,18 +4190,6 @@
         "type": "aws_ecs_task_definition|DEFINES|aws_ecs_service"
       },
       {
-        "fromEntityType": "aws_eni",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_eni|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_smsvoice",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_smsvoice|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_tag",
         "class": "ALLOWS",
@@ -5418,24 +4200,6 @@
         "toEntityType": "aws_vpc_endpoint",
         "class": "PROTECTS",
         "type": "aws_security_group|PROTECTS|aws_vpc_endpoint"
-      },
-      {
-        "fromEntityType": "aws_lambda",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_lambda|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_appsync",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_appsync|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_guardduty_detector",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_guardduty_detector|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role_policy",
@@ -5486,28 +4250,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_iotfleethub"
       },
       {
-        "fromEntityType": "aws_mq",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_mq|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_cloudwatch_events",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudwatch_events|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_security_group",
         "toEntityType": "aws_vpc",
         "class": "ALLOWS",
         "type": "aws_security_group|ALLOWS|aws_vpc"
-      },
-      {
-        "fromEntityType": "aws_s3_bucket",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_s3_bucket|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_sns_topic",
@@ -5528,24 +4274,6 @@
         "type": "aws_account|HAS|aws_transfer"
       },
       {
-        "fromEntityType": "aws_iotwireless",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iotwireless|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_mediastore",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_mediastore|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_datapipeline",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_datapipeline|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role_policy",
         "toEntityType": "aws_rds",
         "class": "ALLOWS",
@@ -5564,40 +4292,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_cur"
       },
       {
-        "fromEntityType": "aws_security_group",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_security_group|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_cloudwatch_event_rule",
         "toEntityType": "aws_ecs_task_definition",
         "class": "TRIGGERS",
         "type": "aws_cloudwatch_event_rule|TRIGGERS|aws_ecs_task_definition"
-      },
-      {
-        "fromEntityType": "aws_redshiftdata",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_redshiftdata|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_dms",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_dms|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_savingsplans",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_savingsplans|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_codestar",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_codestar|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_elasticloadbalancing",
@@ -5628,12 +4326,6 @@
         "toEntityType": "aws_ecr_image",
         "class": "USES",
         "type": "aws_ecs_task_definition|USES|aws_ecr_image"
-      },
-      {
-        "fromEntityType": "aws_ebs_volume",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ebs_volume|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -5690,34 +4382,10 @@
         "type": "aws_db_instance|HAS|aws_security_group"
       },
       {
-        "fromEntityType": "aws_imagebuilder",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_imagebuilder|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_appflow",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_appflow|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_sns_topic",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_sns_topic|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_acmpca",
         "toEntityType": "aws_s3_bucket",
         "class": "ALLOWS",
         "type": "aws_acmpca|ALLOWS|aws_s3_bucket"
-      },
-      {
-        "fromEntityType": "aws_codecommit",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_codecommit|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -5736,12 +4404,6 @@
         "toEntityType": "aws_iam_role",
         "class": "ALLOWS",
         "type": "aws_iam_group_policy|ALLOWS|aws_iam_role"
-      },
-      {
-        "fromEntityType": "aws_iam_policy",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iam_policy|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_account",
@@ -5834,24 +4496,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_route53recovery-readiness"
       },
       {
-        "fromEntityType": "aws_sns",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_sns|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_iam_saml_provider",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iam_saml_provider|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_dax",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_dax|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_elementalappliancessoftware",
         "class": "ALLOWS",
@@ -5882,46 +4526,16 @@
         "type": "aws_iam_policy|ALLOWS|aws_purchaseorders"
       },
       {
-        "fromEntityType": "aws_s3_bucket",
-        "toEntityType": "everyone",
-        "class": "ALLOWS",
-        "type": "aws_s3_bucket|ALLOWS|everyone"
-      },
-      {
         "fromEntityType": "aws_elb",
         "toEntityType": "aws_acm_certificate",
         "class": "USES",
         "type": "aws_elb|USES|aws_acm_certificate"
       },
       {
-        "fromEntityType": "aws_networkmanager",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_networkmanager|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_elasticloadbalancing",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elasticloadbalancing|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_waf",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_waf|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role_policy",
         "toEntityType": "aws_elasticsearch_domain",
         "class": "ALLOWS",
         "type": "aws_iam_role_policy|ALLOWS|aws_elasticsearch_domain"
-      },
-      {
-        "fromEntityType": "aws_config_rule",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_config_rule|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role_policy",
@@ -5934,12 +4548,6 @@
         "toEntityType": "aws_autoscaling",
         "class": "HAS",
         "type": "aws_account|HAS|aws_autoscaling"
-      },
-      {
-        "fromEntityType": "aws_tag",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_tag|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam",
@@ -5958,12 +4566,6 @@
         "toEntityType": "aws_cataloguser",
         "class": "ALLOWS",
         "type": "aws_iam_role_policy|ALLOWS|aws_cataloguser"
-      },
-      {
-        "fromEntityType": "aws_vpn_gateway",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_vpn_gateway|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -6002,12 +4604,6 @@
         "type": "aws_iam_role_policy|ALLOWS|aws_ssm"
       },
       {
-        "fromEntityType": "aws_network_acl",
-        "toEntityType": "internet",
-        "class": "ALLOWS",
-        "type": "aws_network_acl|ALLOWS|internet"
-      },
-      {
         "fromEntityType": "aws_alb",
         "toEntityType": "aws_eni",
         "class": "USES",
@@ -6020,22 +4616,10 @@
         "type": "aws_account|HAS|aws_inspector"
       },
       {
-        "fromEntityType": "aws_cloud9",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloud9|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_account",
         "toEntityType": "aws_autoscalingplans",
         "class": "HAS",
         "type": "aws_account|HAS|aws_autoscalingplans"
-      },
-      {
-        "fromEntityType": "aws_elasticache_cluster_node",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_elasticache_cluster_node|HAS|jupiterone_compliance_gap"
       },
       {
         "fromEntityType": "aws_macie",
@@ -6104,12 +4688,6 @@
         "type": "aws_iam_role|TRUSTS|aws_s2svpn"
       },
       {
-        "fromEntityType": "aws_kinesisanalytics",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_kinesisanalytics|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_cloudfront",
         "class": "ALLOWS",
@@ -6128,28 +4706,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_ds"
       },
       {
-        "fromEntityType": "aws_secretsmanager",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_secretsmanager|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_proton",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_proton"
-      },
-      {
-        "fromEntityType": "aws_sns_subscription",
-        "toEntityType": "http_endpoint",
-        "class": "HAS",
-        "type": "aws_sns_subscription|HAS|http_endpoint"
-      },
-      {
-        "fromEntityType": "root",
-        "toEntityType": "aws_organization",
-        "class": "HAS",
-        "type": "root|HAS|aws_organization"
       },
       {
         "fromEntityType": "aws_security_group",
@@ -6210,18 +4770,6 @@
         "toEntityType": "aws_autoscalingplans",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_autoscalingplans"
-      },
-      {
-        "fromEntityType": "aws_sqs_queue",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_sqs_queue|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_servicequotas",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_servicequotas|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -6308,36 +4856,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_cloudsearch"
       },
       {
-        "fromEntityType": "aws_mediatailor",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_mediatailor|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_iot",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iot|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_nat_gateway",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_nat_gateway|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_ds",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ds|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_auditmanager",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_auditmanager|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_account",
         "toEntityType": "aws_vpc_endpoint",
         "class": "ALLOWS",
@@ -6368,34 +4886,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_apprunner"
       },
       {
-        "fromEntityType": "aws_elasticache",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elasticache|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_backup",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_backup|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_fms",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_fms"
-      },
-      {
-        "fromEntityType": "aws_storagegateway",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_storagegateway|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_amplify",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_amplify|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -6408,18 +4902,6 @@
         "toEntityType": "aws_security_group",
         "class": "HAS",
         "type": "aws_cloudhsm_cluster|HAS|aws_security_group"
-      },
-      {
-        "fromEntityType": "aws_elasticache_redis_cluster",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_elasticache_redis_cluster|HAS|jupiterone_compliance_gap"
-      },
-      {
-        "fromEntityType": "aws_sns_subscription",
-        "toEntityType": "mapped_entity",
-        "class": "HAS",
-        "type": "aws_sns_subscription|HAS|mapped_entity"
       },
       {
         "fromEntityType": "aws_autoscaling",
@@ -6458,18 +4940,6 @@
         "type": "aws_account|HAS|aws_cloudwatch_events"
       },
       {
-        "fromEntityType": "aws_ssmmessages",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ssmmessages|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_chime",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_chime|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_user_policy",
         "toEntityType": "aws_ec2",
         "class": "ALLOWS",
@@ -6480,12 +4950,6 @@
         "toEntityType": "aws_guardduty_finding",
         "class": "HAS",
         "type": "aws_account|HAS|aws_guardduty_finding"
-      },
-      {
-        "fromEntityType": "internet",
-        "toEntityType": "aws_network_acl",
-        "class": "ALLOWS",
-        "type": "internet|ALLOWS|aws_network_acl"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -6560,12 +5024,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_greengrass"
       },
       {
-        "fromEntityType": "aws_rbin",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_rbin|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role",
         "toEntityType": "aws_guardduty",
         "class": "TRUSTS",
@@ -6576,18 +5034,6 @@
         "toEntityType": "aws_batch_job_queue",
         "class": "HAS",
         "type": "aws_batch|HAS|aws_batch_job_queue"
-      },
-      {
-        "fromEntityType": "aws_subnet",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_subnet|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_cloudfront_distribution",
-        "toEntityType": "internet",
-        "class": "CONNECTS",
-        "type": "aws_cloudfront_distribution|CONNECTS|internet"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -6614,12 +5060,6 @@
         "type": "aws_iam_role|TRUSTS|aws_eks"
       },
       {
-        "fromEntityType": "aws_codedeploy",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_codedeploy|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role_policy",
         "toEntityType": "aws_ssmmessages",
         "class": "ALLOWS",
@@ -6630,12 +5070,6 @@
         "toEntityType": "aws_vpc_endpoint",
         "class": "ALLOWS",
         "type": "aws_organization|ALLOWS|aws_vpc_endpoint"
-      },
-      {
-        "fromEntityType": "aws_iam_role",
-        "toEntityType": "okta_user_group",
-        "class": "ASSIGNED",
-        "type": "aws_iam_role|ASSIGNED|okta_user_group"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -6656,12 +5090,6 @@
         "type": "aws_autoscaling_group|USES|aws_autoscaling_policy"
       },
       {
-        "fromEntityType": "aws_dynamodb_table",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_dynamodb_table|HAS|jupiterone_compliance_gap"
-      },
-      {
         "fromEntityType": "aws_iam_role",
         "toEntityType": "aws_eksfargate-pods",
         "class": "TRUSTS",
@@ -6674,34 +5102,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_directconnect"
       },
       {
-        "fromEntityType": "aws_appstream",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_appstream|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_codepipeline",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_codepipeline|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_security_group",
         "toEntityType": "aws_elasticsearch_domain",
         "class": "PROTECTS",
         "type": "aws_security_group|PROTECTS|aws_elasticsearch_domain"
-      },
-      {
-        "fromEntityType": "aws_iam_role",
-        "toEntityType": "amazonaws_login",
-        "class": "TRUSTS",
-        "type": "aws_iam_role|TRUSTS|amazonaws_login"
-      },
-      {
-        "fromEntityType": "internet_domain",
-        "toEntityType": "aws_route53_zone",
-        "class": "HAS",
-        "type": "internet_domain|HAS|aws_route53_zone"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -6728,12 +5132,6 @@
         "type": "aws_cloudfront|HAS|aws_cloudfront_distribution"
       },
       {
-        "fromEntityType": "steel-data-lead-generate-compress-branding_repo",
-        "toEntityType": "aws_batch_job_definition",
-        "class": "DEFINES",
-        "type": "steel-data-lead-generate-compress-branding_repo|DEFINES|aws_batch_job_definition"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_dax",
         "class": "ALLOWS",
@@ -6744,30 +5142,6 @@
         "toEntityType": "aws_iam_group_policy",
         "class": "ASSIGNED",
         "type": "aws_iam_group|ASSIGNED|aws_iam_group_policy"
-      },
-      {
-        "fromEntityType": "aws_route53domains",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_route53domains|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_redshift",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_redshift|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_glue",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_glue|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_trustedadvisor",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_trustedadvisor|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_nlb",
@@ -6788,40 +5162,10 @@
         "type": "aws_iam_role|TRUSTS|aws_firehose"
       },
       {
-        "fromEntityType": "aws_key_pair",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_key_pair|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_elb",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elb|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_translate",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_translate|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_stepfunctions",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_stepfunctions|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role_policy",
         "toEntityType": "aws_stepfunctions",
         "class": "ALLOWS",
         "type": "aws_iam_role_policy|ALLOWS|aws_stepfunctions"
-      },
-      {
-        "fromEntityType": "aws_customer_gateway",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_customer_gateway|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_instance",
@@ -6836,22 +5180,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_route53resolver"
       },
       {
-        "fromEntityType": "root",
-        "toEntityType": "aws_account",
-        "class": "OWNS",
-        "type": "root|OWNS|aws_account"
-      },
-      {
         "fromEntityType": "aws_sns_topic",
         "toEntityType": "aws_sqs_queue",
         "class": "ALLOWS",
         "type": "aws_sns_topic|ALLOWS|aws_sqs_queue"
-      },
-      {
-        "fromEntityType": "threatstack_agent",
-        "toEntityType": "aws_instance",
-        "class": "PROTECTS",
-        "type": "threatstack_agent|PROTECTS|aws_instance"
       },
       {
         "fromEntityType": "aws_cloudwatch_events",
@@ -6890,12 +5222,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_worklink"
       },
       {
-        "fromEntityType": "okta_application",
-        "toEntityType": "aws_account",
-        "class": "CONNECTS",
-        "type": "okta_application|CONNECTS|aws_account"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_codestar",
         "class": "ALLOWS",
@@ -6908,28 +5234,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_pricing"
       },
       {
-        "fromEntityType": "aws_cloudformation_stack",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudformation_stack|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role_policy",
         "toEntityType": "aws_ec2",
         "class": "ALLOWS",
         "type": "aws_iam_role_policy|ALLOWS|aws_ec2"
-      },
-      {
-        "fromEntityType": "aws_eks_cluster",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_eks_cluster|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_directconnect",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_directconnect|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_autoscaling",
@@ -6962,12 +5270,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_rds"
       },
       {
-        "fromEntityType": "aws_ssm",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ssm|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_kafkaconnect",
         "class": "ALLOWS",
@@ -6992,58 +5294,10 @@
         "type": "aws_iam_role|TRUSTS|aws_es"
       },
       {
-        "fromEntityType": "aws_cognitosync",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cognitosync|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_elasticfilesystem",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_elasticfilesystem|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_api_gateway_rest_api",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_api_gateway_rest_api|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_ec2_settings",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ec2_settings|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_fms",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_fms|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_iam_account_password_policy",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iam_account_password_policy|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_api_gateway_v2_api",
         "toEntityType": "aws_api_gateway_v2_route",
         "class": "HAS",
         "type": "aws_api_gateway_v2_api|HAS|aws_api_gateway_v2_route"
-      },
-      {
-        "fromEntityType": "aws_sns_topic",
-        "toEntityType": "employee",
-        "class": "NOTIFIES",
-        "type": "aws_sns_topic|NOTIFIES|employee"
-      },
-      {
-        "fromEntityType": "aws_accessanalyzer_analyzer",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_accessanalyzer_analyzer|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -7094,12 +5348,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_globalaccelerator"
       },
       {
-        "fromEntityType": "aws_s3_bucket",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_s3_bucket|HAS|jupiterone_compliance_gap"
-      },
-      {
         "fromEntityType": "aws_subnet",
         "toEntityType": "aws_nat_gateway",
         "class": "HAS",
@@ -7116,12 +5364,6 @@
         "toEntityType": "aws_ses",
         "class": "CONNECTS",
         "type": "aws_route53_record|CONNECTS|aws_ses"
-      },
-      {
-        "fromEntityType": "aws_lambda_function",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_lambda_function|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role_policy",
@@ -7166,40 +5408,10 @@
         "type": "aws_iam_role|TRUSTS|aws_trustedadvisor"
       },
       {
-        "fromEntityType": "aws_support",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_support|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_vpc_endpoint",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_vpc_endpoint|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_lambda_function",
         "toEntityType": "aws_lambda_layer",
         "class": "USES",
         "type": "aws_lambda_function|USES|aws_lambda_layer"
-      },
-      {
-        "fromEntityType": "aws_config",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_config|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_s3",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_s3|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_security_group",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_security_group|HAS|jupiterone_compliance_gap"
       },
       {
         "fromEntityType": "aws_account",
@@ -7244,28 +5456,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_accessanalyzer"
       },
       {
-        "fromEntityType": "aws_greengrass",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_greengrass|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_cloudwatch_metric_alarm",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudwatch_metric_alarm|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_account",
         "toEntityType": "aws_ssm",
         "class": "HAS",
         "type": "aws_account|HAS|aws_ssm"
-      },
-      {
-        "fromEntityType": "okta_application",
-        "toEntityType": "awsapilogin_account",
-        "class": "CONNECTS",
-        "type": "okta_application|CONNECTS|awsapilogin_account"
       },
       {
         "fromEntityType": "aws_lambda",
@@ -7316,34 +5510,10 @@
         "type": "aws_route53_record|CONNECTS|aws_eni"
       },
       {
-        "fromEntityType": "aws_iam_role",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iam_role|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_applicationinsights",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_applicationinsights|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_codebuild",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_codebuild|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_macie",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_macie"
-      },
-      {
-        "fromEntityType": "employee",
-        "toEntityType": "aws_guardduty_finding",
-        "class": "HAS",
-        "type": "employee|HAS|aws_guardduty_finding"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -7370,24 +5540,6 @@
         "type": "aws_instance|USES|aws_key_pair"
       },
       {
-        "fromEntityType": "aws_cloudwatch_event_rule",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudwatch_event_rule|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_efs_mount_target",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_efs_mount_target|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_robomaker",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_robomaker|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_elasticache",
         "toEntityType": "aws_elasticache_memcached_cluster",
         "class": "HAS",
@@ -7412,12 +5564,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_storagegateway"
       },
       {
-        "fromEntityType": "aws_workspaces",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_workspaces|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_rbin",
         "class": "ALLOWS",
@@ -7436,12 +5582,6 @@
         "type": "aws_iam_policy|ALLOWS|aws_iotroborunner"
       },
       {
-        "fromEntityType": "aws_api_gateway_v2_authorizer",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_api_gateway_v2_authorizer|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_organizational_unit",
         "toEntityType": "aws_account",
         "class": "HAS",
@@ -7452,12 +5592,6 @@
         "toEntityType": "aws_workspacesweb",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_workspacesweb"
-      },
-      {
-        "fromEntityType": "aws_iam_user",
-        "toEntityType": "mfa_device",
-        "class": "ASSIGNED",
-        "type": "aws_iam_user|ASSIGNED|mfa_device"
       },
       {
         "fromEntityType": "aws_efs_mount_target",
@@ -7490,40 +5624,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_eks"
       },
       {
-        "fromEntityType": "everyone",
-        "toEntityType": "aws_sqs_queue",
-        "class": "ALLOWS",
-        "type": "everyone|ALLOWS|aws_sqs_queue"
-      },
-      {
         "fromEntityType": "aws_sns_subscription",
         "toEntityType": "aws_sqs_queue",
         "class": "HAS",
         "type": "aws_sns_subscription|HAS|aws_sqs_queue"
-      },
-      {
-        "fromEntityType": "aws_ses",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_ses|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_forecast",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_forecast|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_comprehend",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_comprehend|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_ebs_volume",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_ebs_volume|HAS|jupiterone_compliance_gap"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -7548,12 +5652,6 @@
         "toEntityType": "aws_rds",
         "class": "TRUSTS",
         "type": "aws_iam_role|TRUSTS|aws_rds"
-      },
-      {
-        "fromEntityType": "aws_opsworks",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_opsworks|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -7584,18 +5682,6 @@
         "toEntityType": "aws_security_group",
         "class": "HAS",
         "type": "aws_alb|HAS|aws_security_group"
-      },
-      {
-        "fromEntityType": "aws_mediapackage",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_mediapackage|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_transfer",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_transfer|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -7652,18 +5738,6 @@
         "type": "aws_account|HAS|aws_lambda"
       },
       {
-        "fromEntityType": "aws_schemas",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_schemas|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_backupgateway",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_backupgateway|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_account",
         "toEntityType": "aws_elasticache",
         "class": "HAS",
@@ -7706,18 +5780,6 @@
         "type": "aws_iam_role_policy|ALLOWS|aws_sagemaker"
       },
       {
-        "fromEntityType": "aws_braket",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_braket|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_cloudtrail",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudtrail|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_user_policy",
         "toEntityType": "aws_s3_bucket",
         "class": "ALLOWS",
@@ -7748,12 +5810,6 @@
         "type": "aws_vpc|ALLOWS|aws_security_group"
       },
       {
-        "fromEntityType": "meraki_device",
-        "toEntityType": "aws_security_group",
-        "class": "ALLOWS",
-        "type": "meraki_device|ALLOWS|aws_security_group"
-      },
-      {
         "fromEntityType": "aws_account",
         "toEntityType": "aws_account",
         "class": "HAS",
@@ -7778,22 +5834,10 @@
         "type": "aws_cloudfront_distribution|CONNECTS|aws_s3_bucket"
       },
       {
-        "fromEntityType": "aws_db_instance",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_db_instance|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_security_group",
         "toEntityType": "aws_efs_mount_target",
         "class": "PROTECTS",
         "type": "aws_security_group|PROTECTS|aws_efs_mount_target"
-      },
-      {
-        "fromEntityType": "aws_instance",
-        "toEntityType": "qualys_host_finding",
-        "class": "HAS",
-        "type": "aws_instance|HAS|qualys_host_finding"
       },
       {
         "fromEntityType": "aws_iam_policy",
@@ -7802,40 +5846,10 @@
         "type": "aws_iam_policy|ALLOWS|aws_amplify"
       },
       {
-        "fromEntityType": "aws_rds_cluster",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_rds_cluster|HAS|jupiterone_compliance_gap"
-      },
-      {
-        "fromEntityType": "aws_account",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "aws_account|HAS|jupiterone_compliance_gap"
-      },
-      {
         "fromEntityType": "aws_iam_policy",
         "toEntityType": "aws_backupgateway",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_backupgateway"
-      },
-      {
-        "fromEntityType": "aws_sns_subscription",
-        "toEntityType": "employee",
-        "class": "HAS",
-        "type": "aws_sns_subscription|HAS|employee"
-      },
-      {
-        "fromEntityType": "aws_inspector_assessment",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_inspector_assessment|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_route53_record",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_route53_record|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_eks",
@@ -7848,24 +5862,6 @@
         "toEntityType": "aws_codecommit",
         "class": "ALLOWS",
         "type": "aws_iam_user_policy|ALLOWS|aws_codecommit"
-      },
-      {
-        "fromEntityType": "aws_sagemaker",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_sagemaker|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_dynamodb",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_dynamodb|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "aws_connect",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_connect|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -7886,12 +5882,6 @@
         "type": "aws_security_group|PROTECTS|aws_eks_cluster"
       },
       {
-        "fromEntityType": "github_repo",
-        "toEntityType": "aws_ecs_task_definition",
-        "class": "DEFINES",
-        "type": "github_repo|DEFINES|aws_ecs_task_definition"
-      },
-      {
         "fromEntityType": "aws_vpc",
         "toEntityType": "aws_cloudwatch_log_group",
         "class": "LOGS",
@@ -7902,12 +5892,6 @@
         "toEntityType": "aws_comprehend",
         "class": "ALLOWS",
         "type": "aws_iam_policy|ALLOWS|aws_comprehend"
-      },
-      {
-        "fromEntityType": "aws_iam_user",
-        "toEntityType": "employee",
-        "class": "IS",
-        "type": "aws_iam_user|IS|employee"
       },
       {
         "fromEntityType": "aws_iam_role",
@@ -7934,12 +5918,6 @@
         "type": "aws_customer_gateway|USES|aws_acm_certificate"
       },
       {
-        "fromEntityType": "aws_iam_group",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_iam_group|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_batch_compute_environment",
         "toEntityType": "aws_ecs_cluster",
         "class": "USES",
@@ -7950,12 +5928,6 @@
         "toEntityType": "aws_cloudformation_stack",
         "class": "ALLOWS",
         "type": "aws_iam_role_policy|ALLOWS|aws_cloudformation_stack"
-      },
-      {
-        "fromEntityType": "aws_efs",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_efs|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_elb",
@@ -7970,22 +5942,10 @@
         "type": "aws_iam_policy|DENIES|aws_athena"
       },
       {
-        "fromEntityType": "aws_cloudhsm_cluster",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_cloudhsm_cluster|HAS|jupiterone_rule_alert"
-      },
-      {
         "fromEntityType": "aws_iam_role",
         "toEntityType": "aws_schemas",
         "class": "TRUSTS",
         "type": "aws_iam_role|TRUSTS|aws_schemas"
-      },
-      {
-        "fromEntityType": "employee",
-        "toEntityType": "aws_route53_domain",
-        "class": "MANAGES",
-        "type": "employee|MANAGES|aws_route53_domain"
       },
       {
         "fromEntityType": "aws_iam",
@@ -8010,12 +5970,6 @@
         "toEntityType": "aws_db_parameter_group",
         "class": "USES",
         "type": "aws_db_instance|USES|aws_db_parameter_group"
-      },
-      {
-        "fromEntityType": "aws_network_acl",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "aws_network_acl|HAS|jupiterone_rule_alert"
       },
       {
         "fromEntityType": "aws_iam_group",
@@ -8054,10 +6008,6 @@
     "integrationTag": "github",
     "entities": [
       {
-        "type": "github_repo",
-        "resourceName": "Some github_repo"
-      },
-      {
         "type": "github_account",
         "resourceName": "Some github_account"
       },
@@ -8066,16 +6016,20 @@
         "resourceName": "Some github_app"
       },
       {
+        "type": "github_team",
+        "resourceName": "Some github_team"
+      },
+      {
+        "type": "github_repo",
+        "resourceName": "Some github_repo"
+      },
+      {
         "type": "github_user",
         "resourceName": "Some github_user"
       },
       {
         "type": "github_pullrequest",
         "resourceName": "Some github_pullrequest"
-      },
-      {
-        "type": "github_team",
-        "resourceName": "Some github_team"
       },
       {
         "type": "github_issue",
@@ -8100,42 +6054,14 @@
       {
         "type": "github",
         "resourceName": "Some github"
-      },
-      {
-        "type": "github_repository",
-        "resourceName": "Some github_repository"
       }
     ],
     "relationships": [
-      {
-        "fromEntityType": "github_repo",
-        "toEntityType": "npm_package",
-        "class": "PUBLISHED",
-        "type": "github_repo|PUBLISHED|npm_package"
-      },
-      {
-        "fromEntityType": "github_repo",
-        "toEntityType": "snyk_finding",
-        "class": "HAS",
-        "type": "github_repo|HAS|snyk_finding"
-      },
       {
         "fromEntityType": "github_account",
         "toEntityType": "github_app",
         "class": "INSTALLED",
         "type": "github_account|INSTALLED|github_app"
-      },
-      {
-        "fromEntityType": "github_user",
-        "toEntityType": "steel-data-lead-generate-compress-branding_pullrequest",
-        "class": "REVIEWED",
-        "type": "github_user|REVIEWED|steel-data-lead-generate-compress-branding_pullrequest"
-      },
-      {
-        "fromEntityType": "github_pullrequest",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "github_pullrequest|HAS|jupiterone_compliance_gap"
       },
       {
         "fromEntityType": "github_team",
@@ -8148,18 +6074,6 @@
         "toEntityType": "github_pullrequest",
         "class": "APPROVED",
         "type": "github_user|APPROVED|github_pullrequest"
-      },
-      {
-        "fromEntityType": "github_user",
-        "toEntityType": "employee",
-        "class": "IS",
-        "type": "github_user|IS|employee"
-      },
-      {
-        "fromEntityType": "github_pullrequest",
-        "toEntityType": "tfe_run",
-        "class": "TRIGGERS",
-        "type": "github_pullrequest|TRIGGERS|tfe_run"
       },
       {
         "fromEntityType": "github_repo",
@@ -8198,12 +6112,6 @@
         "type": "github_repo|HAS|github_issue"
       },
       {
-        "fromEntityType": "github_user",
-        "toEntityType": "steel-data-lead-generate-compress-branding_pullrequest",
-        "class": "OPENED",
-        "type": "github_user|OPENED|steel-data-lead-generate-compress-branding_pullrequest"
-      },
-      {
         "fromEntityType": "github_repo",
         "toEntityType": "github_pullrequest",
         "class": "HAS",
@@ -8234,12 +6142,6 @@
         "type": "github_repo_secret|OVERRIDES|github_org_secret"
       },
       {
-        "fromEntityType": "github_user",
-        "toEntityType": "steel-data-lead-generate-compress-branding_pullrequest",
-        "class": "APPROVED",
-        "type": "github_user|APPROVED|steel-data-lead-generate-compress-branding_pullrequest"
-      },
-      {
         "fromEntityType": "github_repo",
         "toEntityType": "github_repo_secret",
         "class": "USES",
@@ -8259,18 +6161,6 @@
       },
       {
         "fromEntityType": "github_user",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "github_user|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "okta_application",
-        "toEntityType": "github_account",
-        "class": "CONNECTS",
-        "type": "okta_application|CONNECTS|github_account"
-      },
-      {
-        "fromEntityType": "github_user",
         "toEntityType": "github_issue",
         "class": "ASSIGNED",
         "type": "github_user|ASSIGNED|github_issue"
@@ -8280,18 +6170,6 @@
         "toEntityType": "github_account",
         "class": "MANAGES",
         "type": "github_user|MANAGES|github_account"
-      },
-      {
-        "fromEntityType": "github_repo",
-        "toEntityType": "aws_lambda_function",
-        "class": "DEFINES",
-        "type": "github_repo|DEFINES|aws_lambda_function"
-      },
-      {
-        "fromEntityType": "github_repo",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "github_repo|HAS|jupiterone_compliance_gap"
       },
       {
         "fromEntityType": "github_user",
@@ -8324,58 +6202,16 @@
         "type": "github_env_secret|OVERRIDES|github_repo_secret"
       },
       {
-        "fromEntityType": "root",
-        "toEntityType": "github_account",
-        "class": "OWNS",
-        "type": "root|OWNS|github_account"
-      },
-      {
-        "fromEntityType": "github_repo",
-        "toEntityType": "steel-data-lead-generate-compress-branding_pullrequest",
-        "class": "HAS",
-        "type": "github_repo|HAS|steel-data-lead-generate-compress-branding_pullrequest"
-      },
-      {
         "fromEntityType": "github_account",
         "toEntityType": "github_repo",
         "class": "OWNS",
         "type": "github_account|OWNS|github_repo"
       },
       {
-        "fromEntityType": "github_user",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "github_user|HAS|jupiterone_compliance_gap"
-      },
-      {
-        "fromEntityType": "github_repo",
-        "toEntityType": "npm_package",
-        "class": "USES",
-        "type": "github_repo|USES|npm_package"
-      },
-      {
-        "fromEntityType": "github_repo",
-        "toEntityType": "deferred_maintenance",
-        "class": "HAS",
-        "type": "github_repo|HAS|deferred_maintenance"
-      },
-      {
         "fromEntityType": "github_repo",
         "toEntityType": "github_repo",
         "class": "USES",
         "type": "github_repo|USES|github_repo"
-      },
-      {
-        "fromEntityType": "github_repo",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "github_repo|HAS|jupiterone_rule_alert"
-      },
-      {
-        "fromEntityType": "github_repository",
-        "toEntityType": "npm_package",
-        "class": "USES",
-        "type": "github_repository|USES|npm_package"
       },
       {
         "fromEntityType": "github_repo",
@@ -8388,12 +6224,6 @@
         "toEntityType": "github_org_secret",
         "class": "USES",
         "type": "github_repo|USES|github_org_secret"
-      },
-      {
-        "fromEntityType": "github_repo",
-        "toEntityType": "aws_ecs_task_definition",
-        "class": "DEFINES",
-        "type": "github_repo|DEFINES|aws_ecs_task_definition"
       },
       {
         "fromEntityType": "github_repo",
@@ -8464,42 +6294,156 @@
         "toEntityType": "jira_issue",
         "class": "REPORTED",
         "type": "jira_user|REPORTED|jira_issue"
+      }
+    ]
+  },
+  {
+    "integrationDefinitionId": "bc9510d4-27b8-4102-a51f-16f62291cdf6",
+    "integrationTag": "okta",
+    "entities": [
+      {
+        "type": "okta_account",
+        "resourceName": "Some okta_account"
+      },
+      {
+        "type": "okta_user",
+        "resourceName": "Some okta_user"
+      },
+      {
+        "type": "okta_application",
+        "resourceName": "Some okta_application"
+      },
+      {
+        "type": "okta_rule",
+        "resourceName": "Some okta_rule"
+      },
+      {
+        "type": "okta_user_group",
+        "resourceName": "Some okta_user_group"
+      },
+      {
+        "type": "okta_app_user_group",
+        "resourceName": "Some okta_app_user_group"
+      },
+      {
+        "type": "okta_service",
+        "resourceName": "Some okta_service"
+      },
+      {
+        "type": "okta",
+        "resourceName": "Some okta"
+      },
+      {
+        "type": "oktanodeexpress",
+        "resourceName": "Some oktanodeexpress"
+      },
+      {
+        "type": "oktanodeexpress_account",
+        "resourceName": "Some oktanodeexpress_account"
+      }
+    ],
+    "relationships": [
+      {
+        "fromEntityType": "okta_account",
+        "toEntityType": "okta_user",
+        "class": "HAS",
+        "type": "okta_account|HAS|okta_user"
+      },
+      {
+        "fromEntityType": "okta_user",
+        "toEntityType": "okta_application",
+        "class": "ASSIGNED",
+        "type": "okta_user|ASSIGNED|okta_application"
+      },
+      {
+        "fromEntityType": "okta_account",
+        "toEntityType": "okta_rule",
+        "class": "HAS",
+        "type": "okta_account|HAS|okta_rule"
+      },
+      {
+        "fromEntityType": "okta_user_group",
+        "toEntityType": "okta_user",
+        "class": "HAS",
+        "type": "okta_user_group|HAS|okta_user"
+      },
+      {
+        "fromEntityType": "okta_app_user_group",
+        "toEntityType": "okta_user",
+        "class": "HAS",
+        "type": "okta_app_user_group|HAS|okta_user"
+      },
+      {
+        "fromEntityType": "okta_account",
+        "toEntityType": "okta_service",
+        "class": "HAS",
+        "type": "okta_account|HAS|okta_service"
+      },
+      {
+        "fromEntityType": "okta",
+        "toEntityType": "okta_account",
+        "class": "HOSTS",
+        "type": "okta|HOSTS|okta_account"
       },
       {
         "fromEntityType": "okta_application",
-        "toEntityType": "jira_account",
+        "toEntityType": "okta_user",
+        "class": "ASSIGNED_TO",
+        "type": "okta_application|ASSIGNED_TO|okta_user"
+      },
+      {
+        "fromEntityType": "oktanodeexpress",
+        "toEntityType": "oktanodeexpress_account",
+        "class": "HOSTS",
+        "type": "oktanodeexpress|HOSTS|oktanodeexpress_account"
+      },
+      {
+        "fromEntityType": "okta_account",
+        "toEntityType": "okta_app_user_group",
+        "class": "HAS",
+        "type": "okta_account|HAS|okta_app_user_group"
+      },
+      {
+        "fromEntityType": "okta_account",
+        "toEntityType": "okta_application",
+        "class": "HAS",
+        "type": "okta_account|HAS|okta_application"
+      },
+      {
+        "fromEntityType": "okta_account",
+        "toEntityType": "okta_user_group",
+        "class": "HAS",
+        "type": "okta_account|HAS|okta_user_group"
+      },
+      {
+        "fromEntityType": "okta_application",
+        "toEntityType": "oktanodeexpress_account",
         "class": "CONNECTS",
-        "type": "okta_application|CONNECTS|jira_account"
+        "type": "okta_application|CONNECTS|oktanodeexpress_account"
       },
       {
-        "fromEntityType": "jira_user",
-        "toEntityType": "jupiterone_rule_alert",
-        "class": "HAS",
-        "type": "jira_user|HAS|jupiterone_rule_alert"
+        "fromEntityType": "okta_user_group",
+        "toEntityType": "okta_application",
+        "class": "ASSIGNED",
+        "type": "okta_user_group|ASSIGNED|okta_application"
       },
       {
-        "fromEntityType": "root",
-        "toEntityType": "jira_account",
-        "class": "OWNS",
-        "type": "root|OWNS|jira_account"
+        "fromEntityType": "okta_app_user_group",
+        "toEntityType": "okta_application",
+        "class": "ASSIGNED",
+        "type": "okta_app_user_group|ASSIGNED|okta_application"
       },
       {
-        "fromEntityType": "jira_issue",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "jira_issue|HAS|jupiterone_compliance_gap"
+        "fromEntityType": "okta_rule",
+        "toEntityType": "okta_user_group",
+        "class": "MANAGES",
+        "type": "okta_rule|MANAGES|okta_user_group"
       },
       {
-        "fromEntityType": "jira_user",
-        "toEntityType": "employee",
-        "class": "IS",
-        "type": "jira_user|IS|employee"
-      },
-      {
-        "fromEntityType": "jira_user",
-        "toEntityType": "jupiterone_compliance_gap",
-        "class": "HAS",
-        "type": "jira_user|HAS|jupiterone_compliance_gap"
+        "fromEntityType": "okta_application",
+        "toEntityType": "okta_user_group",
+        "class": "ASSIGNED_TO",
+        "type": "okta_application|ASSIGNED_TO|okta_user_group"
       }
     ]
   }

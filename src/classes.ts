@@ -349,6 +349,9 @@ export const useQuestionStyles = makeStyles((theme: Theme) =>
     queryGroup: {
       display: "flex",
     },
+    queryVisualizerContainer: {
+      height: 400
+    },
     copy: {
       verticalAlign: "center",
       height: theme.spacing(6),
@@ -356,6 +359,8 @@ export const useQuestionStyles = makeStyles((theme: Theme) =>
     },
     copyContainer: {
       marginTop: theme.spacing(0.375),
+      display: 'flex',
+      flexFlow: 'row'
     },
     button: {
       paddingLeft: theme.spacing(0.75),

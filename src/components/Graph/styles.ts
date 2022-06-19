@@ -4,7 +4,7 @@ export const useGraphStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flex: 3.5,
-      height: "calc(100vh - 99px)",
+      height: "100%",
       overflowY: "auto",
       padding: theme.spacing(2, 2),
       margin: theme.spacing(0, 2),
