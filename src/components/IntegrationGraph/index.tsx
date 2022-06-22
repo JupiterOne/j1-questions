@@ -17,7 +17,8 @@ const IntegrationGraph = () => {
   const {
     managedQuestions,
     integrations,
-    integrationSchemaMap
+    integrationSchemaMap,
+    integrationTypeToIdMap
   } = useContext(Context);
 
   const windowSize = useWindowSize();
@@ -28,18 +29,23 @@ const IntegrationGraph = () => {
     edges: Edge[];
   }>({ nodes: [], edges: []});
 
+  console.log({ nodes, edges })
+
   useEffect(() => {
-    const schemas = integrations.map(id => integrationSchemaMap.get(id))
+    const schemas = integrations.map(type => {
+      const id = integrationTypeToIdMap.get(type);
+      return id ? integrationSchemaMap.get(id) : undefined;
+    })
       .filter((schema): schema is IntegrationSchema => schema !== undefined);
 
-    const entities = schemas.flatMap(schema => schema.entities);
-    const relationships = schemas.flatMap(schema => schema.relationships);
+    const entities = schemas.flatMap(schema => schema.integration.entities);
+    const relationships = schemas.flatMap(schema => schema.integration.relationships);
 
     setNodesAndEdges({
       nodes: convertEntitiesToNodes(entities),
       edges: convertRelationshipsToEdges(relationships)
     });
-  }, [integrations])
+  }, [integrations, integrationSchemaMap])
 
   return (
     <>
@@ -71,19 +77,19 @@ const IntegrationGraph = () => {
   );
 };
 
-function convertEntitiesToNodes(entities: IntegrationSchema['entities']): Node[] {
+function convertEntitiesToNodes(entities: IntegrationSchema['integration']['entities']): Node[] {
   return entities.map(e => ({
-    id: e.type,
+    id: e._type,
     label: e.resourceName
   }));
 }
 
-function convertRelationshipsToEdges(relationships: IntegrationSchema['relationships']): Edge[] {
+function convertRelationshipsToEdges(relationships: IntegrationSchema['integration']['relationships']): Edge[] {
   return relationships.map(r => ({
     id: createEdgeIdFromRelationship(r),
-    label: r.class,
-    from: r.fromEntityType,
-    to: r.toEntityType
+    label: r._class,
+    from: r.sourceType,
+    to: r.targetType
   }));
 }
 

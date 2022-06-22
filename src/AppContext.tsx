@@ -4,8 +4,10 @@ import queryString from "query-string";
 import fetchQuestions from "./methods/fetchQuestions";
 import uniqueArray from "./methods/uniqueArray";
 import debounce from "lodash/debounce";
+import partition from 'lodash/partition';
 
-import integrationSchemas from './data/integrationSchemas.json';
+import fetchIntegrationSchema from "./methods/fetchIntegrationSchema";
+import { request } from "http";
 
 interface AppContext {
   managedQuestions: ManagedQuestionJSON;
@@ -24,7 +26,10 @@ interface AppContext {
   categories: string[];
   setCategory: (category: string) => void;
   integrationSchemaMap: Map<string, IntegrationSchema>;
+  integrationTypeToIdMap: Map<string, string>;
 }
+
+const DEFAULT_INTEGRATIONS = ['aws', 'github', 'jira', 'okta'];
 
 const initialState: AppContext = {
   managedQuestions: {
@@ -45,7 +50,8 @@ const initialState: AppContext = {
   setFilterLogic: () => {},
   categories: [],
   setCategory: () => {},
-  integrationSchemaMap: new Map()
+  integrationSchemaMap: new Map(),
+  integrationTypeToIdMap: new Map()
 };
 
 const Context = React.createContext(initialState);
@@ -64,6 +70,12 @@ export const Provider = (props: { children: any }) => {
   const [integrations, setIntegrations] = useState<string[]>(
     params.integrations ? params.integrations.split(",") : []
   );
+
+  const [
+    integrationTypeToIdMap,
+    setIntegrationTypeToIdMap
+  ] = useState<Map<string, string>>(new Map());
+
   const [tags, setTags] = useState<string[]>(
     params.tags ? params.tags.split(",") : []
   );
@@ -79,11 +91,11 @@ export const Provider = (props: { children: any }) => {
   );
 
   useEffect(() => {
-    fetchQuestions().then((r: ManagedQuestionJSON) => {
-      const tags: string[] = r.questions.flatMap((question: Question) => {
+    fetchQuestions().then((response: ManagedQuestionJSON) => {
+      const tags: string[] = response.questions.flatMap((question: Question) => {
         return question.tags;
       });
-      const categories: any[] = r.questions.flatMap((question: Question) => {
+      const categories: any[] = response.questions.flatMap((question: Question) => {
         if (question.category !== undefined) {
           return question.category;
         }
@@ -94,15 +106,75 @@ export const Provider = (props: { children: any }) => {
       setAllTags([]);
       setAllTags(uniqueArray(tags));
 
-      setManagedQuestions(r);
-
-      const schemaMap = new Map<string, IntegrationSchema>();
-      for (const schema of integrationSchemas) {
-        schemaMap.set(schema.integrationTag, schema as unknown as IntegrationSchema);
-      }
-      setIntegrationSchemaMap(schemaMap);
+      setManagedQuestions(response);
+      const integrationTypeToIdMap = new Map<string, string>(
+        Object.values(response.integrations).map(integration => [
+          integration.type,
+          integration.id
+        ])
+      );
+      setIntegrationTypeToIdMap(integrationTypeToIdMap);
     });
   }, []);
+
+  useEffect(() => {
+    const [_, schemasToRequestByIntegrationId] = partition(
+      integrations
+        .map(integration => integrationTypeToIdMap.get(integration))
+        .filter((id): id is string => typeof id === 'string'),
+      id => integrationSchemaMap.has(id)
+    );
+
+    let work = [];
+
+    const requestedSchemaMap = new Map<string, IntegrationSchema>();
+
+    for (const integrationDefinitionId of schemasToRequestByIntegrationId) {
+      const promise = fetchIntegrationSchema(integrationDefinitionId)
+        .then((schema: IntegrationSchema) => {
+          requestedSchemaMap.set(integrationDefinitionId, schema)
+        })
+        .catch(console.error);
+
+      work.push(promise);
+    }
+
+    Promise.all(work)
+      .then(() => setIntegrationSchemaMap((existingMap) => new Map([
+        ...existingMap,
+        ...requestedSchemaMap
+      ])))
+      .catch(console.error);
+
+  }, [integrations]);
+
+  useEffect(() => {
+    const requestedSchemaMap = new Map<string, IntegrationSchema>();
+
+    const work = [];
+    for (const type of DEFAULT_INTEGRATIONS) {
+      const integrationDefinitionId = integrationTypeToIdMap.get(type)
+      if (integrationDefinitionId) {
+        const promise = fetchIntegrationSchema(integrationDefinitionId)
+          .then((schema: IntegrationSchema) => {
+            requestedSchemaMap.set(integrationDefinitionId, schema)
+          })
+          .catch(console.error);
+
+        work.push(promise);
+      }
+    }
+
+    Promise.all(work)
+      .then(() => {
+        console.log('done', requestedSchemaMap);
+        setIntegrationSchemaMap((existingMap) => new Map([
+          ...existingMap,
+          ...requestedSchemaMap
+        ]))
+      })
+      .catch(console.error);
+  }, [managedQuestions, integrationTypeToIdMap]);
 
   const handleChangeInMultiOptions = (option: string, setOptions: Function) => {
     setOptions((prev: string[]) => {
@@ -139,7 +211,8 @@ export const Provider = (props: { children: any }) => {
         categories,
         setCategory: category =>
           handleChangeInMultiOptions(category, setCategories),
-        integrationSchemaMap
+        integrationSchemaMap,
+        integrationTypeToIdMap: integrationTypeToIdMap,
       }}
     >
       {props.children}

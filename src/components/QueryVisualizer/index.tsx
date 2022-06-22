@@ -1,14 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import Paper from "@material-ui/core/Paper";
-import Container from "@material-ui/core/Container";
-
 import Graph from "../Graph";
 import { Node, Edge } from '../Graph/types';
 import { IntegrationSchema } from "../../types";
 import AppContext from "../../AppContext";
 
-import { useQueryVisualizerStyles } from "./styles";
 import {
   getNodesAndEdgesFromAst,
   loadGraph,
@@ -27,9 +23,9 @@ type QueryVisualizerProps = {
 };
 
 export const QueryVisualizer = ({ query }: QueryVisualizerProps) => {
-  const classes = useQueryVisualizerStyles();
   const {
-    // integrations,
+    integrations,
+    integrationTypeToIdMap,
     integrationSchemaMap
   } = useContext(AppContext);
 
@@ -42,11 +38,16 @@ export const QueryVisualizer = ({ query }: QueryVisualizerProps) => {
     try {
       const ast = parse(query);
       if (ast) {
-        const schemas = DEFAULT_INTEGRATIONS.map(id => integrationSchemaMap.get(id))
-          .filter((schema): schema is IntegrationSchema => schema !== undefined);
+        const schemas = DEFAULT_INTEGRATIONS.map(type => {
+          const id = integrationTypeToIdMap.get(type);
+          return id ? integrationSchemaMap.get(id) : undefined;
+        })
+          .filter((schema): schema is IntegrationSchema => schema?.integration !== undefined);
 
-        const entities = schemas.flatMap(schema => schema.entities);
-        const relationships = schemas.flatMap(schema => schema.relationships);
+        const entities = schemas.flatMap(schema => schema.integration.entities);
+        const relationships = schemas.flatMap(schema => schema.integration.relationships);
+
+        console.log({ schemas, entities, relationships });
 
         const graph = loadGraph(entities, relationships);
 
@@ -123,7 +124,7 @@ export const QueryVisualizer = ({ query }: QueryVisualizerProps) => {
     } catch (err) {
       console.error("query error:", err);
     }
-  }, [query]);
+  }, [query, integrations, integrationSchemaMap]);
 
   return (
     <Graph nodes={nodes} edges={edges} applyHierarchy={true}/>
@@ -131,19 +132,19 @@ export const QueryVisualizer = ({ query }: QueryVisualizerProps) => {
 };
 
 
-function convertEntitiesToNodes(entities: IntegrationSchema['entities']): Node[] {
+function convertEntitiesToNodes(entities: IntegrationSchema['integration']['entities']): Node[] {
   return entities.map(e => ({
-    id: e.type,
+    id: e._type,
     label: e.resourceName
   }));
 }
 
-function convertRelationshipsToEdges(relationships: IntegrationSchema['relationships']): Edge[] {
+function convertRelationshipsToEdges(relationships: IntegrationSchema['integration']['relationships']): Edge[] {
   return relationships.map(r => ({
     id: createEdgeIdFromRelationship(r),
-    label: r.class,
-    from: r.fromEntityType,
-    to: r.toEntityType
+    label: r._class,
+    from: r.sourceType,
+    to: r.targetType
   }));
 }
 

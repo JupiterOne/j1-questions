@@ -32,14 +32,14 @@ export type EdgeAttributes = {
 export const createMultiGraph = () => new MultiGraph<NodeAttributes, EdgeAttributes>();
 
 export function createEdgeIdFromRelationship (relationship: Relationship) {
-  return `${relationship.fromEntityType}-${relationship.class}->${relationship.toEntityType}`
+  return `${relationship.sourceType}-${relationship._class}->${relationship.targetType}`
 }
 
 export function loadGraph(entities: Entity[], relationships: Relationship[]) {
   const graph = createMultiGraph();
 
   const nodeSet = new Set([
-    ...entities.map((entity) => entity.type),
+    ...entities.map((entity) => entity._type),
   ]);
 
   for (const node of nodeSet.values()) {
@@ -48,15 +48,15 @@ export function loadGraph(entities: Entity[], relationships: Relationship[]) {
 
   const edgeSet = new Set();
   for (const relationship of relationships) {
-    const fromNode = relationship.fromEntityType;
-    const toNode = relationship.toEntityType;
+    const fromNode = relationship.sourceType;
+    const toNode = relationship.targetType;
     const edgeId = createEdgeIdFromRelationship(relationship);
 
     if (nodeSet.has(fromNode) && nodeSet.has(toNode) && !edgeSet.has(edgeId)) {
       edgeSet.add(edgeId);
 
       graph.addEdgeWithKey(edgeId, fromNode, toNode, {
-        type: relationship.class,
+        type: relationship._class,
       });
     }
   }

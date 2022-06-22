@@ -30,17 +30,6 @@ const QuestionDisplay = () => {
   const { managedQuestions } = useContext(Context);
   const [copied, setCopied] = useState(false);
 
-  const [selectedQueriesToVisualize, setSelectedQueriesToVisualize] = useState<
-    string[]
-  >([]);
-
-  const onVisualizeQuery= (query) => {
-    setSelectedQueryToVisualize([query]);
-  };
-  const handleCloseQueryVisualizer= () => {
-    setSelectedQueryToVisualize(null);
-  };
-
   const params: { questionTitle?: string } = useParams();
   const history = useHistory();
   const location = useLocation();
@@ -119,16 +108,6 @@ const QuestionDisplay = () => {
                                 setCopied(true);
                               }}
                               children={<CopyIcon />}
-                            />
-                          </Tooltip>
-                          <Tooltip title="Visualize with graph">
-                            <IconButton
-                              color="primary"
-                              className={classes.copy}
-                              onClick={() => {
-                                setSelectedQueryToVisualize(query.query);
-                              }}
-                              children={<EyeIcon />}
                             />
                           </Tooltip>
                         </div>

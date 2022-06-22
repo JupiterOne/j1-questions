@@ -20,25 +20,34 @@ export interface Question {
   hash?: string;
 }
 
+export interface IntegrationMetadata {
+  id: string;
+  type: string;
+  title: string;
+}
+
 export interface ManagedQuestionJSON {
-  integrations: any;
+  integrations: Record<string, IntegrationMetadata>;
   questions: Question[];
 }
 
 export type IntegrationSchema = {
   integrationDefinitionId: string;
-  integrationTag: string;
-  entities: Entity[];
-  relationships: Relationship[];
+  integration: {
+    entities: Entity[];
+    relationships: Relationship[];
+  }
 };
 
 export type Entity = {
   resourceName: string;
-  type: string;
+  _type: string;
+  _class: string[];
 }
 
 export type Relationship = {
-  fromEntityType: string;
-  toEntityType: string;
-  class: string;
+  sourceType: string;
+  targetType: string;
+  _type: string;
+  _class: string;
 }
