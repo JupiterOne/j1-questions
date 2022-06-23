@@ -38,16 +38,16 @@ export const QueryVisualizer = ({ query }: QueryVisualizerProps) => {
     try {
       const ast = parse(query);
       if (ast) {
-        const schemas = DEFAULT_INTEGRATIONS.map(type => {
+        const schemas = integrations.map(type => {
           const id = integrationTypeToIdMap.get(type);
           return id ? integrationSchemaMap.get(id) : undefined;
         })
-          .filter((schema): schema is IntegrationSchema => schema?.integration !== undefined);
+          .filter((schema): schema is IntegrationSchema => {
+            return schema?.integration !== undefined
+          });
 
         const entities = schemas.flatMap(schema => schema.integration.entities);
         const relationships = schemas.flatMap(schema => schema.integration.relationships);
-
-        console.log({ schemas, entities, relationships });
 
         const graph = loadGraph(entities, relationships);
 

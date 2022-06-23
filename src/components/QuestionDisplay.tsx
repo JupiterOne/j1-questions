@@ -10,7 +10,6 @@ import {
   Tooltip,
   Container,
   Divider,
-  Modal,
 } from "@material-ui/core";
 import clsx from "clsx";
 import { Alert } from "@material-ui/lab";
@@ -20,7 +19,6 @@ import { Query, Question } from "../types";
 import hash from "hash.js";
 import copy from "clipboard-copy";
 import CopyIcon from "react-feather/dist/icons/copy";
-import EyeIcon from "react-feather/dist/icons/eye";
 import ChevronLeftIcon from "react-feather/dist/icons/chevron-left";
 import Context from "../AppContext";
 import QueryVisualizer from "./QueryVisualizer";

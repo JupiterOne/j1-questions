@@ -7,7 +7,6 @@ import debounce from "lodash/debounce";
 import partition from 'lodash/partition';
 
 import fetchIntegrationSchema from "./methods/fetchIntegrationSchema";
-import { request } from "http";
 
 interface AppContext {
   managedQuestions: ManagedQuestionJSON;
@@ -25,6 +24,7 @@ interface AppContext {
   setFilterLogic: (tagFilter: string) => void;
   categories: string[];
   setCategory: (category: string) => void;
+  integrationSchemaLoading: boolean;
   integrationSchemaMap: Map<string, IntegrationSchema>;
   integrationTypeToIdMap: Map<string, string>;
 }
@@ -50,6 +50,7 @@ const initialState: AppContext = {
   setFilterLogic: () => {},
   categories: [],
   setCategory: () => {},
+  integrationSchemaLoading: false,
   integrationSchemaMap: new Map(),
   integrationTypeToIdMap: new Map()
 };
@@ -70,6 +71,8 @@ export const Provider = (props: { children: any }) => {
   const [integrations, setIntegrations] = useState<string[]>(
     params.integrations ? params.integrations.split(",") : []
   );
+
+  const [integrationSchemaLoading, setIntegrationSchemaLoading] = useState<boolean>(false);
 
   const [
     integrationTypeToIdMap,
@@ -132,6 +135,7 @@ export const Provider = (props: { children: any }) => {
     for (const integrationDefinitionId of schemasToRequestByIntegrationId) {
       const promise = fetchIntegrationSchema(integrationDefinitionId)
         .then((schema: IntegrationSchema) => {
+          console.log(integrationDefinitionId,{ schema })
           requestedSchemaMap.set(integrationDefinitionId, schema)
         })
         .catch(console.error);
@@ -139,13 +143,19 @@ export const Provider = (props: { children: any }) => {
       work.push(promise);
     }
 
-    Promise.all(work)
-      .then(() => setIntegrationSchemaMap((existingMap) => new Map([
-        ...existingMap,
-        ...requestedSchemaMap
-      ])))
-      .catch(console.error);
+    if (work.length) {
+      setIntegrationSchemaLoading(true);
+    }
 
+    Promise.all(work)
+      .then(() => {
+        setIntegrationSchemaMap((existingMap) => new Map([
+          ...existingMap,
+          ...requestedSchemaMap
+        ]));
+        setIntegrationSchemaLoading(false);
+      })
+      .catch(console.error);
   }, [integrations]);
 
   useEffect(() => {
@@ -167,7 +177,6 @@ export const Provider = (props: { children: any }) => {
 
     Promise.all(work)
       .then(() => {
-        console.log('done', requestedSchemaMap);
         setIntegrationSchemaMap((existingMap) => new Map([
           ...existingMap,
           ...requestedSchemaMap
@@ -211,6 +220,7 @@ export const Provider = (props: { children: any }) => {
         categories,
         setCategory: category =>
           handleChangeInMultiOptions(category, setCategories),
+        integrationSchemaLoading,
         integrationSchemaMap,
         integrationTypeToIdMap: integrationTypeToIdMap,
       }}

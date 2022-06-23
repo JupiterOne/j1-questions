@@ -1,23 +1,41 @@
 import integrationSchemas from '../data/integrationSchemas.json';
-import { IntegrationSchema } from '../types.js';
+import { IntegrationSchema } from '../types';
 
+const fetchIntegrationSchema = fetchIntegrationSchemaImpl;
 export default fetchIntegrationSchema;
-export async function fetchIntegrationSchema(integrationDefinitionId: string) {
+
+export async function fetchIntegrationSchemaMock(integrationDefinitionId: string) {
   return integrationSchemas.find(
     schema => schema.integrationDefinitionId === integrationDefinitionId
   ) as unknown as IntegrationSchema;
 }
 
-export async function fetchIntegrationSchemaImpl(integrationDefinitionId: string) {
+export async function fetchIntegrationSchemaImpl(
+  integrationDefinitionId: string
+): Promise<IntegrationSchema> {
   const host = window.location.host;
   const domain = host.includes('localhost') || host.includes('dev') ?
-    'https://apps.dev.jupiterone.io' :
-    'https://apps.us.jupiterone.io';
+    'https://api.dev.jupiterone.io' :
+    'https://api.us.jupiterone.io';
 
   const response = await fetch(
     `${domain}/integrations-public/v1/graph-schema/${integrationDefinitionId}`
   );
 
-  return response.json();
+  if (response.ok) {
+    const schema = await response.json();
+    return {
+      ...schema,
+      integrationDefinitionId
+    };
+  } else {
+    return {
+      integrationDefinitionId,
+      integration: {
+        entities: [],
+        relationships: [],
+      }
+    }
+  }
 };
 

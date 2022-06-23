@@ -3,6 +3,10 @@ import { useWindowSize } from "@reach/window-size";
 
 import Fade from "@material-ui/core/Fade";
 import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
+import ChevronLeftIcon from "react-feather/dist/icons/chevron-left";
+
+import { useHistory, useLocation } from "react-router-dom";
 
 import Graph from "../Graph";
 import { Node, Edge } from '../Graph/types';
@@ -22,6 +26,8 @@ const IntegrationGraph = () => {
   } = useContext(Context);
 
   const windowSize = useWindowSize();
+  const history = useHistory();
+  const location = useLocation();
   const classes = useIntegrationGraphStyles();
 
   const [{ nodes, edges}, setNodesAndEdges] = useState<{
@@ -29,14 +35,15 @@ const IntegrationGraph = () => {
     edges: Edge[];
   }>({ nodes: [], edges: []});
 
-  console.log({ nodes, edges })
-
   useEffect(() => {
-    const schemas = integrations.map(type => {
-      const id = integrationTypeToIdMap.get(type);
-      return id ? integrationSchemaMap.get(id) : undefined;
-    })
-      .filter((schema): schema is IntegrationSchema => schema !== undefined);
+    const schemas = integrations
+      .map(type => {
+        const id = integrationTypeToIdMap.get(type);
+        return id ? integrationSchemaMap.get(id) : undefined;
+      })
+      .filter((schema): schema is IntegrationSchema => {
+        return schema?.integration !== undefined
+      });
 
     const entities = schemas.flatMap(schema => schema.integration.entities);
     const relationships = schemas.flatMap(schema => schema.integration.relationships);
@@ -47,8 +54,21 @@ const IntegrationGraph = () => {
     });
   }, [integrations, integrationSchemaMap])
 
+  const handleClickBack = () => {
+    history.push(`/${location.search}`);
+  };
+
   return (
     <>
+      <Button
+        color="primary"
+        className={classes.backButton}
+        size="small"
+        variant="outlined"
+        onClick={handleClickBack}
+      >
+        <ChevronLeftIcon /> Back
+      </Button>
       <Fade in={managedQuestions.questions.length >= 1}>
         <div
           style={{

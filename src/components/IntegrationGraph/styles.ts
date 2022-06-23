@@ -20,6 +20,15 @@ export const useIntegrationGraphStyles = makeStyles((theme: Theme) =>
     graphContainer: {
       height: "calc(100vh - 99px)",
       flex: 3.5
+    },
+    backButton: {
+      paddingLeft: theme.spacing(0.75),
+      position: "absolute",
+      left: 24,
+      "@media (max-width: 1470px)": {
+        position: "static",
+        marginBottom: theme.spacing(2),
+      },
     }
   })
 );
