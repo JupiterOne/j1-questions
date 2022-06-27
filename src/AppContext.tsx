@@ -4,7 +4,6 @@ import queryString from "query-string";
 import fetchQuestions from "./methods/fetchQuestions";
 import uniqueArray from "./methods/uniqueArray";
 import debounce from "lodash/debounce";
-import partition from 'lodash/partition';
 
 import fetchIntegrationSchema from "./methods/fetchIntegrationSchema";
 
@@ -121,12 +120,11 @@ export const Provider = (props: { children: any }) => {
   }, []);
 
   useEffect(() => {
-    const [_, schemasToRequestByIntegrationId] = partition(
-      integrations
-        .map(integration => integrationTypeToIdMap.get(integration))
-        .filter((id): id is string => typeof id === 'string'),
-      id => integrationSchemaMap.has(id)
-    );
+    const schemasToRequestByIntegrationId = integrations
+      .map(integration => integrationTypeToIdMap.get(integration))
+      .filter((id): id is string => {
+        return typeof id === 'string' && !integrationSchemaMap.has(id)
+      });
 
     let work = [];
 
@@ -135,7 +133,6 @@ export const Provider = (props: { children: any }) => {
     for (const integrationDefinitionId of schemasToRequestByIntegrationId) {
       const promise = fetchIntegrationSchema(integrationDefinitionId)
         .then((schema: IntegrationSchema) => {
-          console.log(integrationDefinitionId,{ schema })
           requestedSchemaMap.set(integrationDefinitionId, schema)
         })
         .catch(console.error);
@@ -156,7 +153,7 @@ export const Provider = (props: { children: any }) => {
         setIntegrationSchemaLoading(false);
       })
       .catch(console.error);
-  }, [integrations]);
+  }, [integrations, integrationTypeToIdMap]);
 
   useEffect(() => {
     const requestedSchemaMap = new Map<string, IntegrationSchema>();

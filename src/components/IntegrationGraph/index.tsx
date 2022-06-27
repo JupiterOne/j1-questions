@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { useWindowSize } from "@reach/window-size";
 
 import Fade from "@material-ui/core/Fade";
@@ -9,20 +9,16 @@ import ChevronLeftIcon from "react-feather/dist/icons/chevron-left";
 import { useHistory, useLocation } from "react-router-dom";
 
 import Graph from "../Graph";
-import { Node, Edge } from '../Graph/types';
 import Context from "../../AppContext";
 import { IntegrationFilters } from "../Filters";
 
 import { useIntegrationGraphStyles } from "./styles";
-import { IntegrationSchema } from "../../types";
-import { createEdgeIdFromRelationship } from "../QueryVisualizer/graph";
+
+import { useGraph } from '../../hooks/useGraph';
 
 const IntegrationGraph = () => {
   const {
     managedQuestions,
-    integrations,
-    integrationSchemaMap,
-    integrationTypeToIdMap
   } = useContext(Context);
 
   const windowSize = useWindowSize();
@@ -30,29 +26,7 @@ const IntegrationGraph = () => {
   const location = useLocation();
   const classes = useIntegrationGraphStyles();
 
-  const [{ nodes, edges}, setNodesAndEdges] = useState<{
-    nodes: Node[];
-    edges: Edge[];
-  }>({ nodes: [], edges: []});
-
-  useEffect(() => {
-    const schemas = integrations
-      .map(type => {
-        const id = integrationTypeToIdMap.get(type);
-        return id ? integrationSchemaMap.get(id) : undefined;
-      })
-      .filter((schema): schema is IntegrationSchema => {
-        return schema?.integration !== undefined
-      });
-
-    const entities = schemas.flatMap(schema => schema.integration.entities);
-    const relationships = schemas.flatMap(schema => schema.integration.relationships);
-
-    setNodesAndEdges({
-      nodes: convertEntitiesToNodes(entities),
-      edges: convertRelationshipsToEdges(relationships)
-    });
-  }, [integrations, integrationSchemaMap])
+  const { nodes, edges } = useGraph();
 
   const handleClickBack = () => {
     history.push(`/${location.search}`);
@@ -96,21 +70,5 @@ const IntegrationGraph = () => {
     </>
   );
 };
-
-function convertEntitiesToNodes(entities: IntegrationSchema['integration']['entities']): Node[] {
-  return entities.map(e => ({
-    id: e._type,
-    label: e.resourceName
-  }));
-}
-
-function convertRelationshipsToEdges(relationships: IntegrationSchema['integration']['relationships']): Edge[] {
-  return relationships.map(r => ({
-    id: createEdgeIdFromRelationship(r),
-    label: r._class,
-    from: r.sourceType,
-    to: r.targetType
-  }));
-}
 
 export default IntegrationGraph;

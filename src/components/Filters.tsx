@@ -90,7 +90,7 @@ export const IntegrationFilters = () => {
         <Typography variant="h6" className={classes.subtitle}>Integrations</Typography>
       </Box>
       <Box className={classes.checklist} m={2}>
-        {[...Object.keys(managedQuestions.integrations), "none"].map(
+        {[...Object.keys(managedQuestions.integrations).sort((a, b) => a.localeCompare(b))].map(
           (integration: string, index: number) => (
             <FormControlLabel
             classes={{

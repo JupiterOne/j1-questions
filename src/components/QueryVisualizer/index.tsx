@@ -16,8 +16,6 @@ import { QueryTraversalNode, parse } from "@jupiterone/query-language-parser";
 
 const NODE_ORDER_COUNT_INCREMENT = 2;
 
-const DEFAULT_INTEGRATIONS = ['aws', 'github', 'jira', 'okta'];
-
 type QueryVisualizerProps = {
   query: string;
 };

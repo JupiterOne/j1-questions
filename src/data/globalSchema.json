@@ -1,0 +1,23 @@
+{
+  "integrationDefinitionId": "7a669809-6e55-45b9-bf23-aa27613118e9",
+  "integration": {
+    "entities": [
+      {
+        "_type": "everyone",
+        "_class": ["Everyone"],
+        "resourceName": "Everyone"
+      },
+      {
+        "_type": "internet",
+        "_class": ["Internet", "Network"],
+        "resourceName": "Internet"
+      },
+      {
+        "_type": "root",
+        "_class": ["Root", "Organization"],
+        "resourceName": "Root"
+      }
+    ],
+    "relationships": []
+  }
+}

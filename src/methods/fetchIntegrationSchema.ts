@@ -22,12 +22,19 @@ export async function fetchIntegrationSchemaImpl(
     `${domain}/integrations-public/v1/graph-schema/${integrationDefinitionId}`
   );
 
+  let schema: IntegrationSchema;
+
   if (response.ok) {
-    const schema = await response.json();
+    schema = await response.json();
+  } else {
+    schema = await fetchIntegrationSchemaMock(integrationDefinitionId);
+  }
+
+  if (schema) {
     return {
-      ...schema,
-      integrationDefinitionId
-    };
+      integrationDefinitionId,
+      ...schema
+    }
   } else {
     return {
       integrationDefinitionId,
