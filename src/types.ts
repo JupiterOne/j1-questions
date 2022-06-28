@@ -37,6 +37,7 @@ export type IntegrationSchema = {
     entities: Entity[];
     relationships: Relationship[];
   }
+  mappings?: RelationshipMapping[];
 };
 
 export type Entity = {
@@ -50,4 +51,18 @@ export type Relationship = {
   targetType: string;
   _type: string;
   _class: string;
+}
+
+export enum MappingDirection {
+  Reverse = 'REVERSE',
+  Forward = 'FORWARD'
+}
+
+export type RelationshipMapping = {
+  direction: MappingDirection;
+  _class?: string;
+  targetClass?: string;
+  targetType?: string;
+  sourceType?: string;
+  sourceClass?: string;
 }

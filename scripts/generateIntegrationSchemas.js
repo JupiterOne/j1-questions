@@ -2,6 +2,88 @@ const { promises: fs }= require('fs');
 const path = require('path');
 const triplets = require('../src/data/rawTriplets.json');
 
+const mimecastSchema = {
+  "integrationDefinitionId": "c0bee1c8-d866-4914-ac7e-93df3d17f015",
+  "integration": {
+    "entities": [
+      {
+        "resourceName": "Awareness_Campaign",
+        "_type": "mimecast_awareness_campaign",
+        "_class": [
+          "Training"
+        ]
+      },
+      {
+        "resourceName": "Account",
+        "_type": "mimecast_account",
+        "_class": [
+          "Account"
+        ]
+      },
+      {
+        "resourceName": "Domain",
+        "_type": "mimecast_domain",
+        "_class": [
+          "Domain"
+        ]
+      },
+      {
+        "resourceName": "User",
+        "_type": "mimecast_user",
+        "_class": [
+          "User"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "_type": "mimecast_account_has_domain",
+        "sourceType": "mimecast_account",
+        "_class": "HAS",
+        "targetType": "mimecast_domain"
+      },
+      {
+        "_type": "mimecast_account_has_awareness_campaign",
+        "sourceType": "mimecast_account",
+        "_class": "HAS",
+        "targetType": "mimecast_awareness_campaign"
+      },
+      {
+        "_type": "mimecast_domain_has_user",
+        "sourceType": "mimecast_domain",
+        "_class": "HAS",
+        "targetType": "mimecast_user"
+      },
+      {
+        "_type": "mimecast_user_assigned_awareness_campaign",
+        "sourceType": "mimecast_user",
+        "_class": "ASSIGNED",
+        "targetType": "mimecast_awareness_campaign"
+      },
+      {
+        "_type": "mimecast_user_completed_awareness_campaign",
+        "sourceType": "mimecast_user",
+        "_class": "COMPLETED",
+        "targetType": "mimecast_awareness_campaign"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "direction": "REVERSE",
+      "targetClass": "Organization",
+      "targetType": "root",
+      "sourceType": "mimecast_account"
+    },
+    {
+      "direction": "REVERSE",
+      "sourceType": "mimecast_account",
+      "targetClass": "Vendor",
+      "targetType": "mimecast"
+    }
+  ]
+};
+
 main().catch(console.error);
 
 async function main() {
@@ -32,6 +114,7 @@ async function main() {
   const googleTriplets = filterTripletTypes(typeTriplets, 'google');
 
   const integrationSchemas = [
+    mimecastSchema,
     {
       integrationDefinitionId: '7a669809-6e55-45b9-bf23-aa27613118e9',
       integration: {
@@ -61,7 +144,7 @@ async function main() {
       }
     },
     {
-      integrationDefinitionId: 'shit',
+      integrationDefinitionId: '0c652a0a-1e86-4c35-b7f7-6b792731818b',
       integration: {
         entities: deriveEntitiesFromTriplets(googleTriplets, 'google_cloud'),
         relationships: googleTriplets
