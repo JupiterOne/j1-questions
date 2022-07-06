@@ -55,6 +55,12 @@ const mimecastSchema = {
         "targetType": "mimecast_user"
       },
       {
+        "_type": "mimecast_user_is_person",
+        "sourceType": "mimecast_user",
+        "_class": "IS",
+        "targetClass": "Person"
+      },
+      {
         "_type": "mimecast_user_assigned_awareness_campaign",
         "sourceType": "mimecast_user",
         "_class": "ASSIGNED",
@@ -120,35 +126,104 @@ async function main() {
       integration: {
         entities: deriveEntitiesFromTriplets(awsTriplets, 'aws'),
         relationships: awsTriplets
-      }
+      },
+      mappings: [
+        {
+          direction: "REVERSE",
+          targetClass: "Organization",
+          targetType: "root",
+          sourceType: "aws_account"
+        },
+        {
+          direction: "FORWARD",
+          _class: 'IS',
+          sourceType: "aws_iam_user",
+          targetType: "employee",
+          targetClass: "Person",
+        },
+      ]
     },
     {
       integrationDefinitionId: '1babe084-d58d-4ff0-9d98-e0d9bb8499be',
       integration: {
         entities: deriveEntitiesFromTriplets(githubTriplets, 'github'),
         relationships: githubTriplets
-      }
+      },
+      mappings: [
+        {
+          direction: "REVERSE",
+          targetClass: "Organization",
+          targetType: "root",
+          sourceType: "github_account"
+        },
+        {
+          direction: "FORWARD",
+          _class: 'IS',
+          sourceType: "github_user",
+          targetType: "employee",
+          targetClass: "Person",
+        },
+      ]
     },
     {
       integrationDefinitionId: '155e9e67-3612-44bb-842c-5265a9035345',
       integration: {
         entities: deriveEntitiesFromTriplets(jiraTriplets, 'jira'),
         relationships: jiraTriplets
-      }
+      },
+      mappings: [
+        {
+          direction: "REVERSE",
+          targetClass: "Organization",
+          targetType: "root",
+          sourceType: "jira_account"
+        },
+        {
+          direction: "FORWARD",
+          _class: 'IS',
+          sourceType: "jira_user",
+          targetType: "employee",
+          targetClass: "Person",
+        },
+      ]
     },
     {
       integrationDefinitionId: 'bc9510d4-27b8-4102-a51f-16f62291cdf6',
-      inegration: {
+      integration: {
         entities: deriveEntitiesFromTriplets(oktaTriplets, 'okta'),
         relationships: oktaTriplets
-      }
+      },
+      mappings: [
+        {
+          direction: "REVERSE",
+          targetClass: "Organization",
+          targetType: "root",
+          sourceType: "okta_account"
+        },
+        {
+          direction: "FORWARD",
+          _class: 'IS',
+          sourceType: 'okta_user',
+          targetType: "employee",
+          targetClass: "Person",
+        },
+      ]
     },
     {
       integrationDefinitionId: '0c652a0a-1e86-4c35-b7f7-6b792731818b',
       integration: {
         entities: deriveEntitiesFromTriplets(googleTriplets, 'google_cloud'),
         relationships: googleTriplets
-      }
+      },
+      mappings: [
+        {
+          direction: "FORWARD",
+          sourceType: "google_cloud_user",
+          _class: "IS",
+          targetType: "employee",
+          targetClass: "Person",
+        },
+      ]
     }
   ];
 

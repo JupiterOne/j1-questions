@@ -16,6 +16,11 @@
         "_type": "root",
         "_class": ["Root", "Organization"],
         "resourceName": "Root"
+      },
+      {
+        "_type": "employee",
+        "_class": ["Person"],
+        "resourceName": "Employee"
       }
     ],
     "relationships": []

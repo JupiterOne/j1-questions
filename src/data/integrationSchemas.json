@@ -52,6 +52,12 @@
           "targetType": "mimecast_user"
         },
         {
+          "_type": "mimecast_user_is_person",
+          "sourceType": "mimecast_user",
+          "_class": "IS",
+          "targetClass": "Person"
+        },
+        {
           "_type": "mimecast_user_assigned_awareness_campaign",
           "sourceType": "mimecast_user",
           "_class": "ASSIGNED",
@@ -6448,7 +6454,22 @@
           "_type": "aws_iam_policy|ALLOWS|aws_aps"
         }
       ]
-    }
+    },
+    "mappings": [
+      {
+        "direction": "REVERSE",
+        "targetClass": "Organization",
+        "targetType": "root",
+        "sourceType": "aws_account"
+      },
+      {
+        "direction": "FORWARD",
+        "_class": "IS",
+        "sourceType": "aws_iam_user",
+        "targetType": "employee",
+        "targetClass": "Person"
+      }
+    ]
   },
   {
     "integrationDefinitionId": "1babe084-d58d-4ff0-9d98-e0d9bb8499be",
@@ -6691,7 +6712,22 @@
           "_type": "github_repo|HAS|github_environment"
         }
       ]
-    }
+    },
+    "mappings": [
+      {
+        "direction": "REVERSE",
+        "targetClass": "Organization",
+        "targetType": "root",
+        "sourceType": "github_account"
+      },
+      {
+        "direction": "FORWARD",
+        "_class": "IS",
+        "sourceType": "github_user",
+        "targetType": "employee",
+        "targetClass": "Person"
+      }
+    ]
   },
   {
     "integrationDefinitionId": "155e9e67-3612-44bb-842c-5265a9035345",
@@ -6761,11 +6797,26 @@
           "_type": "jira_user|REPORTED|jira_issue"
         }
       ]
-    }
+    },
+    "mappings": [
+      {
+        "direction": "REVERSE",
+        "targetClass": "Organization",
+        "targetType": "root",
+        "sourceType": "jira_account"
+      },
+      {
+        "direction": "FORWARD",
+        "_class": "IS",
+        "sourceType": "jira_user",
+        "targetType": "employee",
+        "targetClass": "Person"
+      }
+    ]
   },
   {
     "integrationDefinitionId": "bc9510d4-27b8-4102-a51f-16f62291cdf6",
-    "inegration": {
+    "integration": {
       "entities": [
         {
           "_type": "okta_account",
@@ -6922,7 +6973,22 @@
           "_type": "okta_application|ASSIGNED_TO|okta_user_group"
         }
       ]
-    }
+    },
+    "mappings": [
+      {
+        "direction": "REVERSE",
+        "targetClass": "Organization",
+        "targetType": "root",
+        "sourceType": "okta_account"
+      },
+      {
+        "direction": "FORWARD",
+        "_class": "IS",
+        "sourceType": "okta_user",
+        "targetType": "employee",
+        "targetClass": "Person"
+      }
+    ]
   },
   {
     "integrationDefinitionId": "0c652a0a-1e86-4c35-b7f7-6b792731818b",
@@ -7517,6 +7583,15 @@
           "_type": "google_access_context_manager_service_perimeter|LIMITS|google_cloud_api_service"
         }
       ]
-    }
+    },
+    "mappings": [
+      {
+        "direction": "FORWARD",
+        "sourceType": "google_cloud_user",
+        "_class": "IS",
+        "targetType": "employee",
+        "targetClass": "Person"
+      }
+    ]
   }
 ]

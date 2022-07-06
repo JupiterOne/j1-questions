@@ -73,7 +73,8 @@ function convertRelationshipsToEdges(relationships: Relationship[]): Edge[] {
     id: createEdgeIdFromRelationship(r),
     label: r._class,
     from: r.sourceType,
-    to: r.targetType
+    to: r.targetType,
+    dashes: !!r.isMappedRelationship
   }));
 }
 
@@ -119,6 +120,7 @@ function convertMappingsToRelationships(entities: Entity[], mappings: Relationsh
         targetType,
         _type: '',
         _class: relationshipClass ?? 'RELATES_TO',
+        isMappedRelationship: true
       })
     }
   }

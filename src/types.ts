@@ -51,6 +51,7 @@ export type Relationship = {
   targetType: string;
   _type: string;
   _class: string;
+  isMappedRelationship?: boolean;
 }
 
 export enum MappingDirection {
