@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Graph from "../Graph";
 import { Node, Edge } from '../Graph/types';
 import { IntegrationSchema } from "../../types";
-import AppContext from "../../AppContext";
+import AppContext, { DEFAULT_INTEGRATIONS } from "../../AppContext";
 
 import {
   getNodesAndEdgesFromAst,
@@ -36,7 +36,8 @@ export const QueryVisualizer = ({ query }: QueryVisualizerProps) => {
     try {
       const ast = parse(query);
       if (ast) {
-        const schemas = integrations.map(type => {
+        const integrationSet = [...integrations, ...DEFAULT_INTEGRATIONS];
+        const schemas = [...integrationSet].map(type => {
           const id = integrationTypeToIdMap.get(type);
           return id ? integrationSchemaMap.get(id) : undefined;
         })
@@ -122,7 +123,7 @@ export const QueryVisualizer = ({ query }: QueryVisualizerProps) => {
     } catch (err) {
       console.error("query error:", err);
     }
-  }, [query, integrations, integrationSchemaMap]);
+  }, [query, integrations, integrationTypeToIdMap, integrationSchemaMap]);
 
   return (
     <Graph nodes={nodes} edges={edges} applyHierarchy={true}/>

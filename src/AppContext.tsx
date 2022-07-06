@@ -28,7 +28,7 @@ interface AppContext {
   integrationTypeToIdMap: Map<string, string>;
 }
 
-const DEFAULT_INTEGRATIONS = ['aws', 'github', 'jira', 'okta'];
+export const DEFAULT_INTEGRATIONS = ['aws', 'github', 'jira', 'okta'];
 
 const initialState: AppContext = {
   managedQuestions: {
