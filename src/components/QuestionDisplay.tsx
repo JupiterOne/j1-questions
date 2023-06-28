@@ -117,13 +117,6 @@ const QuestionDisplay = () => {
             <Paper elevation={0} className={clsx(classes.sidebar, themeDark ? classes.sidebarDark : undefined)}>
               {question.integration ? (
                 <div className={classes.integrationGroup}>
-                  <img
-                    alt="integrationIcon"
-                    className={classes.integrationIcon}
-                    src={`https://raw.githubusercontent.com/JupiterOne/docs/master/assets/icons/${
-                      managedQuestions.integrations[question.integration].type
-                    }.svg`}
-                  />
                   <Typography
                     className={classes.integrationTitle}
                     variant="subtitle1"

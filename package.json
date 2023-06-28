@@ -27,20 +27,20 @@
     "@jupiterone/react-brand-icons": "^1.7.0",
     "@material-ui/core": "^4.9.11",
     "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "^4.0.0-alpha.50",
+    "@material-ui/lab": "^4.0.0-alpha.61",
     "@reach/window-size": "^0.10.1",
     "clipboard-copy": "^3.1.0",
     "debounce": "^1.2.0",
     "hash.js": "^1.1.7",
     "lodash": "^4.17.15",
     "query-string": "^6.12.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-feather": "^2.0.8",
     "react-on-screen": "^2.1.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^4.0.3",
-    "typescript": "~3.7.2"
+    "react-scripts": "^5.0.1",
+    "typescript": "^5.1.5"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -50,9 +50,9 @@
     "@types/jest": "^24.0.0",
     "@types/lodash": "^4.14.150",
     "@types/match-sorter": "^4.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
+    "@types/node": "^18",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
     "@types/react-router-dom": "^5.1.4",
     "@types/throttle-debounce": "^2.1.0"
   }

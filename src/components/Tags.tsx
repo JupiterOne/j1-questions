@@ -8,7 +8,6 @@ import {
   Avatar,
   Button,
   ButtonGroup,
-  Hidden,
   Zoom,
   Tooltip,
 } from "@material-ui/core";
@@ -32,7 +31,7 @@ const Tags = () => {
   const windowSize = useWindowSize();
 
   return (
-    <Hidden>
+    <>
       <Paper
         elevation={0}
         className={clsx(classes.tagsPaper, windowSize.width > 750 ? classes.root : classes.smallRoot)}
@@ -89,7 +88,7 @@ const Tags = () => {
           </Box>
         </Box>
       </Paper>
-    </Hidden>
+    </>
   );
 };
 

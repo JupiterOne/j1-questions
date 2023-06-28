@@ -4,7 +4,6 @@ import {
   Icon,
   Box,
   Typography,
-  Hidden,
   Checkbox,
   FormControlLabel,
   Divider
@@ -29,7 +28,7 @@ const Filters = () => {
   const windowSize = useWindowSize();
 
   return (
-    <Hidden>
+    <>
       <Paper
         elevation={0}
         className={windowSize.width > 750 ? classes.root : classes.smallRoot}
@@ -92,7 +91,7 @@ const Filters = () => {
         )}
         </Box>
       </Paper>
-    </Hidden>
+    </>
   );
 };
 
