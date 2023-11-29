@@ -1,6 +1,12 @@
 {
   "name": "j1-questions",
   "version": "0.1.1",
+  "description": "Automatically generated package.json, please edit manually",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JupiterOne/j1-questions"
+  },
+  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
