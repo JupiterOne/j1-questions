@@ -74,7 +74,7 @@ const Header = () => {
                           setSearch(e.target.value);
                         }}
                       />
-                      {!searchText && <img className="search-icon" alt="search-icon" src="https://try.jupiterone.com/hubfs/Vector.svg" />}
+                      {!searchText && <img className="search-icon" alt="search-icon" src="https://info.jupiterone.com/hubfs/Vector.svg" />}
                       </div>
                     )}
 
