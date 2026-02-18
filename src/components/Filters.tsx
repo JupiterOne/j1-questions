@@ -40,7 +40,7 @@ const Filters = () => {
           <Typography variant="h6" className={classes.subtitle}>Category</Typography>
         </Box>
         <Box className={classes.checklist} m={2}>
-          {allCategories.map((category: any) => (
+          {[...allCategories].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' })).map((category: any) => (
             <FormControlLabel
               classes={{
                 label: classes.checkboxLabel
@@ -65,7 +65,11 @@ const Filters = () => {
           <Typography variant="h6" className={classes.subtitle}>Integrations</Typography>
         </Box>
         <Box className={classes.checklist} m={2}>
-          {[...Object.keys(managedQuestions.integrations), "none"].map(
+          {[...Object.keys(managedQuestions.integrations)].sort((a, b) =>
+            (managedQuestions.integrations[a]?.title ?? '').localeCompare(
+              managedQuestions.integrations[b]?.title ?? '', undefined, { sensitivity: 'base' }
+            )
+          ).concat("none").map(
             (integration: string, index: number) => (
               <FormControlLabel
               classes={{
